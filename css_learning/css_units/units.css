@@ -1,0 +1,48 @@
+* {
+    margin: 0; /* Loại bỏ margin mặc định */
+    padding: 0; /* Loại bỏ padding mặc định */
+}
+html {
+    font-size: 62.5%;
+}
+
+body{
+    height: 100px;
+    /* width: 50px; */
+    font-size: 1rem;
+}
+.box {
+    height: 50%;
+    width: 50%;
+    background-color: green;
+    font-size: 2rem;
+}
+
+.box1 {
+    width: 25%;
+    height: 100%;
+    background-color: green;
+    font-size: 3rem;
+}
+
+.box2 {
+    width: 50%;
+    height: 50%;
+    background-color: violet;
+    font-size: 4rem;
+}
+
+.box3 {
+    width: 75%;
+    background-color: brown;
+    font-size: 5rem;
+}
+
+.box4 {
+    width: 100%;
+    background-color: orange;
+    font-size: 6rem;
+}
+.paragraph{
+    font-size: 10rem;
+}
