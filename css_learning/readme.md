@@ -22,6 +22,7 @@
 + Internal = External (viết sau ưu tiên hơn)
 + Cộng điểm, càng nhiều điểm(chi tiết) càng ưu tiên.
 ## Sử dụng biến trong css để code linh hoạt khi thay đổi.(global or local)
++ dùng hàm var() để gọi biến.
 
 ## Các đơn vị trong css.
 1. Absolute units
@@ -61,4 +62,21 @@
     + :first-child chọn lấy phần tử đầu tiên.(li)
     + :last-child chọn lấy phần tử cuối cùng.(li)
 
+## Pseudo element
++ Sử dụng những phần tử hiển thị trên web mà không cần viết html mà chỉ cần viết css.
++ content là thành phần bắt buôc trong element giả.(có thể để string rỗng "") giúp element có thể tồn tại.
++ Mỗi element css(html, body, div, h1, ...) chỉ tồn tại 1 element giả(before, after, ...)
++ Syntax: element::element_gia{
+    thuộc tính.
+}
++ Các element giả hay dùng:
+    + ::before
+    + ::after
+    + ::first-letter(chữ đầu tiên của element)
+    + ::first-line(dòng đầu tiên)
+    + ::selector (bôi chuộc vô element có element giả sẽ thay đổi thuộc tính element.) 
+
+
+## Orther
++ Thẻ div mặc định đã để thuộc tính display:block;
 
