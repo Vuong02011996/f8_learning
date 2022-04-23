@@ -1,0 +1,43 @@
+<style>
+    
+    .box{
+        --height_center: 200px;
+        background-color: rgb(117, 140, 158);
+        height: var(--height_center);
+        display: flex;
+        /* align-items: center; */
+        /* justify-content: space-around; */
+        position: relative;
+    }
+    h3{
+        /* text-align: center;  */
+        /* line-height: var(--height_center); */
+
+        margin: auto;
+        /* để positin absolute marin auto sẽ không có tác dụng */
+        position: relative;
+        /* 50% của kích thước của thèn bọc nó gần nhất */
+        /* top: 50%;  */
+        /* left: 50%; */
+        /* transform: translate(-50%, -50%); */
+    }
+    h3::before{
+        /* khong co content khong hien thi  */
+        content: ""; 
+        border-right: 3px solid rgb(87, 6, 6);
+        height: 50px;
+        
+        position: absolute;
+        /* có position top left mới hoạt đông, 50% phụ thuộc vào kích thước then bao gần nhất. */
+        top: 50%; 
+        transform: translateY(-50%);
+        /* margin-right: 20px; */
+        left: -20px;
+        
+    }
+</style>
+
+
+<div class="box">
+    <h3>CENTER ME</h3>
+</div>
