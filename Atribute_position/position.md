@@ -20,7 +20,7 @@
 {
     position: absolute;
     top: 0;
-    right: 0;
+    right: 0; # góc trên bên phải của thẻ cha.
 }
 ```
 

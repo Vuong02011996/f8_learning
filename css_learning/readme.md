@@ -12,6 +12,7 @@
 ### Chú ý cú pháp gọi
     + Các class trên 1 thẻ dùng dấu chấm (.post-item.title)
     + Các class cha con dùng dấu cách rồi chấm(.post-item .title) 
+    + Dùng dấu > để  selector thẻ con trực tiếp, không ăn các thẻ con bên trong.(#nav > li > a{})
 
 ## Độ ưu tiên trong css.
 1. !important

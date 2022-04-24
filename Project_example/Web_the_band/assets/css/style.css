@@ -17,48 +17,120 @@ html{
 #header{
     height: 46px;
     background-color: #000;
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
 
 }
+/* nav: id của ul cha
+   subnav : class của ulcon*/
+   
+/*  set dang inline-block cho các thẻ li */
 
-#nav{
-    
-    /* background-color: #fff; */
-    /* display: inline-block; */
+#nav {
+    /* để chiều ngang phần ul nav không chiếm hết header, chỉ tới phần nội dung của nó */
+    display: inline-block;
 }
 
 #nav li {
-    /* line-height: 46px; */
-    display: inline-block;
+    position: relative;
     
 }
 
-#nav li a{
-    text-decoration: none;
-    color: #fff;
-    line-height: 46px;
-    /* padding trên dưới 0, trái phải 24px */
-    padding: 0 24px;
+/* Set lại vị trí cho li */
+#nav > li{
     display: inline-block;
 }
 
-/* hover vào thẻ li vì khi rê chuột vào thẻ a sub vẫn giữ màu thẻ li */
-#nav li:hover a{
+/* Set màu cho chữ các thẻ a trong li trong nav */
+#nav > li > a{
+    color: #fff;
+    text-transform: uppercase;
+}
+
+
+#nav li a{
+    text-decoration: none;
+    line-height: 46px;
+    /* padding trên dưới 0, trái phải 24px */
+    padding: 0 24px;
+    display: block;
+}
+
+/* Navifation cho thẻ a trong li trong  nav: hover vào thẻ li vì khi rê chuột vào thẻ a sub vẫn giữ màu thẻ li */
+#nav > li:hover > a,
+.subnav li:hover a{
     /* hover chữ maù đen, background màu xám */
     color: #000;
     background-color: #ccc;
     
 }
 
-#nav .subnav{
+
+/* Set vị trí  theo nav cha và màu cho subnav */
+
+#nav .subnav {
     display: none;
+    position: absolute;
+    background-color: #fff;
+    top: 100%;
+    /* bỏ dấu chấm đầu items */
+    list-style-type: none;
+    left: 0%;
+    min-width: 160px;
+
+    /* bóng đổ  cho họp ul, box-shadow
+    0 0: offet bằng 0, trải đều,
+    blur: 10px độ mờ tới 10px*/
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
 }
 
+/* navigation cho khối ul con(subnav) */
+#nav li:hover .subnav{
+    display: block;
+}
+
+/* set kích thước và màu cho chữ trong subnav thẻ a */
+#nav .subnav a{
+    color: #000;
+    padding: 0 16px;
+    line-height: 38px;
+}
+
+/* css icon gần thẻ a More */
+#nav .ulnav_arrow_down{
+    font-size: 14px;
+}
+
+
+/* css icon search trên header */
+#header .button_search{
+    /* display: inline-block;  mặc đinh thuộc tính float sẽ làm mất tính block */
+    float: right;
+    padding: 0 23px;
+}
+
+#header .button_search:hover{
+    background-color: #f44336;
+    cursor: pointer;
+}
+
+#header .icon_search{
+    color: white;
+    line-height: 46px;
+
+}
+
+
 #slider{
+    height: 5000px;
+    background-color: #333;
+    margin-top: 46px;
 
 }
 
 #content{
-
 }
 
 #footer{
