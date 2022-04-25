@@ -30,8 +30,7 @@ Các thành phần html chính trong dự án.
     + Css vị trí, kích thước, màu sắc, hình dáng cho header
     + Các element trong header:
         + Có 5 thẻ li(home, band, tour, contact, more), mỗi li là một thẻ a, dạng navigation.
-        + Thẻ more có 3 thẻ li con.
-        + Css cho các thành phần con.
+        + Thẻ a more có 3 thẻ li con.
         + Menu đa cấp.(ẩn hiện)
         + Header search: icon, navigation, cursor.
         + Position fixed.
@@ -50,7 +49,7 @@ Các thành phần html chính trong dự án.
     + ctrl + shift + L : select multi consor with the same word.
     + Alt + shift + arrow right: select word all consor. 
     + Alt + click: select multi consor.
-    +Alt + arrow right: duy chuyen multi consor.
+    + Alt + arrow right: duy chuyen multi consor.
 + Phim shift them lua chon.
 
 2. Phím tắt tạo thẻ nhanh trong file html.
@@ -62,7 +61,13 @@ Các thành phần html chính trong dự án.
     + #000: đen
     + #fff: trắng 
     + #ccc: xám trằng.
-    + #333: xám đen. 
+    + #333: xám đen.
+
+## Bóng đổ 
+    /* bóng đổ  cho họp ul, box-shadow
+    0 0: offet bằng 0, trải đều,
+    blur: 10px độ mờ tới 10px*/
+    + Sử dụng box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
 
 ## Format display:
     + List items:
@@ -83,6 +88,13 @@ Các thành phần html chính trong dự án.
     + Chữ luôn nằm giữa line-height(phần chuột kéo.)
     + text-decoration: underline; gạch chân chữ.
     + text-transform: uppercase; đổi chữ thường -> hoa.
+    + font-weight: 400; độ dày chữ.
+    + font-size: 24px; size chữ.
+    + font-style: italic; chữ nghiêng
+    + letter-spacing: 4px; khoảng cách các chữ.
+    + opacity: 0.6; độ mờ chữ.
+    + line-height: 14px; khoảng cách các dòng chữ.
+    + text-align: justify; căn chỉnh đoạn văn thẳng hàng ở đầu và cuối.
 
 ## Cách thực hiện các element ẩn hiện.
     + B1: Cho hiện lên thực hiên css hoàn chỉnh.
@@ -107,12 +119,41 @@ Các thành phần html chính trong dự án.
     + fontawesome(nặng)
 
 + Search tên icon cần tìm, dùng tên class của icon đưa vô file html.
++ Sử dụng một tên class thứ 2 để css, phòng trường hợp dùng lại icon đã dùng.
 + Dùng padding để đưa icon vào giữa khối.
 + Dùng cursor để  thay đổi icon chuột khi rê tới icon.
 
 ## Position
-+ Thuộc tính position sẽ làm mất tính block của khối.(chiều ngang chỉ bằng với nội dung bên trong).
-+ Thuộc tính position fixed sẽ đẩy vị trí element của nó lên trên mặt nhường lại vị trí của nó cho thèn xung quanh.Do đó để  tách nó ra riêng biệt cần margin cho những element xung quanh.
++ Thuộc tính position sẽ làm mất tính block của khối.(chiều ngang chỉ bằng với nội dung bên trong)
++ Thuộc tính position sẽ đẩy vị trí element lên trên mặt nhường lại vị trí của nó cho thèn xung quanh.Do đó để  tách nó ra riêng biệt cần margin cho những element xung quanh.
 
+
+## Hiển thị ảnh 
+
+### Hiển thị ảnh nền.
++ Có 2 cách:
+    + Dùng thẻ img.(kích thước các ảnh phải bằng nhau nếu hiển thị nhiều ảnh)
+    + Dùng div + background-image: không phụ thuộc vào kích thước ảnh.
++ Nguyên tắc phải hiển thị ảnh làm sa cho chiều rộng và chiều ngang vùng hiển thị luôn luôn tỉ lệ với kích thước ảnh để ảnh không bị vỡ.
++ Nên dùng background-position bằng cover hơn là % hoặc pixel.
+
+### Hiển thị chữ trên ảnh nền.
++ Sử dụng position.
+    + Cái nào cha position: relavite;
+    + Con dùng position : absolute rồi canh vị trí cho nó.
+
++ Các cách dưa khối chứa chữ vào giữa:
+    ```
+        C1:
+        left: 50%;
+        transform: translateX(-50%);
+        C2:
+        left: 0;
+        right: 0;
+        C3:
+        width 100%;
+    ```
+### Xử lí ảnh
+    + border-radius: 4px; bo góc cho ảnh 
 
 

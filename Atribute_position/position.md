@@ -1,6 +1,8 @@
 # Thuộc tính vị trí.
 + Thiết lập các vị trí cho element.
 + Có position thì top, left, right, bottom mới hoạt động. 
++ Element có thuộc tính position sẽ không chiếm content của khối cha bên ngoài nó mà nổi lên trên bề mặt.
+
 
 ## Relative - tương đối.
 + Phụ thuộc vào chính element của nó. lấy chính mình làm gốc tọa độ không phụ thuộc vào bên ngoài.

@@ -4,6 +4,10 @@
 + Đệm thêm kích thước cho các thẻ, nội dung thẻ được tách ra viền thẻ.
 + padding thứ tự chiều kim đồng hồ: top right bottom left.
 + Sử dụng để tách nội dung element với kích thước element cho dễ đọc , đẹp mắt.
++ Sử  dụng giá trị %- tức là lấy giá trị bằng (%*kích thước) của chính nó.VD: padding-top :50%;
+padding lên trên một đoạn bằng 50% kích thước chiều ngang của chính nó.
++ padding: 32px 16px ;(trên dưới 32, trái phải 16)
++ Phần padding luôn nằm ngoài phần content.
 
 ## Border 
 + border: 2px solid #333; border-width, border-style, border-color.

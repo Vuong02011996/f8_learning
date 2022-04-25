@@ -12,7 +12,7 @@
     + 45: chéo
 
 ## Background-size với cover, contain.
-+ Thay đổi kích thước nền không linh hoạt.(không dùng mặc định như pixel, %.)
++ Thay đổi kích thước nền linh hoạt.(không dùng mặc định như pixel, %.)
 + contain: cố gắng lấy kích thước w hoặc h (ảnh) lớn hơn, chấp nhận khoảng trắng.
 + Cover: cố gắng lấy kích thước w hoặc h(ảnh) lớn nhất không chấp nhận khoảng trắng bằng cách cắt ảnh.
 + background-size: cover;
@@ -24,5 +24,11 @@
 + background-position: 20px 50px; (trục x, y)cách trái 20, cách trên 50.
 
 ## Background shorthand:
-+ background: ...
-+ Dùng bằng 1 dòng.
++ background: url() top center / cover no-repeat;
++ 
+```
+    background-image: url(/Project_example/Web_the_band/assets/img/slider/slider1.jpg);
+    background-position: top center;
+    background-size: cover;
+    background-repeat: no-repeat;
+```
