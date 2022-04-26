@@ -4,8 +4,16 @@
     margin: 0;
     box-sizing: border-box;
 }
+
+/* Xử lí các div ảnh bị tách ra khỏi khối do dùng float:left ở section_member */
 .clear{
     clear: both;
+}
+
+/* Important ưu tiên nhất, chỗ nào có text khác màu trắng muốn
+chuyển thành màu trằng thì dùng cái important */
+.text_white{
+    color: #fff !important;
 }
 
 html{
@@ -13,9 +21,7 @@ html{
     font-family: Arial, Helvetica, sans-serif;
 }
 
-#main{
-
-}
+/* ---------------header----------------- */
 
 #header{
     height: 46px;
@@ -30,7 +36,6 @@ html{
 }
 /* nav: id của ul cha
    subnav : class của ul con*/
-   
 /*  set dang inline-block cho các thẻ li */
 
 #nav {
@@ -43,7 +48,6 @@ html{
     position: relative;
     
 }
-
 /* Set lại vị trí cho li */
 #nav > li{
     display: inline-block;
@@ -54,7 +58,6 @@ html{
     color: #fff;
     text-transform: uppercase;
 }
-
 
 #nav li a{
     text-decoration: none;
@@ -73,9 +76,7 @@ html{
     
 }
 
-
 /* Set vị trí theo nav cha và màu cho subnav */
-
 #nav .subnav {
     display: none;
     position: absolute;
@@ -109,7 +110,6 @@ html{
     font-size: 14px;
 }
 
-
 /* css icon search trên header */
 #header .button_search{
     /* display: inline-block;  mặc đinh thuộc tính float sẽ làm mất tính block */
@@ -127,7 +127,9 @@ html{
     line-height: 46px;
 
 }
+/* -------------End header----------------- */
 
+/* ---------------slider----------------- */
 
 #slider{
     margin-top: 46px;
@@ -139,9 +141,7 @@ html{
     background-size: cover;
     background-repeat: no-repeat; */
     background:  url(/Project_example/Web_the_band/assets/img/slider/slider1.jpg) top center / cover no-repeat;
-
     position: relative;
-
 }
 
 #slider #text_img{
@@ -164,20 +164,18 @@ html{
 #slider #sologan_img{
     font-size: 15px;
 }
+/* ---------------End slider----------------- */
 
-/* css content */
 
-#content{
-    width: 800px;
+/* ---------------content----------------- */
+/* Phần chung content */
+#content .content_section_general{
+    /* padding trên dưới 64 trái phải 0 */
+    padding: 64px 0;
+    max-width: 800px;
     /* margin chỉ có tác dụng khi kích thước cố định(width: 800) */
     margin-left: auto;
     margin-right: auto;
-}
-
-
-#content .content_section{
-    /* padding trên dưới 64 trái phải 0 */
-    padding: 64px 0;
 }
 
 #content .content_heading{
@@ -194,23 +192,22 @@ html{
     margin-top: 25px;
     margin-bottom: 15px;
     text-align: center;
-    opacity: 0.6;
-
-
+    opacity: 0.6; 
 }
-#content .content_about{
+/* End Phần chung content */
+
+/* phần paragraph about */
+#content .section_about{
     text-align: justify;
     line-height: 14px;
     margin-bottom: 15px;
 
 }
-/* section band */
-#content .section_band{
-    /* margin-top: 48px; */
-}
 
+/* phần image about member the band */
 #content .section_member{
     float: left;
+    /* width các chữ bằng 100% (width) / 3 */
     width: 33.33333%;
     text-align: center;
 }
@@ -227,6 +224,48 @@ html{
     border-radius: 4px;
     
 }
+
+/* Css content tour */
+.tour_section {
+    background-color: #000;
+}
+
+#content .tour_ticket{
+    background-color: #fff;
+    font-size: 15px; 
+    margin-top: 40px;
+}
+#content .time_tickets{
+    padding: 8px 16px;
+    color: #757575;
+    border-bottom: #ddd solid 1px;
+    list-style-type: none;
+}
+
+#content .tour_section .sold_out{
+    margin-left: 16px;
+    background-color: #f44336;
+    color: #fff;
+    text-align: center;
+    line-height: 1.5;
+    padding:  3px 4px;
+}
+
+#content .quantity_ticket{
+    float: right;
+    background-color: #000;
+    margin-right: 16px;
+    border-radius: 50%;
+    text-align: center;
+    color: #fff;
+    padding:  0 8px;
+    line-height: 1.5;
+
+    /* Căn chỉnh số 3 lên giữa, margin-top chỉ có tác dụng với block
+    vì dùng float nên mặc định inline của list item chuyển sang block. */
+    margin-top: -3px;
+}
+
 
 #footer{
 

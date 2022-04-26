@@ -4,7 +4,7 @@
 # Web the band
 ## 1. Phân tích dự án.
 Các thành phần html chính trong dự án.
-+ Header - Navigation.
++ Header - Navigation, Icon.
 + Slider
 + Content
 + Footer.
@@ -16,7 +16,11 @@ Các thành phần html chính trong dự án.
 + Tạo file css, reset css, chuyển các thành phần chính vào.(phím tắt :D ), 
 
 
-## 3. Xây dựng các thành phần bên trong.
+## 3. Xây dựng các element bên trong.
++ Phân tích từng element trước khi bắt thêm vào html và css cho nó.
+    + Những yêu cầu cần thực hiện của element.
+    + Điểm chung các element(nếu có.)
+   
 + Các câu hỏi để thực hiện css cho một element:
     + Vị trí.
     + Kích thước.(width, height)
@@ -27,23 +31,59 @@ Các thành phần html chính trong dự án.
 
 ### Khối bao bọc main.
 ### Header
-    + Css vị trí, kích thước, màu sắc, hình dáng cho header
-    + Các element trong header:
-        + Có 5 thẻ li(home, band, tour, contact, more), mỗi li là một thẻ a, dạng navigation.
-        + Thẻ a more có 3 thẻ li con.
-        + Menu đa cấp.(ẩn hiện)
-        + Header search: icon, navigation, cursor.
-        + Position fixed.
++ Thực hiện css các yêu cầu chính cho header: vị trí, kích thước, màu sắc, hình dáng cho header
++ Các element trong header:
+    + Có 5 thẻ li(home, band, tour, contact, more), mỗi li là một thẻ a, dạng navigation.
+    + Thẻ a more có 3 thẻ li con.
+    + Menu đa cấp.(ẩn hiện)
+    + Header search: icon, navigation, cursor.
+    + Position fixed.
 
 ### Slider
++ Hiển thị ảnh.
++ Chữ trên ảnh.(position)
++ Căn chỉnh, format ảnh, chữ.
 
+### Content
++ Css phần content chung giống nhau cho cả 3 phần(about, tour, contact)
+    + heading
+    + sub heading
+    + Căn chỉnh làm mờ chữ, space các chũ cái trong chữ, chữ nghiêng.
++ Phần about team.
+    + Căn chỉnh đoạn văn.
+    + Căn chỉnh vị trí , kích thước ảnh các thành viên, bo góc ảnh.
++ Phần tour:
+    + Phần tour tickets.
+        + Thẻ ul, li*3. border_bottom ở li.
+        + Căn chỉnh màu cho text sold out, vị trí hình dáng cho số lượng vé.
+        
 
+### Footer
 
 
 ## 4. Hoàn thiện
 
 
 # Note:
+
+## Format display:
+    + List items:
+        + list-item <=> block: nằm dọc.
+        + inline-block: nằm ngang.
+    + inline, block, inline-block.
+        + inline: mặc định không lấý kích thước element(auto)
+        + inline-block: lấý kích thước element theo bên ngoài(theo chiều dọc, chiều ngang theo nội dung )
+        + Dạng inline-block vẫn có thuộc tính của inline, lấy kích thước chiều ngang bằng với nội dung bên trong.
+        + Dạng block kế  thừa kích thước của thẻ chứa nó.(cả ngang và dọc.), giống như cho width, height: 100%.
+
+        + Các thẻ dạng khối như div: mặc định sẽ có display block(block: kế thừa kích thước của thèn chứa nó(VD: icon search trong header))
+
+    + float: right; đẩy các khối div sang bên phải, float sẽ làm mất tính block của element.
+    + Element đang là inline(list items) dùng float sẽ chuyển sang block.
+    + Display là block mới dùng được các thuộc tính: margin-top: -3px, ...
+
+
+
 ## Phim tat
 1. General
     + ctrl + shift + L : select multi consor with the same word.
@@ -68,20 +108,6 @@ Các thành phần html chính trong dự án.
     0 0: offet bằng 0, trải đều,
     blur: 10px độ mờ tới 10px*/
     + Sử dụng box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
-
-## Format display:
-    + List items:
-        + list-item <=> block: nằm dọc.
-        + inline-block: nằm ngang.
-    + inline, block, inline-block.
-        + inline: mặc định không lấý kích thước element(auto)
-        + inline-block: lấý kích thước element theo bên ngoài(theo chiều dọc, chiều ngang theo nội dung )
-        + Dạng inline-block vẫn có thuộc tính của inline, lấy kích thước chiều ngang bằng với nội dung bên trong.
-        + Dạng block kế  thừa kích thước của thẻ chứa nó.(cả ngang và dọc.), giống như cho width, height: 100%.
-
-        + Các thẻ dạng khối như div: mặc định sẽ có display block(block: kế thừa kích thước của thèn chứa nó(VD: icon search trong header))
-
-    + float: right; đẩy các khối div sang bên phải, float sẽ làm mất tính block của element.
 
 
 ## Format chữ:
@@ -144,16 +170,19 @@ Các thành phần html chính trong dự án.
 
 + Các cách dưa khối chứa chữ vào giữa:
     ```
-        C1:
+        Cách 1:
         left: 50%;
         transform: translateX(-50%);
-        C2:
+        Cách 2:
         left: 0;
         right: 0;
-        C3:
+        Cách 3:
         width 100%;
     ```
 ### Xử lí ảnh
     + border-radius: 4px; bo góc cho ảnh 
 
 
+
+## Background
++ Đổ màu nền : background-color chỉ đổ được tới phần padding. Không đổ  được vào phần margin. 
