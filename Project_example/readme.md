@@ -24,3 +24,5 @@
 + Content: nội dung chính websites.
 + Baner: ảnh quảng cáo.
 + Footer(chân trang): logo, địa chỉ liên hệ, ...
+
++ Modal.

@@ -21,7 +21,7 @@
                 <li>
                     <a href="">
                         More
-                        <i class="ulnav_arrow_down ti-angle-down"></i>
+                        <i class="font_size_15 ti-angle-down"></i>
                     </a>
                     <ul class="subnav">
                         <li><a href="">Merchandise</a></li>
@@ -44,7 +44,7 @@
         <div id="slider">
             <div id="text_img">
             <h2 id="header_img">Los Angeles</h2>
-            <p id="sologan_img">We had the best time playing at Venice Beach!</p>
+            <p id="font_size_15">We had the best time playing at Venice Beach!</p>
             </div>
         </div>
 
@@ -52,28 +52,28 @@
             <!-- About -->
             <div class="content_section_general">
                 <h2 class="content_heading">THE BAND</h2>
-                <p class="content_sub_heading">We love music</p>
+                <p class="content_sub_heading font_size_15">We love music</p>
                 <p class="section_about">
                     We have created a fictional band website. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
                 </p>
                 <div class="section_band">
                     <div class="section_member">
-                        <h2 class="name_band">Name</h2>
+                        <h2 class="name_band font_size_15">Name</h2>
                         <img src="/Project_example/Web_the_band/assets/img/band/bandmember.jpg" alt="" class="img_band">
                     </div>
     
                     <div class="section_member">
-                        <h2 class="name_band">Name</h2>
+                        <h2 class="name_band font_size_15">Name</h2>
                         <img src="/Project_example/Web_the_band/assets/img/band/bandmember.jpg" alt="" class="img_band">
                     </div>
     
                     <div class="section_member">
-                        <h2 class="name_band">Name</h2>
+                        <h2 class="name_band font_size_15">Name</h2>
                         <img src="/Project_example/Web_the_band/assets/img/band/bandmember.jpg" alt="" class="img_band">
                     </div>
     
                     <!-- Xử lí thèn section_member dùng float: left; không bao bọc các div bên trong.
-                    Các div bên trong có thuộc tính float sẽ tách ra -->
+                    Các div bên trong có thuộc tính float sẽ tách ra khỏi section_band -->
                     <div class="clear"></div>
                 </div>
             </div>
@@ -84,9 +84,10 @@
             <div class="tour_section">
                 <div class="content_section_general">
                    <h2 class="content_heading text_white">TOUR DATES</h2>
-                   <p class="content_sub_heading text_white">Remember to book your tickets!</p>
-
-                   <ul class="tour_ticket">
+                   <p class="content_sub_heading text_white font_size_15">Remember to book your tickets!</p>
+                    
+                   <!-- Tour Tickets -->
+                   <ul class="tour_ticket font_size_15">
                        <li class="time_tickets">September
                            <span class="sold_out">Sold out</span>
                        </li>
@@ -98,6 +99,44 @@
                        </li>
                    </ul>
 
+                   <!--Tour Place -->
+                   <div class="place_list">
+                        <div class="place_item">
+                            <img src="/Project_example/Web_the_band/assets/img/place/place1.jpg" alt="Place1" class="place_img"> 
+                            <div class="place_info font_size_15">
+                                <h3 class="place_heading">New York</h3>
+                                <p class="place_time">Fri 27 Nov 2016</p>
+                                <p class="place_desc">Praesent tincidunt sed tellus ut rutrum sed vitae justo.</p>
+                                
+                                <button class="place_buy_btn font_size_15 js_btn_buy_tickets">Buy Tickets</button>
+                            </div>
+                        </div>
+                        <div class="place_item">
+                            <img src="/Project_example/Web_the_band/assets/img/place/place2.jpg" alt="Place2" class="place_img">
+                            <div class="place_info font_size_15">
+                                <h3 class="place_heading">Paris</h3>
+                                <p class="place_time">Sat 28 Nov 2016</p>
+                                <p class="place_desc">Praesent tincidunt sed tellus ut rutrum sed vitae justo.</p>
+                                <button class="place_buy_btn font_size_15 js_btn_buy_tickets">Buy Tickets</button>
+                            </div>
+                        </div>
+                        <div class="place_item">
+                            <img src="/Project_example/Web_the_band/assets/img/place/place3.jpg" alt="Place3" class="place_img">
+                            <div class="place_info font_size_15">
+                                <h3 class="place_heading">San Francisco</h3>
+                                <p class="place_time">Sun 29 Nov 2016</p>
+                                <p class="place_desc">Praesent tincidunt sed tellus ut rutrum sed vitae justo.</p>
+                                <button class="place_buy_btn font_size_15 js_btn_buy_tickets">Buy Tickets</button>
+                            </div>
+                        </div>
+
+                        <!-- Xử lí thèn place_item dùng float: left; không bao bọc các div bên trong.
+                        Các div bên trong có thuộc tính float sẽ tách ra khỏi  place_list-->
+                        <div class="clear"></div>
+                    </div>
+
+                    <!--End Tour Place -->
+
                 </div>
             </div>
 
@@ -106,7 +145,7 @@
              <!-- CONTACT  -->
              <div class="content_section_general">
                 <h2 class="content_heading">CONTACT</h2>
-                <p class="content_sub_heading">Fan? Drop a note!</p>
+                <p class="content_sub_heading font_size_15">Fan? Drop a note!</p>
              </div>
             
              <!-- End CONTACT  -->
@@ -118,5 +157,89 @@
         </div>
 
     </div>
+
+    <!-- phần modal bao bọc hết kích thước trình duyệt nên để ngang với main.
+    Dùng position fixed để  nổi lên trên-->
+    <div class="modal_tickets js_modal_tickets">
+        <div class="modal_container js_modal_container">
+            <!-- nút close dùng button hoặc div, button phải css bỏ đi thuộc tính mặc định -->
+            <div class="modal_tickets_close js_modal_tickets_close">
+                <i class="icon_close ti-close"></i>
+            </div>
+
+            <!-- Dùng div hoặc header (header của html 5)-->
+            <header class="modal_tickets_heading">
+                <h2 class="model_header_info">
+                    <i class="icon_bag ti-bag"></i>
+                    Tickets
+                </h2>
+
+            </header>
+            <div class="modal_tickets_body font_size_15">
+                <!-- for  dùng với label để  người dùng khi bấm vô label vẫn focus vô input ở dưới
+                For chỉ có tác dụng với id nên phải đặt id cho input trước khi dùng-->
+                <label for="How_many" class="label_tickkets">
+                    <i class="icon_shopping_cart ti-shopping-cart"></i>
+                    Tickets, $15 per person
+                </label>
+                <input type="text" id="How_many" class="input_text" placeholder="How many?">
+
+                <label for="Enter_email_input " class="label_tickkets">
+                    <i class="icon_user ti-user"></i>
+                    Send To
+                </label>
+                <input type="email" id="Enter_email_input" class="input_text" placeholder="Enter email">
+
+                <button id="button_pay font_size_15">
+                    PAY
+                    <i class="ti-check"></i>
+
+                </button>
+            </div>
+
+            <footer class="modal_tickets_footer font_size_15">
+                    <p class="Need"> 
+                        Need
+                        <a href="" class="help">help?</a>
+
+                    </p>
+            </footer>
+        </div>
+
+    </div>
+    <script>
+        // Lấy nhiều class cùng tên trong js( truyền vào css selector)
+        const buyBtns = document.querySelectorAll(".js_btn_buy_tickets")
+        // Lấy một class name của element trong js
+        const modal_tickets = document.querySelector(".js_modal_tickets")
+        const modal_container = document.querySelector(".js_modal_container")
+        const modal_tickets_close = document.querySelector(".js_modal_tickets_close")
+
+
+        function showBuyTickets(){
+            // add thêm một class name vô class có sẵn trong js, thêm class open vô modal_tickets
+            modal_tickets.classList.add("open")
+
+        }
+        function hideBuyTickets(){
+            // add thêm một class name vô class có sẵn trong js, gỡ bỏ class open 
+            modal_tickets.classList.remove("open")
+
+        }
+
+        modal_tickets_close.addEventListener("click", hideBuyTickets)
+        for (const buyBtn of buyBtns) {
+            // khi click button ham showBuyTickets sẽ được gọi
+            buyBtn.addEventListener("click", showBuyTickets)
+        }
+
+        // close container khi click vùng overlay
+        modal_tickets.addEventListener("click", hideBuyTickets)
+        // Sự kiện nổi bọt, tránh việc bấm vô container cũng bị close contaier
+        modal_container.addEventListener("click", function (event) {
+            event.stopPropagation()
+        })
+    </script>
+
 </body>
 </html>
