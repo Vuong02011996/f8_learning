@@ -454,6 +454,7 @@ html{
 }
 
 /* CONTACT */
+/* Cách 1 không dùng col raw*/
 .contact_info {
     font-size: 18px;
     padding-top: 32px;
@@ -466,16 +467,16 @@ html{
 
 .icon_mobile {
     display: block;
-
 }
-/* Nếu không dùng col thì phải đặc tên  */
+
+/* --------Form thông tin ------------ */
+
 .contact_input {
     width: 50%;
     float: left;
 }
 .form_input {
     float: left;
-
 }
 
 .contact_name {
@@ -500,9 +501,44 @@ html{
 
 .contact_submit:hover {
     color:#000;
-    background-color: #fff;
+    background-color: #ccc;
     cursor: pointer;
 }
+/* Cách 2 Dùng col, row */
+.form_contact {
+    
+}
+.row {
+    font-size: 15px;
+}
+
+.col_50 {
+    float: right;
+    width: 50%;
+    padding: 8px 8px;
+    
+}
+.col_100 {
+    width: 100%;
+    padding: 8px 8px;
+}
+.submit_but {
+    float: right;
+    color: #fff;
+    background-color: #000;
+    border: none;
+    padding: 8px 8px;
+    margin: 16px 0;
+}
+.submit_but:hover {
+    color:#000;
+    background-color: #ccc;
+    cursor: pointer;
+}
+
+
+
+/* ---------- End Form thông tin------------- */
 
 .image_map {
     width: 100%;
