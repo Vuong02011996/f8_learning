@@ -61,6 +61,9 @@ Các thành phần html chính trong dự án.
         + Format test: heading, time., desciption.
         + Căn chỉnh button but tickets: hover
     + Modal:
+        + Vị trí kích thước modal(modal_tickets)
+        + Container, animation container.
+        + Java script, add and remove class open stopPropagation
 
         
 
@@ -268,6 +271,9 @@ Các thành phần html chính trong dự án.
 
 ## Xác định có dùng thẻ div bao quanh hay không
 + Nhìn vào phần padding các thành phần con bên trong, nếu chúng đều padding ra xung quanh 1 khoảng cách thì dùng thẻ div để dễ  padding, không phải padding từng element.
+
+## Optimize
++ Xây dựng class chung dựa trên row and col theo hệ thống thiết kế grid system.
 
 ## Phim tat
 1. General

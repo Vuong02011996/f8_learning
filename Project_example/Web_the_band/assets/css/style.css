@@ -453,6 +453,73 @@ html{
     }
 }
 
+/* CONTACT */
+.contact_info {
+    font-size: 18px;
+    padding-top: 32px;
+    
+}
+.info_items{
+    width: 50%;
+    float: left;
+}
+
+.icon_mobile {
+    display: block;
+
+}
+/* Nếu không dùng col thì phải đặc tên  */
+.contact_input {
+    width: 50%;
+    float: left;
+}
+.form_input {
+    float: left;
+
+}
+
+.contact_name {
+    padding: 8px;
+}
+.contact_mail {
+    padding: 8px;
+}
+.contact_message {
+    width: 100%;
+    float: left;
+    padding: 8px;
+    margin: 8px 0;
+}
+.contact_submit {
+    float: right;
+    padding: 8px;
+    color: #fff;
+    background-color: #000;
+    border: none;
+}
+
+.contact_submit:hover {
+    color:#000;
+    background-color: #fff;
+    cursor: pointer;
+}
+
+.image_map {
+    width: 100%;
+}
+
 #footer{
+    padding: 64px 16px;
+
+}
+
+#footer .footer_info {
+    text-align: center;
+}
+.facebook {
+    color: #2196F3;
+}
+.footer_ref {
+    margin: 15px 0;
 
 }

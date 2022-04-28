@@ -12,7 +12,7 @@
     <div id="main">
 
         <div id="header">
-            <!-- Begin ul nav -->
+            <!-- Begin ul nav -->-
             <ul id="nav">
                 <li><a href="">Home</a></li>
                 <li><a href="">Band</a></li>
@@ -146,18 +146,55 @@
              <div class="content_section_general">
                 <h2 class="content_heading">CONTACT</h2>
                 <p class="content_sub_heading font_size_15">Fan? Drop a note!</p>
-             </div>
-            
+                <!--  Cách thực hiện 1 form đăng kí -->
+                <!-- Cách 1 my way-->
+
+                    <div class="info_items">
+                        <i class="icon_location ti-location-pin"> Chicago, US</i>
+                        <i class="icon_mobile ti-mobile"> Phone: +00 151515</i>
+                        <i class="icon_email ti-email"> Email: mail@mail.com</i>
+                    </div>
+                    <div class="contact_input">
+                        <div class="form_input">
+                            <input type="text" class="contact_name" placeholder="Name" required>
+                            <input type="mail" class="contact_mail" required placeholder="Mail">
+                        </div>
+
+                        <input type="text" class="contact_message" placeholder="Message">
+                        <input type="submit" class="contact_submit" value="SEND">
+                        <div class="clear"></div>
+                    </div>
+
+                    <div class="clear"></div>
+                </div>
+
+                <!-- Cách 2 sử dụng form and col, row ... -->
+
+            </div>
              <!-- End CONTACT  -->
-        </div>
 
-        <div id="footer">
+             <!-- Image  -->
+            <img src="/Project_example/Web_the_band/assets/img/map.jpg" alt="map" class="image_map">
 
+            <div id="footer">
+                <div class="footer_info">
+                    <div class="footer_icon">
+                        <a href=""><i class="facebook ti-facebook"></i></a>
+                        <a href=""><i class="sky ti-skype"></i></a>
+                        <a href=""><i class="twitter ti-twitter-alt"></i></a>
+                    </div>
+                    <div class="footer_ref">
+                        <p>Powered by  <a href="#">w3.css</a> </p>
+                    </div>
+                </div>
+    
+            </div>
 
         </div>
 
     </div>
 
+    <!-- Begin MODAL -->
     <!-- phần modal bao bọc hết kích thước trình duyệt nên để ngang với main.
     Dùng position fixed để  nổi lên trên-->
     <div class="modal_tickets js_modal_tickets">
@@ -207,6 +244,8 @@
         </div>
 
     </div>
+
+    <!-- End MODAL -->
     <script>
         // Lấy nhiều class cùng tên trong js( truyền vào css selector)
         const buyBtns = document.querySelectorAll(".js_btn_buy_tickets")
