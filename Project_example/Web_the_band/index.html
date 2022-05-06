@@ -5,7 +5,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/style_row_col.css">
+    <link rel="stylesheet" href="assets/css/responsive.css">
     <link rel="stylesheet" href="assets/fonts/themify-icons-font/themify-icons/themify-icons.css">
 </head>
 <body>
@@ -14,19 +15,19 @@
         <div id="header">
             <!-- Begin ul nav -->-
             <ul id="nav">
-                <li><a href="">Home</a></li>
-                <li><a href="">Band</a></li>
-                <li><a href="">Tour</a></li>
-                <li><a href="">Contact</a></li>
+                <li><a href="#">Home</a></li>
+                <li><a href="#Band">Band</a></li>
+                <li><a href="#Tour">Tour</a></li>
+                <li><a href="#Contact">Contact</a></li>
                 <li>
-                    <a href="">
+                    <a href="#">
                         More
                         <i class="font_size_15 ti-angle-down"></i>
                     </a>
                     <ul class="subnav">
-                        <li><a href="">Merchandise</a></li>
-                        <li><a href="">Extras</a></li>
-                        <li><a href="">Media</a></li>
+                        <li><a href="#">Merchandise</a></li>
+                        <li><a href="#">Extras</a></li>
+                        <li><a href="#">Media</a></li>
                     </ul>
 
                 
@@ -38,6 +39,15 @@
             <div class="button_search"> 
                 <i class="icon_search ti-search"></i>
             </div>
+
+            <!-- Button on mobile -->
+            <div id="mobile_menu" class="mobile_menu_btn"> 
+                <i class="icon_menu ti-menu"></i>
+            </div>
+            <div class="clear"></div>
+
+
+
             <!-- End icon search -->
         </div>
 
@@ -50,38 +60,34 @@
 
         <div id="content">
             <!-- About -->
-            <div class="content_section_general">
+            <div id="Band" class="content_section_general">
                 <h2 class="content_heading">THE BAND</h2>
                 <p class="content_sub_heading font_size_15">We love music</p>
                 <p class="section_about">
                     We have created a fictional band website. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
                 </p>
-                <div class="section_band">
-                    <div class="section_member">
+                <div class="row section_band">
+                    <div class="col col_3 s_col_100 s_mt_16 text_center">
                         <h2 class="name_band font_size_15">Name</h2>
                         <img src="/Project_example/Web_the_band/assets/img/band/bandmember.jpg" alt="" class="img_band">
                     </div>
     
-                    <div class="section_member">
+                    <div class="col col_3 s_col_100 s_mt_16 text_center">
                         <h2 class="name_band font_size_15">Name</h2>
                         <img src="/Project_example/Web_the_band/assets/img/band/bandmember.jpg" alt="" class="img_band">
                     </div>
     
-                    <div class="section_member">
+                    <div class="col col_3 s_col_100 s_mt_16 text_center">
                         <h2 class="name_band font_size_15">Name</h2>
                         <img src="/Project_example/Web_the_band/assets/img/band/bandmember.jpg" alt="" class="img_band">
                     </div>
-    
-                    <!-- Xử lí thèn section_member dùng float: left; không bao bọc các div bên trong.
-                    Các div bên trong có thuộc tính float sẽ tách ra khỏi section_band -->
-                    <div class="clear"></div>
                 </div>
             </div>
 
             <!-- End About -->
 
             <!-- Tours -->
-            <div class="tour_section">
+            <div id="Tour" class="tour_section">
                 <div class="content_section_general">
                    <h2 class="content_heading text_white">TOUR DATES</h2>
                    <p class="content_sub_heading text_white font_size_15">Remember to book your tickets!</p>
@@ -100,39 +106,38 @@
                    </ul>
 
                    <!--Tour Place -->
-                   <div class="place_list">
-                        <div class="place_item">
+                   <div class="row place_list">
+                        <div class="col col_3 s_col_100 s_mt_16">
                             <img src="/Project_example/Web_the_band/assets/img/place/place1.jpg" alt="Place1" class="place_img"> 
                             <div class="place_info font_size_15">
                                 <h3 class="place_heading">New York</h3>
                                 <p class="place_time">Fri 27 Nov 2016</p>
                                 <p class="place_desc">Praesent tincidunt sed tellus ut rutrum sed vitae justo.</p>
                                 
-                                <button class="place_buy_btn font_size_15 js_btn_buy_tickets">Buy Tickets</button>
+                                <button class="place_buy_btn font_size_15 js_btn_buy_tickets s_full_width">Buy Tickets</button>
                             </div>
                         </div>
-                        <div class="place_item">
+                        <div class="col col_3 s_col_100 s_mt_16">
                             <img src="/Project_example/Web_the_band/assets/img/place/place2.jpg" alt="Place2" class="place_img">
                             <div class="place_info font_size_15">
                                 <h3 class="place_heading">Paris</h3>
                                 <p class="place_time">Sat 28 Nov 2016</p>
                                 <p class="place_desc">Praesent tincidunt sed tellus ut rutrum sed vitae justo.</p>
-                                <button class="place_buy_btn font_size_15 js_btn_buy_tickets">Buy Tickets</button>
+                                <button class="place_buy_btn font_size_15 js_btn_buy_tickets s_full_width">Buy Tickets</button>
                             </div>
                         </div>
-                        <div class="place_item">
+                        <div class="col col_3 s_col_100 s_mt_16">
                             <img src="/Project_example/Web_the_band/assets/img/place/place3.jpg" alt="Place3" class="place_img">
                             <div class="place_info font_size_15">
                                 <h3 class="place_heading">San Francisco</h3>
                                 <p class="place_time">Sun 29 Nov 2016</p>
                                 <p class="place_desc">Praesent tincidunt sed tellus ut rutrum sed vitae justo.</p>
-                                <button class="place_buy_btn font_size_15 js_btn_buy_tickets">Buy Tickets</button>
+                                <button class="place_buy_btn font_size_15 js_btn_buy_tickets s_full_width">Buy Tickets</button>
                             </div>
                         </div>
 
-                        <!-- Xử lí thèn place_item dùng float: left; không bao bọc các div bên trong.
+                        <!-- Xử lí thèn col col_3 s_col_100 s_mt_16 dùng float: left; không bao bọc các div bên trong.
                         Các div bên trong có thuộc tính float sẽ tách ra khỏi  place_list-->
-                        <div class="clear"></div>
                     </div>
 
                     <!--End Tour Place -->
@@ -143,51 +148,48 @@
              <!-- End Tours -->
 
              <!-- CONTACT  -->
-             <div class="content_section_general">
+            <div id="Contact" class="content_section_general">
                 <h2 class="content_heading">CONTACT</h2>
                 <p class="content_sub_heading font_size_15">Fan? Drop a note!</p>
-                <!--  Cách thực hiện 1 form đăng kí -->
-                <!-- Cách 1 my way-->
-                <div class="contact_info">
-                    <div class="info_items">
-                        <i class="icon_location ti-location-pin"> Chicago, US</i>
-                        <i class="icon_mobile ti-mobile"> Phone: +00 151515</i>
-                        <i class="icon_email ti-email"> Email: mail@mail.com</i>
+
+
+                <div class="row contact_content">
+                    <div class="col col_5 s_col_100 contact_information">
+                        <p><i class="ti-location-pin"> Chicago, US</i></p>
+                        <p><i class="ti-mobile"></i>Phone:<a href="Tel:+00 151515"> +00 151515</a> </p>
+                        <p><i class="ti-email"></i>Email:<a href="mailto:mail@mail.com"> mail@mail.com</a></p>
                     </div>
-                    <div class="contact_input">
-                        <div class="form_input">
-                            <input type="text" class="contact_name" placeholder="Name" required>
-                            <input type="mail" class="contact_mail" required placeholder="Mail">
-                        </div>
-                        <input type="text" class="contact_message" placeholder="Message">
-                        <input type="submit" class="contact_submit" value="SEND">
-                        <div class="clear"></div>
-                    </div>
-                    <div class="clear"></div>
-                    
-                    <form action="" class="form_contact col_50">
-                        <div class="row">
-                            <input type="text" class="row col_50"  placeholder="Name" >
-                            <input type="mail" class="row col_50"  placeholder="Email" required>
-                            <div class="clear"></div>
-                        </div>
-                        <input type="text" class="row col_100" placeholder="Message">
-                        <input type="submit" class="row submit_but" value="SEND">
+
+                    <div class="col col_5 s_col_100 comtact_form ">
+                        <form action="">
+                            <div class="row s_mt_8">
+                                <div class="col col_5 s_col_100 s_mt_8">
+                                    <input type="text" placeholder="Name" required class="form_control">
+                                </div>
+                                <div class="col col_5 s_col_100 s_mt_8  ">
+                                    <input type="mail" placeholder="Email" required class="form_control">
+                                </div>
+                            </div>
+                            <div class="row mt_8">
+                                <div class="col col_100">
+                                    <input type="text" placeholder="Message" required class="form_control">
+                                </div>
+                            </div>
+
+                            <input type="submit" class="contact_submit mt_16 s_full_width" value="SEND">
+                        </form>
                         
-
-
-                    </form>
-                    <div class="clear"></div>
+                    </div>
 
                 </div>
                     
                      <!-- Cách 2 sử dụng Form and col, row ... -->
 
 
-                </div>
+            </div>
 
                
-            </div>
+        </div>
              <!-- End CONTACT  -->
 
              <!-- Image  -->
@@ -263,6 +265,7 @@
     </div>
 
     <!-- End MODAL -->
+    <!-- Script MODAL -->
     <script>
         // Lấy nhiều class cùng tên trong js( truyền vào css selector)
         const buyBtns = document.querySelectorAll(".js_btn_buy_tickets")
@@ -295,6 +298,50 @@
         modal_container.addEventListener("click", function (event) {
             event.stopPropagation()
         })
+    </script>
+
+    <!-- Script menu button on mobile -->
+    <script>
+        // Khi bấm vô menu button thì css cho header có height là null(auto) để hiển thị thanh menu
+        // Bình thường thì để  height == 46px
+        // Get one element by ID
+        var header = document.getElementById('header');
+        // console.log(header);
+        var mobileMenu = document.getElementById('mobile_menu');
+        // console.log(mobileMenu);
+        var currHeightHeader = header.clientHeight;
+        // console.log(currHeightHeader);
+
+        mobileMenu.onclick = function() {
+            var isClose = header.clientHeight === currHeightHeader;
+            if (isClose)
+            {
+                header.style.height = "auto";
+            }
+            else
+            {
+                header.style.height = null;
+            }
+        }
+
+        // script bấm vào các MenuItem sẽ ẩn menu đi.
+        var menuItems = document.querySelectorAll('#nav li a[href*="#"]')
+        console.log(menuItems)
+
+        for (var i = 0; i < menuItems.length; i ++){
+            var menuItem = menuItems[i]
+            menuItem.onclick = function(event) {
+                // Tìm thèn More trong list menuItem và không cho ẩn đi. hiển thị subnav.
+                var isMore = this.nextElementSibling && this.nextElementSibling.classList.contains("subnav");
+                if(isMore) {
+                    event.preventDefault();
+                }
+                else {
+                    header.style.height = null;
+                }
+            }
+        }
+
     </script>
 
 </body>

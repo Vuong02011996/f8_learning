@@ -74,7 +74,7 @@ Các thành phần html chính trong dự án.
 
 
 # Note:
-## Vị trí
+## Vị trí, Display
 ### List items:
 + list-item <=> block: nằm dọc.
 + inline-block: nằm ngang, các element nằm trên 1 dòng.
@@ -97,7 +97,7 @@ Các thành phần html chính trong dự án.
 ### Using float
 + Sử dụng thuộc tính float và width cho chính element muốn thay đổi vị trí(sang ngang), chớ không dùng lên thẻ cha chứa nó.
 + float: right; đẩy các khối div sang bên phải, float sẽ làm mất tính block của element. Sử dụng khi muốn các khối div con nằm ngang trên một dòng.
-+ Khi sử dụng float các khối div con sẽ nằm sang ngang nhưng bị tách ra khỏi div bao bọc nó, ta dùng thêm khối clear trong khối bao bọc để giải quyết vấn đề này. (<div class="clear"></div>), css  clear: both;
++ Khi sử dụng float các khối div con sẽ nằm sang ngang nhưng bị tách ra khỏi div bao bọc nó, ta dùng thêm khối clear trong khối bao bọc để giải quyết vấn đề này. (<div class="clear"></div>), css  clear: both; hoặc dùng element giả after.
 + Element đang là inline(list items) dùng float sẽ chuyển sang block dùng được các thuộc tính của block. Display là block mới dùng được các thuộc tính: margin-top: -3px, ...
 
 ### Using flex căn chỉnh một item vô giữa
@@ -106,6 +106,9 @@ Các thành phần html chính trong dự án.
     align-items: center;
     justify-content: center;
 ```
+
+### Overflow
++ Overflow: hidden : Ẩn các element con nằm ngoài phạm vi của cha.
 ## Kích thước.
 + width: 33.333%;
 + Kĩ thuật padding + margin âm(boottraps) để căn chỉnh lề .(làm cho phần padding)
@@ -166,6 +169,8 @@ Các thành phần html chính trong dự án.
     + opacity: 0.6; độ mờ chữ.
     + line-height: 14px; khoảng cách các dòng chữ.
     + text-align: justify; căn chỉnh đoạn văn thẳng hàng ở đầu và cuối.
+    + text-shadow: 0 0 1px #000; /* Thêm cái bóng cho chữ ở image */
+    
 
 ## Button
 ```
@@ -268,6 +273,27 @@ Các thành phần html chính trong dự án.
         })
         ```
 
+
+## FORM
+```
+<form action="">
+    <div class="row">
+        <div class="col col_5">
+            <input type="text" placeholder="Name" required class="form_control">
+        </div>
+        <div class="col col_5">
+            <input type="mail" placeholder="Email" required class="form_control">
+        </div>
+    </div>
+    <div class="row mt_8">
+        <div class="col col_100">
+            <input type="text" placeholder="Message" required class="form_control">
+        </div>
+    </div>
+
+    <input type="submit" class="contact_submit mt_16" value="SEND">
+</form>
+```
 
 ## Xác định có dùng thẻ div bao quanh hay không
 + Nhìn vào phần padding các thành phần con bên trong, nếu chúng đều padding ra xung quanh 1 khoảng cách thì dùng thẻ div để dễ  padding, không phải padding từng element.

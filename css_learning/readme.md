@@ -80,4 +80,4 @@
 
 ## Orther
 + Thẻ div mặc định đã để thuộc tính display:block;
-
++ href: # ở trang hiện tại , không để # reload lại trang hiện tại.

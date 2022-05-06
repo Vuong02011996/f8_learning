@@ -17,9 +17,51 @@ chuyển thành màu trằng thì dùng cái important */
     color: #fff !important;
 }
 
+.text_center {
+    text-align: center !important;
+}
+
 .font_size_15 {
     font-size: 15px !important;
 }
+
+.mt_8 {
+    margin-top: 8px;
+}
+
+
+.mt_16 {
+    margin-top: 16px;
+}
+
+.row {
+    margin-left: -8px;
+    margin-right: -8px;
+}
+
+.row::after{
+    content: "";
+    display: block;
+    clear: both;
+}
+
+
+.col {
+    float: left;
+    padding-left: 8px;
+    padding-right: 8px;
+}
+
+.col_3 {
+    width: 33.33333%;
+}
+.col_5 {
+    width: 50%;
+}
+.col_100 {
+    width: 100%;
+}
+
 
 
 /* ------------------------End Common--------------------------------- */
@@ -44,6 +86,8 @@ html{
     left: 0;
     /* Khi thêm position vào slider ở sau nó sẽ che mất phần position header ở trên sử dụng thuộc tính z-index để hiển thị lên lại */
     z-index: 1;
+
+    /* Dùng để ẩn các element con nằm ngoài height của header - on mobile*/
 
 }
 /* nav: id của ul cha
@@ -117,7 +161,16 @@ html{
     line-height: 38px;
 }
 
+/* Hiển thị lên trên header(đã có position fixed) */
+#header .mobile_menu_btn {
+    position: absolute;
+    top: 0;
+    right: 0;
+    display: none;
+}
+
 /* css icon search trên header */
+#header .mobile_menu_btn,
 #header .button_search{
     /* display: inline-block;  mặc đinh thuộc tính float sẽ làm mất tính block */
     float: right;
@@ -129,6 +182,15 @@ html{
     cursor: pointer;
 }
 
+#header .mobile_menu_btn:hover{
+    background-color: #ccc;
+}
+
+#header .mobile_menu_btn:hover .icon_menu{
+    color: #000;
+}
+
+#header .icon_menu,
 #header .icon_search{
     color: white;
     line-height: 46px;
@@ -160,6 +222,8 @@ html{
     padding: 32px 32px ;
     color: #fff;
     text-align: center;
+    /* Thêm cái bóng cho chữ ở image */
+    text-shadow: 0 0 1px #000;
 }
 
 #slider #header_img{
@@ -176,9 +240,14 @@ html{
     /* padding trên dưới 64 trái phải 0 */
     padding: 64px 0;
     width: 800px;
+    
     /* margin chỉ có tác dụng khi kích thước cố định(width: 800) */
     margin-left: auto;
     margin-right: auto;
+    /* Fix bugs in Ipad , khoảng trắng ở lề  ảnh, khoảng cách đoạn văn với lề.*/
+    max-width: 100%;
+    padding-left: 16px;
+    padding-right: 16px;
 }
 
 #content .content_heading{
@@ -204,14 +273,6 @@ html{
     line-height: 14px;
     margin-bottom: 15px;
 
-}
-
-/* phần image about member the band */
-#content .section_member{
-    float: left;
-    /* width các ảnh bằng 100% (width) / 3 */
-    width: 33.33333%;
-    text-align: center;
 }
 
 #content .name_band{
@@ -268,21 +329,10 @@ html{
 
 /* Css content tour place */
 .place_list {
-    /* margin-top: 32px;
-    margin-left: -8px;
-    margin-right: -8px;
-    margin-bottom: 48px; */
-    /* top -> trái, phải -> bottom */
-    margin: 32px -8px 48px;
+    margin-top: 32px;
+    margin-bottom: 48px;
 }
 
-.place_item {
-    /*  float left and width để các item nằm ngang trên 1 dòng */
-    float: left;
-    width: 33.33333%;
-    padding: 0 8px;
-
-}
 .place_img {
     /* Kích thước ảnh thẻ img không tự động resize với thẻ cha nên phải dùng thêm width 100% */
     width: 100%;
@@ -456,49 +506,37 @@ html{
 }
 
 /* CONTACT */
-/* Cách 1 không dùng col raw*/
-.contact_info {
+/* Cách 2 Dùng col, row */
+.contact_content {
+    margin-top: 32px;
+}
+.contact_information {
     font-size: 18px;
-    padding-top: 32px;
-    
-}
-.info_items{
-    width: 50%;
-    float: left;
 }
 
-.icon_mobile {
-    display: block;
+.contact_information i[class*="ti-"]{
+    line-height: 1.5;
+    margin-right: 8px;
 }
 
-/* --------Form thông tin ------------ */
+.comtact_form {
+    font-size: 15px;
+} 
 
-.contact_input {
-    width: 50%;
-    float: left;
-}
-.form_input {
-    float: left;
-}
-
-.contact_name {
-    padding: 8px;
-}
-.contact_mail {
-    padding: 8px;
-}
-.contact_message {
+.form_control {
+    padding: 12px;
     width: 100%;
-    float: left;
-    padding: 8px;
-    margin: 8px 0;
 }
+
 .contact_submit {
     float: right;
-    padding: 8px;
+    padding: 16px;
     color: #fff;
     background-color: #000;
     border: none;
+    /* Fix bug button SEND small in safari. */
+    -webkit-appearance: none;
+    font-size: 16px;
 }
 
 .contact_submit:hover {
@@ -506,38 +544,6 @@ html{
     background-color: #ccc;
     cursor: pointer;
 }
-/* Cách 2 Dùng col, row */
-.form_contact {
-    
-}
-.row {
-    font-size: 15px;
-}
-
-.col_50 {
-    float: right;
-    width: 50%;
-    padding: 8px 8px;
-    
-}
-.col_100 {
-    width: 100%;
-    padding: 8px 8px;
-}
-.submit_but {
-    float: right;
-    color: #fff;
-    background-color: #000;
-    border: none;
-    padding: 8px 8px;
-    margin: 16px 0;
-}
-.submit_but:hover {
-    color:#000;
-    background-color: #ccc;
-    cursor: pointer;
-}
-
 
 
 /* ---------- End Form thông tin------------- */
