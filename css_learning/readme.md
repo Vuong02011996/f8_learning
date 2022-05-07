@@ -79,5 +79,31 @@
 
 
 ## Orther
+
+### Animation with keyframe
+```
+.chart-layout__item {
+    width: 60px;
+    color: #fff;
+    text-align: center;
+    height: var(--percent);
+    background-color: #EF5122;
+    align-self: flex-end;
+    animation: grow_chart ease-in 0.5s;
+}
+
+@keyframes grow_chart {
+    from {
+        opacity: 0;
+        height: calc(var(--percent) - 50%);
+    }
+    to {
+        opacity: 1;
+        height: var(--percent);
+    }
+}
+```
 + Thẻ div mặc định đã để thuộc tính display:block;
 + href: # ở trang hiện tại , không để # reload lại trang hiện tại.
+
+
