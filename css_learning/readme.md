@@ -62,6 +62,7 @@
     + :active thuộc tính được kích hoạt khi bấm vào.
     + :first-child chọn lấy phần tử đầu tiên.(li)
     + :last-child chọn lấy phần tử cuối cùng.(li)
+    + :nth-child(1): trỏ thẳng vị trí item .
 
 ## Pseudo element
 + Sử dụng những phần tử hiển thị trên web mà không cần viết html mà chỉ cần viết css.
