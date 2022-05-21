@@ -23,7 +23,7 @@
 + filter()
 + map()
 + reduce()
-+ 
++ ..
 ```
 var courses = [
 {
@@ -80,4 +80,15 @@ function courseHandler(course, index)
 }
 var newCourses = courses.map(courseHandler)
 
+// reduce() nhận đối số là một function, lặp từng phần tử trong mảng trả về một biến lưu trữ và element hiện tại của mảng
+// Ví dụ làm phẳng mảng
+
+var depthArray = [1, 2, [3, 4], 5]
+var flatArray = depthArray.reduce(function(flatOut, current_element) {
+  return flatOut.concat(current_element);
+}, []); // [], giá trị khởi tạo cùng kiểu dữ liệu muốn trả về, nếu không có sẽ lấy phần tử đầu tiên của mảng làm initial.
 ```
+# Method include()
++ Kiểm tra một phần tử có trong mảng hay không
++ Kiểm tra một substring có trong string hay không.
++ Trả về True, False.
