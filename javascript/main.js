@@ -1,5 +1,2 @@
 
-setTimeout(function() 
-{
-    alert("hello Trang");
-}, 1000*60);
+console.log(document)
