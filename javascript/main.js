@@ -103,3 +103,12 @@ for (var i = 0; i < aElements.length; i++)
     }
 
 }
+// stopPropagation
+document.querySelector("div").onkeypress = function(e) {
+    console.log("DIV")
+}
+
+document.querySelector("button").onclick = function(e) {
+//    e.stopPropagation();
+    console.log("Click me");
+}

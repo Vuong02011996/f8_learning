@@ -149,6 +149,8 @@ for (var i = 0; i < aElements.length; i++)
     }
 }
 ```
++ stopPropagation: ngăn chặn sự kiện nổi bọt của events. 
+
 
 
 
