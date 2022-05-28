@@ -26,3 +26,10 @@
 + Footer(chân trang): logo, địa chỉ liên hệ, ...
 
 + Modal.
+
+# Các câu hỏi để thực hiện css cho một element:
+    + Vị trí.
+    + Kích thước.(width, height)
+    + Màu sắc.
+    + Hình dáng(kiểu chữ, hình tròn, vuông, ..)
+    + Các thành phần html con trong nó.

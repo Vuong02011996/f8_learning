@@ -64,15 +64,8 @@ Các thành phần html chính trong dự án.
         + Vị trí kích thước modal(modal_tickets)
         + Container, animation container.
         + Java script, add and remove class open stopPropagation
-
-        
-
 ### Footer
-
-
 ## 4. Hoàn thiện
-
-
 # Note:
 ## Vị trí, Display
 ### List items:
@@ -132,8 +125,6 @@ Các thành phần html chính trong dự án.
     top: 0;
     bottom: 0;
     ```
-
-
 ## Màu sắc
     + #000: đen
     + #fff: trắng 
@@ -145,7 +136,6 @@ Các thành phần html chính trong dự án.
 + Các them icon mẫu.
     + themify icon(230 icon)
     + fontawesome(nặng)
-
 + Search tên icon cần tìm, dùng tên class của icon đưa vô file html.
 + Sử dụng một tên class thứ 2 để css, phòng trường hợp dùng lại icon đã dùng.
 + Dùng padding để đưa icon vào giữa khối.
@@ -156,8 +146,6 @@ Các thành phần html chính trong dự án.
     0 0: offet bằng 0, trải đều,
     blur: 10px độ mờ tới 10px*/
     + Sử dụng box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
-
-
 ## Format chữ:
     + Chữ luôn nằm giữa line-height(phần chuột kéo.)
     + text-decoration: underline; gạch chân chữ.
@@ -170,7 +158,6 @@ Các thành phần html chính trong dự án.
     + line-height: 14px; khoảng cách các dòng chữ.
     + text-align: justify; căn chỉnh đoạn văn thẳng hàng ở đầu và cuối.
     + text-shadow: 0 0 1px #000; /* Thêm cái bóng cho chữ ở image */
-    
 
 ## Button
 ```
