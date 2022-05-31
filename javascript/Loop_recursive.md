@@ -31,7 +31,7 @@ for (var key in my_Object)
 
 # For .. of.
 + Dùng như for .. in nhưng không dùng được với object.(không dùng đk với key .. value)
-+ Cần thay đổi nếu dùng với object lặp qua key: Object.keys(my_Object), lặp qua value Object.values(my_Object)
++ Cần thay đổi một xíu nếu dùng với object lặp qua key: Object.keys(my_Object), lặp qua value Object.values(my_Object)
 
 # While
 # Do while

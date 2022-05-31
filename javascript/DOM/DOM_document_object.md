@@ -4,10 +4,9 @@
   + Element node.
   + Attributes node
   + Text node.
-# Document Object
 + Document là đối tượng đại diện cho toàn bộ website.
 + Mọi thành phần của HTML DOM(element, attribute, Text) đều được truy xuất thông qua đối tượng document.
-# Element Node  - Get Element Methods
+# 1. Element Node  - Get Element Methods
 ## By ID
 + getElementById
 + Chỉ trả về 1 element.
@@ -26,10 +25,10 @@
     + querySelectorAll(".heading")
     + Trả về NodeList.
 
-## BY HTML collection
+## By HTML collection
 + Chỉ một số thẻ dùng được.(a, form)
 
-# DOM  Attribute
+# 2. Attribute Node
 + Thêm thuộc tính cho element
 + Tất cả những thuộc tính trong thẻ mở của element là DOM attribute.
 ```
@@ -49,7 +48,7 @@ headingElement.setAtrribute("tên thuộc tính", "giá trị thuộc tính")
 headingElement.getAtrribute("tên thuộc tính")
 ```
 
-# DOM Text
+# 3. Text Node
 + Text node là tất cả những gì nằm trong thẻ tab.
 + Lấy Text node từ element node
 ```
@@ -112,11 +111,11 @@ setInterval(() => {
 boxElement.classList.toggle('red')}, 1000);
 ```
 
-# DOM events
+# DOM events(mouse, keyboard, ...)
 + [Các sự kiện DOM tham khảo ở đây](https://www.w3schools.com/jsref/dom_obj_event.asp)
 + Chú ý thêm chữ on trước mỗi sự kiện.
 + Attributes events: dùng thuộc tính của element lắng nghe sự kiện.(giống css inline, ít dùng)
-+ Assign event using the element node: gán event và sử dụng element node.
++ Assign event using the element node: sử dụng element node get event và gán cho event một function để làm việc gì đó.
 ```commandline
 // Cách 1
 <h1 onclick="mã JS> DOM Events</h1>
@@ -130,7 +129,7 @@ boxElement.classList.toggle('red')}, 1000);
  }
 ```
 
-## Method preventDefault and stopPropagation
+# Method preventDefault and stopPropagation
 + preventDefault: ngăn chặn hành vi mặc định của thẻ html(link thẻ a)
 ```commandline
 // Lấy tất cả thẻ a trong html
@@ -151,7 +150,13 @@ for (var i = 0; i < aElements.length; i++)
 ```
 + stopPropagation: ngăn chặn sự kiện nổi bọt của events. 
 
-
+# Event listener 
+## So sánh DOM event vs Event listener
++ Dùng DOM event khi:
+  + Muốn lắng nghe một sự kiện nào đó và không có nhu cầu gỡ bỏ.
++ Event Listener:
+  + Khi một sự kiện có nhiều công việc.
+  + Khi muốn hủy bỏ lắng nghe một sự kiện nào đó.
 
 
 
