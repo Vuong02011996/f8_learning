@@ -16,13 +16,13 @@
 + slice(idx1, idx2): tách mảng thành mảng con. 
 
 # Phương thức sử dụng với tham số là hàm(call back)
-+ foreach()
++ foreach(): không return , calls a function for each element in an array. 
 + every()
 + some()
-+ find()
-+ filter()
-+ map()
-+ reduce()
++ find(): 
++ filter(): trả về new array với những element pass qua điều kiện của function. 
++ map(): trả về array mới kích thước như array gọi map với mỗi element được thay đổi qua function.
++ reduce(): returns a single value: the function's accumulated result.
 + ..
 ```
 var courses = [
