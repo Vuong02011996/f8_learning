@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Ví dụ sử dụng đơn vị % #1</title>
+    <style>
+        html{
+            /* Để px - tuyệt đối không tùy thuộc vào độ phần giải màn hình  */
+            /* font-size: 10px; */
+            /* Để 100% tương đương với 16px(mặc định trình duyệt), khó tính toán khi dùng rem muốn 30px phải tính toán */
+            /* Để 62,5% tương đương với 10px dễ tính toán khi dùng rem */
+            font-size: 62.5%;
+        }
+        .heading{
+            font-size: 40px;
+        }
+        #absolute_units{
+            width: 100px;
+            height: 100px;
+            background-color: blue;
+            font-size: 40px;
+        }
+        #relative_units{
+            /* 50% thẻ chứa nó - body, width body(kế thừa kích thước trình duyệt) bằng kích thước màn hình */
+            width: 50%; 
+            height: 100px;
+            background-color: blueviolet;
+            font-size: 40px;
+        }
+        #test_rem{
+            /* 1rem băng font-size thẻ html = 20px */
+            font-size: 1rem; 
+        }
+        #test_em{
+            /* 2em bằng 2 lần font-size thẻ có chứa nó gần nhất có font-size -> body = 2*10px */
+            font-size: 2em;
+        }
+    </style>
+    <link rel="stylesheet" href="units.css">
+</head>
+<body>
+    <h1 class="heading">Test CSS Units</h1>
+    <div id="absolute_units">Absolute units</div>
+    <div id="relative_units">Relative units</div>
+    <h2 id="test_rem">Test rem</h2>
+    <h2 id="test_em">Test em</h2>
+    
+
+    <div class="box box1">BOX 1</div>
+    <div class="box box2">BOX 2</div>
+    <div class="box box3">BOX 3</div>
+    <div class="box box4">BOX 4</div>
+    <p class="paragraph">test_rem</p>
+</body>
+</html>

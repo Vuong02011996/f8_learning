@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    
+    <style>
+        h1#id_heading.heading{
+            color: rgb(28, 192, 28);
+        }
+        #id_heading.heading{
+            color: #000;
+        }
+        .heading{
+            color: blue;
+        }
+        h1{
+            color: red !important;
+        }
+    </style>
+    <link rel="stylesheet" href="main.css">
+
+</head>
+<body>
+    <h1 id="id_heading" class="heading">Priority</h1>
+    <ol>
+        <li>Internal, External: độ ưu tiên như nhau, cái nào viết sau ưu tiên hơn</li>
+        <li>!important</li>
+        <li>Inline- 1000d</li>
+        <li>#id - 100d</li>
+        <li>.class - 10d</li>
+        <li>tag name - 1d</li>
+        <li>Equal specificity - gọi một element 2 lần, css sau ưu tiên hơn</li>
+        <li>Universal selector and inherited - 0d , dùng các selector chung như * hoặc tất cả thẻ html ,li,...</li>
+    </ol>
+</body>
+</html>
