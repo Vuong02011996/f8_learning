@@ -1,0 +1,25 @@
+:root {
+    --heading-color: #b61b1b;
+    --text-color: #3b1f70;
+}
+
+#heading{
+    color: var(--heading-color);
+
+}
+p{
+    color: var(--text-color);
+}
+
+.box-1 {
+    /* Sử dụng calc funtions */
+    width: calc(200px + 100px);
+    height: 300px;
+    background-color: green;
+}
+
+.box-2 {
+    width: 50%;
+    height: 50%;
+    background-color: rgba(0, 0, 0, 0.5)
+}

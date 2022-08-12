@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* Sử dụng first-child để lấy phần tử đầu tiên thẻ li */
+        li:first-child{
+            font-size: 50px;
+        }
+        /* lấy phần tử bất kì trong li 1 ->*/
+        li:nth-child(2){
+            color: blue;
+        }
+
+        /* Sử dụng element giả css cho chữ cái đầu tiên của thẻ h1 */
+        h1::first-letter{
+            font-size: 100px;
+            color: red;
+        }
+        /* Css cho dòng đầu tiên của h1 dùng element giả */
+        h1::first-line{
+            color: blue;
+        }
+
+        h1::selection{
+            color: violet;
+        }
+        .container::after{
+            /* Phải chủ động thêm content và display cho element giả mới tồn tại được. */
+            content: "";
+            display: block;
+            width: 150px;
+            height: 100px;
+            background-color: yellow;
+        }
+    </style>
+    <link rel="stylesheet" href="pseudo_class.css">
+</head>
+<body>
+    <!-- thẻ br dùng để xuống dòng đoạn text -->
+    <h1>Test pseudo element <br/> Dong thu 2</h1>
+    <a class="button" href="https://www.youtube.com/channel/UCNSCWwgW-rwmoE3Yc4WmJhw">Youtube F8</a>
+    <ul>
+        <li>a</li>
+        <li>b</li>
+        <li>d</li>
+        <li>de</li>
+        <li>e</li>
+    </ul>
+    <div class="container"></div>
+</body>
+</html>

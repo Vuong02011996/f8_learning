@@ -1,0 +1,22 @@
+/* :root - lớp giả trong css */
+:root {
+    /* Biến global có thể xử dụng mọi selector trong file css này */
+    --primary: #f05123;
+}
+
+
+.desc a {
+    color: var(--primary);
+    font-weight: 600; /* chữ đậm */
+}
+
+.list strong {
+    color: var(--primary);
+}
+
+.copyright a {
+    /* Biến local - chỉ sử dụng trong selector này*/
+    --local_css: green; 
+    color: var(--local_css);
+    font-weight: 600;
+}

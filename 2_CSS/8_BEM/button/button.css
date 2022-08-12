@@ -1,0 +1,86 @@
+
+* {
+    box-sizing: border-box;
+}
+
+html, body {
+    margin: 0;
+    padding: 0;
+    font-size: 18px;
+    font-family: Arial, Helvetica, sans-serif;
+    height: 100%;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+}
+
+body > div {
+    margin: auto;
+    /* justify-content: center; */
+    /* align-items: center; */
+}
+
+/* BUTTON */
+
+/* Block */
+.btn {
+    display: inline-block;
+    /* bỏ gạch chân nếu dùng thẻ a */
+    text-decoration: none;
+    /* bỏ background , border. outline  mặc định nếu dùng button */
+    background-color: transparent;
+    border: none;
+    outline: none;
+
+    /* padding bo goc cho button */
+    color: #fff;
+    padding: 12px 48px;
+    border-radius: 50px;
+
+
+    cursor: pointer;
+    min-width: 120px;
+    /* tạo ra thay đổi hiệu ứng khi bấm */
+    transition: opacity .2s ease;
+    user-select: none;
+  }
+
+  .btn:hover {
+      opacity: 0.8;
+  }
+
+  /*  css cho btn đứng liền kề. */
+  .btn + .btn {
+      margin-left: 16px;
+  }
+
+  .btn--success {
+    background-color: #71be34;
+  }
+  
+  .btn--warn {
+    background-color: #ffb702;
+  }
+  
+  .btn--danger {
+    background-color: #ff623d;
+  }
+
+  .btn--disable {
+      /* them important để hover lên 0.8 vẫn là 0.5 */
+      opacity: 0.5 !important;
+      cursor: default;
+
+  }
+
+  .btn--size-s {
+    padding: 8px 32px;
+
+  }
+
+  .btn--size-l {
+    padding: 40px 56px;
+
+  }

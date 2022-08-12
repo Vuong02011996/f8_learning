@@ -1,0 +1,90 @@
+/* PC */
+@media (min-width: 64em) {
+
+			
+}
+/* Tablet and Mobile */
+@media (max-width: 63.9375em) {
+	#footer .footer_info {
+		font-size: 18px;
+	}
+
+	#footer .footer_info a{
+		margin: 0 8px;
+		padding: 8px 8px;
+		line-height: 2px;
+	}
+
+}
+
+/* Tablet */
+@media (min-width: 46.25em)  and (max-width: 63.9375em){
+	
+}
+
+
+/* Mobile */
+@media (max-width: 46.1875em) {
+
+	#header {
+		overflow: hidden;
+	}
+
+	/*  Show button mobile menu khi dùng mobile */
+	#header .mobile_menu_btn{
+		display: block;
+		/* margin-right: 20px; */
+	}
+
+	/*  ẩn các element bên PC có mà mobile không có */
+	#header .button_search {
+		display: none;
+	}
+
+	/* Bấm vô phần chiều ngang của hết menu Band vẫn có tác dụng */
+	/* Đưa các mobile menu thành block, xem tất cả ô cha có có inline-block thì sửa lại block */
+	/* Đều này làm đá bay cái menu button xuống dưới => sử  dụng position absolute để hiển thị nổi lên trên */
+	#nav {
+		display: block;
+		/* Nut Home bị lệch xuống khi ul là block */
+		margin-top: -19px;
+	}
+
+	/*  Đưa các submenu thành chiều dọc */
+	#nav > li {
+		display: block;
+	}
+
+	/* Cho subnav hiện lên */
+	#nav .subnav {
+		position: initial;
+		background-color: #000;
+	}
+
+	#nav .subnav a {
+		padding: 4px 40px;
+		color: #fff;
+	}
+
+	/* Ngăn ông Home chiếm hết chiều ngang */
+	#nav > li:first-child {
+		display: inline-block;
+	}
+
+	.s_col_100 {
+		width: 100%;
+	}
+
+	.s_mt_16 {
+		margin-top: 16px;
+	}
+
+	.s_mt_8 {
+		margin-top: 8px;
+	}
+
+	.s_full_width {
+		width: 100%;
+	}
+
+}

@@ -1,0 +1,99 @@
+#header {
+    height: 120px;
+    /* linear-gradient(0deg, #333, #ccc) - (góc xoay(0 - dưới lên), màu bắt đầu, màu kết thúc) */
+    background-image: linear-gradient(180deg, var(--primary_color), #ed6134);
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+}
+
+.navbar__list {
+    display: flex;
+    list-style: none;
+    padding-left: 0;
+    margin-top: 4px;
+    
+}
+
+.navbar__item,
+.navbar__item_label {
+    margin: 0 8px;
+    /* phụ thuộc chính nó */
+    position: relative;
+    opacity: 1;
+}
+
+.navbar__item:hover {
+    opacity: 0.5;
+    cursor: pointer;
+}
+
+.navbar__item,
+.navbar__item_label,
+.navbar__item > a {
+    color: #fff;
+    font-size: 1.2rem;
+    font-weight: 300;
+    text-decoration: none;
+}
+
+.navbar__item--bold {
+    font-weight: 500;
+}
+
+/* pseudo element xử  dụng tạo element mà không cần viết html, dấu gạch */
+.navbar__item--separate::after {
+    content: "";
+    display: block;
+    /* color: #fff  ; */
+    /* Phụ thuộc vào vị trí cha có position gần nhất */
+    position: absolute;
+    width: 1px;
+    height: 12px;
+    background-color: #fff;
+    right: -8px;
+    top: 50%;
+    transform: translateY(-50%);
+}
+.icon_link {
+    color: #fff;
+    margin-left: 8px;
+}
+
+/* header QR code */
+.navbar__list:first-child {
+    position: relative;
+}
+
+.header_qr{
+    width: 150px;
+    display: none;
+    position: absolute;
+    left: 0;
+    top: 100%;
+    z-index: 99;
+    padding: 8px;
+    background-color: #fff;
+    margin-left: 8px;
+    animation: FadeIn ease 0.5s;
+}
+.navbar__list:first-child:hover .header_qr{
+    opacity: 1;
+    display: block;
+}
+
+.qr_img {
+    width: 100%;
+}
+.apps_download_img {
+    height: 15px;
+    width: 100%;
+
+}
+
+.qr_apps {
+    display: flex;
+    justify-content: space-between;
+}

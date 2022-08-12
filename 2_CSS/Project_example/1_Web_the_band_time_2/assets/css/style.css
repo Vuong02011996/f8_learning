@@ -1,0 +1,56 @@
+/* RESET CSS */
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+#main{
+
+}
+/* CSS header  */
+#header{
+    width: 100%;
+    height: 46px;
+    background-color: #000;
+}
+/* CSS Navigation */
+.nav{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    
+}
+
+.nav_item_home{
+
+}
+
+.nav_item_band{
+
+}
+
+.nav_item_tour{
+
+}
+
+.nav_item_contact{
+
+}
+
+.nav_item_more{
+
+}
+/* End header */
+
+#slider{
+
+}
+
+#content{
+
+}
+
+#footer{
+
+}

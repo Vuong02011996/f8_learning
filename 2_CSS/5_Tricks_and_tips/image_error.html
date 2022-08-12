@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .image{
+            width: 100%;
+            height: 100vh;
+            background-image: url(https://images.pexels.com/photos/414102/pexels-photo-414102.jpeg?cs=srgb&dl=pexels-pixabay-414102.jpg&fm=jpg),
+                            url(150.png);
+            background-size: 100%;
+            background-repeat: no-repeat;
+        }
+    </style>
+</head>
+<body>
+    <!-- Trường hợp 1 dùng thẻ img,  
+    this.src='150.png': nếu ảnh bị lỗi sẽ this sẽ vô thẳng thẻ img và thay bằng link khác-->
+    <!-- <img onerror="this.src='150.png'" src="https://images.pexels.com/photos/414102/pexels-photo-414102.jpeg?cs=srgb&dl=pexels-pixabay-414102.jpg&fm=jpg" alt="Ảnh"> -->
+    
+    <!-- Trường hợp 2 dùng div với css -->
+    <div class="image"></div>
+</body>
+</html>

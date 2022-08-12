@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    html, body{
+        margin: 0;
+    }
+    /* Lí thuyết */
+    .test_background{
+        width: 100%;
+        height: 100vh;
+        background-image: 
+        /* có thể có nhiều url trong background-image, url viết trước sẽ hiển thị lên trên */
+        /* url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQjNRXA-avYpL4bXirLlGLFTugVgSaIKhm6gAvnm-jgrNstbbwqb3dXeQPQWy15N4nuR3A&usqp=CAU), */
+        /* có thể dùng function css linear-gradient(dải màu chuyển) để hiển thị nền màu rbg hoặc rbga
+        + linear-gradient(to bottom, rgba(255,255,0,0.5), rgba(0,0,255,0.5)): (hướng xoay, màu bắt đầu, màu kết thúc)
+        + linear-gradient(180deg, #333, #fff)
+        + rbg(255,255,0): kết hợp rbg màu đặc
+        + rgba(255,255,0,0.5): 0.5 alpha độ trong suốt, 0->1 đặc
+        */
+        linear-gradient(to bottom, rgba(255,255,0,0.5), rgba(0,0,255,0.5)),
+        url(https://images.pexels.com/photos/414102/pexels-photo-414102.jpeg?cs=srgb&dl=pexels-pixabay-414102.jpg&fm=jpg);
+        
+        /* background-size
+        + Dùng để xét lại kích thước ảnh. 
+        + Cách dùng:
+            + background-size: 100%; ảnh resize bằng kích thước thẻ.
+            + background-size: 100px; chiều rộng 100px, chiều cao auto cho đúng tỉ lệ ảnh
+            + background-size: 100px 100px; chiều rộng 100px, chiều cao 100px ảnh sẽ bị méo.
+        
+        + Background-size với cover, contain: hiển thị ảnh nền đầy đủ với kích thước thẻ.
+        + Lấy một kích thước w, h bằng 100% với kích thước thẻ.
+        + contain: chấp nhận khoảng trắng.
+        + cover: không chấp nhận khoảng trắng
+         */
+        background-size: 100px;
+
+
+        /* background repeat 
+        + Ứng dụng để lặp lại những ảnh nhỏ thành một hình nền lớn.
+        + Mặc định là repeat.
+        + repeat-x: chỉ lặp lại chiều ngang.
+        */
+        background-repeat: no-repeat;
+
+        /* Background origin: đổ ảnh từ đâu vào.
+        + background-origin: border-box; đổ ảnh từ border vào
+        + background-origin: padding-box; đổ ảnh từ padding vào
+        + background-origin: content-box; đổ ảnh từ content vào
+        */
+        border: 20px dashed #ccc;
+        padding: 20px;
+        box-sizing: border-box;
+        background-origin: padding-box;
+
+        /* Background position: vị trí ảnh trong thẻ
+        + background-position: top right; phía trên bên phải
+        + background-position: top 20px right 20px; cách trên 20px, cách phải 20px
+        + background-position: top; phía trên , center(mặc định)
+        + background-position: 20px; cách trái 20px, center
+        + background-position: 20px 30px; cách trái 20px(trục ngang), trên 30px(trục dọc) 
+        */
+        background-position: 20px 30px;
+    }
+    .short_hand_background{
+        width: 100%;
+        height: 100vh;
+        /* background-image: url(https://images.pexels.com/photos/414102/pexels-photo-414102.jpeg?cs=srgb&dl=pexels-pixabay-414102.jpg&fm=jpg);
+        background-position: center;
+        background-size: cover;
+        background-repeat: no-repeat; */
+        /* Dùng short hand
+        + Dùng background-size dùng dấu / ở trước
+        + / cover: đặt ở giữa position với repeat mới được / cover
+        */
+        background:   center  / cover no-repeat url(https://images.pexels.com/photos/414102/pexels-photo-414102.jpeg?cs=srgb&dl=pexels-pixabay-414102.jpg&fm=jpg);
+    }
+
+    /* Bài tập */
+    /* .body{
+        background-color: #1f44aa;
+        background-image: url(http://images2.fanpop.com/images/photos/4800000/Beauty-of-nature-random-4884759-1280-800.jpg),
+                         linear-gradient(to right, rgba(255,255,0,0.5), rgba(0,0,255,0.5));
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: 50px;
+    } */
+</style>
+
+<body class="body">
+    <div class="test_background">
+    </div>
+    <div class="short_hand_background"></div>
+    
+</body>
+</html>
