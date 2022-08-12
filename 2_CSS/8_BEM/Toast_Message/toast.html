@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Toast</title>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="../Toast_Message/toast.css">
+
+</head>
+<body>
+    <div id="toast">
+        <!-- <div class="toast toast--success">
+            <div class="toast__icon">
+                <i class="fas fa-check-circle"></i>
+            </div>
+            <div class="toast__body">
+                <div class="toast__title">
+                    <h3>Success!</h3>
+                </div>
+                <div class="toast__msg">
+                    Bạn đã đăng ký thành công tài khoản tại F8.
+                </div>
+            </div>
+    
+            <div class="toast__close">
+                <i class="fa-solid fa-xmark"></i>
+            </div>
+        </div> -->
+    </div>
+
+    <!-- Đưa hai button bài trước vào -->
+    <div>
+        <div onclick="showSuccessToast()" class="btn btn--success">Show success toast</div>   
+        <div onclick="showErrorToast()" class="btn btn--danger">Show error toast</div>   
+    </div>
+
+    <script>
+        function toast({ title = "", message = "", type = "info", duration = 3}) {
+            const toast_id = document.getElementById("toast")
+
+            // Danh sách icon theo type
+            const icons = {
+            success: "fas fa-check-circle",
+            info: "fas fa-info-circle",
+            warning: "fas fa-exclamation-circle",
+            error: "fas fa-exclamation-circle"
+            };
+            const icon = icons[type];
+
+            if(toast_id)
+            {
+                // Nếú có khối toast(id) thì create các element html của toast class vô toast id
+                const toast_class = document.createElement("div");
+
+                toast_class.classList.add('toast', `toast--${type}`);
+                // Add css animation in js
+                toast_class.style.animation = `slideInLeft ease .3s, FadeOut linear .5s ${duration}s forwards`
+
+
+                // Create template HTML in js(dấu nháy ` không phải chuỗi)
+                toast_class.innerHTML = 
+                ` 
+                    <div class="toast__icon">
+                        <i class="${icon}"></i>
+                    </div>
+                    <div class="toast__body">
+                        <div class="toast__title">
+                            <h3>${title}!</h3>
+                        </div>
+                        <div class="toast__msg">
+                            ${message}
+                        </div>
+                    </div>
+            
+                    <div class="toast__close">
+                        <i class="fa-solid fa-xmark"></i>
+                    </div>
+        
+                `;
+                // append toast class to toast id
+                toast_id.appendChild(toast_class);
+
+
+                // AUTO Remove khối toast_class html sau khi hiển thị
+                const removeID = setTimeout(function() {
+                    toast_id.removeChild(toast_class);
+                }, duration*1000 + 0.5 * 1000)
+
+                // Remove toast when click
+                toast_class.onclick = function(e) {
+                    console.log(e.target)
+                    if (e.target.closest('.toast__close'))
+                    {
+                        toast_id.removeChild(toast_class);
+                        clearTimeout(removeID);
+                    }
+                }
+            }
+        }
+
+
+        // test function
+        // toast({ title:"Success",
+        //  message:"Bạn đã đăng ký thành công tài khoản tại F8.", 
+        //  type:"info", 
+        //  duration: 3000 });
+
+        
+        function showSuccessToast(){
+            toast({ title:"Success",
+                    message:"Bạn đã đăng ký thành công tài khoản tại F8.", 
+                    type:"success", 
+                    duration:10});
+
+        }
+        function showErrorToast(){
+            toast({ title:"Error",
+                    message:"Có lỗi xảy ra.", 
+                    type:"error", 
+                    duration:10});
+        }
+    </script>
+          
+</body>
+</html>

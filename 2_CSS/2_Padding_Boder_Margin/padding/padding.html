@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* li thuyet */
+        .box{
+            width: 60px;
+            height: 60px;
+            /* chữ trắng*/
+            color: #fff;
+            /* Đoạn ni để canh giữa chữ ra box */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .box1{
+            background-color: rgb(36, 21, 36);
+        }
+        .box2{
+            background-color: blue;
+        }
+        .box3{
+            background-color: red;
+            padding-top: 10px;
+            padding-right: 10px;
+            padding-left: 10px;
+            padding-bottom: 10px;
+            /* viết tắt 
+            + padding: 10px; khi có một giá trị truyền vào thì sẽ tương đương với 4 hướng 
+            + padding: 10px 20px; bên trên vs bên dưới(10px) - bên trái vs bên phải (20px)
+            + padding: 10px 12px 8px; bên trên(10px) - bên trái vs phải(12px) - bên dưới(8px)
+            + padding: 10px 12px 14px 16px; theo chiều kim đồng hồ , trên - phải - dưới - trái
+            */
+            /*  Border */
+            border-top-width: 2px;
+            border-bottom-width: 4px;
+            border-left-width: 6px;
+            border-right-width: 8px;
+            /* nét liền solid, nét đứt dashed */
+            border-style: dashed; 
+            border-color: black;
+
+            /*  margin */
+            margin-left: 20px;
+        }
+        /* box-sizing */
+        .box4{
+            width: 100px;
+            height: 100px;
+            color: blanchedalmond;
+            background-color: black;
+            padding: 20px;
+            border: 2px solid #333;
+            /* 
+            + box sizing tự động tính toán kích thước khai báo với padding + border để trừ kích thước content
+            làm không thay đổi kích thước đã design(khai báo) 
+            + Khi kích thước content = 0 thì sẽ không giữ được kích thước khai báo.
+            + Thuộc tính: content-box: để nguyên không giảm kích thước content*/
+            box-sizing: border-box;
+        }
+
+
+    </style>
+</head>
+<body>
+    <!-- Li thuyet -->
+    <div class="box box1">BOX1</div>
+    <div class="box box2">BOX2</div>
+    <div class="box box3">BOX3</div>
+    <br/>
+    <div class="box4">Test box sizing</div>
+
+    <!-- Bai tap -->
+    <div class="content">
+        <p>Hello các bạn, tiếng anh là kĩ năng rất quan trọng trong học tập lẫn trong công việc. Trong học tập, giúp bạn tìm được thông tin mới nhất và chính xác. Trong công việc, biết thêm một ngôn ngữ cơ hội thăng tiến dễ dàng hơn.</p>
+        <p>Duolingo là một ứng dụng giúp học từ vựng phù hợp cho nhiều độ tuổi. Duolingo giúp bạn học về kĩ năng listenning - nghe, speaking - nói. Ngoài học tiếng anh, bạn có thể học những tiếng khác tại Duolingo.</p>
+    </div>
+    <link rel="stylesheet" href="padding.css">
+    
+    
+    <div class="fb-group">
+        <h1 class="heading">Tham gia cộng đồng học viên F8 trên Facebook</h1>
+        <p class="desc">Hàng nghìn người khác đang học lộ trình giống như bạn. Hãy tham gia hỏi đáp, chia sẻ và hỗ trợ nhau
+            trong quá trình học nhé.</p>
+        <a class="button-link" href="https://www.facebook.com/groups/f8official">Tham gia nhóm</a>
+    </div>
+</body>
+</html>

@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- Lí thuyết -->
+    <style>
+        h1{
+            /* relative: lấy chính mình làm vị trí gốc để thay đổi vị trí 
+                Có position các thuộc tính top, right, bottom, left mới hoạt động*/
+            position: relative;
+            /* Cách trái 100px */
+            left: 100px; 
+            /* Cách trên 100px */
+            top: 50px;
+        }
+        li:nth-child(2){
+            color: violet;
+        }
+        .box_parent{
+            width: 100%;
+            height: 100px;
+            background-color: black;
+            /* Dùng để đối tượng box_childrent phụ thuộc vị trí(làm gốc tọa độ) */
+            position: relative;
+        }
+        .box_childrent{
+            width: 20px;
+            height: 20px;
+            background-color: rgb(75, 41, 139);
+            position: absolute;
+            top: 0;
+            /* Dùng cả top với bottom sẽ ưu tiên top vì kích thước khối không đủ để trải từ trên xuống */
+            bottom: 0;
+            left: 0;
+        }
+        /* Ứng dụng làm lớp mờ phủ trên toàn màn hình không set vị trí dùng top, bottom, left, right = 0*/
+        /* .box_childrent{
+            background-color: rgba(255, 255, 255, 0.1);
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            right: 0;
+            left: 0;
+        } */
+
+        .heading{
+            height: 20px;
+            background-color: brown;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+        }
+    </style>
+    <!-- Bài tập -->
+    <style>
+        .box{
+            background-color: blue;
+            width: 500px;
+            height: 2000px;
+            position: relative;
+            top: 0;
+            right: 0;
+            left: 100px;
+            margin-top: 50px;
+        }
+        .box-child{
+            background-color: aqua;
+            width: 100px;
+            height: 100px;
+            /* position: absolute; */
+            top: 0;
+            right: 0;
+        }
+        .box-child1{
+            background-color: violet;
+            width: 30px;
+            height: 30px;
+            position: absolute;
+            bottom: 0;
+        }
+    
+        .header{
+            background-color: rgb(13, 10, 15);
+            width: 1000px;
+            height: 20px;
+            position: fixed;
+            bottom: 0;
+        }
+    </style>
+
+</head>
+<body>
+    <!-- Lí thuyết -->
+    <div class="heading">
+    </div>
+    <h1>Posittion</h1>
+    <ul>
+        <li>Relative</li>
+        <li>Absolute</li>
+        <li>Fixed</li>
+        <li>Sticky</li>
+    </ul>
+    <div class="box_parent">
+        hiện lên
+        <div class="box_childrent">
+        </div>
+    </div>
+    
+
+    <!-- Bài tập -->
+    <div class="box">
+        <div class="box-child">
+            <div class="box-child1">
+            </div>
+        </div>
+    </div>
+    
+    <div class="header"></div>
+</body>
+</html>

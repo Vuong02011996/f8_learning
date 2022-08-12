@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            /* Mặc định items sẽ có margin với của sổ trình duyệt cần set về bằng không mới dùng được cách 4 */
+            margin: 0;
+            padding: 0;
+        }
+        .box{
+            --height_center: 200px;
+            background-color: rgb(117, 140, 158);
+            height: var(--height_center);
+            
+            /* CÁCH 3 dùng display flex với align-items , justify-content */
+            /* display: flex; */
+            /* align-items: center; */
+            /* Canh đều khi có nhiều items */
+            /* justify-content: space-around; */
+            position: relative;
+
+            /* Căn chỉnh items ra giữa box  
+            + Thuộc tính text-align, line-height có tính thừa kế => tất cả thẻ con bên trong đều thừa kế lại được(sáng devtool).            
+            */
+            /* text-align: center;  */
+            /* line-height: var(--height_center); */
+        }
+        h3{
+            /*  CÁCH 1 */
+            /* CHIỀU NGANG: Căn chỉnh items ra giữa box */
+            /* text-align: center;  */
+            /* CHIỀU DỌC: cho line-height giá trị bằng chiều cao của box */
+            /* line-height: var(--height_center); */
+
+            /* CÁCH 2 Dùng display flex với margin auto, nhiều item tự động canh đều*/
+            /* margin: auto; */
+
+            /* CÁCH 4 Dùng position với top, left, transform  */
+            position: absolute;
+            /* cách trên 50% của chiều cao của box */
+            top: 50%; 
+            /* transform dịch chuyển dựa trên kích thước của chính nó 
+             translateY: dịch theo chiều dọc
+            -50%: dấu - top dịch lên trên, left đẩy qua trái,  50% kích thước chính nó
+            Viết gọn: translate(-50%, -50%); */
+            transform: translateY(-50%) translateX(-50%);
+            /* transform: translate(-50%, -50%); */
+            /* Cách trái 50% chiều rộng của box */
+            left: 50%;
+        }
+        /* làm thanh dọc xuống dùng CÁCH 4 mới được */
+        h3::before{
+            content: "";
+            /* display: block; */
+            /* Không có display thì phải cho border hoặc width thì chiều ngang mới có giá trị khác 0 */
+            border-left: 3px solid #333;
+            background-color: black;
+
+            /* Có position thì left, height mới có tác dụng */
+            position: absolute;
+            height: 100px;
+            left: -10px;
+            /* các trên từ gốc tọa độ h3 xuống dưới 50% */
+            top: 50%;
+            /* Lên trên 50% chính nó */
+            transform: translateY(-50%);
+        }
+       
+    </style>
+</head>
+<body>
+    <!-- Ví dụ căn chỉnh một heading nằm bên trong một box -->
+    <div class="box">
+        <h3>CENTER ME</h3>
+    </div>
+</body>
+</html>

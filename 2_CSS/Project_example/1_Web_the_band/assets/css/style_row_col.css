@@ -1,0 +1,569 @@
+/* RESET CSS */
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+/* --------------------------Common--------------------------------- */
+/* Xử lí các div ảnh bị tách ra khỏi khối do dùng float:left ở section_member */
+.clear{
+    clear: both;
+}
+
+/* Important ưu tiên nhất, chỗ nào có text khác màu trắng muốn
+chuyển thành màu trằng thì dùng cái important */
+.text_white{
+    color: #fff !important;
+}
+
+.text_center {
+    text-align: center !important;
+}
+
+.font_size_15 {
+    font-size: 15px !important;
+}
+
+.mt_8 {
+    margin-top: 8px;
+}
+
+
+.mt_16 {
+    margin-top: 16px;
+}
+
+.row {
+    margin-left: -8px;
+    margin-right: -8px;
+}
+
+.row::after{
+    content: "";
+    display: block;
+    clear: both;
+}
+
+
+.col {
+    float: left;
+    padding-left: 8px;
+    padding-right: 8px;
+}
+
+.col_3 {
+    width: 33.33333%;
+}
+.col_5 {
+    width: 50%;
+}
+.col_100 {
+    width: 100%;
+}
+
+
+
+/* ------------------------End Common--------------------------------- */
+
+html{
+    /* set font cho tất các các chữ trong web */
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+
+/* ---------------header----------------- */
+#main {
+    position: relative;
+}
+
+#header{
+    height: 46px;
+    background-color: #000;
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+    /* Khi thêm position vào slider ở sau nó sẽ che mất phần position header ở trên sử dụng thuộc tính z-index để hiển thị lên lại */
+    z-index: 1;
+
+    /* Dùng để ẩn các element con nằm ngoài height của header - on mobile*/
+
+}
+/* nav: id của ul cha
+   subnav : class của ul con*/
+/*  set dang inline-block cho các thẻ li */
+
+#nav {
+    /* để chiều ngang phần ul nav không chiếm hết header, chỉ tới phần nội dung của nó */
+    display: inline-block;
+}
+
+#nav li {
+    /* Để  set vị trí phụ thuộc cho thèn ul subnav */
+    position: relative;
+    
+}
+/* Set lại vị trí cho li */
+#nav > li{
+    display: inline-block;
+}
+
+/* Set màu cho chữ các thẻ a trong li trong nav */
+#nav > li > a{
+    color: #fff;
+    text-transform: uppercase;
+}
+
+#nav li a{
+    text-decoration: none;
+    line-height: 46px;
+    /* padding trên dưới 0, trái phải 24px */
+    padding: 0 24px;
+    display: block;
+}
+
+/* Navifation cho thẻ a trong li trong  nav: hover vào thẻ li vì khi rê chuột vào thẻ a sub vẫn giữ màu thẻ li */
+#nav > li:hover > a,
+.subnav li:hover a{
+    /* hover chữ maù đen, background màu xám */
+    color: #000;
+    background-color: #ccc;
+    
+}
+
+/* Set vị trí theo nav cha và màu cho subnav */
+#nav .subnav {
+    display: none;
+    position: absolute;
+    top: 100%;
+    background-color: #fff;
+    /* bỏ dấu chấm đầu items */
+    list-style-type: none;
+    left: 0%;
+    min-width: 160px;
+
+    /* bóng đổ  cho họp ul, box-shadow
+    0 0: offet bằng 0, trải đều,
+    blur: 10px độ mờ tới 10px*/
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+
+/* navigation cho khối ul con(subnav) */
+#nav li:hover .subnav{
+    display: block;
+}
+
+/* set kích thước và màu cho chữ trong subnav thẻ a */
+#nav .subnav a{
+    color: #000;
+    padding: 0 16px;
+    line-height: 38px;
+}
+
+/* Hiển thị lên trên header(đã có position fixed) */
+#header .mobile_menu_btn {
+    position: absolute;
+    top: 0;
+    right: 0;
+    display: none;
+}
+
+/* css icon search trên header */
+#header .mobile_menu_btn,
+#header .button_search{
+    /* display: inline-block;  mặc đinh thuộc tính float sẽ làm mất tính block */
+    float: right;
+    padding: 0 23px;
+}
+
+#header .button_search:hover{
+    background-color: #f44336;
+    cursor: pointer;
+}
+
+#header .mobile_menu_btn:hover{
+    background-color: #ccc;
+}
+
+#header .mobile_menu_btn:hover .icon_menu{
+    color: #000;
+}
+
+#header .icon_menu,
+#header .icon_search{
+    color: white;
+    line-height: 46px;
+
+}
+/* -------------End header----------------- */
+
+/* ---------------slider----------------- */
+
+#slider{
+    margin-top: 46px;
+    /* padding lên trên một giá trị bằng 50% chiều ngang của chính nó */
+    /* ở đây chiều dài và chiều rộng ảnh tỉ lệ 1/2 nên để 50% */
+    padding-top: 50%;
+    /* background-image: url(/Project_example/Web_the_band/assets/img/slider/slider1.jpg);
+    background-position: top center;
+    background-size: cover;
+    background-repeat: no-repeat; */
+    background:  url(/Project_example/Web_the_band/assets/img/slider/slider1.jpg) top center / cover no-repeat;
+    position: relative;
+}
+
+#slider #text_img{
+    position: absolute;
+    /* left: 50%;
+    transform: translateX(-50%); */
+    width: 100%;
+    bottom: 0;
+    padding: 32px 32px ;
+    color: #fff;
+    text-align: center;
+    /* Thêm cái bóng cho chữ ở image */
+    text-shadow: 0 0 1px #000;
+}
+
+#slider #header_img{
+    margin-bottom: 20px;
+    font-weight: 400;
+    font-size: 24px;
+}
+/* ---------------End slider----------------- */
+
+
+/* ---------------content----------------- */
+/* Phần chung content */
+#content .content_section_general{
+    /* padding trên dưới 64 trái phải 0 */
+    padding: 64px 0;
+    width: 800px;
+    
+    /* margin chỉ có tác dụng khi kích thước cố định(width: 800) */
+    margin-left: auto;
+    margin-right: auto;
+    /* Fix bugs in Ipad , khoảng trắng ở lề  ảnh, khoảng cách đoạn văn với lề.*/
+    max-width: 100%;
+    padding-left: 16px;
+    padding-right: 16px;
+}
+
+#content .content_heading{
+    font-size: 30px;
+    font-weight: 400;
+    letter-spacing: 4px;
+    margin-top: 10px;
+    text-align: center;
+}
+
+#content .content_sub_heading{
+    font-style: italic;
+    margin-top: 25px;
+    margin-bottom: 15px;
+    text-align: center;
+    opacity: 0.6; 
+}
+/* End Phần chung content */
+
+/* phần paragraph about */
+#content .section_about{
+    text-align: justify;
+    line-height: 14px;
+    margin-bottom: 15px;
+
+}
+
+#content .name_band{
+    line-height: 1.5;
+    font-weight: 200;
+    margin: 15px 0;
+
+}
+#content .img_band{
+    width: 154px;
+    border-radius: 4px;
+    
+}
+
+/* Css content tour status tickets*/
+.tour_section {
+    background-color: #000;
+}
+
+#content .tour_ticket{
+    background-color: #fff;
+    margin-top: 40px;
+}
+#content .time_tickets{
+    padding: 8px 16px;
+    color: #757575;
+    border-bottom: #ddd solid 1px;
+    list-style-type: none;
+}
+
+#content .tour_section .sold_out{
+    margin-left: 16px;
+    background-color: #f44336;
+    color: #fff;
+    text-align: center;
+    line-height: 1.5;
+    padding:  3px 4px;
+}
+
+#content .quantity_ticket{
+    float: right;
+    background-color: #000;
+    margin-right: 16px;
+    border-radius: 50%;
+    text-align: center;
+    color: #fff;
+    padding:  0 8px;
+    line-height: 1.5;
+
+    /* Căn chỉnh số 3 lên giữa, margin-top chỉ có tác dụng với block
+    vì dùng float nên mặc định inline của list item chuyển sang block. */
+    margin-top: -3px;
+}
+
+/* Css content tour place */
+.place_list {
+    margin-top: 32px;
+    margin-bottom: 48px;
+}
+
+.place_img {
+    /* Kích thước ảnh thẻ img không tự động resize với thẻ cha nên phải dùng thêm width 100% */
+    width: 100%;
+    /*  Inline sẽ taọ khoảng cách nhỏ giữa các dòng. chuyển thành block. */
+    display: block;
+}
+/* hover vô ảnh đổi màu  một xíu*/
+.place_img:hover {
+    opacity: 0.7;
+}
+
+
+.place_info {
+    background-color: #fff;
+    padding: 0.15px 16px;
+
+}
+
+.place_heading {
+    margin: 15px 0;
+
+}
+
+.place_time {
+    margin: 15px 0;
+    opacity: 0.6;
+}
+
+.place_desc {
+    margin: 15px 0;
+    line-height: 1.4;
+}
+
+.place_buy_btn {
+    background-color: #000;
+    border: none;
+    padding: 8px 16px;
+    margin-bottom: 16px;
+    color: #fff;
+}
+/* hover cursor for button buytickets */
+.place_buy_btn:hover {
+    cursor: pointer;
+    background-color: #ccc;
+    color: #000;
+}
+
+/* Luôn đi theo 4 bước
+1. Vị trí
+2. Kích thước.
+3. Màu sắc
+4. Hình dáng(format khác)
+ */
+.modal_tickets{
+    /* vị trí */
+    position: fixed;
+    /* kích thước */
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    background-color: rgba(243, 235, 235, 0.39);
+    /* Căn chỉnh vị trí cho thèn container ra giữa(dùng flex thì modal luôn hiển thị lên trên chuyển 
+    sang javascript thì dùng none) */
+    display: none;
+    /* căn chỉnh chiều dọc */
+    align-items: center;
+    /* căn chỉnh chiều ngang */
+    justify-content: center;
+}
+
+/* Dùng để xử lí nút bấm vô Buy tickets sẽ hiện container của model lên */
+.modal_tickets.open {
+    display: flex;
+}
+.modal_tickets .modal_container{
+    /* soi width container. */
+    width: 900px;
+    /* height sẽ tự động dài ra khi nội dung nhiều lên nên chỉ đặc min-height*/
+    min-height: 200px;
+    
+    background-color: #fff;
+    position: relative;
+    /* tạo hiệu ứng cho container : keyFrame->  ease: nhanh dan ve giua cham dan o cuoi-> thoi gian*/
+    animation: modalFadeIn ease 0.3s;
+
+}
+.modal_tickets .modal_tickets_close{
+    position: absolute;
+    right: 0;
+    top: 0;
+    padding: 8px 16px;
+    color: #fff;
+}
+
+.modal_tickets .modal_tickets_close:hover {
+    color: #000;
+    background-color: #ccc;
+}
+
+.modal_tickets .modal_tickets_heading {
+    height: 130px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #009688;
+    color: #fff;
+}
+.modal_tickets .model_header_info {
+    font-weight: 400;
+    margin-left: 16px;
+
+}
+
+.modal_tickets .modal_tickets_body {
+    padding: 0.15px 16px;
+
+}
+
+.modal_tickets .label_tickkets{
+    display: block;
+    /* Không dùng ni để ngăn cách vì không biết Send to nằm ở đâu */
+    /* margin: 15px 0; */
+    margin-bottom: 15px;
+    margin-top: 15px;
+}
+
+.modal_tickets .input_text{
+    width: 100%;
+    padding: 10px 0;
+    border: 1px solid #ccc;
+    margin-bottom: 24px;
+
+}
+
+.modal_tickets #button_pay{
+    background-color: #009688;
+    width: 100%;
+    color: #fff;
+    padding: 17px;
+    margin-bottom: 16px;
+    /* bỏ phần border dưới button */
+    border: none;
+    text-transform: uppercase;
+}
+.modal_tickets #button_pay:hover {
+    cursor: pointer;
+    color: #000;
+    background-color: #ccc;
+}
+
+.modal_tickets .modal_tickets_footer {
+    text-align: right;
+    margin: 15px;
+    
+
+}
+.modal_tickets .modal_tickets_footer a{
+    color: #2196F3;
+}
+
+@keyframes modalFadeIn{
+    from{
+        opacity: 0;
+        transform: translateY(-200px)
+    }
+    to{
+        opacity: 1;
+        transform: translateY(0)
+    }
+}
+
+/* CONTACT */
+/* Cách 2 Dùng col, row */
+.contact_content {
+    margin-top: 32px;
+}
+.contact_information {
+    font-size: 18px;
+}
+
+.contact_information i[class*="ti-"]{
+    line-height: 1.5;
+    margin-right: 8px;
+}
+
+.comtact_form {
+    font-size: 15px;
+} 
+
+.form_control {
+    padding: 12px;
+    width: 100%;
+}
+
+.contact_submit {
+    float: right;
+    padding: 16px;
+    color: #fff;
+    background-color: #000;
+    border: none;
+    /* Fix bug button SEND small in safari. */
+    -webkit-appearance: none;
+    font-size: 16px;
+}
+
+.contact_submit:hover {
+    color:#000;
+    background-color: #ccc;
+    cursor: pointer;
+}
+
+
+/* ---------- End Form thông tin------------- */
+
+.image_map {
+    width: 100%;
+}
+
+#footer{
+    padding: 64px 16px;
+
+}
+
+#footer .footer_info {
+    text-align: center;
+}
+.facebook {
+    color: #2196F3;
+}
+.footer_ref {
+    margin: 15px 0;
+
+}
