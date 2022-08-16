@@ -60,6 +60,7 @@
 + Sử dụng một tên class thứ 2 để css, phòng trường hợp dùng lại icon đã dùng.
 + Dùng padding để đưa icon vào giữa khối.
 + Dùng cursor để  thay đổi icon chuột khi rê tới icon.
++ Dùng thẻ i trong html để thể hiện icon.
 
 ## Bóng đổ 
     /* bóng đổ  cho họp ul, box-shadow

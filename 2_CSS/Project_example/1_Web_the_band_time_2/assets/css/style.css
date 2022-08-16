@@ -12,35 +12,78 @@
     width: 100%;
     height: 46px;
     background-color: #000;
+    /* position: fixed;
+    top: 0;
+    left: 0;
+    right: 0; */
 }
 /* CSS Navigation */
 .nav{
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    /* display: inline-block;    */
+}
+
+.nav_item{
+    /* Đẩy các phần tử  li từ list item dọc sang nằm ngang */
+    display: inline-block;
+
+}
+.nav_item > a{
+
+    /*  Tại sao thẻ a cần display=block?, nếu không có  diện tích thẻ a khi hover vào chỉ bằng phần padding*/
+    display: block;
+
+    /* Set màu lại cho thẻ a và chuyển tất cả thành in hoa */
     color: #fff;
-    
+    text-transform: uppercase;
+
+    /* Padding trên dưới 0, trái phải 24px */
+    padding: 0 24px;
+    /* Canh chữ nằm giữ khối header */
+    line-height: 46px;
+    /* bỏ dấu gạch chân dưới chữ ở thẻ a */
+    text-decoration: none;
+    /* Padding trên dưới 0, trái phải 24px */
+    padding: 0 24px;
+    /* Canh chữ nằm giữ khối header */
+    line-height: 46px;
+    /* bỏ dấu gạch chân dưới chữ ở thẻ a */
+    text-decoration: none;
 }
 
-.nav_item_home{
+.nav_item:hover > a{
+    color: #000;
+    background-color: #ccc;
+}
+
+/* Sub Nav */
+.nav_item:last-child{
+    position: relative;
+}
+.nav_item:last-child .sub_nav{
+    position: absolute;
+    left: 0;
+}
+.sub_nav_item{
+    list-style: none;
+}
+
+.sub_nav_item>a{
+
+      /*  Tại sao thẻ a cần display=block?, nếu không có  diện tích thẻ a khi hover vào chỉ bằng phần padding*/
+    display: block;
+
+    /* Padding trên dưới 0, trái phải 24px */
+    padding: 0 24px;
+    /* Canh chữ nằm giữ khối header */
+    line-height: 46px;
+    /* bỏ dấu gạch chân dưới chữ ở thẻ a */
+    text-decoration: none;
+    color: #000;
+    background-color: #ccc;
 
 }
 
-.nav_item_band{
 
-}
-
-.nav_item_tour{
-
-}
-
-.nav_item_contact{
-
-}
-
-.nav_item_more{
-
-}
 /* End header */
 
 #slider{

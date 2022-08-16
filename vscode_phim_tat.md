@@ -8,7 +8,7 @@
 + Copy tất cả word(class, id) nằm sau một điểm chung nào đó(id=", ...).
     + Tìm điểm chung bôi đen. 
     + ctrl + shift + L : select multi consor with the same word.
-    + Alt + shift + arrow right: select word all consor.
+    + Alt + shift + arrow right: select word all consor(the end word).
     + Ctrl + C.
 
 + Chọn multi consor và di chuyển tất cả tới end word.
