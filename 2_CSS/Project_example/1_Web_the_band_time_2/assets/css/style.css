@@ -22,6 +22,11 @@
     top: 0;
     left: 0;
     right: 0;
+     /* Khi thêm position vào slider ở sau khi kéo lên xuống(có margin), nó sẽ che mất phần position header ở trên
+     (những element dùng position sẽ được nổi lên trên, đều có position viết sau sẽ nỗi lên)
+      sử dụng thuộc tính z-index để hiển thị lên lại */
+     z-index: 1;
+
 }
 /* CSS Navigation */
 .nav{
@@ -63,6 +68,7 @@
 .sub_nav{
     position: absolute;
     left: 0%;
+    background-color: #fff;
     /* Set chiều rộng cố  định cho box sub_nav */
     min-width: 160px;
     /* bỏ dấu chấm đầu items */
@@ -108,12 +114,41 @@
 + Button search phần bottom không bám hết xuống header, kể  cả các thẻ li(dùng line-height)
 */
 
+/* SLIDER */
 #slider{
+    /* % units phụ thuộc vào thẻ cha chứa nó ?% thẻ main, khối bao bọc kể cả header */
     width: 100%;
+    /* 100vh phụ thuộc vào chiều cao màn hình ?% */
     height: 100vh;
-    background-image:  url(/media/vuong/AI1/My_Github/f8_learning/2_CSS/Project_example/1_Web_the_band/assets/img/slider/slider1.jpg);
-
+    /* Để import đúng thì gõ ../ để tìm gợi ý là chuẩn */
+    /* vị trí center(giữa thẻ), kích thước cover(lấy hết kích thước thẻ không chấp nhận khoảng trắng) */
+    background:  center  / cover no-repeat url(../img/slider/slider1.jpg);
+    margin-top: var(--height_header);
+    position: relative;
 }
+.text_img{
+    color: #fff;
+    position: absolute;
+    left: 50%;
+    /* bottom: 20%; dùng padding trên dưới sẽ hợp lí hơn dùng con số 20% */
+    bottom: 0;
+    padding: 32px 32px ;
+    transform: translateX(-50%);
+    text-align: center;
+    /* Thêm cái bóng cho chữ ở image */
+    text-shadow: 0 0 1px #000;
+}
+.heading_img{
+    /* padding: 20px 0; dùng margin bottom sẽ oke hơn padding */
+    margin-bottom: 20px;
+    font-weight: 400;
+    font-size: 24px;
+}
+/* END SLIDER */
+
+/* CONTENT THE BAND */
+
+
 
 #content{
 
