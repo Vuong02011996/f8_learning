@@ -51,10 +51,8 @@ docs/_build/
 .env
 
 .idea/
-task.md
 .idea/*
 
 datasets/*
 videos/*
 *.pdf
-*.png

@@ -13,7 +13,7 @@
 
 + Chọn multi consor và di chuyển tất cả tới end word.
     + Alt + click: chọn nhiều consor.
-    + Alt + arrow right: di chuyển tất cả consor đến cuối chữ.(có shift thì chọn hết chữ)
+    + Alt + arrow right: di chuyển tất cả consor đến cuối chữ.(có shift thì chọn hết chữ), bấm liên tục arrow right để đi hết chữ.
 
 + Phim shift them lua chon.
 

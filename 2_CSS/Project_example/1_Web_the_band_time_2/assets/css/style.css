@@ -18,6 +18,7 @@
     width: 100%;
     height: var(--height_header);
     background-color: #000;
+    /* Lấy chính header làm gốc tọa độ */
     position: fixed;
     top: 0;
     left: 0;
@@ -123,17 +124,22 @@
     /* Để import đúng thì gõ ../ để tìm gợi ý là chuẩn */
     /* vị trí center(giữa thẻ), kích thước cover(lấy hết kích thước thẻ không chấp nhận khoảng trắng) */
     background:  center  / cover no-repeat url(../img/slider/slider1.jpg);
+    /* margin-top  một đoạn bằng header */
     margin-top: var(--height_header);
     position: relative;
 }
+/* Hiển thị chữ trên nền ảnh */
 .text_img{
     color: #fff;
     position: absolute;
+    /* Đẩy box text sang phải 50% chiều ngang slider */
     left: 50%;
-    /* bottom: 20%; dùng padding trên dưới sẽ hợp lí hơn dùng con số 20% */
+    /* bottom: 20%; dùng padding trên dưới sẽ hợp lí hơn dùng con số 20% */ 
     bottom: 0;
     padding: 32px 32px ;
+    /* Đẩy box sang trái 50% chính nó */
     transform: translateX(-50%);
+    /* Đẩy chữ ra giữa không khối */
     text-align: center;
     /* Thêm cái bóng cho chữ ở image */
     text-shadow: 0 0 1px #000;
@@ -146,7 +152,48 @@
 }
 /* END SLIDER */
 
-/* CONTENT THE BAND */
+/* CONTENT*/
+/* Phần heading , sub_heading chung */
+.heading_content{
+    text-align: center;
+    margin: 10px 0px;
+    letter-spacing: 4px;
+    font-size: 30px;
+    font-weight: 400;
+    text-transform: uppercase;
+
+}
+.sub_heading_content{
+    text-align: center;
+    margin: 15px 0;
+    font-style: italic;
+    opacity: 0.6;
+    font-weight: 50;
+    font-size: 15px;
+
+}
+/* About the Band */
+#about{
+    padding: 64px 16px;
+    margin: 0 194px;
+}
+#about>p{
+    /* căn chỉnh đoạn văn thẳng hàng ở đầu và cuối. */
+    text-align: justify;
+}
+/* 3 image for the band  */
+.imgs_band{
+    display: flex;
+    padding: 32px 0;
+}
+.img_band_item{
+    margin: auto;
+    padding: 0px 8px;
+}
+.img_band_item>p{
+    text-align: center;
+    margin: 15px 0;
+}
 
 
 
