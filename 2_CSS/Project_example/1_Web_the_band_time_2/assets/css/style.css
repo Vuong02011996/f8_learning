@@ -210,26 +210,34 @@
 }
 .ticket_info{
     background-color: #fff;
+    list-style-type: none;
     
 }
 .ticket_item{
     color: #000;
-    opacity: 0.6;
+    /* opacity: 0.6; */
     padding: 8px 16px;
-    /* position: relative; */
+    /* đường gạch biên dưới thẻ li */
+    border-bottom: 1px solid #ddd;
+    font-size: 16px;
 }
 .status_ticket{
     background-color: #f44336;
     color: #fff;
-    float: left;
-    /* position: absolute;
-    left: 0;
-    top: 0; */
+    display: inline;
+    margin-left: 16px;
+    padding: 0 8px;
 
 }
 .num_ticket{
-
+    float: right;
+    margin-right: 16px;
+    padding: 0px 8px;
+    background-color: #000;
+    color: #fff;
+    border-radius: 50%;
 }
+
 
 
 #content{
