@@ -172,16 +172,23 @@
     font-size: 15px;
 
 }
-/* About the Band */
-#about{
+/* Dùng chung css  */
+.padding_64_16{
     padding: 64px 16px;
-    margin: 0 194px;
 }
-#about>p{
+
+#content{
+    margin: 0 194px;
+    
+}
+
+/* About the Band */
+
+.about>p{
     /* căn chỉnh đoạn văn thẳng hàng ở đầu và cuối. */
     text-align: justify;
 }
-/* 3 image for the band  */
+/* 3 image for the band : dùng display: flex + margin: auto */
 .imgs_band{
     display: flex;
     padding: 32px 0;
@@ -194,10 +201,39 @@
     text-align: center;
     margin: 15px 0;
 }
+/* End About the Band */
+/* Tour */
+.tour{
+    background-color: #000;
+    /* Chuyển màu chữ thành trắng */
+    color: #fff;
+}
+.ticket_info{
+    background-color: #fff;
+    
+}
+.ticket_item{
+    color: #000;
+    opacity: 0.6;
+    padding: 8px 16px;
+    /* position: relative; */
+}
+.status_ticket{
+    background-color: #f44336;
+    color: #fff;
+    float: left;
+    /* position: absolute;
+    left: 0;
+    top: 0; */
 
+}
+.num_ticket{
+
+}
 
 
 #content{
+
 
 }
 
