@@ -24,6 +24,12 @@
         + top: 50%; /* cách trên 50% của chiều cao của box */      
         + transform: translateY(-50%); /* transform dịch chuyển dựa trên kích thước của chính nó */      
         + left: 50%; /* Cách trái 50% chiều rộng của box */
+
+    + Ngoài ra nếu items là một thẻ div có thể  thay thế  transform: translateY(-50%); + left: 50%; bằng:
+        + width: 100% hoặc
+        + right: 0; left: 0;
+        + Tùy cơ ứng biến cách nào dùng đơn giản thì dùng.
+
         
 + Căn giữa thang dọc ngăn cách dính với element.(dùng cách căn giữa bằng position)
 

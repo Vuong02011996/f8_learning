@@ -16,6 +16,7 @@
 css nằm trong selector được nối bởi nhiều class sẽ được ưu tiên hơn.
 + Lựa chọn thẻ con nằm trong một thẻ khác, .selector-cha .selector-con giữa 2 selectors có một khoảng trằng - dấu cách (.post-item .title) 
 + Dùng dấu > để  selector thẻ con trực tiếp, không ăn các thẻ con bên trong.(#nav > li > a{})
++ Nên đi từ một id cha đến 1 class con để trang web khi lớn dần khỏi bị nhầm class.
 
 # Css Priority - Độ ưu tiên trong css.
 1. !important

@@ -209,7 +209,7 @@ html{
     background-position: top center;
     background-size: cover;
     background-repeat: no-repeat; */
-    background:  url(/Project_example/Web_the_band/assets/img/slider/slider1.jpg) top center / cover no-repeat;
+    background:  url(/media/vuong/Data/MyGithub/Fullstack/f8_learning/2_CSS/Project_example/1_Web_the_band/assets/img/slider/slider1.jpg) top center / cover no-repeat;
     position: relative;
 }
 

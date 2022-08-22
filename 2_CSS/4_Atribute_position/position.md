@@ -1,6 +1,6 @@
 # Thuộc tính vị trí.
 + Thiết lập các vị trí cho element(khác vs background-position).
-+ Dùng trong các giao diện có một element nổi lển trên bền mặt của element khác.Element có thuộc tính position sẽ không chiếm content của khối cha bên ngoài nó mà nổi lên trên bề mặt.
++ Dùng trong các giao diện có một element nổi lển trên bền mặt của element khác.Element có thuộc tính position sẽ không chiếm content của khối cha bên ngoài nó mà nổi lên trên bề mặt khối cha.(từ content đến padding)
 + Có position thì các thuộc tính top, left, right, bottom mới hoạt động. 
 
 ## Relative - vị trí tương đối.
@@ -39,6 +39,11 @@
     + search tên thuộc tính.
 + Ứng dụng làm các menu, header bám dính.
 
+
 # Note:
 + Khi một đối tượng phụ thuộc vào một đối tượng khác(lấy đối tượng đó làm gốc tọa độ) dùng absolute.
 + Khi một đối tượng phụ thuộc vào của sổ trình duyệt(lấy của sổ trình duyệt làm gốc tọa độ) dùng fixed.
+
+### Postiion (fixed, absolute, relative)
++ Thuộc tính position sẽ làm mất tính block của khối.(chiều ngang chỉ bằng với nội dung bên trong)
++ Thuộc tính position sẽ đẩy vị trí element lên trên mặt nhường lại vị trí của nó cho thèn xung quanh.Do đó để  tách nó ra riêng biệt cần margin cho những element xung quanh.

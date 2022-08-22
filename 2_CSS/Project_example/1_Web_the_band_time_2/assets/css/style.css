@@ -4,6 +4,10 @@
     margin: 0;
     box-sizing: border-box;
 }
+html{
+    /* set font cho tất các các chữ trong web */
+    font-family: Arial, Helvetica, sans-serif;
+}
 /* :root - lớp giả trong css */
 :root {
     /* Biến global có thể xử dụng mọi selector trong file css này */
@@ -15,7 +19,8 @@
 }
 /* CSS header  */
 #header{
-    width: 100%;
+    /* Thẻ div có chiều rộng kế thừa kích thước trình duyệt. */
+    /* width: 100%; */
     height: var(--height_header);
     background-color: #000;
     /* Lấy chính header làm gốc tọa độ */
@@ -31,7 +36,7 @@
 }
 /* CSS Navigation */
 .nav{
-    /* display: inline-block;    */
+    list-style-type: none;
 }
 
 .nav_item{
@@ -42,7 +47,7 @@
 /* Chọn tất cả thẻ a là nằm trong nav_item kể  cả a trong sub_nav đều ăn css này */
 .nav_item a{
     /*  Tại sao thẻ a cần display=block?, nếu không có  diện tích thẻ a khi hover vào chỉ bằng phần padding*/
-    display: block;
+    display: inline-block;
     /* Padding trên dưới 0, trái phải 24px */
     padding: 0 24px;
     /* Canh chữ nằm giữ khối header */
@@ -68,6 +73,8 @@
 }
 .sub_nav{
     position: absolute;
+    /* 100% cách xuống dưới bằng đúng kích thước thẻ cha(li 45px) */
+    top: 100%;
     left: 0%;
     background-color: #fff;
     /* Set chiều rộng cố  định cho box sub_nav */
@@ -76,7 +83,7 @@
     list-style-type: none;
      /* bóng đổ  cho họp ul, box-shadow
     0 0: offet bằng 0, trải đều,
-    blur: 10px độ mờ tới 10px*/
+    blur: 10px độ mờ tới 10px */
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
     display: none;
 }
@@ -120,7 +127,8 @@
     /* % units phụ thuộc vào thẻ cha chứa nó ?% thẻ main, khối bao bọc kể cả header */
     width: 100%;
     /* 100vh phụ thuộc vào chiều cao màn hình ?% */
-    height: 100vh;
+    /* height: 100vh; */
+    padding-top: 50%;
     /* Để import đúng thì gõ ../ để tìm gợi ý là chuẩn */
     /* vị trí center(giữa thẻ), kích thước cover(lấy hết kích thước thẻ không chấp nhận khoảng trắng) */
     background:  center  / cover no-repeat url(../img/slider/slider1.jpg);
@@ -201,6 +209,10 @@
     text-align: center;
     margin: 15px 0;
 }
+.img_band_item>img{
+    width: 154px;
+    border-radius: 4px;
+}
 /* End About the Band */
 /* Tour */
 .tour{
@@ -214,7 +226,7 @@
     
 }
 .ticket_item{
-    color: #000;
+    color: #757575;
     /* opacity: 0.6; */
     padding: 8px 16px;
     /* đường gạch biên dưới thẻ li */
@@ -224,18 +236,19 @@
 .status_ticket{
     background-color: #f44336;
     color: #fff;
-    display: inline;
     margin-left: 16px;
-    padding: 0 8px;
+    padding: 4px 8px;
 
 }
 .num_ticket{
     float: right;
     margin-right: 16px;
-    padding: 0px 8px;
+    padding:3px 8px;
     background-color: #000;
     color: #fff;
     border-radius: 50%;
+    /* Đẩy số 3 lên giữa */
+    margin-top: -3px;
 }
 
 

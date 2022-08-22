@@ -16,6 +16,7 @@
 + background-size: cover;
 ## Background origin:
 + Quyết định đổ image từ đâu: border, padding, hay content của thẻ.
++ Đổ màu nền : background-color chỉ đổ được tới phần padding. Không đổ  được vào phần margin. 
 ## Background position
 + Tùy chỉnh vị trí hình ảnh trong thẻ.
 + Syn: background-position: top right; Viết một giá trị thì gía trị thứ 2 mặc định là center. background-posotion: 50px - cách lề  trái 50 pixel, căn trên dưới center.
@@ -30,4 +31,6 @@
     background-position: top center;
     background-size: cover;
     background-repeat: no-repeat;
+
+
 ```

@@ -33,3 +33,9 @@
 # Other.
 + Thẻ img không có thẻ đóng.
 + Thuộc tính(Attribute) của thẻ nằm trong thẻ mở.
+
+# So sánh các thẻ:
++ Thẻ p vs span:
+  + Dùng để viết text.
+  + Thẻ p sẽ nằm xuống dòng.(khối riêng như block của div)
+  + span nằm cùng hàng với thẻ cha như inline.

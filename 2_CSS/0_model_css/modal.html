@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modal_CSS </title>
+</head>
+<body>
+    
+</body>
+</html>
+<!-- 
+    ## Modal:
++ Dùng position :fixed và kích thước toàn bộ màn hình để  phần modal đè lên tất cả.
++ Phần hiển thị lên trên gọi là contaner.
++ Để phần container căn chỉnh ở giữa model ta dùng kĩ thuật flexbox
+```
+    display: flex;
+    /* căn chỉnh chiều dọc */
+    align-items: center;
+    /* căn chỉnh chiều ngang */
+    justify-content: center;
+```
++ Lớp mờ xung quang container gọi là overlay
+### Tạo hiệu ứng cho container modal hiện từ từ ra.
+    + animation: modalFadeIn ease 0.3s; tạo hiệu ứng cho container : keyFrame->  ease: nhanh dan ve giua cham dan o cuoi-> thoi gian
+    + Dùng @keyframe:
+        ```
+        @keyframes modalFadeIn{
+            from{
+                opacity: 0;
+                transform: translateY(-200px)
+            }
+            to{
+                opacity: 1;
+                transform: translateY(0)
+            }
+        }
+        ```
+
+### Sự kiện nổi bọt
+    + Khi click vô toàn modal thì container bị đóng nên dùng stopPropagation để tránh click vô container cũng bị đóng container
+    
+        ```
+        // close container khi click vùng overlay
+        modal_tickets.addEventListener("click", hideBuyTickets)
+        // Sự kiện nổi bọt, tránh việc bấm vô container cũng bị close contaier
+        modal_container.addEventListener("click", function (event) {
+            event.stopPropagation()
+        })
+ -->

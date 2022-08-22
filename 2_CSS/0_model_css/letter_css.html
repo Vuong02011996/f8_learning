@@ -6,33 +6,70 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <style>
+        html{
+            /* set font(không chân) cho tất các các chữ trong web, chọn Arial trước nếu máy không có chuyển sang Helvetica */
+            font-family: Arial, Helvetica, sans-serif;
+        }
         .heading_content{
             text-align: center;
             margin: 10px 0px;
             letter-spacing: 4px;
             font-size: 30px;
             font-weight: 400;
+
+            /* chuyển chữ thành in hoa hết */
             text-transform: uppercase;
 
         }
         .sub_heading_content{
             text-align: center;
             margin: 15px 0;
+
+            /* Chữ nghiêng */
             font-style: italic;
+
             opacity: 0.6;
             font-weight: 50;
             font-size: 15px;
 
         }
+        #about >a{
+            
+            /* bỏ gạch chân dưới chữ */
+            text-decoration: none;
+
+            /* Set chiều cao cho text - cân chỉnh chiều cao bằng với thẻ chứa nó(header) */
+            line-height: 46px;
+        }
+
+        #about >p{
+            /* khoảng cách các dòng trong đoạn văn tiếng anh 1.4, tiếng việt 1.6 */
+            line-height: 1.4;
+        }
+
     </style>
 </head>
 <body>
     <div id="about">
         <h1 class="heading_content">THE BAND</h1>
         <h4 class="sub_heading_content">We love music</h4>
+        <a href="#"> Home</a>
         <p>We have created a fictional band website. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
         
     </div>
     
 </body>
 </html>
+
+<!-- ## Format chữ:
+    + Chữ luôn nằm giữa line-height(phần chuột kéo.)
+    + text-decoration: underline; gạch chân chữ.
+    + text-transform: uppercase; đổi chữ thường -> hoa.
+    + font-weight: 400; độ dày chữ.
+    + font-size: 24px; size chữ.
+    + font-style: italic; chữ nghiêng
+    + letter-spacing: 4px; khoảng cách các chữ.
+    + opacity: 0.6; độ mờ chữ.
+    + line-height: 14px; chiều cao dòng chữ.
+    + text-align: justify; căn chỉnh đoạn văn thẳng hàng ở đầu và cuối.
+    + text-shadow: 0 0 1px #000; /* Thêm cái bóng cho chữ ở image */ -->

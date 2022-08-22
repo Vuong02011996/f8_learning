@@ -33,9 +33,23 @@ Xem websites gồm những thành gì. Sau đó code từng thành phần là đ
     + Những yêu cầu cần thực hiện của element.
     + Điểm chung các element(nếu có.)
    
-+ Các câu hỏi để thực hiện css cho một element:
+# Các câu hỏi để thực hiện css cho một element:
     + Vị trí.
     + Kích thước.(width, height)
     + Màu sắc.
     + Hình dáng(kiểu chữ, hình tròn, vuông, ..)
-    + Các thành phần html con trong nó.
+    + Các thành phần con trong nó.
+
+# Cách thực hiện các element ẩn hiện.
+    + B1: Cho hiện lên thực hiên css hoàn chỉnh.
+    + B2: Cho ẩn đi.
+    + B3: Thực hiện rê chuột vào hiện lên.
+        + Rê vào đâu(thẻ cha)
+        + Hiện cái gì(thẻ con.) 
+        + Rê vô li hiện subnav.
+        ```
+        #nav li:hover .subnav{
+            display: block;
+        }
+        ```
+    + Các thẻ inline như a, img, không hiện kích thước ở Computed trond dev tools. chỉ có các thẻ dạng block(li, div, ...) mới hiển thị.
