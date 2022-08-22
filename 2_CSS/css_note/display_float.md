@@ -6,3 +6,13 @@
 
 + Một vấn đề khi sử dụng float là các item con sẽ tách ra không được ôm trọn trong khối cha, di chuyển xuống một mặt phẳng khác nền dùng overlow để xử cho khối cha ôm lại.
     + Overflow: hidden : Ẩn các element con nằm ngoài phạm vi của cha.
+
+# Example
+    float: right;
+    width: 33.33333%;
+    các item con sẽ nằm ngoài khối nên dùng thêm clear
+    <div class="clear"></div>
+
+    Tương đương với:
+    display: flex; 
+    margin: auto;

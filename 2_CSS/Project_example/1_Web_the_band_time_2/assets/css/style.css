@@ -14,6 +14,11 @@ html{
     --height_header: 45px;
 }
 
+.clear{
+    /* Xử lí khi dùng float, item con nằm ngoài div cha */
+    clear: both;
+}
+
 #main{
 
 }
@@ -192,7 +197,7 @@ html{
 
 /* About the Band */
 
-.about>p{
+#content .about>p{
     /* căn chỉnh đoạn văn thẳng hàng ở đầu và cuối. */
     text-align: justify;
 }
@@ -251,12 +256,72 @@ html{
     margin-top: -3px;
 }
 
+#content .ticket_place{
+    padding: 32px 8px;
+    /* display: flex; 
+    margin: auto; */
+    /* Dùng để căn chỉnh place_item hai bên đầu thẳng hàng với ở phần trên*/
+    margin-left: -8px;
+    margin-right: -8px;
+}
 
+#content .place_item{
+    float: right;
+    width: 33.33333%;
+    padding: 0px 8px;
+    background-color: #fff;
+    color: #000;
+    
+}
 
-#content{
+#content .place_item>img{
+    width: 100%;
+}
+.place_position{
+    margin-top: 15px;
+    font-weight: 600;
+    font-size: 15px;
+}
 
+.place_time{
+    opacity: 0.6;
+    margin: 15px 0px;
+    font-size: 15px;
+}
+
+.place_description{
+    margin-bottom: 15px;
+    font-size: 15px;
+}
+.buy_tickets{
+    padding: 8px 16px;
+    margin-bottom: 16px;
+    background-color: #000;
+    color: #fff;
+    border-style: none;
+}
+.buy_tickets:hover{
+    background-color: #ccc;
+    color: #000;
+    cursor: pointer;
+}
+
+/* CONTACT CSS */
+/* Chung */
+.width_50{
+    width: 50%;
+}
+.contact_detail{
+    font-size: 18px;
 
 }
+.contact_info{
+    /* float: right; */
+    /* top: 0; */
+    /* right: 0; */
+}
+
+
 
 #footer{
 

@@ -34,7 +34,7 @@
 + Thẻ img không có thẻ đóng.
 + Thuộc tính(Attribute) của thẻ nằm trong thẻ mở.
 
-# So sánh các thẻ:
+# So sánh các thẻ HTML:
 + Thẻ p vs span:
   + Dùng để viết text.
   + Thẻ p sẽ nằm xuống dòng.(khối riêng như block của div)
