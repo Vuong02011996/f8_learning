@@ -3,6 +3,8 @@
 + Dùng trong các giao diện có một element nổi lển trên bền mặt của element khác.Element có thuộc tính position sẽ không chiếm content của khối cha bên ngoài nó mà nổi lên trên bề mặt khối cha.(từ content đến padding)
 + Có position thì các thuộc tính top, left, right, bottom mới hoạt động. 
 
++ Chỉ dùng position khi một đối tượng nổi lên trên một đối tượng khác, còn các đối tượng nằm riêng lẻ sang một phía thì dùng float, ... dùng position sẽ sai khi thêm các đối tượng phía sau sẽ nổi lên trên đối tượng có position.(Form data.)
+
 ## Relative - vị trí tương đối.
 + Phụ thuộc vào chính element của nó. lấy chính mình làm gốc tọa độ để duy chuyển không phụ thuộc vào bên ngoài.
 + ````

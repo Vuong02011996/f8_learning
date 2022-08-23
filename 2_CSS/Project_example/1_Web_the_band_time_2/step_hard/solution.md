@@ -13,10 +13,15 @@
 
 9. Tại sao thẻ a cần display=block?, nếu không có  diện tích thẻ a khi hover vào chỉ bằng phần padding?
     + Vì thẻ a mặc định display là inline, mà inline thì không có set được kích thước(auto, auto) nên không ăn theo line-height được, phải chuyển sang block hoặc inline block mới có kích thước cố định cho thẻ a.
+10. Làm sao để xử lí vị trí các item của một form đơn giản nhất?
+    + 
+
+11. Thẻ img là thẻ có display inline nên sẽ có một khoảng cách nhỏ đối với đối tượng ở hàng tiếp theo. Do đó chuyển thành display thành block cho img để loại bỏ khoảng cách này.
 
 
 # Q/A
 + Làm sao để đoạn hai bên đoạn văn khi thu nhỏ màn hình tự động response, dùng margin hai bên cố định không được?
     - 
 + Dùng lable vs p.
-+ Làm sao chỉ opacity phần chữ trong thẻ li, not all?
++ Làm sao chỉ opacity phần chữ trong thẻ li, not all?(Dùng màu cho chữ #757575)
+

@@ -261,24 +261,30 @@ html{
     /* display: flex; 
     margin: auto; */
     /* Dùng để căn chỉnh place_item hai bên đầu thẳng hàng với ở phần trên*/
-    margin-left: -8px;
-    margin-right: -8px;
+    margin: 0 -16px;
 }
 
 #content .place_item{
     float: right;
     width: 33.33333%;
     padding: 0px 8px;
-    background-color: #fff;
     color: #000;
     
+    
+}
+#content .place_info{
+    background-color: #fff;
+    padding:15px 16px;
+    /* padding:0 16px;   */
+    display: block;
 }
 
 #content .place_item>img{
     width: 100%;
+    display: block;
 }
 .place_position{
-    margin-top: 15px;
+    margin-bottom: 15px;
     font-weight: 600;
     font-size: 15px;
 }
@@ -311,18 +317,56 @@ html{
 .width_50{
     width: 50%;
 }
-.contact_detail{
-    font-size: 18px;
-
+.contact_input input{
+    padding: 8px;
 }
 .contact_info{
-    /* float: right; */
-    /* top: 0; */
-    /* right: 0; */
+    position: relative;
+    padding-top: 64px;
 }
+.contact_detail{
+    font-size: 18px;
+    position: absolute;
+    left: 0;
+    top: 0;
 
+}
+.contact_input{
+    position: absolute;
+    left: 50%;
+    top: 0;
+}
+.input_mail{
+    position: absolute;
+    left: 50%;
+    top: 0;
+}
+.input_message{
+    margin-top: 8px;
+}
+.contact .submit{
+    float: right;
+    bottom: 0;
 
+}
 
 #footer{
-
 }
+#footer .map{
+    width: 100%;
+}
+#footer .footer_info{
+    margin: 64px 0;
+    text-align: center;
+}
+ #footer .footer_icon{
+    padding: 16px 0;
+ }
+ #footer .footer_icon > a{
+    text-decoration: none;
+ }
+ .facebook, .sky, .twitter{
+    color: #2196F3;
+}
+
+
