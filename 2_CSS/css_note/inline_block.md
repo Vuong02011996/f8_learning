@@ -1,8 +1,9 @@
 Display
 # Inline
     + inline: mặc định không lấý kích thước element(auto), các element nằm trên 1 hàng.
-    + Inline sẽ taọ khoảng cách nhỏ giữa các dòng.
+    + Inline sẽ taọ khoảng cách nhỏ giữa các dòng.(thẻ img với div bên dưới)
     + Sẽ không set được các thuộc tính kích thước.
+    + Một thẻ inline khi padding sẽ không va chạm với div ở xung quang(button BUy tịkets). chuyển thành inline block sẽ va chạm với khối trên.
 # Inline-block
     + inline-block: lấý kích thước element theo bên ngoài(theo chiều dọc, chiều ngang theo nội dung )
     + Dạng inline-block vẫn có thuộc tính của inline, lấy kích thước chiều ngang bằng với nội dung bên trong.

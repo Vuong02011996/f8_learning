@@ -280,7 +280,9 @@ html{
 }
 
 #content .place_item>img{
+    /* Kích thước ảnh không tự động giảm theo thẻ cha, nên dùng thêm width */
     width: 100%;
+    /* img có tính chất inline nên có khoảng cách với div bên dưới */
     display: block;
 }
 .place_position{
@@ -312,7 +314,7 @@ html{
     cursor: pointer;
 }
 
-/* CONTACT CSS */
+/* FORM CONTACT CSS */
 /* Chung */
 .width_50{
     width: 50%;
@@ -350,8 +352,6 @@ html{
 
 }
 
-#footer{
-}
 #footer .map{
     width: 100%;
 }
@@ -369,4 +369,89 @@ html{
     color: #2196F3;
 }
 
+/* CSS Modal Buy Tickets  */
 
+.tickets_modal{
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+
+}
+.modal_container{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #fff;
+    width: 70%;
+}
+.header_modal{
+    background-color: #009688;
+    padding: 32px 16px;
+    position: relative;
+}
+.header_modal .modal_close{
+    position: absolute;
+    right: 0;
+    top: 0;
+    padding: 13px 20px;
+    font-size: 15px;
+    color: #fff;
+
+}
+.header_modal .modal_close:hover{
+    background-color: #ccc;
+    color: #000;
+    cursor: pointer;
+}
+.header_modal .modal_bag{
+    display: block;
+    margin: 10px 0;
+    font-size: 30px;
+    text-align: center;
+}
+.body_modal{
+    padding: 0.15px 16px;
+}
+
+
+.body_modal .label_modal{
+    margin: 15px 0;
+    font-size: 15px;
+}
+
+.body_modal input{
+    padding: 8px;
+    width: 100%;
+    font-size: 16px;
+}
+.button_pay_modal{
+    margin: 16px 0;
+    padding: 16px;
+    background-color: #009688;
+    text-align: center;
+    color: #fff;
+}
+
+.button_pay_modal:hover{
+    color: #000;
+    background-color: #ccc;
+    cursor: pointer;
+}
+
+.footer_modal{
+    float: right;
+    margin: 16px 0;
+}
+
+.footer_modal >a{
+    text-decoration: none;
+    color: #2196f3;
+}
+
+.footer_modal >a:hover{
+    cursor: pointer;
+}

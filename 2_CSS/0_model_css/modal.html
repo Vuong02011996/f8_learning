@@ -4,9 +4,28 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Modal_CSS </title>
+    <title>Modal_Buy_tickets</title>
+    <style>
+        .buy_tickets{
+            padding: 8px 16px;
+            margin-bottom: 16px;
+            background-color: #000;
+            color: #fff;
+            border-style: none;
+        }
+        .buy_tickets:hover{
+            background-color: #ccc;
+            color: #000;
+            cursor: pointer;
+        }
+
+    </style>
 </head>
 <body>
+
+    <button class="buy_tickets">
+        Buy Tickets
+    </button>
     
 </body>
 </html>
@@ -22,7 +41,7 @@
     /* căn chỉnh chiều ngang */
     justify-content: center;
 ```
-+ Lớp mờ xung quang container gọi là overlay
++ Lớp mờ xung quang container(modal gọi là overlay
 ### Tạo hiệu ứng cho container modal hiện từ từ ra.
     + animation: modalFadeIn ease 0.3s; tạo hiệu ứng cho container : keyFrame->  ease: nhanh dan ve giua cham dan o cuoi-> thoi gian
     + Dùng @keyframe:
