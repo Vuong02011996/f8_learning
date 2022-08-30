@@ -116,7 +116,7 @@
                             <p class="place_description">
                                 Praesent tincidunt sed tellus ut rutrum sed vitae justo.
                             </p>
-                            <button class="buy_tickets">
+                            <button class="buy_tickets js_buy_tickets">
                                 Buy Tickets
                             </button>
                         </div>
@@ -129,7 +129,7 @@
                             <p class="place_description">
                                 Praesent tincidunt sed tellus ut rutrum sed vitae justo.
                             </p>
-                            <button class="buy_tickets">
+                            <button class="buy_tickets js_buy_tickets">
                                 Buy Tickets
                             </button>
                         </div>
@@ -142,7 +142,7 @@
                             <p class="place_description">
                                 Praesent tincidunt sed tellus ut rutrum sed vitae justo.
                             </p>
-                            <button class="buy_tickets">
+                            <button class="buy_tickets js_buy_tickets">
                                 Buy Tickets
                             </button>
                         </div>
@@ -206,9 +206,9 @@
     </div>
 
     <!-- Phần modal tickets nằm tương quan với toàn màn hình nên 
-    có thể viết bên ngoài ngang hàng với main -->
+    viết bên ngoài ngang hàng với main -->
     <!-- modal Buy Tickets-->
-    <div class="tickets_modal">
+    <div class="tickets_modal js_tickets_modal">
         <div class="modal_container">
             <div class="header_modal">
                 <span class="modal_close ti-close"></span>
@@ -240,6 +240,42 @@
         </div>
     </div>
 
+    <!-- Script modal -->
+    <script>
+        // Chức năng:
+        // + Bấm vô nút Buy Tickets hiện modal.
+        // + Bấm vô nút close hoặc vùng overlay modal tắt.
+
+        const buyBtns = document.querySelectorAll(".js_buy_tickets")
+        const element_tickets_modal = document.querySelector(".js_tickets_modal")
+        const close_modal = document.querySelector(".modal_close")
+        const container_modal = document.querySelector(".modal_container")
+        console.log(container_modal)
+        
+        function showBuyTickets(){
+            element_tickets_modal.classList.add("open")
+        }
+
+        function hideBuyTickets(){
+            element_tickets_modal.classList.remove("open")
+        }
+        function clearPropagation(event){
+            event.stopPropagation()
+        }
+        for (const buyBtn of buyBtns) {
+            buyBtn.addEventListener("click", showBuyTickets)
+        }
+        close_modal.addEventListener("click", hideBuyTickets)
+        // click vô vùng overlay close modal
+        element_tickets_modal.addEventListener("click", hideBuyTickets)
+        // Tránh sự kiện nổi bọt, click vô container cũng close modal
+        // Event ở đây có ý nghĩa ntn? 
+
+        container_modal.addEventListener("click",clearPropagation)
+        // container_modal.addEventListener("click",function (event) {
+        //     event.stopPropagation()
+        // })
+    </script>
 
 </body>
 </html>

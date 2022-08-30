@@ -371,6 +371,11 @@ html{
 
 /* CSS Modal Buy Tickets  */
 
+/* class open dùng để add/remove modal trong js */
+.tickets_modal.open{
+    display: flex;
+}
+
 .tickets_modal{
     position: fixed;
     top: 0;
@@ -378,6 +383,8 @@ html{
     left: 0;
     bottom: 0;
     background-color: rgba(0, 0, 0, 0.5);
+    /* Dùng cho xử lí modal ẩn hiện*/
+    display: none;
 
 }
 .modal_container{

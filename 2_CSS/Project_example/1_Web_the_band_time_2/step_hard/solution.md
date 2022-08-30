@@ -24,5 +24,9 @@
     + Dùng max-width with margin auto.
     - 
 + Dùng lable vs p.
+    + Dùng label vs input khi click vô lable vẫn nhập được input.
++ Dùng span vs p.
 + Làm sao chỉ opacity phần chữ trong thẻ li, not all?(Dùng màu cho chữ #757575)
++ Tại lại thêm class js_element khi gọi element trong js?
++ container_modal.addEventListener("click",clearPropagation(event)) event ở đây có ý nghĩa gì? 
 
