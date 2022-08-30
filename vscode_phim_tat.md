@@ -3,7 +3,7 @@
 
 + Tạo nhanh thẻ div với tên class gõ: .tenclass -> tab -> enter xuống dòng
 
-+ Select tất cả chữ giống nhau trong file: bôi đen chữ -> ctrl + D
++ Select tất cả chữ giống nhau trong file: bôi đen chữ -> ctrl + D, ctr + K để bỏ đi chữ mới chọn bằng ctr + D.
 
 + Copy tất cả word(class, id) nằm sau một điểm chung nào đó(id=", ...).
     + Tìm điểm chung bôi đen. 

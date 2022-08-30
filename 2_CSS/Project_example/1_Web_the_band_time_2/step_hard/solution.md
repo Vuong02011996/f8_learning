@@ -21,6 +21,7 @@
 
 # Q/A
 + Làm sao để đoạn hai bên đoạn văn khi thu nhỏ màn hình tự động response, dùng margin hai bên cố định không được?
+    + Dùng max-width with margin auto.
     - 
 + Dùng lable vs p.
 + Làm sao chỉ opacity phần chữ trong thẻ li, not all?(Dùng màu cho chữ #757575)
