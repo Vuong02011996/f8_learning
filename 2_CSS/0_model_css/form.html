@@ -4,29 +4,109 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Form the band</title>
+    <link rel="stylesheet" href="../Project_example/1_Web_the_band/assets/fonts/themify-icons-font/themify-icons/themify-icons.css">
+    <style>
+        /* RESET CSS */
+        *{
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
+        /*
+        + Css col, row
+        + Css col_half 
+         */
+         /* FORM CONTACT CSS */
+        /* Chung */
+        .btn{
+            padding: 8px 16px;
+            margin-bottom: 16px;
+            background-color: #000;
+            color: #fff;
+            border-style: none;
+        }
+        .btn:hover{
+            background-color: #ccc;
+            color: #000;
+            cursor: pointer;
+        }
+
+        .pull_right{
+            float: right;
+        }
+
+        .mt_8{
+            margin-top: 8px;
+        }
+        .mt_16{
+            margin-top: 16px;
+        }
+        .row{
+            margin-left: -8px;
+            margin-right: -8px;
+        }
+        /* xử lý float left không ôm hết element con */
+        .row::after{
+            content: "";
+            display: block;
+            clear: both;
+        }
+        /*  */
+        .col{
+            width: 100%;
+            float: left;
+            padding-left: 8px;
+            padding-right: 8px;
+        }
+        .col_half{
+            width: 50%;
+        }
+
+         /* Riêng */
+
+        .form_control{
+            width: 100%;
+            padding: 8px;
+        }
+        .contact_info{
+            padding: 32px;
+        }
+    </style>
 </head>
 <body>
-    
+    <div class="row contact_info">
+        <div class="col col_half">
+            <p class="contact_location"><i class="ti-location-pin">  Chicago, US</i>
+            </p>
+            <p class="contact_mobile"><i class="ti-mobile"> Phone: +00 151515</i>
+            </p>
+            <p class="contact_email"><i class="ti-email"> Email: mail@mail.com</i>
+            </p>
+        </div>
+
+        <div class="col col_half">
+            <form action="">
+                <div class="row">
+                    <div class="col col_half ">
+                        <input type="text" required placeholder="Name" class="form_control">
+                    </div>
+                    <div class="col col_half">
+                        <input type="email" required placeholder="Email" class="form_control">
+                    </div>
+                </div>
+                <div class="row mt_8">
+                    <div class="col ">
+                        <input type="text" required placeholder="Message" class="form_control">
+                    </div>
+                </div>
+
+                <button class="btn mt_16 pull_right">
+                    SEND
+                </button>
+
+            </form>
+        </div>
+    </div>
 </body>
 </html>
-
-<!-- 
-    <form action="">
-    <div class="row">
-        <div class="col col_5">
-            <input type="text" placeholder="Name" required class="form_control">
-        </div>
-        <div class="col col_5">
-            <input type="mail" placeholder="Email" required class="form_control">
-        </div>
-    </div>
-    <div class="row mt_8">
-        <div class="col col_100">
-            <input type="text" placeholder="Message" required class="form_control">
-        </div>
-    </div>
-
-    <input type="submit" class="contact_submit mt_16" value="SEND">
-</form>
- -->

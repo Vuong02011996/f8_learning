@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modal_Buy_tickets</title>
+    <link rel="stylesheet" href="../Project_example/1_Web_the_band/assets/fonts/themify-icons-font/themify-icons/themify-icons.css">
+    <style>
+        /* RESET CSS */
+        *{
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
+        /*
+        + HTML, CSS cho modal
+            + Header modal
+            + Body modal
+            + Footer modal.
+        + JS cho modal
+            + Bấm button hiện modal
+            + Bấm close, overlay tắt modal
+            + Ngăn sự kiện nổi bọt
+        + Animation modal 
+         */
+        .buy_tickets{
+            padding: 8px 16px;
+            margin-bottom: 16px;
+            background-color: #000;
+            color: #fff;
+            border-style: none;
+        }
+        .buy_tickets:hover{
+            background-color: #ccc;
+            color: #000;
+            cursor: pointer;
+        }
+
+        .modal{
+            position: fixed;
+            right: 0;
+            top: 0;
+            left: 0;
+            bottom: 0;
+            background-color: rgba(0, 0, 0, 0.5);
+            display: none;
+            align-items: center;
+            justify-content: center;
+
+        }
+
+        /* Dung close modal */
+        .modal.open{
+            display: flex;
+        }
+
+        .modal_container{
+            position: relative;
+            width: 70%;
+            background-color: #fff;
+        }
+
+        .header_modal{
+            background-color: #009688;
+            text-align: center;
+            padding: 32px 16px;
+        }
+
+        .close_modal{
+            position: absolute;
+            right: 0;
+            top: 0;
+            color: #fff;
+            padding: 8px;
+        }
+        .close_modal:hover{
+            color: #000;
+            cursor: pointer;
+            background-color: #ccc;
+        }
+
+        .heading_modal{
+            color: #fff;
+        }
+        .heading_modal >h1{
+            display: inline-block;
+        }
+
+        .ti-bag{
+            margin-right: 8px;
+
+        }
+        .body_modal{
+            padding: 0 8px;
+        }
+        .body_modal input{
+            display: inline-block;
+            width: 100%;
+            right: 0;
+            padding: 8px;
+        }
+
+        .body_modal label{
+            display: block;
+            margin: 32px 0 16px 0;
+
+        }
+        .ti-shopping-cart .ti-user{
+            margin-right: 8px;
+        }
+
+        .button_pay{
+            background-color: #009688;
+            width: 100%;
+            margin: 16px 0;
+            padding: 16px;
+            border-style: none;
+        }
+        .button_pay:hover{
+            color: #fff;
+            cursor: pointer;
+        }
+
+        .footer_modal{
+            text-align: right;
+            margin: 15px 15px;
+        }
+        .footer_modal >a{
+            color: #2196F3;
+        }
+
+    </style>
+</head>
+<body>
+
+    <button class="buy_tickets">
+        Buy Tickets
+    </button>
+
+    <!-- HTML modal buy tickets , overlay modal toàn màn hình nên viết ngoài cùng-->
+    <div class="modal">
+        <!-- Khung modal -->
+        <div class="modal_container">
+            <header class="header_modal">
+                <div class="close_modal">
+                    <i class="ti-close"></i>
+                </div>
+                <div class="heading_modal">
+                    <i class="ti-bag"></i>
+                    <h1>Tickets</h1>
+                </div>
+            </header>
+            <div class="body_modal">
+                <div>
+                    <label for="how_many">
+                        <i class="ti-shopping-cart"></i>
+                        Tickets, $15 per person
+                    </label>
+                    <input id="how_many" type="text" placeholder="How many?">
+                </div>
+
+                <label for="enter_email">
+                    <i class="ti-user"></i>
+                    Send To
+                </label>
+                <input id="enter_email" type="email" placeholder="Enter email">
+
+                <button href="#" class="button_pay">
+                    PAY
+                    <i class="ti-check"></i>
+                </button>
+            </div>
+            <footer class="footer_modal">
+                Need 
+                <a href="#">help?</a>
+            </footer>
+        </div>
+    </div>
+
+    <script>
+        const btn = document.querySelector(".buy_tickets")
+        const modal = document.querySelector(".modal")
+        const close_modal = document.querySelector(".close_modal")
+        const modal_container = document.querySelector(".modal_container")
+
+
+        function showModal(){
+            modal.classList.add("open")
+        }
+        function hideModal(){
+            modal.classList.remove("open")
+        }
+
+        btn.addEventListener("click", showModal)
+        close_modal.addEventListener("click", hideModal)
+        modal.addEventListener("click", hideModal)
+        modal_container.addEventListener("click", function(event){
+            event.stopPropagation()
+        })
+    </script>
+    
+</body>
+</html>
+<!-- 
+    ## Modal:
++ Dùng position :fixed và kích thước toàn bộ màn hình để  phần modal đè lên tất cả.
++ Phần hiển thị lên trên gọi là contaner.
++ Để phần container căn chỉnh ở giữa model ta dùng kĩ thuật flexbox
+```
+    display: flex;
+    /* căn chỉnh chiều dọc */
+    align-items: center;
+    /* căn chỉnh chiều ngang */
+    justify-content: center;
+```
++ Lớp mờ xung quang container(modal gọi là overlay
+### Tạo hiệu ứng cho container modal hiện từ từ ra.
+    + animation: modalFadeIn ease 0.3s; tạo hiệu ứng cho container : keyFrame->  ease: nhanh dan ve giua cham dan o cuoi-> thoi gian
+    + Dùng @keyframe:
+        ```
+        @keyframes modalFadeIn{
+            from{
+                opacity: 0;
+                transform: translateY(-200px)
+            }
+            to{
+                opacity: 1;
+                transform: translateY(0)
+            }
+        }
+        ```
+
+### Sự kiện nổi bọt
+    + Khi click vô toàn modal thì container bị đóng nên dùng stopPropagation để tránh click vô container cũng bị đóng container
+    
+        ```
+        // close container khi click vùng overlay
+        modal_tickets.addEventListener("click", hideBuyTickets)
+        // Sự kiện nổi bọt, tránh việc bấm vô container cũng bị close contaier
+        modal_container.addEventListener("click", function (event) {
+            event.stopPropagation()
+        })
+ -->

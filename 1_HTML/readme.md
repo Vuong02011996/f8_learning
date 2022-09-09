@@ -33,9 +33,13 @@
 # Other.
 + Thẻ img không có thẻ đóng.
 + Thuộc tính(Attribute) của thẻ nằm trong thẻ mở.
++ Các thẻ có display inline sẽ không ăn các thuộc tính margin, padding.
 
 # So sánh các thẻ HTML:
 + Thẻ p vs span:
   + Dùng để viết text.
   + Thẻ p sẽ nằm xuống dòng.(khối riêng như block của div)
   + span nằm cùng hàng với thẻ cha như inline.
+
++ Thẻ label, input, button, a nằm trên 1 hàng(inline, inline block).
++ Thẻ h display block, nằm xuống hàng.

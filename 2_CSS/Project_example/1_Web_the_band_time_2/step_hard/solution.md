@@ -18,6 +18,8 @@
 
 11. Thẻ img là thẻ có display inline nên sẽ có một khoảng cách nhỏ đối với đối tượng ở hàng tiếp theo. Do đó chuyển thành display thành block cho img để loại bỏ khoảng cách này.
 
+12. Nên để  khoảng cách của thẻ label vs input đi chung với nhau nhỏ hơn để biết label của thẻ input nào.
+
 
 # Q/A
 + Làm sao để đoạn hai bên đoạn văn khi thu nhỏ màn hình tự động response, dùng margin hai bên cố định không được?
@@ -28,4 +30,10 @@
 + Làm sao chỉ opacity phần chữ trong thẻ li, not all?(Dùng màu cho chữ #757575)
 + Tại lại thêm class js_element khi gọi element trong js?
 + container_modal.addEventListener("click",clearPropagation(event)) event ở đây có ý nghĩa gì? 
+
+
+# Error:
+1. Thẻ input width 100% lòi ra phần chứa nó??
+    + https://stackoverflow.com/questions/16907518/css-input-with-width-100-goes-outside-parents-bound
+    + Thiếu RESET CSS
 

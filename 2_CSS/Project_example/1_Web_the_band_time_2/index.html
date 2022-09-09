@@ -21,13 +21,13 @@
                     <a href="#">HOME</a>
                 </li>
                 <li class="nav_item">
-                    <a href="#">BAND</a>
+                    <a href="#Band">BAND</a>
                 </li>
                 <li class="nav_item">
-                    <a href="#">TOUR</a>
+                    <a href="#Tour">TOUR</a>
                 </li>
                 <li class="nav_item"> 
-                    <a href="#">CONTACT</a>
+                    <a href="#Contact">CONTACT</a>
                 </li>
                 <li class="nav_item">
                     <a href="#">MORE
@@ -65,7 +65,7 @@
 
         <div id="content">
             <!-- About -->
-            <div class="about padding_64_16">
+            <div id="Band" class="about padding_64_16">
                 <h1 class="heading_content">THE BAND</h1>
                 <h4 class="sub_heading_content">We love music</h4>
                 <p>We have created a fictional band website. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
@@ -88,7 +88,7 @@
             </div>
 
             <!-- Tour -->
-            <div class="tour padding_64_16">
+            <div id="Tour" class="tour padding_64_16">
                 <h1 class="heading_content">TOUR DATES</h1>
                 <h4 class="sub_heading_content">Remember to book your tickets!</h4>
 
@@ -116,7 +116,7 @@
                             <p class="place_description">
                                 Praesent tincidunt sed tellus ut rutrum sed vitae justo.
                             </p>
-                            <button class="buy_tickets js_buy_tickets">
+                            <button class="btn js_buy_tickets">
                                 Buy Tickets
                             </button>
                         </div>
@@ -129,7 +129,7 @@
                             <p class="place_description">
                                 Praesent tincidunt sed tellus ut rutrum sed vitae justo.
                             </p>
-                            <button class="buy_tickets js_buy_tickets">
+                            <button class="btn js_buy_tickets">
                                 Buy Tickets
                             </button>
                         </div>
@@ -142,7 +142,7 @@
                             <p class="place_description">
                                 Praesent tincidunt sed tellus ut rutrum sed vitae justo.
                             </p>
-                            <button class="buy_tickets js_buy_tickets">
+                            <button class="btn js_buy_tickets">
                                 Buy Tickets
                             </button>
                         </div>
@@ -151,13 +151,12 @@
                 </div>
             </div>
 
-
-            <div class="contact padding_64_16">
+            <!-- Contact form -->
+            <div id="Contact" class="contact padding_64_16">
                 <h1 class="heading_content">CONTACT</h1>
                 <h4 class="sub_heading_content">Fan? Drop a note!</h4>
-
-                <div class="contact_info">
-                    <div class="contact_detail width_50">
+                <div class="row contact_info">
+                    <div class="col col_half">
                         <p class="contact_location"><i class="ti-location-pin">  Chicago, US</i>
                         </p>
                         <p class="contact_mobile"><i class="ti-mobile"> Phone: +00 151515</i>
@@ -166,25 +165,31 @@
                         </p>
                     </div>
 
-                    <div class="contact_input width_50">
-                        <div class="input_name_mail">
-                            <div class="input_name width_50 ">
-                                <input type="text" placeholder="Name">
+                    <div class="col col_half">
+                        <form action="">
+                            <div class="row">
+                                <div class="col col_half ">
+                                    <input type="text" required placeholder="Name" class="form_control">
+                                </div>
+                                <div class="col col_half">
+                                    <input type="email" required placeholder="Email" class="form_control">
+                                </div>
                             </div>
-                            <div class="input_mail width_50">
-                                <input type="email" placeholder="Email">
+                            <div class="row mt_8">
+                                <div class="col ">
+                                    <input type="text" required placeholder="Message" class="form_control">
+                                </div>
                             </div>
-                        </div>
 
-                        <div class="input_message">
-                            <input type="text" placeholder="Message">
-                        </div>
+                            <button class="btn mt_16 pull_right">
+                                SEND
+                            </button>
+
+                        </form>
                     </div>
                 </div>
 
-                <button class="submit">
-                    SEND
-                </button>
+
 
             </div>
         </div>
@@ -215,15 +220,17 @@
                 <i class="modal_bag ti-bag"> Tickets </i>
             </div>
             <div class="body_modal">
-                <div class="label_modal">
-                    <i class="ti-shopping-cart">Tickets, $15 per person</i>
-                </div>
+                <label class="label_modal" for="input_how_many">
+                    <i class="ti-shopping-cart"></i>
+                    Tickets, $15 per person
+                </label>
+                <input id="input_how_many" type="text" placeholder="How many?">
 
-                <input type="text" placeholder="How many?">
-                <div class="label_modal">
-                    <i class="ti-user">Send To</i>
-                </div>
-                <input type="text" placeholder="Enter email">
+                <label class="label_modal" for="input_enter_email">
+                    <i class="ti-user"></i>
+                    Send To
+                </label>
+                <input id="input_enter_email" type="text" placeholder="Enter email">
             
                 <div class="button_pay_modal">
                     <a>
