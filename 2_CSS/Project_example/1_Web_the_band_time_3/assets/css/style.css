@@ -1,0 +1,295 @@
+/* RESET CSS */
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+/* --------------------------Common--------------------------------- */
+html{
+    /* set font cho tất các các chữ trong web */
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.font_size_15{
+    font-size: 15px;
+}
+.padding_64_16{
+    padding: 64px 16px;
+}
+
+.padding_8{
+    padding-left: 8px;
+    padding-right: 8px;
+}
+
+.margin_8_16{
+    margin-top: 8px;
+    margin-bottom: 16px;
+}
+.width_800_margin_auto{
+    max-width: 800px;
+    margin: auto;
+}
+
+.white_color{
+    color: #fff !important;
+}
+
+.row{
+    margin: 0 -8px;
+}
+
+.row::after{
+    content: "";
+    display: block;
+    clear: both;
+}
+
+.col{
+    float: left;
+}
+
+.col_3{
+    width: 33.33333%;
+}
+
+.col_5{
+    width: 50%;
+}
+
+
+.btn{
+
+    padding: 8px 16px;
+    color: #fff;
+    background-color: #000;
+    border: none;
+    margin-bottom: 16px;
+}
+
+.btn:hover{
+    color: #000;
+    background-color: #ccc;
+    cursor: pointer;
+}
+
+.pull_right{
+    float: right;
+}
+
+/* Header */
+.main{
+    /* position: relative; */
+
+}
+
+#header{
+    width: 100%;
+    height: 46px;
+    background-color: #000;
+    position: fixed;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+}
+.nav{
+    display: inline-block;
+}
+
+.nav_items{
+    display: inline-block;
+    list-style-type: none;
+}
+
+.nav_items > a{
+    color: #fff;
+    text-decoration: none;
+    text-transform: uppercase;
+    line-height: 46px;
+    padding: 0 24px;
+    display: block;
+}
+
+.nav_items a:hover{
+    color: #000;
+    background-color: #ccc;
+    cursor: pointer;
+}
+
+.nav_items:last-child{
+    position: relative;
+}
+
+.sub_nav{
+    position: absolute;
+    left: 0;
+    background-color: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    display: none;
+}
+.sub_nav_items{
+    list-style-type: none;
+}
+
+.sub_nav_items >a{
+    color: #000;
+    text-decoration: none;
+    padding: 8px 16px;
+    display: block;
+}
+
+.nav_items:last-child:hover .sub_nav{
+    display: block;
+}
+
+.button_search{
+    float: right;
+    display: inline;
+    color: #fff;
+    padding: 0 24px;
+    line-height: 46px;
+}
+
+.button_search:hover{
+    background-color: #f44336;
+    cursor: pointer;
+}
+/* End Header */
+
+/* Slider */
+#slider{
+    padding-top: 50%;
+    background-image: url(../img/slider/slider1.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+#slider .letter_image{
+    text-align: center;
+    padding: 32px 16px;
+}
+#slider .letter_image >h2{
+    margin: 10px 0;
+    font-weight: 400;
+}
+#slider .letter_image >p{
+    margin: 15px 0;
+}
+/* End Slider */
+
+/* Content */
+.heading_content{
+    text-align: center;
+}
+
+.heading_content >h1{
+    margin: 10px 0;
+    font-weight: 400;
+    letter-spacing: 4px;
+}
+
+.heading_content >p{
+    margin: 15px 0;
+    font-style: italic;
+    opacity: 0.6;
+}
+
+/* Band */
+.band_des{
+    margin: 15px 0;
+    line-height: 1.4;
+    text-align: justify;
+}
+
+.member_item{
+    text-align: center;
+    
+}
+
+.member_label{
+    margin: 15px 0;
+
+}
+
+.member_avatar{
+    width: 154px;
+    border-radius: 4px;
+    margin-bottom: 16px;
+}
+
+/* Tour */
+#Tour{
+    background-color: #000;
+}
+
+.list_tickets{
+    background-color: #fff;
+    font-size: 15px;
+    
+}
+
+.tickets_items{
+    color: #757575;
+    list-style-type: none;
+    padding: 8px 16px;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.tickets_items .ticket_status{
+    color: #fff;
+    background-color: #f44336;
+    padding: 4px 8px;
+    margin-left: 16px;
+}
+
+.tickets_items .num_ticket{
+    float: right;
+    padding: 4px 8px;
+    border-radius: 50%;
+    background-color: #000;
+    color: #fff;
+    margin-top: -3px;
+}
+
+.tour_place{
+    padding: 32px 0px;
+}
+
+.tour_place img{
+    width: 100%;
+    display: block;
+}
+
+.place_item{
+    padding: 0 8px;
+}
+.place_info{
+    background-color: #fff;
+    color: #000;
+    font-size: 15px;
+    padding: 0 16px;
+}
+
+.place_heading{
+    padding-top: 15px;
+    margin-bottom: 15px;
+}
+
+.place_time, .place_des{
+    /* display: inline; */
+    margin: 15px 0;
+}
+
+/* Contact */
+.contact_info{
+    padding: 32px 8px;
+}
+.form_control{
+    padding: 8px;
+    width: 100%;
+}
+
+/* End Content */

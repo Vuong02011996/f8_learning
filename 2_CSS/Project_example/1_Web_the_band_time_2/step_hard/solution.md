@@ -23,6 +23,7 @@
 
 # Q/A
 + Làm sao để đoạn hai bên đoạn văn khi thu nhỏ màn hình tự động response, dùng margin hai bên cố định không được?
+    + Dùng max-width with margin auto.
     - 
 + Dùng lable vs p.
     + Dùng label vs input khi click vô lable vẫn nhập được input.
