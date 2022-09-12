@@ -5,8 +5,43 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Response</title>
+    <style>
+        .pc, .tablet, .mobile{
+            display: none;
+        }
+        /* PC */
+        @media (min-width: 1024px) {
+            .pc{
+                display: block;
+            }       
+        }
+        /* Tablet and PC */
+        /* @media (max-width: 1024px) {
+            .pc, .tablet{
+                display: block;
+            }
+
+        } */
+
+        /* Tablet */
+        @media (min-width: 740px)  and (max-width: 1024px){
+            .tablet{
+                display: block;
+            }
+        }
+
+        /* Mobile */
+        @media (max-width: 740px) {
+            .mobile{
+                display: block;
+            }
+        }
+    </style>
 </head>
 <body>
+<h1 class="pc">PC</h1>
+<h1 class="tablet">Tablet</h1>
+<h1 class="mobile">Mobile</h1>
     
 </body>
 </html>
