@@ -40,6 +40,7 @@ html{
     margin: 0 -8px;
 }
 
+/* xử  lí float khối cha không ôm khối con */
 .row::after{
     content: "";
     display: block;
@@ -80,7 +81,7 @@ html{
 
 /* Header */
 .main{
-    /* position: relative; */
+    position: relative;
 
 }
 
@@ -291,5 +292,101 @@ html{
     padding: 8px;
     width: 100%;
 }
-
 /* End Content */
+/* Map and footer */
+
+.footer_info{
+    text-align: center;
+    padding: 64px 16px;
+}
+.footer_icon{
+    color: #000;
+}
+.footer_ref{
+    margin: 16px 0;
+}
+
+/* CSS MODAL */
+.modal_buy_tickets{
+    position: fixed;
+    right: 0;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    align-items: center;
+    justify-content: center;
+    display: none;
+
+}
+
+.modal_buy_tickets.open{
+    display: flex;
+}
+.model_container{
+    position: relative;
+    width: 70%;
+    top: -10%;
+    background-color: #fff;
+}
+
+.model_header{
+    padding: 32px 16px;
+    background-color: #009688;
+}
+
+.model_heading{
+    text-align: center;
+    font-size: 30px;
+    margin: 10px 0px;
+    color: #fff;
+
+}
+
+.close_model{
+    position: absolute;
+    right: 0;
+    top: 0;
+    padding: 8px 16px;
+    color: #fff;
+
+}
+.close_model:hover{
+    cursor: pointer;
+    color: #000;
+    background-color: #ccc;
+}
+
+.model_content{
+    padding: 0 16px;
+
+}
+.model_content label{
+    display: block;
+    margin: 15px 0;
+}
+.model_content  input{
+    width: 100%;
+    padding: 8px;
+
+}
+.model_content .button_pay{
+    width: 100%;
+    padding: 16px;
+    margin: 16px 0;
+    background-color: #009688;
+    color: #fff;
+    border-style: none;
+}
+.model_content .button_pay:hover{
+    cursor: pointer;
+    color: #000;
+    background-color: #ccc;
+}
+.model_footer{
+    padding: 0 16px;
+}
+.model_footer >p{
+    margin: 16px 0;
+}
+/* END CSS MODAL */

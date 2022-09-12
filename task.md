@@ -11,6 +11,8 @@
 
 + ôn lại kiến thức HTML, CSS đã học.
 + Làm lại shoppee., hoàn thành 100% khóa học.
++ Học khóa responsive(6h => 2-3 ngày, responsive shoppee)
+
 + Ôn lại kiến thức Javascript đã học.
 + Làm xong các Project làm quen với JS cơ bản.
 + Xem thêm video JS nâng cao, note thêm các kĩ thuật JS nâng cao.

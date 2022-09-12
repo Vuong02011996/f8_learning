@@ -108,7 +108,7 @@
                                 <h4 class="place_heading">New York</h4>
                                 <p class="place_time">Fri 27 Nov 2016</p>
                                 <p class="place_des">Praesent tincidunt sed tellus ut rutrum sed vitae justo.</p>
-                                <button class="btn">
+                                <button class="btn js_btn">
                                     Buy Tickets
                                 </button>
                             </div>
@@ -120,7 +120,7 @@
                                 <h4 class="place_heading">New York</h4>
                                 <p class="place_time">Fri 27 Nov 2016</p>
                                 <p class="place_des">Praesent tincidunt sed tellus ut rutrum sed vitae justo.</p>
-                                <button class="btn">
+                                <button class="btn js_btn">
                                     Buy Tickets
                                 </button>
                             </div>
@@ -132,7 +132,7 @@
                                 <h4 class="place_heading">New York</h4>
                                 <p class="place_time">Fri 27 Nov 2016</p>
                                 <p class="place_des">Praesent tincidunt sed tellus ut rutrum sed vitae justo.</p>
-                                <button class="btn">
+                                <button class="btn js_btn">
                                     Buy Tickets
                                 </button>
                             </div>
@@ -192,11 +192,99 @@
         </div>
         <!-- End Content -->
 
+        <!-- Map and footer -->
+        <!-- Image  map-->
+        <img src="../1_Web_the_band_time_3/assets/img/map.jpg" alt="map" class="image_map">
+
+        <div id="footer">
+            <div class="footer_info">
+                <div class="footer_icon">
+                    <a href=""><i class="facebook ti-facebook"></i></a>
+                    <a href=""><i class="sky ti-skype"></i></a>
+                    <a href=""><i class="twitter ti-twitter-alt"></i></a>
+                </div>
+                <div class="footer_ref">
+                    <p>Powered by  <a href="#">w3.css</a> </p>
+                </div>
+            </div>
+
+        </div>
+
     </div>
 
+    <!-- MODAL HTML 
+     + HTML, CSS cho modal
+            + Header modal
+            + Body modal
+            + Footer modal.
+        + JS cho modal
+            + Bấm button hiện modal
+            + Bấm close, overlay tắt modal
+            + Ngăn sự kiện nổi bọt
+        + Animation modal 
+    -->
     <div class="modal_buy_tickets">
+        <div class="model_container">
+            <header class="model_header">
+                <h4 class="model_heading">
+                    <i class="ti-bag"></i>
+                    Tickets
+                </h4>
+                <i class="close_model ti-close">
+                </i>
+            </header>
 
+            <div class="model_content">
+                <label for="How_many">
+                    <i class="ti-shopping-cart"></i>
+                    Tickets, $15 per person
+                </label>
+                <input id="How_many" type="text" placeholder="How many">
+
+                <label for="enter_email">
+                    <i class="ti-user" ></i>
+                    Send To
+                </label>
+                <input id="enter_email" type="email" placeholder="Enter email">
+
+                <button class="button_pay">
+                    PAY
+                    <i class="ti-check"></i>
+                </button>
+            </div>
+            <footer class="model_footer">
+                <p class="pull_right">
+                    Need 
+                    <a href="#"> Need help?</a>
+                </p>
+            </footer>
+        </div>
     </div>
-    
+    <!-- Script modal -->
+    <script>
+        const btns = document.querySelectorAll(".js_btn")
+        const modal = document.querySelector(".modal_buy_tickets")
+        const close_model = document.querySelector(".close_model")
+        const model_container = document.querySelector(".model_container")
+
+        function showModal(){
+            // add them mot class cho modal
+            modal.classList.add("open")
+        }
+
+        function hideModal(){
+            modal.classList.remove("open")
+        }
+        for (const btn of btns){
+            btn.addEventListener("click", showModal)
+        }
+        close_model.addEventListener("click", hideModal)
+        // click all region overlay
+        modal.addEventListener("click", hideModal)
+        // Sự kiện nổi bọt, tránh việc bấm vô container cũng bị close contaier
+        model_container.addEventListener("click", function (event) {
+            event.stopPropagation()
+        })
+    </script>
 </body>
 </html>

@@ -24,3 +24,5 @@
 @media (max-width: 46.1875em) {
 }
 ```
+
+# Responsive The Band
