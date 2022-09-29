@@ -31,7 +31,7 @@
         </div> -->
     </div>
 
-    <!-- Đưa hai button bài trước vào -->
+    <!-- Đưa hai button bài trước vào , hai button ni lắng nghe sự kiện onclick-->
     <div>
         <div onclick="showSuccessToast()" class="btn btn--success">Show success toast</div>   
         <div onclick="showErrorToast()" class="btn btn--danger">Show error toast</div>   
@@ -95,6 +95,7 @@
                     if (e.target.closest('.toast__close'))
                     {
                         toast_id.removeChild(toast_class);
+                        // Nếu click close rồi thì không xóa ID tự động remove để tránh lỗi.
                         clearTimeout(removeID);
                     }
                 }
@@ -113,14 +114,14 @@
             toast({ title:"Success",
                     message:"Bạn đã đăng ký thành công tài khoản tại F8.", 
                     type:"success", 
-                    duration:10});
+                    duration:1});
 
         }
         function showErrorToast(){
             toast({ title:"Error",
                     message:"Có lỗi xảy ra.", 
                     type:"error", 
-                    duration:10});
+                    duration:1});
         }
     </script>
           

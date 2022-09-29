@@ -52,7 +52,3 @@ docs/_build/
 
 .idea/
 .idea/*
-
-datasets/*
-videos/*
-*.pdf

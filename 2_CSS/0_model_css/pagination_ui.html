@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pagination</title>
+    <link rel="stylesheet" href="../Project_example/2_Shopee_time2/assets/fonts/fontawesome-free-6.1.1-web/css/all.min.css">
+
+    <style>
+        /* Biến css toàn cục */
+        :root {
+            --primary_color: #ec3e2e;
+            --white_color: #fff;
+            --black_color: #000;
+            --text_color: #756F6E;
+            --border_color: #dbdbdb;
+
+            --header_height: 120px;
+            --navbar_height: 26px;
+            --header_search_height: calc(var(--header_height) - var(--navbar_height));
+        }
+
+        * {
+            /* tất cả thẻ đều kế thừa box-sizing ở thẻ html */
+            box-sizing: inherit;
+            padding: 0;
+            margin: 0;
+        }
+
+        html {
+            /* để xử dụng 1rem bằng 10px */
+            font-size: 62.5%;
+            /* Xét chiều cao cho hàng chữ bằng 16px */
+            line-height: 1.6rem;
+            /* sans-serif chủng chữ không có chân, nếu Roboto không tải được thì dùng thèn ni */
+            font-family: 'Roboto', sans-serif;
+            /* Kích thước element tự giảm khi thêm padding, border */
+            box-sizing: border-box;
+        }
+
+        /* Pagination CSS UI*/
+        .pagination {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            list-style: none;
+        }
+
+        .pagination__item {
+            margin: 0 8px;
+        }
+
+        .pagination__item--active .pagination__item-link{
+            background-color: var(--primary_color);
+            color: var(--white_color);
+        }
+
+        .pagination__item--active .pagination__item-link:hover{
+            filter: brightness(90%);
+        }
+
+        .pagination__item-link {
+            display: block;
+            font-size: 2rem;
+            /* Sử dụng min-width để nếu có nhiều trang width thay đổi được */
+            min-width: 40px;
+            --height: 36px;
+            height: var(--height);
+            text-decoration: none;
+            text-align: center;
+            line-height: var(--height);
+            color: var(--text_color);
+        }
+
+        .pagination__item-icon {
+            font-size: 1.6rem;
+        }
+
+        /* Pagination */
+        .pagination--margin {
+            margin: 48px 0 16px 0;
+        }
+
+    </style>
+</head>
+<body>
+    <!-- Home Pagination -->
+    <ul class="pagination pagination--margin ">
+        <li class="pagination__item">
+            <a href="#" class="pagination__item-link">
+                <i class="pagination__item-icon fas fa-angle-left"></i>
+            </a>
+        </li>
+        <li class="pagination__item pagination__item--active">
+            <a href="#" class="pagination__item-link">1</a>
+        </li>
+        <li class="pagination__item">
+            <a href="#" class="pagination__item-link">2</a>
+        </li>
+        <li class="pagination__item">
+            <a href="#" class="pagination__item-link">3</a>
+        </li>
+        <li class="pagination__item">
+            <a href="#" class="pagination__item-link">4</a>
+        </li>
+        <li class="pagination__item">
+            <a href="#" class="pagination__item-link">5</a>
+        </li>
+        <li class="pagination__item">
+            <a href="#" class="pagination__item-link">...</a>
+        </li>
+        <li class="pagination__item">
+            <a href="#" class="pagination__item-link">14</a>
+        </li>
+
+        <li class="pagination__item">
+            <a href="#" class="pagination__item-link">
+                <i class="pagination__item-icon fas fa-angle-right"></i>
+            </a>
+        </li>
+    </ul>
+    
+</body>
+</html>

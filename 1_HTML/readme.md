@@ -40,6 +40,7 @@
   + Dùng để viết text.
   + Thẻ p sẽ nằm xuống dòng.(khối riêng như block của div)
   + span nằm cùng hàng với thẻ cha như inline.
+  + Thẻ span đưa ra để chứa một thẻ khác CSS thêm cho nó.
 
 + Thẻ label, input, button, a nằm trên 1 hàng(inline, inline block).
 + Thẻ h display block, nằm xuống hàng.

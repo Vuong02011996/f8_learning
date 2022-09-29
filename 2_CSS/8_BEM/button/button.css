@@ -51,7 +51,7 @@ body > div {
       opacity: 0.8;
   }
 
-  /*  css cho btn đứng liền kề. */
+  /*  css cho btn đứng SAU liền kề. */
   .btn + .btn {
       margin-left: 16px;
   }
@@ -72,7 +72,6 @@ body > div {
       /* them important để hover lên 0.8 vẫn là 0.5 */
       opacity: 0.5 !important;
       cursor: default;
-
   }
 
   .btn--size-s {

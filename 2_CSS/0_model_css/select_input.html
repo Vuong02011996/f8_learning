@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Select input</title>
+    
+    <link rel="stylesheet" href="../Project_example/2_Shopee_time2/assets/fonts/fontawesome-free-6.1.1-web/css/all.min.css">
+    <style>
+        body {
+            background-color: rgba(0, 0, 0, 0.05);
+        }
+
+        * {
+            /* tất cả thẻ đều kế thừa box-sizing ở thẻ html */
+            box-sizing: border-box;
+            padding: 0;
+            margin: 0;
+        }
+        .select-input {
+            /* min-width: 200px; */
+            position: relative;
+            width: 200px;
+            height: 34px;
+            padding: 0 12px;
+            border-radius: 2px;
+            background-color: #fff;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .select-input:hover .select-input__list{
+            display: block;
+
+        }
+
+        .select-input__label {
+            font-size: 14px;
+        }
+
+        .select-input__icon {
+            font-size: 14px;
+            color: rgb(131, 131, 131);
+            position: relative;
+            top: 1px;
+
+        }
+
+        .select-input__list {
+            position: absolute;
+            left: 0;
+            right: 0;
+            top: calc(100% + 1px);
+            border-radius: 2px;
+            background-color: #fff;
+            list-style: none;
+            display: none;
+        }
+
+        /* Làm cầu nối */
+        .select-input__list::before{
+            content: "";
+            height: 20px;
+            width: 100%;
+            position: absolute;
+            left: 0;
+            top: -10%;
+        }
+
+        .select-input__item-link {
+            font-size: 14px;
+            text-decoration: none;
+            display: block;
+            padding: 8px 16px;
+            color: #000;
+        }
+
+        .select-input__item-link:hover {
+            color: #ccc;
+        }
+
+    </style>
+</head>
+<body>
+
+    <div class="select-input">
+        <span class="select-input__label">Giá</span>
+        <i class="select-input__icon fas fa-angle-down"></i>
+        <ul class="select-input__list">
+            <li class="select-input__item">
+                <a href="" class="select-input__item-link">Giá: Thấp đến Cao</a>
+            </li>
+            <li class="select-input__item">
+                <a href="" class="select-input__item-link">Giá: Cao đến Thấp</a>
+            </li>
+        </ul>
+    </div>
+    
+</body>
+</html>

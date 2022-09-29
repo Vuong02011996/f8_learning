@@ -6,6 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>The Band 3</title>
     <link rel="stylesheet" href="../1_Web_the_band_time_3/assets/css/style.css">
+    <!-- Phải để sau file style.css mới ghi đè lên được -->
+    <link rel="stylesheet" href="../1_Web_the_band_time_3/assets/css/responsive.css">
     <link rel="stylesheet" href="../1_Web_the_band_time_3/assets/fonts/themify-icons-font/themify-icons/themify-icons.css">
 </head>
 <body>
@@ -32,6 +34,12 @@
             <div class="button_search">
                 <i class="ti-search"></i>
             </div>
+
+            <!-- Menu để ẩn hiện các nav_item trên mobile -->
+            <div id="js_menu_mobile" class="menu_mobile">
+                <i class="ti-menu"></i>
+            </div>
+
         </div>
         <!-- End Header 1h - 2h30-->
         <!-- Slider -->
@@ -56,21 +64,21 @@
                 </p>
 
                 <div class="row about_band">
-                    <div class="col col_3 member_item">
+                    <div class="s_col_full col col_3 member_item">
                         <p class="member_label">
                             Name
                         </p>
                         <img src="../1_Web_the_band_time_3/assets/img/band/bandmember.jpg" alt="Member avatar" class="member_avatar">
                     </div>
 
-                    <div class="col col_3 member_item">
+                    <div class="s_col_full col col_3 member_item">
                         <p class="member_label">
                             Name
                         </p>
                         <img src="../1_Web_the_band_time_3/assets/img/band/bandmember.jpg" alt="Member avatar" class="member_avatar">
                     </div>
 
-                    <div class="col col_3 member_item">
+                    <div class="s_col_full col col_3 member_item">
                         <p class="member_label">
                             Name
                         </p>
@@ -102,7 +110,7 @@
                     </ul>
 
                     <div class="row tour_place">
-                        <div class="col col_3 place_item">
+                        <div class="s_col_full mt_16 col col_3 place_item">
                             <img src="../1_Web_the_band_time_3/assets/img/place/place1.jpg" alt="place_1">
                             <div class="place_info">
                                 <h4 class="place_heading">New York</h4>
@@ -114,7 +122,7 @@
                             </div>
                         </div>
 
-                        <div class="col col_3 place_item">
+                        <div class="s_col_full mt_16 col col_3 place_item">
                             <img src="../1_Web_the_band_time_3/assets/img/place/place2.jpg" alt="place_1">
                             <div class="place_info">
                                 <h4 class="place_heading">New York</h4>
@@ -126,7 +134,7 @@
                             </div>
                         </div>
 
-                        <div class="col col_3 place_item">
+                        <div class="s_col_full mt_16 col col_3 place_item">
                             <img src="../1_Web_the_band_time_3/assets/img/place/place3.jpg" alt="place_1">
                             <div class="place_info">
                                 <h4 class="place_heading">New York</h4>
@@ -151,7 +159,7 @@
                 </div>
                 <form action="">
                     <div class="row contact_info">
-                        <div class="col col_5">
+                        <div class="col col_5 s_col_full">
                             <p class="contact_place">
                                 <i class="ti-map"></i>
                                 Chicago, US
@@ -165,12 +173,12 @@
                                 mail@mail.com
                             </p>
                         </div>
-                        <div class="col col_5">
+                        <div class="col col_5 s_col_full">
                             <div class="row">
-                                <div class="col col_5 padding_8">
+                                <div class="col col_5 s_col_full padding_8 mt_16">
                                     <input type="text" placeholder="Name" required class="form_control">
                                 </div>
-                                <div class="col col_5 padding_8">
+                                <div class="col col_5 s_col_full padding_8 mt_8">
                                     <input type="email" placeholder="Email" required class="form_control">
                                 </div>
                             </div>
@@ -179,7 +187,7 @@
     
                         </div>
 
-                        <button class="btn pull_right">
+                        <button class="btn pull_right s_width_full">
                             SEND
                         </button>
     
@@ -286,5 +294,50 @@
             event.stopPropagation()
         })
     </script>
+
+    <!-- script Mobile Menu Bấm vô menu-mobile sẽ hiện các nav item đã ẩn, click vô 1 nav item thì ẩn lại-->
+    <script>
+        // Các bước khi bắt đầu viết js
+        // 0. Xác định viết js thực hiện chức năng ntn, các element để  thực hiện.
+        // 1. Lấy element muốn bắt sự kiện, console kiểm tra.
+        // 2. Dùng element mới lấy gọi tên các sự kiện để xử lí.
+
+        var header = document.getElementById("header")
+        var menuMobile = document.getElementById("js_menu_mobile")
+        // Lấy kích thước hiện tại của header
+        var headerHeight = header.clientHeight
+
+        menuMobile.onclick = function() {
+            var isClose = header.clientHeight === headerHeight
+            if (isClose) {
+                header.style.height = "auto" 
+            }
+            else {
+                header.style.height = null
+            }
+        }
+
+        // Lấy ra những thẻ a có href bắt đầu bằng dấu # (More) để bấm vô là ẩn menu
+        // Copy Css selector vô.
+        var navItems = document.querySelectorAll(".nav_items > a[href*='#']")
+        for (var i = 0; i < navItems.length; i ++){
+            var navItem = navItems[i]
+            navItem.onclick = function(event) {
+                // Check nếu element khác More mới chạy cái ni còn không sẽ bỏ mặc định # của thẻ a
+                // Vì chỉ duy nhất thèn More có sub_nav đằng sau nên dùng cái ni để check
+                // nextElementSibling: có ace nào tiếp theo
+                var isParent = this.nextElementSibling && this.nextElementSibling.classList.contains("sub_nav")
+                console.log(isParent)
+                if (isParent) {
+                    // chặn tính chất mặc định của href 
+                    event.preventDefault()
+                }
+                else {
+                    header.style.height = null
+                }
+            }
+        }
+    </script>
+    <!-- End script on mobile -->
 </body>
 </html>

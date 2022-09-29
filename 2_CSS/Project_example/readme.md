@@ -1,6 +1,13 @@
 # Các bước khi thực hiện một project.
 1. Phân tích.(phân tích giao diện - designer) để biết phải làm gì rồi mới bắt tay vào làm.
 2. Dựng base(Xây móng)
+    + Tạo các file index.html, base.css, main.css, các thư mục tính assets, fonts, img, ...
+    + Reset CSS
+        + Sử dụng : normalize.min.css một thư viện đơn giản reset CSS.
+    + Dựng CSS base: css các thuộc tính mặc định trong base.css
+    + Dựng khung web trên file index.html: 
+        + Thẻ chứa toàn bộ website: div app. 
+        + Dựng các thẻ chính bên trong: header, container, footer.
 3. Xây dựng từng thành phần dựa vào phân tích.
 4. Hoàn thiện.(kiểm tra lại)
 

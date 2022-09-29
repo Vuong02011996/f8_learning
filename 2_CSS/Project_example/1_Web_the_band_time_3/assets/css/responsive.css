@@ -1,0 +1,77 @@
+/* PC */
+@media (min-width: 64em) {
+
+			
+}
+
+/* Tablet and PC*/
+@media (min-width: 46.25em){
+    .menu_mobile{
+        display: none;
+    }
+	
+}
+
+
+/* Tablet */
+@media (min-width: 46.25em)  and (max-width: 63.9375em){
+	
+}
+
+/* Tablet and Mobile */
+@media (max-width: 63.9375em) {
+}
+
+
+/* Mobile */
+@media (max-width: 46.1875em) {
+    /* Dùng chuyển các cột 3(col_3) thành 1(s_col_full) trên mobile , phần member, info tour*/
+    .s_col_full, .s_width_full{
+        width: 100%;
+    }
+    /* margin top cho các hàng sát nhau */
+    .mt_16{
+        margin-top: 16px;
+    }
+    
+    .mt_8{
+        margin-top: 8px;
+    }
+
+    .main{
+        overflow: hidden;
+    }
+        /* Khi các đối tượng con nằm ngoài thể cha thì ẩn đi - mobile ẩn các nav sau Home */
+    #header{
+        overflow: hidden;
+    }    
+    /* Cho Band, Tour, Contact dài 100% để dễ bấm trừ thèn Home đầu tiên */
+    .nav {
+        display: block;
+    }
+    .nav >li:first-child {
+        display: inline-block;
+    }
+    /* trả vị trí các item về lại chiều dọc */
+    .nav_items{
+        display: block;
+    }
+    .sub_nav{
+        /* Bỏ position bằng absolute trên mobile để thành con bình thường
+        không cần nổi lên trên */
+        position: initial;
+    }
+
+    /* Chỉnh sửa cái sub nav to ra dễ bấm dễ nhìn hơn trên mobile */
+    .sub_nav_items >a {
+        padding: 10px 32px;
+    }
+
+    .button_search{
+        display: none;
+    }
+
+    .member_avatar{
+        width: 60%;
+    }
+}

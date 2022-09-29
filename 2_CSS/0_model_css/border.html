@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Border</title>
+    <style>
+
+        /*
+        Có rất nhiều cách làm border, đường gạch xuống:
+        + Dùng lớp giả.
+        + Dùng thẻ span.
+        + Dùng thuộc tính border trực tiếp của thẻ
+        ... 
+         */
+        .border-input {
+            padding: 8px;
+            width: 100%;
+            font-size: 1.4rem; 
+            margin-top: 16px;
+            border: 1px solid #dbdbdb;    
+            border-radius: 2px;
+            /* Bỏ outline mặc định thẻ input khi click vào */
+            outline: none;
+            border-bottom-right-radius: 3px;
+        }
+
+        /* Lớp giả khi focus chuột vô element */
+        .border-input:focus{
+            border-color: #888;
+        }
+
+        /* Làm mũi tên với border */
+        .header__notify::before {
+            content: "";
+            border-width: 20px 30px;
+            border-style: solid;
+            border-color: transparent transparent var(--white_color) transparent;
+            position: absolute;
+            right: -1px;
+            /* Border 20px thì chiều cao là 40px */
+            top: -28px;
+        }
+
+    </style>
+
+</head>
+<body>
+    
+    <input type="text" class="border-input">
+
+</body>
+</html>

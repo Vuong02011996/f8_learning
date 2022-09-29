@@ -14,6 +14,7 @@
 + contain: cố gắng lấy kích thước w hoặc h (ảnh) lớn hơn, chấp nhận khoảng trắng.
 + Cover: cố gắng lấy kích thước w hoặc h(ảnh) lớn nhất không chấp nhận khoảng trắng bằng cách cắt ảnh.
 + background-size: cover;
++ contain, cover: khi muốn kích thước ảnh chiếm hết thẻ div chứa nó. Nếu ảnh có kích thước nhỏ hơn thẻ div, sẽ tự động resize ảnh cho bằng kích thước thẻ div.
 ## Background origin:
 + Quyết định đổ image từ đâu: border, padding, hay content của thẻ.
 + Đổ màu nền : background-color chỉ đổ được tới phần padding. Không đổ  được vào phần margin. 
@@ -34,3 +35,5 @@
 
 
 ```
+# Note:
++ Nếu thẻ div chứa img chưa có chiều cao hoặc chiều rộng thì ảnh dùng background-imge với url(), sẽ không hiển thị lên được. Kích thước chiều cao của thẻ thường dùng padding-top: 100%: Để cho chiều cao của thẻ bằng chiều rộng và bằng chiều rộng thẻ cha.

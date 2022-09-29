@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* Animation cho header_qr hiện từ từ */
+        @keyframes FadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+            
+        }
+        /* Animation cho header thông báo hiện từ bé đến to mờ đến rõ */
+        @keyframes headerNotifyGrown {
+            from {
+                opacity: 0;
+                transform: scale(0);
+            }
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+            
+        }
+        .button{
+            float: right;
+            position: relative;
+        }
+        .header__notify {
+            position: absolute;
+            /* Cách xuống một khoảng như chữ cách trên mặt trên */
+            top: 118%;
+            right: 8px;
+            width: 400px;
+            height: 400px;
+            /* boder cho hộp */
+            background-color: #ccc;
+            border: 1px solid #D3D3D3;
+            cursor: default;
+            /* Cho animation hiện từ góc trên bên phải */
+            /* transform-origin: top right; */
+            /* Hiện không sát từ biên phải */
+            /* transform-origin: 90% top; */
+            transform-origin: calc(100% - 20px) top;
+            animation: headerNotifyGrown ease-in 0.25s;
+            display: none;
+        }
+        .button:hover .header__notify{
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <button class="button">
+        Animation
+        <div class="header__notify">Notify</div>
+    </button>
+    
+</body>
+</html>

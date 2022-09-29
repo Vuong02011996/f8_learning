@@ -28,7 +28,9 @@ html{
     margin-bottom: 16px;
 }
 .width_800_margin_auto{
-    max-width: 800px;
+    width: 800px;
+    /* width iPad 768 nếu cố định 800px sẽ lỗi */
+    max-width: 100%;    
     margin: auto;
 }
 
@@ -93,7 +95,8 @@ html{
     left: 0;
     right: 0;
     top: 0;
-    bottom: 0;
+    /* Không để bottom vì chiều cao header sẽ chiếm hết giao diện */
+    /* bottom: 0; */
 }
 .nav{
     display: inline-block;
@@ -145,7 +148,7 @@ html{
     display: block;
 }
 
-.button_search{
+.button_search, .menu_mobile {
     float: right;
     display: inline;
     color: #fff;
@@ -156,6 +159,21 @@ html{
 .button_search:hover{
     background-color: #f44336;
     cursor: pointer;
+}
+
+/* Sau khi các nav item block đẩy menu mobile ra khỏi khối nên dùng position */
+.menu_mobile {
+    position: absolute;
+    top: 0;
+    right: 0;
+}
+
+.menu_mobile:hover{
+    background-color: #ccc;
+}
+
+.menu_mobile:hover .menu_mobile>i{
+    color: #000;
 }
 /* End Header */
 
@@ -294,6 +312,9 @@ html{
 }
 /* End Content */
 /* Map and footer */
+.image_map{
+    width: 100%;
+}
 
 .footer_info{
     text-align: center;

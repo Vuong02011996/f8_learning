@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dau3cham</title>
+    <style>
+        h1{
+            font-size: 16px;
+            line-height: 18px;
+            /* ẩn các dòng vượt quá kích thước thẻ */
+            overflow: hidden;
+
+
+            /* CACH 1: Làm dấu 3 chấm nếu chữ dài.Cách cho nhiều hàng */
+            /*  Giới hạn 2 hàng */  
+            /* height: 36px; */
+            /* Ẩn các hàng lớn hơn 2 */
+            /* overflow: hidden; */
+            /* Sử dụng webkit-box tới 2 hàng thì để dâu 3 chấm */
+            /* display: block; */
+            /* display: -webkit-box; */
+            /* Hướng dòng, trên xuống - chiều dọc */
+            /* -webkit-box-orient: vertical; */
+            /* -webkit-line-clamp: 2; */
+        
+
+            /* CACH: 2 Trường hợp 1 dòng sử dụng thèn bên dưới để hổ trợ trên nhiều trình duyệt */
+            height: 18px;
+            /* cho chữ không xuống dòng */
+            white-space: nowrap;
+            /* Chặn dòng 1 ki chữ vượt quá kích thước thẻ thêm dấu 3 chấm */
+            text-overflow: ellipsis;
+        }
+    </style>
+</head>
+<body>
+    <h1>NT: Các col phải nằm trong row, row phải nằm trong grid. Một grid có thể có nhiều row, một row có thể có nhiều col.</h1>
+    
+</body>
+</html>

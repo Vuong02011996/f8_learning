@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            display: flex;
+        }
+
+        /* Làm border là mũi tên hướng lên */
+        .border_arrow {
+            margin: auto;
+            /*  Border vuông */
+            /* border: 20px solid; */
+            /* Border hình chữ nhật */
+            border-style: solid;
+            border-width: 20px 40px;
+            /* border-color: red blue green orange; */
+            /* transparent màu trong suốt (top-right-bottom-left)*/
+            border-color: transparent transparent green transparent;
+        }
+
+        /* Làm border là mũi tên hướng lên 45 độ */
+        .border_rotate {
+            margin: auto;
+            border-top: 20px solid green;
+            border-left: 20px solid transparent;
+        }
+
+        /* Làm hai tam giác hai bên, nhãn giảm giá SHOPPE */
+
+        .border_2_tam_giac {
+            margin: auto;
+            /* Cho top bằng 0, nữa trên border biến mất */
+            border-width: 0 30px 10px;
+            border-style: solid;
+            border-color: transparent orange transparent orange;
+        }
+
+    </style>
+</head>
+
+<body>
+    <span class="border_arrow"></span>
+    <span class="border_rotate"></span>
+    <span class="border_2_tam_giac"></span>
+</body>
+</html></html>

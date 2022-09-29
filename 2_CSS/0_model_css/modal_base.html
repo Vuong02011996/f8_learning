@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Base Modal</title>
+    <style>
+
+        /* Modal login/register */
+        .modal {
+            position: fixed;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            display: flex;
+        }
+
+        .modal__overlay {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.4);
+            /* z-index: 1; */
+        }
+
+        .modal__body {
+            /* Các thuộc tính bỏ khi làm thực tế */
+            width: 300px;
+            height: 300px;
+            background-color: red;
+
+            margin: auto;
+            /* Cùng để position như overlay cái nào viết sau thì nổi lên trên*/
+            position: relative;
+            /* Dùng z-index để đảm bảo nổi lên trên cùng */
+            z-index: 2;
+        }
+
+
+    </style>
+</head>
+<body>
+    <!-- Modal
+    Phần chung:
+    + Vùng Overlay.
+    + Khung modal
+    Phần riêng: content của khung modal
+-->
+    <div class="modal">
+        <!-- Vùng overlay -->
+        <div class="modal__overlay"></div>
+        <!-- Khung modal -->
+        <div class="modal__body">
+            <!-- Viết content modal ở đây: form login/register, ... -->
+            CONTENT MODAL
+        </div>
+    </div>
+
+</body>
+</html>

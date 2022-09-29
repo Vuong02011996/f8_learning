@@ -4,9 +4,43 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Button</title>
+    <style>
+        /* CSS btn */
+        .btn{
+            min-width: 140px;
+            height: 36px;
+            /* Bỏ mặc định nếu có */
+            padding: 0;
+            text-decoration: none;
+            outline: none;
+            border-style: none;
+            border-radius: 2px;
+            
+            margin-left: 8px;
+            cursor: pointer;
+            text-transform: uppercase;
+            user-select: none;
+            /* size chữ trong button */
+            font-size: 15px;
+        }
+        /* Yêu cầu thẻ đó phải có hai class mới ăn thuộc tính này */
+        .btn.btn--primary{
+            background-color: rebeccapurple;
+            color: #fff;
+        }
+
+        .btn.btn--disable{
+            cursor: default;
+            background-color: #949494;
+            color: #c3c3c3;
+        }
+
+    </style>
 </head>
 <body>
+    <button class="btn btn--disable"> ĐĂNG KÝ</button>
+    <button class="btn btn--primary"> ĐĂNG NHẬP</button>
     
 </body>
 </html>

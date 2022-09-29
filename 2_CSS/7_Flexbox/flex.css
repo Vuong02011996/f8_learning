@@ -19,6 +19,8 @@ body {
     background-color: #EF5122;
     display: flex;
     justify-content: space-between;
+    /*flex-start: canh trái 
+    space-between: đẩy hai thèn ra ngoài cùng*/
 }
 
 .nav-list {
@@ -44,11 +46,12 @@ body {
 .form__row {
     padding: 8px 0;
     display: flex;
-
 }
 
 .form__label {
-    flex: 1;
+    /* flex: flex-grow [flex-shrink] [flex-basis]; shorthand. */
+    /* flex-item có thuộc tính này sẽ chiếm hết khoảng trống còn lại của main axis */
+    flex: 1; 
 }
 
 .form__input {
@@ -66,7 +69,7 @@ body {
 .column-item {
     padding: 0 16px;
 }
-
+/* Thay đổi chiều rộng các cột theo trọng số flex, chia theo tỉ lệ */
 .sidebar-one {
     flex: 1;
 }

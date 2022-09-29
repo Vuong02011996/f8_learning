@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BEM</title>
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        html, body {
+            margin: 0;
+            padding: 0;
+            font-size: 18px;
+            font-family: Arial, Helvetica, sans-serif;
+            height: 100%;
+        }
+
+        body {
+            display: flex;
+            flex-direction: column;
+        }
+
+        body > div {
+            margin: auto;
+            /* justify-content: center; */
+            /* align-items: center; */
+        }
+        /* BUTTON theo BEM, Block + modifier */
+        /* CSS cho block  */
+        .btn{
+            display: inline-block;
+            padding: 8px 40px;
+            /* Độ rộng tối thiểu trường hợp ít chữ bên trong */
+            min-width: 120px;
+
+            /* border góc */
+            border-radius: 50px;
+            cursor: pointer;
+            color: #fff;
+            text-align: center;
+
+                /* tạo ra thay đổi hiệu ứng khi bấm */
+            transition: opacity .2s ease;
+
+            /* Bỏ mặc định */
+            /* bỏ gạch chân nếu dùng thẻ a */
+            text-decoration: none;
+            /* bỏ background , border. outline  mặc định nếu dùng button */
+            background-color: transparent;
+            border: none;
+            outline: none;
+        }
+        /* CSS cho btn đằng sau liền kề  warn and danger, success không ảnh hưởng */
+        .btn + .btn{
+            margin-left: 32px;
+        }
+        /* CSS cho modifier */
+        .btn--success{
+            background-color: green;
+        }
+        .btn--warn{
+            background-color: yellow;
+        }
+        .btn--danger{
+            background-color: red;
+        }
+
+        /* Hover có hiệu ứng từ từ */
+        .btn:hover{
+            opacity: 0.7;
+        }
+
+        /* Disable btn không bấm vô được */
+        .btn--disable{
+            opacity: 0.4 !important;
+            cursor: default;
+        }
+        
+
+        .btn--size-s {
+            padding: 8px 32px;
+
+        }
+
+        .btn--size-l {
+            padding: 16px 36px;
+
+        }
+
+    </style>
+</head>
+<body>
+    <div>
+        <div class="btn btn--size-s btn--success"> GO TO NEXT</div>
+        <div class="btn btn--size-s btn--warn"> OK </div>
+        <div class="btn btn--size-s btn--danger"> TRY AGAIN</div>
+    </div>
+
+    <div>
+        <div class="btn btn--success btn--disable"> GO TO NEXT</div>
+        <div class="btn btn--warn"> OK </div>
+        <div class="btn btn--danger"> TRY AGAIN</div>
+    </div>
+
+    <div>
+        <div class="btn btn--size-l btn--success btn--disable"> GO TO NEXT</div>
+        <div class="btn btn--size-l btn--warn"> OK </div>
+        <div class="btn btn--size-l btn--danger"> TRY AGAIN</div>
+    </div>
+</body>
+</html>
