@@ -1,6 +1,7 @@
 # Tạo chuỗi 2 cách
 + var name  = 'Name'
 + var name  = new String("Name") -> kiểu data object.
++ Sử dụng cách 1: vì nhanh hơn, kiểu dữ liệu cách 2 là object.
 
 # Trường hợp sử  dụng backslash.
 + var name = "Toi bị \"dien\"";
@@ -51,4 +52,3 @@
 # Get a character by index.
 + mystring.charAt(0) -> H
 + mystring[0] -> H.
-

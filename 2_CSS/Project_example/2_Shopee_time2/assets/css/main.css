@@ -1,7 +1,20 @@
+.app {
+    overflow: hidden;
+}
+
+
 .header{
     height: var(--header_height);
     /* tọa giải màu trải đều */
     background-image: linear-gradient(0, #fe6433, #f53e2d);
+
+    /* Cho cố định bên trên khi cuộn */
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+    /* Cho cao cao để ở trên cao nhất khi kéo */
+    z-index: 10;
 }
 
 /* Đưa 2 ul lên hàng ngang có thể dùng inline block nhưng có khoảng các xa hai ul
@@ -182,7 +195,7 @@ Không dùng inline-flex để tránh xuống dòng. */
     /* thuộc tính thông báo cho trình duyệt web biết và tối ưu chuyển động animation */
     will-change: opacity, transform;
     display: none; 
-    z-index: 1;
+    z-index: 3;
 }
 
 /* Làm mũi tên trên góc phải thông báo */
@@ -441,6 +454,10 @@ Không dùng inline-flex để tránh xuống dòng. */
 .header__logo-link {
     text-decoration: none;
     background-color: transparent;
+    /* Để bao được icon */
+    display: block;
+    /* Để căn icon ra giữa */
+    line-height: 0;
 }
 
 /* ---------header search----------- */
@@ -657,7 +674,7 @@ Cần CSS vào thẻ input hiện thẻ div đằng sau dùng css selector ~*/
     cursor: default;
     animation: FadeIn ease-in 0.3s;
     display: none;
-    z-index: 1;
+    z-index: 3;
 
 }
 .header__cart-list::before {
@@ -875,6 +892,8 @@ Cần CSS vào thẻ input hiện thẻ div đằng sau dùng css selector ~*/
 
 .app_container {
     background-color: #F5F5F5;
+    /* Cách trên để khỏi che sản phẩm: header dùng position nổi lên che */
+    margin-top: calc(var(--header_height) + var(--height_header_sort_bar));
 }
 
 .app_content {
@@ -1329,4 +1348,142 @@ i.product-item__action-star--gold {
     margin: auto;
     font-size: 1.4rem;
     color: var(--text_color);
+}
+
+/* Header sort bar CSS in mobile and tablet */
+.header_sort_bar {
+    position: fixed;
+    top: var(--header_height);
+    left: 0;
+    right: 0;
+    display: none;
+    height: var(--height_header_sort_bar);
+
+}
+
+.header_sort_bar_list {
+    display: flex;
+    list-style: none;
+    background-color: var(--white_color);
+    border-top: 1px solid var(--border_color);
+    border-bottom: 1px solid var(--border_color);
+}
+
+.header_sort_bar-item {
+    /* Chia mỗi item kích thước bằng nhau chiếm hết chiều ngang */
+    flex: 1;
+}
+
+.header_sort_bar-link {
+    font-size: 1.6rem;
+    text-decoration: none;
+    text-align: center;
+    display: block;
+    height: var(--height_header_sort_bar);
+    line-height: var(--height_header_sort_bar);
+    color: var(--text_color);
+    position: relative;
+}
+.header_sort_bar-link-active.header_sort_bar-link {
+    color: var(--white_color);
+    background-color: var(--primary_color);
+}
+.header_sort_bar-link::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    height: 100%;
+    border-left: 1px solid var(--border_color);
+}
+
+.header_sort_bar-link:first-child .header_sort_bar-link::before {
+    display: none;
+}
+
+/* CSS Header mobile search */
+.header_mobile_search {
+    padding: 0 12px;
+    display: none;
+}
+
+.header_mobile_search-icon {
+    font-size: 2.6rem;
+    color: var(--white_color);
+}
+
+/*  */
+.header_mobile_search_checkbox {
+    display: none;
+}
+
+/* Mobile category */
+.mobile_category {
+    display: none;
+}
+
+.mobile_category__list {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    list-style: none;
+    max-width: 100%;
+    overflow-x: auto;
+}
+
+/* Ẩn thanh scrollbar */
+.mobile_category__list::-webkit-scrollbar {
+    display: none;
+}
+
+.mobile_category__item {
+    /* Để chiều rộng của item không tự co lại khi tổng kích thước vượng quá flex container */
+    flex-shrink: 0;
+    margin-right: 10px;
+}
+/* Chọn item và cho màu theo vòng lặp 3 item */
+
+.mobile_category__item:nth-of-type(3n+1) .mobile_category__link {
+    background-color: #87AFD8;
+
+}
+
+.mobile_category__item:nth-of-type(3n+2) .mobile_category__link {
+    background-color: #76C9BD;
+
+}
+
+.mobile_category__item:nth-of-type(3n+3) .mobile_category__link {
+    background-color: #88CF81;
+
+}
+
+.mobile_category__link {
+    --line_height: 2rem;
+    font-size: 1.2rem;
+    font-weight: 300;
+    text-decoration: none;
+    color: var(--white_color);
+    display: block;
+    width: 108px;
+    line-height: var(--line_height);
+    height: calc(var(--line_height) *2);
+    border-radius: 5px;
+    text-align: center;
+
+    /* Hiện dấu 3 chấm khi chữ vượt quá 2 dòng */
+    height: calc(var(--line_height) *2);
+    /* Ẩn các hàng lớn hơn 2 */
+    overflow: hidden;
+    /* Sử dụng webkit-box tới 2 hàng thì để dâu 3 chấm */
+    /* display: block; */
+    display: -webkit-box;
+    /* Hướng dòng, trên xuống - chiều dọc */
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+    
+    /* ẩn highlight trên mobile khi bấm vào element */
+    -webkit-tap-highlight-color: transparent;
+
 }

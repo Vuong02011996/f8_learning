@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Number</title>
+</head>
+<body>
+    <script>
+        /**
+         * 1. Tạo giá trị số trong number
+         * 2. Làm việc với number
+         *      - To string
+         *      - To fixed - làm tròn số thập phân
+         */
+
+         var age = 20;
+         var PI = 3.14; // Số float
+
+         var otherNumber = 20/"abc"; // kết quả ra NaN
+         // Methods với số trong JS
+
+         // Check số có là NaN
+         console.log(isNaN(otherNumber)) // true
+
+         // Chuyển số  sang string
+         console.log(typeof age.toString())
+
+        // Làm tròn số thập phân
+        // Sau dấu phẩy nhỏ hơn 0.5 làm tròn dưới , lớn hơn làm tròn trên
+        console.log(PI.toFixed()) // không truyền gì thì kết qua -> 3
+        console.log(PI.toFixed(1)) // truyền 1 thì kết quả một số  sau dấu phẩy -> 3.1
+   
+   </script>
+</body>
+</html>

@@ -1,7 +1,7 @@
 # Array in JS
-+ Các phần tử trong mảng có thể có kiểu dữ liệu khác nhau như list python.
++ Các phần tử trong mảng có thể có kiểu dữ liệu khác nhau(số, null, function. ọbject, undefined, ...) như list python.
 + Kiểu dữ liệu của array là object nếu dùng typeof giống với {}.
-+ Array.isArray(): check array khác {}.
++ Array.isArray(tên_biến) trả về true nếu array: check array khác {}.
 + Index của mảng là số nguyên không âm, khác với python.(array[-1] sai)
 
 # Phươg thức thường sử dụng với mảng.

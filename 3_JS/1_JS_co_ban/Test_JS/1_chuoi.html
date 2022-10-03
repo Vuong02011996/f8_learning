@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chuoi</title>
+</head>
+<body>
+    <script>
+        /* Chuỗi trong JS
+        1. Tạo chuỗi
+            - Các cách tạo chuỗi
+            - Nên dùng cách nào, lí do
+            - Kiểm tra data type
+        2. Một số case sử dụng backslash (\ dấu gạch chéo ngược)
+        3. Xem độ dài chuỗi
+        4. Chú ý độ dài khi viết code
+        5. Template string ES6(2015)
+        */
+
+        var fullName = "Van Vuong"
+        // in ra 9 kể cả khoảng trắng.
+        console.log(fullName.length)
+
+        // Template string 
+        var firstName = "Van"
+        var lastName = "Vuong"
+        
+        console.log("Toi la " + firstName + " " + lastName)
+        // Dung $ để  lấy giá trị biến.
+        console.log(`Toi la ${firstName} ${lastName}`)
+
+        // CÁC PHƯƠNG THỨC VÀ THUỘC TÍNH HAY LÀM VIỆC VỚI CHUỐI
+        // Keyword: Javascript string method
+
+        var myString = "Hoc JS tai F8!"
+        
+        //  * Length
+        // console.log(myString.length)
+
+        //  * Find index
+        console.log(myString.indexOf("JS")) // trả về 4, nếu kí tự không có trả về -1
+        var myString1 = "Hoc JS JS JS tai F8!"
+        console.log(myString1.indexOf("JS", 6)) // Tìm JS từ vị trí thứ 6 -> trả về 7
+        console.log(myString1.lastIndexOf("JS")) // Tìm JS cuối cùng trong -> trả về 10
+        console.log(myString1.search("JS")) // Giống indexOf nhưng chỉ trả về được thèn đầu tiên
+
+        //  * Cut string
+        console.log(myString.slice(4,6)) // cắt vị trí 4 tới 6 -> JS
+        console.log(myString.slice(4)) // cắt vị trí 4 tới cuối cùng -> JS tai F8!
+        console.log(myString.slice(0)) // cắt vị trí từ đầu đến cuối -> Hoc JS tai F8!
+        console.log(myString.slice(-3,-1)) // đếm cuối cùng là 0 lên -1, -2 ... -> F8
+
+        //  * Replace
+        console.log(myString.replace("JS", "Python"))
+        console.log(myString1.replace(/JS/g, "Python")) // dùng biểu thức chính quy tìm tất cả JS trong chuỗi
+        
+        //  * Convert to upper case 
+        console.log(myString.toUpperCase()) // chú ý là toUpperCase là hàm nên phải có () cuối
+    
+        //  * Convert to lower case
+        console.log(myString.toLowerCase())
+        
+        //  * Trim
+        var myString2 = "    Hoc JS tai   F8!   "
+        console.log(myString2.trim())// Loại bỏ khoảng trắng hai đầu chuỗi nếu có(không bỏ được bên trong)
+        
+        //  * Split - tách tring thành array dựa vào điểm chung ví dụ dấu ,
+        var myString3 = "Js, Python, C++"
+        console.log(myString3.split(", ")) // ['Js', 'Python', 'C++']
+        var myString4 = "Javascript"
+        console.log(myString4.split('')) // ['J', 'a', 'v', 'a', 's', 'c', 'r', 'i', 'p', 't']
+        
+        //  * Get a character by index
+        var myString5 = "Van Vuong"
+        console.log(myString5.charAt(0)) // V lấy kí tự vị trí 0, index vượt quá trả về string rỗng
+        console.log(myString5[0]) // V lấy kí tự vị trí 0, index vượt quá trả về undifine
+    </script>
+    
+</body>
+</html>

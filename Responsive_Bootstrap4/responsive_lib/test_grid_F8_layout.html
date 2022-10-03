@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test grid</title>
+    <!-- My library -->
+    <link rel="stylesheet" href="./grid.css">
+
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+        body {
+            margin: 0;
+        }
+        /*  để xét màu không liên quan grid system */
+        .container {
+            text-align: center;
+        }
+  
+        .course-item {
+            background-color: orange;
+            height: 260px;
+        }
+
+        h1 {
+            line-height: 260px;
+        }
+
+        /* Những css riêng cho item bên trong chỉ dùng trong project thì css riêng */
+        @media (max-width: 1023px) {
+            .course-item {
+                margin-top: 16px;
+            }
+        }
+
+        .category {
+            background-color: aqua;
+            height: 260px;
+        }
+        
+        ul {
+            list-style: none;
+        }
+
+
+    </style>
+</head>
+<body>
+    <div class="grid wide container">
+        <div class="row">
+            <!-- Danh mục -->
+            <!-- Trên tablet không muốn hiển thị category thì thêm class m-0 và c-0 vào -->
+            <div class="col l-4 m-0 c-0">
+                <div class="category">
+                    <ul>
+                        <li>C++</li>
+                        <li>Python</li>
+                        <li>JS script</li>
+                    </ul>
+                </div>
+            </div>
+            <!-- danh mục 3 còn lại 9 column cho nội dung -->
+            <!-- Trên tablet và mobile khi ẩn category thì phải cho kích thước hết màn hình bằng thêm m-12 c-12 vào -->
+            <div class="col l-8 m-12 c-12">
+                <!-- Row lúc này lại là 100% chia làm 12 cột nên dùng col l-4  để có 3 khóa học-->
+                <div class="row">
+                    <div class="col l-4 m-6 c-12">
+                        <div class="course-item">
+                            <h1>Course-2</h1>
+                        </div>
+                    </div>
+                    <div class="col l-4 m-6 c-12">
+                        <div class="course-item">
+                            <h1>Course-3</h1>
+                        </div>
+                    </div>
+                    <div class="col l-4 m-6 c-12">
+                        <div class="course-item">
+                            <h1>Course-4</h1>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+    
+</body>
+</html>

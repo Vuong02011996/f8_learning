@@ -175,3 +175,30 @@
 + NT: Khoảng trắng col 24px(nếu nhiều col có thể thay đổi con số này để cân đối hơn(10px)) trên PC.
     + row: margin-left, margin-right: -12px(bỏ phần padding cạnh đầu và cuối của cột đầu và cuối)
     + col: padding-left, padding-right: 12px;
+
+## Resposive 
++ Copy thư việc grid.css vào link vào file html.
++ Tạo thêm file responsive.css vào để  CSS cho mobile tablet.
+    + Sau ni dùng SASS, SCSS sẽ phân chia theo component sẽ rõ ràng hơn. Không phân chia theo cách ni.
++ Mở dev tool chọn toggle divice toolbar, chọn Ipad, Iphone(50,75%). Lướt qua giao diện trên tablet , mobile 1 lần. Bắt đầu HTML, CSS cho responsive.
+
+### Header
++ Tạo các class hide-on-.. để ẩn các thành phần cần ẩn.(home-filter, header-navbar, ...)
++ Tính toán lại kích thước các thành phần sau khi ẩn(navbar vs header_search)
+
++ Xử lí bấm vô hiện ra bằng CSS xử  dụng input checkbox(icon search làm label trên mobile)
+
++ KTM: Khi item vượt quá chiều ngang muốn tạo thành thanh kéo ngang(mobile category) thì thêm max-width: 100%, overflow-x: auto;
+    + Ẩn thanh scrollbar bằng psedo class -webkit-scrollbar.
+
++ KTM: chọn item li trong thẻ ul theo vòng lặp dùng nth-of-type `mobile_category__item:nth-of-type(3n+1)`
+
++ KTM: trên mobile khi bấm vào element sẽ có hightlight ẩn nó đi bằng thuộc tính `-webkit-tap-highlight-color: transparent;`
+
+
++ KTV: Kết thúc khi xem lại ta thấy chiều rộng website bằng với độ phân giải màn hình mà các item vẫn cách viền phải một khoảng hở ta phải dùng thêm overflow :hidden cho thẻ chứa toàn bộ website:
+```
+.app {
+    overflow: hidden;
+}
+```

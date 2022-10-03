@@ -11,6 +11,7 @@
     --header_height: 120px;
     --navbar_height: 26px;
     --header_search_height: calc(var(--header_height) - var(--navbar_height));
+    --height_header_sort_bar: 42px;
 }
 
 * {
@@ -32,41 +33,6 @@ html {
 }
 
 /* -------------GRID System chuẩn bị cho responsive--------------*/
-/* 
-NT: Response
-+ Khoảng cách các col 24px.
-.grid {
-    .row {
-        .col {
-
-        }
-        .col {
-
-        }
-    }
-    .row {
-        .col {
-
-        }
-        .col {
-            
-        }
-    }
-} */
-
-.grid {
-    /* giới hạn những màn hình kích thước > 1200px */
-    width: 1200px;
-    /* có tác dụng với màn hình < 1200px reponsive, kích thước bằng kích thước màn hình */
-    max-width: 100%;
-    /* Canh giữa khối có grid */
-    margin: 0 auto;
-}
-
-.grid__full_width {
-    /* Khi không muốn kích thước là 1200px, bằng kích thước thẻ cha */
-    width: 100%;
-}
 
 .grid__row {
     display: flex;
@@ -187,6 +153,7 @@ ngang của hàng ngoài cùng phải tăng % lên */
     user-select: none;
     /* size chữ tr8pxong button */
     font-size: 1.5rem;
+    text-align: center;
 }
 
 .btn.btn--hover:hover {

@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../responsive_lib/grid.css">
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+        .main {
+            display: flex;
+            margin: 0 32px;
+        }
+
+        .sidebar {
+            width: 300px;
+            background-color: aqua;
+        }
+
+        .content {
+            /* Set kích thước item theo trục main axis, bằng 1: chiếm hết phần còn lại của flex khi sidebar biến mất */
+            /* flex-grow: 1; */
+            /*  Viết tắt  */
+            flex: 1;
+            background-color: blueviolet;
+        }
+
+        .item {
+            min-height: 100px;
+            background-color: cadetblue;
+            margin-top: 10px;
+        }
+
+        @media (max-width: 1048px) {
+            .sidebar {
+                display: none;
+            }
+        }
+
+    </style>
+</head>
+<body>
+
+    <div class="main">
+        <!-- Side bar cố định -->
+        <div class="sidebar">
+            <h1>SIDEBAR</h1>
+        </div>
+
+        <div class="content">
+            <!-- Grid wide khác 1200px nên không dùng wide ở đây -->
+            <div class="grid">
+                <h1>Music player</h1>
+                <p> Khi sử dụng thư viện grid.css thì theo độ ưu tiên cái nào là thư viện sẽ link lên trước. Vì viết sau sẽ ưu tiên hơn, trong trường hợp chúng ta muốn css lại một số  thuộc tính trong thư viện chỉ cần copy lại CSS selector của thư viện viết lại là sẽ đè lên css của thư viện.</p>
+                <div class="row">
+                    <!-- Mỗi hàng có 5 item nên dùng 12/5 = 2.4 dùng l-2-4 -->
+                    <!-- Tablet còn 4(m-3) cái ẩn sidebar -->
+                    <div class="col l-2-4 m-4 c-12">
+                        <div class="item">Image 1</div>
+                    </div>
+                    <div class="col l-2-4 m-4 c-12">
+                        <div class="item">Image 2</div>
+                    </div>
+                    <div class="col l-2-4 m-4 c-12">
+                        <div class="item">Image 3</div>
+                    </div>
+                    <div class="col l-2-4 m-4 c-12">
+                        <div class="item">Image 4</div>
+                    </div>
+                    <div class="col l-2-4 m-4 c-12">
+                        <div class="item">Image 5</div>
+                    </div>
+                    <div class="col l-2-4 m-4 c-12">
+                        <div class="item">Image 6</div>
+                    </div>
+                    <div class="col l-2-4 m-4 c-12">
+                        <div class="item">Image 7</div>
+                    </div>
+                    <div class="col l-2-4 m-4 c-12">
+                        <div class="item">Image 8</div>
+                    </div>
+                    <div class="col l-2-4 m-4 c-12">
+                        <div class="item">Image 9</div>
+                    </div>
+                    <div class="col l-2-4 m-4 c-12">
+                        <div class="item">Image 10</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>  
+    
+</body>
+</html>

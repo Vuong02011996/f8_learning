@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Array</title>
+</head>
+<body>
+
+    <script>
+        /**
+         * 1. Tạo mảng
+         * 2. Truy xuất mảng
+         *      - Độ dài mảng
+         *      - Lấy phần tử theo index.
+        */
+        // Mảng có thể  chứa bất kì kiểu dữ liệu nào xen kẽ lẫn nhau
+        var myArray = [
+            "JS",
+            "Python",
+            "C++",
+            null,
+            undefined,
+            function () {
+            },
+            {},
+            123,
+        ]
+
+        // Mảng có thể  chứa bất kì kiểu dữ liệu nào
+        var languages = [
+            "JS",
+            "Python",
+            "C++",
+        ]
+        console.log(languages)
+        // Kiểu dữ liệu của array là object
+        console.log(typeof languages)
+
+        // Check biến có phải là array
+        console.log(Array.isArray(languages)) // trả về  true
+
+        // lấy số lượng phần tử của mảng
+        console.log(languages.length)
+
+        // Lấy phần tử mảng theo index
+        console.log(languages[0]) // trả về JS
+
+    </script>
+    
+</body>
+</html>

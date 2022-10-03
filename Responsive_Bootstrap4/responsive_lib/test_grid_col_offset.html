@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test grid</title>
+    <!-- My library -->
+    <link rel="stylesheet" href="./grid.css">
+
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+        body {
+            margin: 0;
+        }
+        /*  để xét màu không liên quan grid system */
+        .container {
+            background-color: antiquewhite;
+            min-height: 100vh;
+
+        }
+
+        .my-column {
+            text-align: center;
+            min-height: 50vh;
+            background-color: orange;
+        }
+
+
+    </style>
+</head>
+<body>
+    <div class="grid wide container">
+
+        <!-- Nếu không dùng col-offset thì muốn canh giữa col bên trong phải thêm thuộc tính jusify-content: center
+        cho thèn row. Thay vì vậy ta dùng column offset để căn chỉnh cho linh động. Khỏi mất công media query nhiều CSS cho row -->
+
+        <div class="row no-gutter">
+            <!-- col chiếm 6 cột còn 6 cột muốn col ra giữa thì các mỗi bên 6/2 = 3 => dùng offset l-o-3 -->
+            <!-- <div class="col l-6  l-o-3">
+                <div class="my-column">
+                    <h1>Column 1</h1>
+                </div>
+            </div> -->
+
+            <!-- hai cột chỉ chiếm 6 col và đang nằm bên trái, muốn sang bên phải thì thêm offset l-o-6 cho column1 -->
+            <!-- trên tablet muốn hai cột ra giữa thêm m-o-3  cho cột 1-->
+            <div class="col l-3 m-3 c-12 l-o-6 m-o-3 ">
+                <div class="my-column">
+                    <h1>Column 1</h1>
+                </div>
+            </div>
+
+            <div class="col l-3 m-3 c-12">
+                <div class="my-column">
+                    <h1>Column 1</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

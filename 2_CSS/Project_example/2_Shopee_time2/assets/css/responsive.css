@@ -1,0 +1,123 @@
+/* Mobile & tablet */
+@media (max-width: 1023px) {
+    /* Sửa lại kích thước sau khi ẩn navbar */
+    :root {
+        --header_height: 68px;
+        --navbar_height: 0px;
+    }
+
+    .hide-on-mobile-tablet {
+        display: none;
+    }
+
+    .header__cart-list {
+        /* để  vị trí tương đối với toàn màn hình chớ không phải thẻ chứa nó
+        cho chiều rộng dài hết header*/
+        position: fixed;
+        top: var(--header_height);
+        right: 0px;
+        width: 100%;
+        /* Tính toán lại chiều rộng cho cân đối với bên dưới (width 644px) */
+        padding: 0 calc((100% - 644px)/2);
+    }
+    .header__cart-list::before {
+        display: none;
+    }
+
+    .header_sort_bar {
+        display: block;
+    }
+
+    .mobile_category {
+        display: block;
+    }
+
+    .app_content {
+        padding-top: 8px;
+    }
+
+    /* Footer */
+    .footer_list {
+        margin-top: 16px;
+        margin-bottom: 8px;
+    }
+}
+
+/* Tablet */
+@media (min-width: 740px) and (max-width: 1023px) {
+    .hide-on-tablet {
+        display: none;
+    }
+
+    /* Chỉnh kích thước và vị trí header cart */
+    .header__cart {
+        width: 80px;
+        text-align: right;
+    }
+
+}
+
+/* Mobile */
+@media (max-width: 739px) {
+    .hide-on-mobile {
+        display: none;
+    }
+
+    .header__search {
+        position: fixed;
+        left: 0;
+        right: 0;
+        top: var(--header_height);
+        z-index: 1;
+        height: calc(var(--height_header_sort_bar) + 1px);
+        box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+        /* Cho hiện từ từ trên xuống */
+        animation: header__search_side_in linear 0.3s;
+        display: none;
+    }
+    .header_mobile_search {
+        display: block;
+    }
+
+    .header__search_history {
+        position: fixed;
+        left: 0;
+        width: 100%;
+        top: calc(var(--header_height) + var(--height_header_sort_bar) + 1px);
+    }
+
+    /* Khi bấm vô icon search(label của checkbox) thì hiện ra */
+    .header_mobile_search_checkbox:checked ~ .header__search {
+        display: flex;
+    }
+
+    .header-with-search {
+        justify-content: space-between;
+
+    }
+
+    .header__cart,
+    .header__logo {
+        width: unset;
+    }
+
+    /* Chỉnh pagination trên mobile */
+    .pagination__item-link {
+
+        --height: 28px;
+        font-size: 1.6rem;
+        min-width: unset;
+    }
+
+
+    @keyframes header__search_side_in {
+        from {
+            opacity: 0;
+            top: calc(var(--header_height)/2);
+        }
+        to {
+            opacity: 1;
+            top: var(--header_height);
+        }
+    }
+}

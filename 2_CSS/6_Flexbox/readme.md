@@ -33,7 +33,7 @@
     + space-evenly: (đẩy các flex-item ra xa nhất có thể theo chiều main axis.) có cách lề  bằng giữa.
     + Các flex-items chỉ có khoảng cách với nhau khi có kích thước chiều ngang cố định.
 
-+ align-content: giống justify-content nhưng theo chiều cross axis , flex-start, flex-end, space-between, center, space-around, stretch.(cross axis)
++ align-content: giống justify-content nhưng theo chiều cross axis , flex-start, flex-end, space-between, center, space-around, stretch.(cross axis) - xét cho nhiều hàng.
 + align-items: flex-start, flex-end, center, baseline, stretch.(cross axis)
 
 + flex-flow: that a shorthand exists for flex-direction and flex-wrap.(flex-flow: row wrap;)
@@ -44,6 +44,10 @@
 
 + flex-grow: như flex-basis nhưng xét cho flex items. rất linh động có thể xét theo trọng số. làm lớn kích thước.
 + flex-shrink: ngược lại flex-grow thu nhỏ kích thước lại.
+c-1 {
+    flex: 0 0 8.33333%;
+    max-width: 8.33333%;
+}
 
 + flex: flex-grow [flex-shrink] [flex-basis]; shorthand.
 
@@ -53,7 +57,7 @@
 
 ## Other
 + display: flex; mặc định flex-direction là row.
-+ flex: 1;
++ flex: 1; (tương đương với flex-grow 1, shrink 1, flex-basis auto.)
     + Nếu chỉ có một flex-items có thuộc tính này thì nó sẽ chiếm hết khoảng trống theo main axis.
     + Nếu tất cả flex-items có thuộc tính này thì kích thước các items như nhau.
     + Nếu mỗi flex-items có mỗi giá trị khác nhau thì kích thước theo trọng số.
@@ -70,4 +74,7 @@
 
 # Reference
 + [property of flex](https://codepen.io/enxaneta/full/adLPwv/)
-+ [Flex model](https://developer.mozilla.org/en-US/docs/Learn/CSS/CSS_layout/Flexbox)
++ [Flex model](https://developer.mozilla.org/en-US/docs/Learn/CSS/CSS_layout/Flexbox).c-1 {
+    flex: 0 0 8.33333%;
+    max-width: 8.33333%;
+}

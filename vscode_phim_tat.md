@@ -22,3 +22,6 @@
 + Phím tắt tạo thẻ nhanh trong file html.
     + header:
         + ul#nav>li*5>a + tab.
+
+# Emmet html
++ .col.l-3*4>.item{Item $}: tạo thẻ div có hai class col l-3 bên trong có 4 col mỗi column có class tên item và mỗi item tên Item + số thứ tự tăng dần.
