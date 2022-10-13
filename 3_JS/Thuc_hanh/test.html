@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=s, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // destructuring
+        var a = [1, 2, 3]
+        var giatrij1 = a[0]
+        var [b, c, ...values] = a
+        console.log("b: ", b)
+        console.log("c: ", c)
+        console.log("values: ", values)
+        console.log("...a: ", ...a)
+        
+
+        var object2 = {
+            name: "name1",
+            age: 20,
+            price: 100,
+            object3 : {
+                name: "name childrent"
+            }
+        }
+        var {name, age} = object2
+        console.log(name, age)
+
+         // Ví dụ với truyền tham số cho hàm
+         array2 = [1, 2, 3]
+
+         function spread_test(...rest) // 3 chấm ở tham số là rest
+        {
+            console.log("rest: ", rest) // [[1,2,3]] [1,[2,3=]]
+        }
+        console.log([x, ...y] = array2)
+        spread_test([x, ...y] = array2) // 3 chấm ở đối số là spread giải mảng thành từng phần tử
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Object</title>
+</head>
+<body>
+    <script>
+        // Tạo , thêm, xóa , lấy giá trị trong object
+        var emailKey = 'email'
+
+        var myObject = {
+            name: "Vuong",
+            age: 20,
+            [emailKey]: "vanvuong0440@gmail.com",
+            getName: function() {
+                // this ở đây như myObject mà nên dùng this vì có thể có nhiều chỗ dùng 
+                // nếu dùng myObject.name sẽ phải sửa lại nếu tên myObject thay đổi
+                return this.name
+            }
+
+        }
+        console.log(myObject)
+        // Thêm, lấy, xóa  element trong object có hai cách dùng dấu chấm hoặc dấu ngoặc vuông
+        // thường sẽ dùng dấu chấm cho nhanh, một số trường hợp bắt buộc phải dùng dấu ngoặc vuông
+        myObject.address = "Quảng Ngãi"
+        myObject["gent"] = "Nam"
+
+        console.log(myObject.name)
+        console.log(myObject[emailKey])
+
+        // Xóa phần tử trong object dùng từ khóa delete
+        delete myObject["gent"]
+        delete myObject.age
+        console.log(myObject)
+
+        // field hàm trong object gọi phải có dấu ()
+        console.log(myObject.getName)
+
+        // --------------Object constructor -------------
+
+        // Xây dựng bản mô tả cho đối tượng
+        // function User(name, age, avatar) {
+        //     this.name = name
+        //     this.age = age
+        //     this.avatar = avatar
+
+        //     this.getName = function(){
+        //         // this bên trong này khác this bên ngoài, this bên trong này chính là đối tượng nào được gọi tới function này
+        //         return this.name
+
+        //     }
+        // }
+
+        // Có thể tạo bằng expression function
+        var User = function(name, age, avatar) {
+            this.name = name
+            this.age = age
+            this.avatar = avatar
+
+            this.getName = function(){
+                // this bên trong này khác this bên ngoài, this bên trong này chính là đối tượng nào được gọi tới function này
+                return this.name
+
+            }
+        }
+        console.log(typeof User)
+
+        // tạo các đối tượng qua bản thiết kế
+        var object1 = new User("Vuong", 20, "avatar")
+        var object2 = new User("Vuong2", 25, "avatar")
+
+        console.log(object1)
+        console.log(object2)
+        // có thể xem lại bản thiết kế qua thuộc tính constructor của đối tượng
+        console.log(object1.constructor)
+
+        // Có thể  thêm những thuộc tính , phương thức riêng cho từng đối tượng
+        object1.title = "object 1"
+        object2.comment = "comment of object2"
+        console.log(object1)
+        console.log(object2)
+
+        // gọi function trong object constructor
+        // this trong phương thức getName chính là object1 ở đây
+        console.log(object1.getName())
+
+
+        // -----------Object protype--------
+        // Dùng để xây dựng thêm các thuộc tính chung cho object constructor từ bên ngoài
+
+        User.prototype.className = "class 1"
+        User.prototype.getClassName = function() {
+            return this.className
+        }
+        // Thuộc tính add bằng prototype không nhìn thấy trực tiếp mà nằm trong Prototype của đối tượng
+        console.log(object1)
+
+
+        // Object Date - làm việc liên quan đến thời gian
+
+        var date = Date() // Hàm Date() chỉ trả về chuỗi string không là object 
+        var date = new Date(); // tạo object date có thể sử dụng các phương thức hay dùng
+        var year = date.getFullYear()
+        console.log(year)
+
+        // method month có giá trị từ 0-11
+        var month = date.getMonth() + 1 
+        console.log(month)
+
+        var day = date.getDate()
+        console.log(day)
+        // date.getMinutes(), ... tham khảo trang mozila ..
+        var hours = date.getHours()
+        console.log(hours)
+
+    </script>
+</body>
+</html>

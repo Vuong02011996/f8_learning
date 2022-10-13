@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Math Object</title>
+</head>
+<body>
+    <script>
+        // Math không phải là constructor như các object khác 
+        // new Math, Math.prototype, lỗi
+        // sử  dụng các phương thức bằng Math.ten_phuong_thuc
+        /**
+         * Math.PI : trả về số PI
+         * Math.round(): làm tròn số
+         * Math.abs(): gttd, biến số âm thành dương
+         * Math.ceil(): chỉ làm tròn trên 4.1 -> 5
+         * Math.floor(): chỉ làm tròn dưới 3.9->3
+         * Math.random(): random ngẫu nhiên một số < 1
+         * Math.min(): lấy số nhỏ nhất
+         * Math.max(): lấy số lớn nhất.
+        */
+       console.log(Math.PI)
+       console.log(Math.round(1.5)) // 2
+       console.log(Math.round(1.49)) // 1
+       console.log(Math.abs(-1)) // 1
+       console.log(Math.abs(-1)) // 1
+       console.log(Math.ceil(4.1)) // 5
+       console.log(Math.floor(4.9)) // 4
+       console.log(Math.random()) // ngau nhien
+       // random một số nhỏ hơn 10(0-9)
+       console.log(Math.floor(Math.random() *10))
+       console.log(Math.min(1, 2, 3, -1))// -1
+       console.log(Math.max(1, 2, 3, -1))// 3
+       
+    </script>
+    
+</body>
+</html>

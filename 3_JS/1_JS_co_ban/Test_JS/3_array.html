@@ -47,6 +47,45 @@
         // Lấy phần tử mảng theo index
         console.log(languages[0]) // trả về JS
 
+
+        //------------------ Methods hay dùng với Array----------------
+        // 1. toString(), join() chuyển array sang string
+        console.log(languages.toString()) // JS,Python,C++ mặc định có dấu , không bỏ được
+        console.log(languages.join(" - ")) // JS - Python - C++ thay đổi ngăn cách các phần tử tùy ý.
+
+        // 2. pop(), xóa phần tử cuối mảng và trả về chính phần tử đã xóa
+        console.log(languages.pop()) // C++
+
+        // 3. push(): thêm 1 hoặc nhiều phần tử vào cuối mảng và trả về length mảng sau khi thêm
+        console.log(languages.push("C++", "C#")) // trả về 4
+
+        // 4. Shift: như pop nhưng phần tử đầu mảng, lây và xóa luôn phần tử đầu tiên mảng
+        console.log(languages.shift()) // JS
+
+        // 5. unshift: như push nhưng phần tử đầu mảng
+        console.log(languages.unshift("JS", "PHP")) // trả về 5
+
+        // 6. splice()  mối nối: có thể xóa , thêm hoặc vừa xóa vừa thêm phần tử  cho mảng.
+        console.log(languages)
+        console.log(languages.splice(1, 2)) // từ vị trí index 1 xóa 2 phần tử  , trả về  các phần tử đã xóa
+        console.log(languages.splice(1, 0, "Python")) // từ vị trí 1 thêm phần tử  Python vào, trả về mảng rỗng
+        console.log(languages)
+        // Ứng dụng thay thế một phần tử trong mảng
+        languages.splice(3, 1, "Dart")
+        console.log(languages)
+
+        // 7. concat nối mảng thứ 2 vào mảng thứ nhất trả về  mảng thứ nhất đã nối với mảng thứ 2
+        // concat có thể nối số  vào mảng [].concat(1) = [1]
+        var languages2 = ["assembly"]
+        console.log(languages.concat(languages2))
+        languages = languages.concat(languages2)
+        console.log(languages)
+        
+
+        // 8. slice()- lát cắt : cắt 1 vài hoặc toàn bộ element của mảng, tách ra mảng con, trả về mảng đã cắt
+        console.log(languages.slice(2, 3))
+        console.log(languages)
+ 
     </script>
     
 </body>

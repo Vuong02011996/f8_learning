@@ -1,0 +1,558 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Dom</title>
+
+    <style>
+        .size {
+            width: 200px;
+            height: 200px;
+            line-height: 200px;
+            text-align: center;
+        }
+        .red {
+            background-color: red;
+        }
+    </style>
+</head>
+<body>
+<!--    Event Listener  -->
+<button id="btn"> Click me </button>
+
+<!-- Test DOM : Element, attribute, text node-->
+<h1 id="heading" class="heading_class"> Heading text</h1>
+ <a href="" name="testName" > mylink</a>
+
+ <div class="box">
+     <ul>
+         <li>1</li>
+         <li>2</li>
+     </ul>
+ </div>
+
+ <h2 class="innerText_textContent">
+
+    <span style="display: none;" >Heading</span>
+    <span>text h2</span>
+
+ </h2>
+
+ <!-- thêm h1 vào trong box sau -->
+ <div class="test_innerHTML">Thêm h1 vào đây bằng JS</div>
+
+ <div class="test_outerHTML">Thêm h1 vào đây bằng JS</div>
+
+ <div class="node_property_test"></div>
+
+ <div class="dom_style"> Thuộc tính style</div>
+
+ <div class="class_list"> Thuộc tính classList</div>
+
+ <!-- Viết thẳng JS vào attribute event  -->
+ <!--  -->
+ <h1 onclick="console.log(Math.random())" class="attribute_event">
+     Attribute event 
+ </h1>
+<!-- this sẽ trả về chính element gọi dom event, do đó từ khóa this chính là element node
+nên có thể sử dụng các thuộc tính và phương thức của một element node -->
+ <h1 onclick="console.log(this.innerText)" class="attribute_event">
+    Attribute event 
+</h1>
+
+<h1 class="assign_event">
+    Element node assign event 1
+</h1>
+
+<h1 class="assign_event">
+    Element node assign event 2
+</h1>
+
+<h1 class="assign_event">
+    Element node assign event 3
+</h1>
+
+<div class="dome_example">
+    <input type="text">
+    <input type="checkbox">
+    <select name="select" id="">
+        <option value="value1">1</option>
+        <option value="value2">2</option>
+        <option value="value3">3</option>
+    </select>
+    <br>
+    <input class="keyup_keydown" type="text" placeholder="keyup_keydown">
+</div>
+
+<div class="preventDefault">
+    <a href="https://f8.edu.vn"> https://f8.edu.vn</a>
+    <br>
+    <a href="https://google.com.vn"> https://google.com.vn</a>
+</div>
+
+<!-- Ví dụ preventDefault thực tế -->
+<style>
+    .text_prevent_default ul {
+        display: none;
+    }
+    .text_prevent_default input:focus ~ ul{
+        display: block;
+    }
+</style>
+
+<div class="text_prevent_default">
+    <input type="text" class="prevent_default">
+    <ul>
+        <li>Python</li>
+        <li>JS</li>
+        <li>C++</li>
+    </ul>
+</div>
+
+<div class="propagation">
+    DIV 
+    <button>Click me</button>
+</div>
+<br>
+<div>
+    <button class="dom_event_vs_listener_event">dom_event_vs_listener_event</button>
+</div>
+
+<div class="box" style="margin-bottom: 300px;"></div>
+<script>
+
+    // Chú ý là Khi nào đoạn mã script này được thưc thi thì mới thay đổi trên trang web, còn không
+    // sẽ hiển thị trang web như source gốc.
+    /**
+     * DOM: Document Object Model
+     * Toàn bộ website (chuỗi html) sẽ được trình duyệt parse ra và tạo ra một mô hinh gọi là DOM
+     * 
+     * DOM Có 3 thành phần 
+     * Element node: thẻ html
+     * Atribute node: thuộc tính của thẻ
+     * Text node: tất cả nội dung bên trong thẻ có thể là text, css code, js code, ...
+     * 
+     * Node
+     * Mỗi ô hình vuông trong mô hình DOM là một node
+     * Các node atribute và text đều phải rẽ ra từ element. 
+     * 
+     * Document object là đối tượng lưu trữ toàn bộ chuỗi html của website(gán)
+     * Do đó từ đối tượng document có thể truy xuất đến mọi thành phần trong website
+     * 
+     * Một element được lấy ra từ DOM có kiểu dữ liệu là Object, mà object thì sẽ có các thuộc tính và phương thức để ta làm việc trên đó.
+     * 
+     * Truy xuất đến ELEMENT trong DOM
+     * Truy xuất đến Attribute node trong DOM - elementnode.thuoctinh 
+     * Truy xuất đến Text node trong DOM - innerText, textContent
+     * Thêm một element vào trong một element trong HTML DOM - innerHTML, outerHTML
+     * Hướng dẫn học các thuộc tính của các node nhanh chóng
+     * Thuộc tính style - DOM CSS
+     * Thuộc tính classList - quản lí class của element node.
+     * Các thuộc tính của DOM event
+     * DOM event example 
+     * DOM event - PreventDefault and StopPropagation
+     * Event LISTENER addEventListener, removeEventListener
+     */
+
+
+
+   //----------------------- Truy xuất đến ELEMENT trong DOM -------------------------
+
+   // Chú ý những cách không lấy ra trực tiếp element phải dùng index để truy xuất tới
+   // 1. Bằng ID - chỉ lấy ra một element duy nhất , id không có trong website trả về null.
+   var heading = document.getElementById('heading')
+   console.log(heading)
+
+   // 2. Bằng class - trả về HTMLColection, dùng vòng lặp để truy xuất đến từng element
+    var headings = document.getElementsByClassName("heading_class") 
+    console.log(headings)
+
+    // 3. Bằng tên thẻ - tag name trả về HTMLColection
+    var heading_tag = document.getElementsByTagName('h1')
+    console.log(heading_tag)
+
+    // 4. Bằng CSS selector - trả về 1 element 
+    // Nếu có nhiều element có cùng css selector thì trả về cái đầu tiên
+    var heading_css_selector = document.querySelector('.heading_class')
+    console.log(heading_css_selector)
+    // Chọn tất cả các thẻ có thuộc tính name = gender
+    var heading_css_selector = document.querySelector('[name="gender"]')
+    // Lấy ra tất cả thẻ có thuộc tính name và không có thuộc tính disable
+    var enableInputs = formElement.querySelector('[name]:not([disable])')
+
+    // trả về  tất cả element dạng Nodelist gần giống array
+    var heading_css_selectors = document.querySelectorAll('.heading_class')
+    console.log(heading_css_selectors)
+
+    // 5. Dùng HTML collection
+    // Chỉ một số thẻ như a, form mới dùng được
+    var tag_a = document.anchors
+    console.log(tag_a)
+
+    // 6. Truy xuất từ element cha 
+    var box = document.querySelector(".box")
+    console.log(box)
+    var element_child = box.getElementsByTagName('li')
+    console.log(element_child)
+
+
+
+
+    // ----------------------Truy xuất đến Attribute node trong DOM -----------------
+
+    // Attribute là nhánh từ element đi ra nên muốn truy xuất đên attribute phải qua element
+    // Đứng từ element đó chấm tới thuộc tính trùng với tên thuộc tính của element.
+    // chú ý thêm class là .className
+
+    // Thêm thuộc tính cho element
+    // Cách 1 seter - chỉ dùng với các thuộc tính có sẵn của element 
+    var heading = document.querySelector(".heading_class")
+    heading.title = "thuộc tính title"
+    console.log(heading)
+
+    // Cách 2 dùng phương thức - có thể set mọi thuộc tính với tên bất kì cho element
+    heading.setAttribute("ten_thuoc_tinh", "gía trị thuộc tính")
+    console.log(heading)
+
+    // Lấy giá trị thuộc tính của element
+    // Cách 1: với các thuộc tính có sẵn
+    console.log(heading.title) // thuộc tính title
+    // Cách 2: với mọi thuộc tính
+    console.log(heading.getAttribute('ten_thuoc_tinh')) // giá trị thuộc tính
+
+
+
+    // ----------------------Truy xuất đến Text node trong DOM -----------------
+
+    // Text node là nhánh từ element đi ra nên muốn truy xuất đên text node phải qua element
+    // tất cả nội dung bên trong thẻ html là text node, kể cả thẻ style, script, text, ...
+
+    // Sử dụng hai thuộc tính có sẵn trong mọi element là innerText và textContent
+    // innerText: lấy đúng những text có trong node, như những gì nhìn thấy trên web
+    //              thuộc tính này chỉ có trong element node
+    // textContent: lấy tất cả node text kể  cả xuống dòng, display none, tất cả nội dung bên trong thẻ script, style, meta, ..,
+    //              thuộc tính này có trong cả element node và text node.
+    
+    var heading = document.querySelector(".heading_class")
+    
+    // Seter
+    heading.innerText = "Heading text new"
+    heading.innerText = "<i>Heading text new</i>" // trình duyệt sẽ không hiểu thẻ <> là html nên vẫn sinh ra text chớ không phải thẻ i
+    // heading.textContent = "Heading text new 1"
+    // Geter
+    console.log(heading.innerText)
+    console.log(heading.textContent)
+
+    var innerText_textContent = document.querySelector(".innerText_textContent")
+    console.log(innerText_textContent.innerText) // Heading text h2, không hiển thị text có thuộc tính display=none
+    console.log(innerText_textContent.textContent) // chứa cả khoảng trắng xuống dòng, kể cả display=none, code css, JS, ...
+
+
+
+
+    // ----------Thêm một element vào trong một element trong HTML DOM-------------------
+
+    // Dùng innerHTML và outerHTML : đây là hai thuộc tính của element node.
+    // innerHTML: có thể thêm vào element một element khác, một text node(nội dung bên trong thẻ) và cả attribute node.
+    //              có thể thêm mọi node vào một element.
+    //              chỉ có thể truy xuất từ bên trong element gọi innerHTML
+
+    var test_innerHTML = document.querySelector(".test_innerHTML")
+    // Seter
+    test_innerHTML.innerHTML = "<h1 title='thuộc tính thêm bởi innerHTML'> Heading thêm bởi innerHTML</h1>"
+
+    // Geter
+    console.log(test_innerHTML.innerHTML)
+
+    // outerHTML: giống innerHTML , chỉ khác là truy xuất chính từ element gọi innerHTML
+    var test_outerHTML = document.querySelector(".test_outerHTML")
+    test_outerHTML.outerHTML = "<span>Ghi đè lên chính thẻ gọi tới outerHTML</span>"
+
+
+
+    // --------------------Hướng dẫn học các thuộc tính của node nhanh chóng ---------------
+
+    // 3 node có các thuộc tính chung và các thuộc tính riêng của nó.
+    var node_property_test = document.querySelector(".node_property_test")
+    console.log([node_property_test])
+    node_property_test.attributes // thông tin các thuộc tính của element
+
+    // thao tác với chữ, nội dung là text node, editer
+    node_property_test.autocapitalize // tự động viết hoa
+    node_property_test.autofocus // focus con trỏ chuột
+
+    node_property_test.baseURI // trả về base URI đang truy cập, lấy địa chỉ mà element đang đứng
+
+    node_property_test.childElementCount // đếm phần tử con là element node
+    node_property_test.childNodes // node con bao gồm cả element node và text node , không có attribute node
+    node_property_test.children // trả về element node bên trong
+    
+    node_property_test.classList // quản lí thuộc tính class của một element
+
+    node_property_test.draggable // cho phép element kéo thả hay không
+
+    node_property_test.firstChild // node con đầu tiên có thể text node/element node
+    node_property_test.firstElementChild // element node đầu tiên
+
+    node_property_test.hidden // ẩn hay hiện element
+
+    node_property_test.nextElementSibling // trả về element node tiếp theo, không có trả về null
+    node_property_test.nextSibling // trả về node tiếp theo bao gồm text node, element node
+
+    node_property_test.nodeType // trả về type của node: element - 1, attribute - 2, text - 3
+
+    node_property_test.offsetParent // element nằm trong thẻ cha nào
+    node_property_test.parentElement // thẻ cha của element 
+
+
+    node_property_test.on// ... các thuộc tính liên quan đến dom event
+    node_property_test.scroll //.. liên quan đến hành động kéo lăn chuột lên/xuống
+
+    node_property_test.spellcheck // check chính tả
+
+
+
+
+    // *****************CÁC THUỘC TÍNH HAY SỬ  DÙNG*******************************
+
+    // -------------------THuộc tính style - DOM CSS-----------------------------
+
+    // Là một thuộc tính của element node
+    // Có thể set/get CSS inline cho một element node(cú pháp thuộc tính camelCase)
+
+    var dom_style = document.querySelector(".dom_style")
+    // Seter
+    dom_style.style.width = "100px"
+    dom_style.style.height = "100px"
+    dom_style.style.backgroundColor = "red"
+
+    // Cách 2 sử dụng Object.assign(object, thuộc tính object)
+    Object.assign(dom_style.style, {
+        width: "200px",
+        height: "200px",
+        backgroundColor: "green"
+    })
+
+    //Geter
+    console.log(dom_style.style.width) // 200px
+
+
+
+    // ---------------Thuộc tính classList----------------------------------
+
+    // Là một thuộc tính của element node
+    // thuộc tính này giúp quản lí thuộc tính class của element node
+    /**
+     * add: thêm class vào element
+     * contains: kiểm tra class có thuộc element
+     * remove: xóa bỏ một class khỏi element
+     * toggle: thêm class vào nếu chưa có, xóa class nếu có rồi
+    */
+    var class_list = document.querySelector(".class_list")
+
+    console.log(class_list.classList.length) // 1: số lượng class của element
+    console.log(class_list.classList.value) // trả về  chuỗi class của element
+    console.log(class_list.classList[0]) // truy xuất đến class thứ nhất của element
+
+    class_list.classList.add("red", "size") // add thêm class cho element
+    class_list.classList.contains("red") // check class có trong element trả về T/F
+    class_list.classList.remove("red") // loại bỏ class khỏi element
+    setInterval(()=> {
+        class_list.classList.toggle("red"); // chưa có class thì thêm vào có rồi thì gỡ bỏ
+    }, 1000)
+
+
+
+    //--------------Các thuộc tính của DOM event-----------------------------
+
+    // DOM event: là những hành vi của trình duyệt/người dùng khi sử dụng trang web
+    // Phải biết tên các event diễn ra trên web : https://www.w3schools.com/jsref/dom_obj_event.asp
+    /**Các sự kiện hay sử dụng: khi dùng trong DOM nhớ thêm on trước mỗi sự kiện
+     * click: diến ra khi click vào element
+     * change: khi thay đổi nội dung element như thẻ input
+     * copy: khi copy trên website
+     * cut; khi cut trên website
+     * drag: sự kiện liên quan đến kéo thả
+     * focus: khi tập trung con trỏ chuột 
+     * keydown: khi bấm xuống phím
+     * keyup: khi nhất phím lên
+     * mouseover: hover đưa con chuột vào
+     * mouseout: di chuyển chuột ra khỏi vùng hover
+     * resize: khi thay đổi kích thước element
+     * scroll: lăn chuột kéo lên, kéo xuống, 
+     * ...
+    */
+    // Có hai cách truy xuất đến DOM event, tùy TH sử dụng 
+    //1. Dùng attribute event của element node
+    //2. Dùng element node gán thuộc tính event cho nó. 
+
+    // Cách 1: Attribute event
+    var attribute_event = document.querySelector(".attribute_event")
+    // onclick="console.log(Math.random())" viết thẳng JS và các thuộc tính event
+
+    // Cách 2: Assign event từ element node, gán cho các sự kiện một function
+    // thực chất function này là một callback của onclick, khi có sự kiện onclick sẽ gọi lại function này
+    // và truyền vào tham số  cho callback là một sự kiên tương ứng(tên của event chính là hành vi của sự kiện)
+    var assign_event = document.querySelector(".assign_event")
+    assign_event.onclick = function() {
+        console.log(this.tagName)
+    }
+    var assign_events = document.querySelectorAll(".assign_event")
+    for (var i = 0; i < assign_events.length; i++){
+        assign_events[i].onclick = function(event) {
+            console.log(event.target)
+        }
+    }
+
+
+    // ----------------------DOM event example ----------------------------
+    // 1. input/select
+    // 2. key up/down
+
+    // Thẻ input text
+    var inputText = document.querySelector("input[type='text']")
+    
+    // onchange chỉ chạy khi blur chuột ra khỏi input và giá trị sau khác gía trị trước 
+    inputText.onchange = function(e) {
+        console.log(e.target.value)
+    }
+    // gõ đến đây lấy value đến đó thì dùng oninput
+    inputText.oninput = function(e) {
+        console.log(e.target.value)
+    }
+    
+    // thẻ input checkbox
+    var inputCheckbox = document.querySelector("input[type='checkbox']")
+    inputCheckbox.onchange = function(e) {
+        console.log(e.target.checked) // trả về T/F
+    }
+
+    // thẻ select
+    var select = document.querySelector('select')
+    select.onchange = function(e) {
+        console.log(e.target.value)
+    }
+    
+    // key up/ key down - sử dụng để biết đang bấm vào phím nào trên bàn phím
+    // key up: khi nhất phím lên
+    // key down: khi ấn phím xuông
+    // key press: khi ấn và giữ phím
+    var keyup_keydown = document.querySelector(".keyup_keydown")
+    keyup_keydown.onkeyup = function(e) {
+        // trả về sự kiện tương ứng với event tương tác 
+        console.log(e.which)
+        switch(e.which) {
+            case 27:
+                console.log("Exit")
+                break
+        }
+    }
+
+
+    // ------------DOM event - PreventDefault and StopPropagation----------------
+    // Ngăn chặn hành vi mặc định của thẻ và bỏ sự kiện nổi bột của thẻ cha/con
+
+    // PreventDefault -- ngăn chặn hành vi mặc định của thẻ 
+    // Ví dụ khi bấm vào link thẻ a có chứa https://google.com.vn  không chuyển trang 
+    var aElements = document.querySelectorAll(".preventDefault a")
+    console.log(aElements)
+
+    for (var i = 0; i < aElements.length; i ++) {
+        aElements[i].onclick = function(e) {
+            console.log(e.target.href)
+            if (e.target.href.startsWith("https://google.com.vn")) {
+                e.preventDefault()
+            }
+        }
+    }
+    // Ví dụ 2 khi không focus vào thẻ input vẫn hiển thị thẻ ul mặc dù mặc định khi 
+    // không focus vào thẻ input thì sẽ ẩn thẻ ul - code CSS
+    var ulElement = document.querySelector(".text_prevent_default ul")
+    console.log("ulElement:", ulElement)
+    // tránh những hành vi mặc định ngay khi click chuột vào
+    ulElement.onmousedown = function(e) {
+        e.preventDefault()
+    }
+
+    // Stop Propagation
+    // Propagation: là việc các sự kiện khi xảy ra xong với chính nó sẽ tiếp tục thực hành vi đó 
+    // lần lượt với tất cả thẻ cha bên ngoài (bột dưới nước nổi từ từ cho đến khi lên bề mặt)
+
+    var propagation = document.querySelector(".propagation")
+    propagation.onclick = function(e) {
+        console.log("DIV")
+    }
+
+    var propagation_button = document.querySelector(".propagation button")
+    propagation_button.onclick = function(e) {
+        console.log("Button")
+        // ngăn chặn sự kiện onclick sẽ nổi bọt lên các thẻ cha của thẻ button
+        e.stopPropagation()
+    }
+    
+
+
+    //--------------------Event LISTENER addEventListener, removeEventListener------------------------------------------
+    // Dùng các phương thức : addEventListener, removeEventListener
+    // Có tác dụng lắng nghe các sự kiện trên trình duyêt như DOM event
+    // Nhưng tủy TH sử dụng cái nào tiện hơn, Hai ví dụ dưới đây dùng event listener sẽ tiện hơn.
+    // Ví dụ
+    // 1. Làm nhiều việc khi một sự kiện diễn ra
+    // 2. Lắng nghe xong hủy bỏ lắng nghe
+
+    var dom_event_vs_listener_event = document.querySelector(".dom_event_vs_listener_event")
+    console.log(dom_event_vs_listener_event)
+    
+    // Dùng DOM event
+    // Làm nhiều việc khi một sự kiện diễn ra
+    // Tất cả các công việc điều phải viết trong một function gán cho event, dài code trong một function
+    dom_event_vs_listener_event.onclick = function(e) {
+        // Việc 1
+        console.log("Việc 1")
+        // Việc 2
+        console.log("Việc 2")
+        // Việc 3
+        console.log("Việc 3")
+    }
+    // Lắng nghe xong hủy bỏ lắng nghe
+    // Lắng nghe
+    dom_event_vs_listener_event.onclick = function(e) {
+        // Việc 1
+        console.log("Việc 1")
+
+        // Việc 2
+        console.log("Việc 2")
+
+        // Việc 3
+        console.log("Việc 3")
+    }
+    // hủy bỏ lắng nghe sự kiện sau 3s, gán sự kiện bằng function rỗng
+    setTimeout (function () {
+        dom_event_vs_listener_event.onclick = function(){}
+    }, 3000)
+
+
+    // Dùng Event listener 
+    // addEventListener: nhận hai đối số, một là tên sự kiên không có on, hai là callback thực thi cv khi sự kiện diễn ra
+    function viec1() {
+        // Việc 1
+        console.log("Việc 1")
+    }
+
+    function viec2() {
+        // Việc 2
+        console.log("Việc 2")
+    }
+    dom_event_vs_listener_event.addEventListener("click", viec1)
+    dom_event_vs_listener_event.addEventListener("click", viec2)
+    setTimeout(function() {
+        dom_event_vs_listener_event.removeEventListener("click", viec2)
+    }, 3000)
+
+</script>
+
+</body>
+</html>

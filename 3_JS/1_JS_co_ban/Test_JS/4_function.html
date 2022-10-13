@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Function</title>
+</head>
+<body>
+    <script>
+        // First function
+        function writeLog(message, message2) {
+            console.log(message)
+            console.log(message2) // undefined
+        }
+        writeLog("My log")
+
+        // Arguments
+        function testArguments() {
+            console.log(arguments)
+        }
+        testArguments("log1", "log2", 123, 345) // trả về một đối tượng arguments kiểu array Arguments(4) ['log1', 'log2', 123, 345]
+
+        function argumentsWithFor() {
+            for (var param of arguments) {
+                console.log(param)
+            }
+        }
+        argumentsWithFor(1, 2, 3) // in 1, 2, 3 trên 3 dòng.
+
+        // Return trong hàm
+        function testReturn(a, b) {
+            return a + b;
+        }
+        var result = testReturn(2, 3)
+        console.log("a+b=", result)
+
+        // Hai hàm cùng tên, sẽ chạy hàm thứ hai
+        function test() {
+            console.log("test1")
+        }
+        function test() {
+            console.log("test2")
+        }
+        test() // trả về test2
+
+        // Định nghĩa hàm trong hàm, cũng như biến phạm vi sử  dụng chỉ nằm bên trong hàm
+
+        function parentFunction() {
+            function childFunction() {
+                console.log("message")
+            }
+            childFunction()
+        }
+        parentFunction()
+        // Lỗi khi gọi bên ngoài.
+        // childFunction() 
+
+        /** Các loại function
+         * Declaration function(công khai): bắt buộc có tên, có thể gọi trước khi định nghĩa
+         * Expression(biểu lộ) function: có thể không có tên. Đặt tên chỉ có mục đích dễ hiểu chớ không goi lại được.
+         * Arrow function:
+        */
+       // Declaration function
+
+       // có thể gọi declarationFunction trước khi địng nghĩa - khái niệm hosting
+       declarationFunction()
+       function declarationFunction () {
+            console.log("declarationFunction")
+       }
+
+       // Expression function: có 3 cách viết hay dùng
+       var showMessage = function() {
+            console.log("expression function")
+            return 123
+       }
+       // biến gán bằng function là một function phải gọi như hàm showMessage()
+       showMessage()
+    //    Câu hỏi , return trong expression function hoạt động như thế  nào.
+       result1 = showMessage()
+       console.log(result1)
+
+       setTimeout(function() {
+
+       })
+
+       var myObject =  {
+           myFunction: function() {
+
+           },
+       }
+
+    </script>
+</body>
+</html>

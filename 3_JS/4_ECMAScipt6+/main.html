@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ES6</title>
+</head>
+<body>
+    <script>
+        // ES6: Mỗi phiên bản ra thêm vài keyword, tính năng, hay bỏ bớt gì đó.(python2-python3...)
+        // Chưa support tất cả trình duyệt.(Babel)
+        /**
+        1. Let, const (scope, hosting, assginment)
+        2. Template literals(template string ${}, ``)
+        3. Multi-line string(viết `` cho nhiều dòng)
+        4. Arrow function(() => {})
+        5. Classes (tổ chức code project lớn)
+        6. Default parameter values - định nghĩa các giá trị mặc định cho tham số
+        7. Destructing - phân rã (...) trong object và array
+        8. Rest parameters - toán tử rest lấy ra phần còn lại, mảng vs object
+        // rest cũng đi với 3 dấu chấm nhưng đi với destructuring
+        9. Spead - 3 dấu chấm cũng là toán tử giải
+        10. Enhanced object literals - cách viết ngắn gọn hơn cho object
+        11. Tagged template literals - cách viết templale html ${}, dùng function, logic khó hiểu hơn
+        12. Modules - bốc tách các thành phần code ra nơi riêng(import, export)
+        13. Optional chaining - cú pháp ?. kiểm tra có tồn tại key trong object, ..., đặc biệt các object lồng vào nhau
+        */
+
+
+
+        //------------Let, const----------------
+        // Mục đích thay thế từ khóa var trong việc định nghĩa ra các biến
+        // Giống nhau: đều dùng để định nghĩa ra biến.
+        // So sánh
+        // 1. var vs let, const: scope(phạm vi truy cập), hosting(trình duyệt tự đông đưa khai báo biến lên đầu).
+        // 2. const vs var, let: assignment(việc gán lại giá trị cho một biến)
+
+
+        // 1. Scope, Code block
+        // Chỉ có var mới gọi được bên ngoài block, let/const bị lỗi.
+        {
+            var a_var = 1;
+            let a_let = 1;
+        }
+        console.log("a_var: ", a_var)
+        //console.log("a_let: ", a_let) // lỗi a_let is not defined
+
+        // 2. Hosting: đưa khai báo biến lên đầu. var có hổ trợ hosting còn let vs const thì không.
+        // trình thông dịch đưa lên đầu: var a; a = 1;
+        var a = 1; // trình duyệt tự động đưa var a; lên đầu tiên của file code. nên việc gán giá trị ở đâu cũng không lỗi
+
+        a = 0;
+        var a;
+        // let a; lỗi 
+        console.log("a hosting: ", a)
+
+        // 3. assignment: const bị lỗi khi gán lại giá trị ; var với let thì không
+        // const : không thể dùng toán tử gán với lần thứ 2.
+        // const b = 0; // lỗi Assignment to constant variable.
+        let b = 0;
+        b = 100;
+        console.log("b assignment: ", b) 
+
+        // Chú ý:
+        const a_const = {
+            name: "name"
+        }
+        a_const.name = "name1" // hoàn toàn được vì đây chỉ là gán thuộc tính của a chớ không phải gán a
+
+        // Sử dụng thực tế
+        // Dùng var khi code thuần.
+        // Dùng let, const khi có sử dụng babel hổ trợ
+            // Dùng const: khi không gán lại biến
+            // Dùng let: khi cần gán lại giá trị cho biến
+
+
+
+        //--------- 2. Template literals(template string ${}) 3. Multi-line string(dùng cái 2 viết nhiều dòng)
+        const string1 = "Van"
+        const string2 = "Vuong"
+        const string3 = "Tên là " + string1 + " " + string2
+        const string4 = `Tên là ${string1} ${string2}` // viết tự nhiện hơn(dấu cách)
+        console.log(string3)
+        console.log(string4)
+
+        // Multi-line string - dùng để giữ đúng format html khi return.(viết sao format i vậy)
+        const lines1 = 'line1 \n' + "line2\n" + "line3\n"
+        const lines2 = `line1
+        line2
+        line3` // enter
+        console.log(lines1)
+        console.log(lines2)
+
+
+
+        //---------------4. Arrow function , hàm mũi tên---------------------
+        let logger = function(log) {
+            console.log(log)
+        }
+        logger("message")
+
+        // từ express function ở trên chuyển sang arrow function như sau:
+        // Bước 1: bỏ từ function
+        // Bước 2: thêm dấu => giữa dấu ) => {.
+        const logger1 = (log) => {
+            console.log(log)
+        }
+        logger1("message1")
+
+        // Mục đích là để viết code ngắn gọn hơn
+        // Nếu hàm chỉ có một dòng return thì có thể viết gọn hơn
+
+        let sum = (a, b) => {
+            return a+b
+        }
+        console.log(sum(2,2))
+        // Không có dấu {} sau mũi tên là giá trị return luôn, có dấu {} bên trong phải có return.
+        sum = (a, b) => a + b ;
+        console.log(sum(2,2))
+
+        // Vì chỉ return nếu sau dấu mũi tên khác {} nên muôn return object phải thêm dấu () bao dấu {} lại.
+        const object1 = () => ({ a: 'a', b:'b'})
+        console.log(object1())
+
+        // Trường hợp function có duy nhất một tham số có thể bỏ luôn dấu () trước mũi tên
+        const logger2 = log => console.log(log)
+        logger2("message")
+
+        // Hai đặc tính arrow function không hổ trợ như các loại function khác
+        // 1. context
+        const course = {
+            name: "PHP",
+            getName: function() {
+                return this.name // this này chính là đối tượng gọi tới hàm getName()
+            },
+
+            getName2: () => {
+                return this.name // this không hổ trợ this = undefine
+            }
+        }
+        console.log(course.getName())
+        console.log(course.getName2()) // không in ra gì cả
+
+        // 2. Không dùng arrow function làm constructor function
+        const Course = function (name, age) {
+            this.name = name
+            this.age = age
+        }
+        var ob1 = new Course("name1",  20)
+        console.log(ob1)
+
+        // Dùng arrow function không được
+        const Course1 = (name, age) => {
+            this.name = name
+            this.age = age
+        }
+        // var ob2 = new Course1("name2",  20) // lỗi Course1 is not a constructor
+
+
+
+        // -------------5. Class trong JS ES6--------------------
+        // Dùng để tạo bản thiết kế cho đối tượng như constructor function nhưng cách biết theo HĐT hơn :)
+        // Trong class đã định nghĩa sẵn một constructor function .
+        // Khi làm với dự án số lượng code rất lớn sẽ dùng class thay vì constructor function
+
+        function Course2_compare(name, age) {
+            this.name = name
+            this.age = age
+            this.getName = function() {
+                return this.name
+            }
+            let isSuccess = false
+            // Viết ngang cấp rất dễ rối
+        }
+
+        class Course2 {
+            constructor(name, age) {
+                this.name = name
+                this.age = age
+            }
+            getName() {
+                return this.name
+            }
+            run() {
+                let isSuccess = false
+            }
+            // Viết có tổ chức và thêm nhiều tính chất như kế thừa, ...
+        }
+        
+        let course1 = new Course2("name1", 25)
+        let course2 = new Course2("name2", 30)
+        console.log(course1)
+        console.log(course2)
+
+
+
+        // ------ 6. Default parameter values - định nghĩa các giá trị mặc định cho tham số--------
+        let logger3 = function(log="giá trị mặc định") {
+            // ES5
+            // if (typeof log === "undefined")
+            // {
+            //     log = "Giá trị mặc định"
+            // }
+
+            console.log(log)
+        }
+        logger3()
+
+
+
+        // --------------------7. Destructing - phân rã (...) trong object và array-------------
+        // --------------------8 rest parameters  - toán tử rest lấy ra phần còn lại-------------------
+        // Tưởng tượng array, object là một vỏ họp chứa element bên trong, destructuring phần rã 
+        // giúp lấy trực tiếp element không cần đi qua index .
+
+        // Array 
+        // Ví dụ tạo 3 biến lưu lần lượt 3 giá trị của mảng sau
+        var array = ["JS", "Python", "C++"]
+        // Dùng index
+        var e1 = array[0]
+        var e2 = array[1]
+        var e3 = array[2]
+
+        // Dùng destructuring
+        var [e4, e5, e6] = array
+        // var [e4, , e6] = array không muốn lấy e5
+        console.log(e1, e2, e3, e4, e5, e6)
+
+        // toán tử rest, 
+        // phân biệt với spread : rest thì đi với destructuring.
+
+        var [e4, ...rest] = array // rest là tên biến đặt như nào cũng được
+        console.log(e4, rest) // JS, ["Python", "C++"]
+
+        // Object 
+        var object2 = {
+            name: "name1",
+            age: 20,
+            price: 100,
+            object3 : {
+                name: "name childrent"
+            }
+        }
+        // khác với array có thể  đặt tên tùy ý, object phải truyền đúng tên key vào.
+        var {name, age} = object2
+        // Nếu key không có sẽ lấy giá trị ta gán vào, không thì undefined
+        var {name, age1=200} = object2
+        // rest
+        var {name, ...newObject} = object2
+        console.log(name, newObject, age1) // name1, {age: 20, price: 100}, 200
+        // dùng dấu : để đổi tên cũng được, không name con sẽ ghi đề  lên gía trị name bên ngoài
+        var {name: name_parent, object3: { name: name_child}} =  object2
+        console.log(name_parent, name_child)
+
+        // destructor và rest dùng với function
+        function rest_f([a, ...array_params])
+        {   
+            // array_params như argument nhưng là mảng
+            console.log(a, array_params) // 1, [2,3]
+        }
+        console.log(rest_f([1,2,3]))
+
+
+
+        // ----------------9. Spead - 3 dấu chấm cũng là toán tử giải, nhưng mà không đi với destructuring
+        // ... là bỏ đi cặp ngoặc [], {} chỉ còn phần con bên trong
+        var array1 = [1, 2]
+        var array2 = [3, 4, 5]
+        // hợp nhất hai mảng trên không dùng concat
+        var array3 = [...array2, ...array1]
+        console.log(array3)
+
+        var object4 = {
+            name: "name"
+        }
+        var object5 = {
+            age: 20
+        }
+        var object6 = {
+            ...object4,
+            ...object5
+        }
+        console.log(object6)
+
+        // Ví dụ với truyền tham số cho hàm
+        function spread_test(...rest) // 3 chấm ở tham số là rest
+        {
+            for (var i = 0; i < rest.length; i ++)
+            {
+                console.log(rest[i])
+            }
+        }
+        spread_test(...array2) // 3 chấm ở đối số là spread giải mảng thành từng phần tử
+
+
+
+        // -------------.10. Enhanced object literals  ---------------
+        // Định nghĩa key/value giống tên , cho object ngắn gọn hơn.
+        // Định nghĩa method cho object ngắn gọn hơn
+        // Định nghĩa key cho object dưới dạng biến
+
+
+        var name = "name"
+        var age = 20
+
+        fieldPrice = "price"
+
+        let info = {
+            // name: name,
+            name, // key/value giống nhau
+            // age: age,
+            age,
+            // getName: function() {
+            //     return this.name
+            // }
+            // Bỏ luôn dấu : với function
+            getName() {
+                return this.name
+            },
+            // Định nghĩa key dưới dạng biến
+            [fieldPrice] : 500,
+        }
+        console.log(info)
+
+        // -------------------11. Tagged template literals - cách viết templale html mới, dùng function-----------   
+        function highlight([first, ...strings], value1, value2) {
+                console.log(first) // Hoc lap trinh
+                console.log(strings) // [tai, !]
+                console.log(value1) // python
+                console.log(value2) // F8
+                // console.log(value) // [python, F8]
+        }
+
+        var brand = 'F8'
+        var language = "python"
+
+        const html = highlight`Hoc lap trinh ${language} tai ${brand}!`
+        // function highlight sẽ nhận đối số gồm mảng các phần tử không chứa ${}[Hoc lap trinh, tai, !],các tham số tiếp theo là các giá trị của ${} (biến nội suy) - python, F8
+        // highlight([Hoc lap trinh, tai, !], python, F8)
+        // Dùng rest là tham số cho hàm highlight([first, ...strings], ...values)
+        // Ta thấy length của values luôn bằng strings
+
+
+
+        // ---  13. Optional chaining - cú pháp ?. kiểm tra có tồn tại key trong object, ..., đặc biệt các object lồng vào nhau
+        
+        var object_chain = {
+            name: "name",
+            cat: {
+                name: "name1",
+                // cat2: {
+                //     name: "name2",
+                //     cat3: {
+                //         name: "name3"
+                //     }
+                // }
+            }
+        }
+        
+        // check có tồn tại các key theo cách thông thường
+        if (object_chain.cat && object_chain.cat.cat2 && object_chain.cat.cat2.cat3)
+        {
+            console.log(object_chain.cat.cat2.cat3.name)
+        }
+
+        // check có tồn tại các key theo ?.
+        // .cat? : nghi ngờ key cat có tồn tại hay không
+        if (object_chain.cat?.cat2?.cat3)
+        {
+            console.log(object_chain.cat.cat2.cat3.name)
+        }
+    </script>
+    
+</body>
+</html>

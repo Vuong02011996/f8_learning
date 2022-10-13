@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cau dieu kien</title>
+</head>
+<body>
+    <script>
+        // If else, sử dụng với so sánh đúng sai(>, < , ..)
+        var date = 5
+        if (date === 2) {
+            console.log("Monday")
+        }
+        else if(date == 3) {
+            console.log("Tuesday")
+        }
+        else {
+            console.log("Unknown")
+        }
+
+        // Switch -case
+        // Dùng === để so sánh.
+        // Kể từ lúc gặp trường hợp đúng switch sẽ chạy tất cả TH phía sau
+        // nếu gặp từ break sẽ thoát khỏi switch-case
+        // Sử dụng trong trường hợp cho trước giá trị so sánh và nhiều trường hợp so sánh.
+        // Số lượng case > 3
+        
+        switch(date) {
+            case 2:
+            case 3:
+            case 4:
+                console.log("Làm việc gì đó cho cả 3 TH 2, 3, 4")
+                // thoát khỏi switch
+                break
+            case 5:
+                console.log("Unknown")
+            case 6:
+                console.log("test không break")
+            default:
+                console.log("luon chay neu khong co break")
+        }
+
+        // Toán tử  8 ngôi
+        var a = 0
+        var b = 1
+        var c = a > 0 ? a:b
+        console.log(c) // c = 1
+        
+    </script>
+</body>
+</html>

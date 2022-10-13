@@ -1,0 +1,142 @@
+
+* {
+    /* tất cả thẻ đều kế thừa box-sizing ở thẻ html */
+    box-sizing: inherit;
+    padding: 0;
+    margin: 0;
+}
+
+html {
+    /* để xử dụng 1rem bằng 10px */
+    font-size: 62.5%;
+    /* Xét chiều cao cho hàng chữ bằng 16px */
+    line-height: 1.6rem;    
+    /* sans-serif chủng chữ không có chân, nếu Roboto không tải được thì dùng thèn ni */
+    font-family: 'Roboto', sans-serif;
+    /* Kích thước element tự giảm khi thêm padding, border */
+    box-sizing: border-box;
+}
+
+.main {
+    background-color: #ccc;
+
+}
+
+.form_register {
+    width: 500px;
+    max-width: 100%;
+    background-color: #fff;
+    padding: 32px 16px;
+    margin: auto;
+    position: relative;
+    top: 16px;
+    margin-bottom: 20px;
+}
+
+.heading {
+    font-size: 1.8rem;
+    font-weight: 400;
+    text-align: center;
+    margin-bottom: 16px;
+
+}
+
+.desc {
+    font-size: 1.4rem;
+    color: #aaa;
+    text-align: center;
+    margin-bottom: 16px;
+
+}
+
+.form_group {
+    padding-bottom: 12px;
+
+}
+
+.form_group.invalid input{
+    border-color: red;
+}
+
+.form_label {
+    display: block;
+    font-size: 1.4rem;
+    color: #000;
+    font-weight: 500;
+    margin-bottom: 8px;
+
+}
+
+.form_group input {
+    font-size: 1.4rem;
+    width: 100%;
+    padding: 8px;
+    border: 2px solid #ccc;
+    border-radius: 2px;
+    /* Bỏ outline mặc định thẻ input khi click */
+    outline: none;
+}
+
+.form_group select {
+    font-size: 1.4rem;
+    width: 50%;
+    padding: 4px 0;
+    text-align: center;
+}
+
+.form_group input:focus{
+    border-color: rgb(31, 216, 230);
+}
+
+.form_message {
+    display: block;
+    font-size: 1.2rem;
+    color: red;
+}
+
+.form_submit {
+    margin-top: 16px;
+    border-style: none;
+    background-color: rgb(31, 216, 230);
+    padding: 16px 0;
+    width: 100%;
+    border-radius: 5px;
+    font-size: 1.6rem;
+    font-weight: 600;
+    color: #fff;
+}
+.form_submit:hover {
+    cursor: pointer;
+    color: #000;
+    opacity: 0.5;
+}
+
+.form_radio {
+    display: flex;
+    justify-content: center;
+}
+
+.form_radio input{
+    width: 50px;
+}
+
+.form_radio span{
+    font-size: 1.4rem;
+    flex: 1;
+}
+
+.form_checkbox {
+    display: inline;
+    /* flex-direction: column; */
+}
+
+.form_checkbox input{
+    width: 20px;
+}
+
+.form_checkbox span{
+    margin-right: 50px;
+    font-size: 1.4rem;
+    text-align: center;
+    line-height: 1.4rem;
+}

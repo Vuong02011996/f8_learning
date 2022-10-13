@@ -26,10 +26,10 @@ var b = 1
 + var result = null && "B":toán tử  && trả về null.
 
 + Cách hoạt động: Toán tử  && trong js xem từng biểu thức có nằm trong 6 giá trị False không,
-    + Nếu có trả về false dùng lại không kiểm tra tiếp,
-    + Nếu không có qua vế  tiếp theo và trả về chính giá trị của biểu thức đó. Nếu tất cả biểu thức không nằm trong 6 giá trị sẽ trả về giá trị biểu thức cuối cùng.
+    + Nếu có `trả về false` dùng lại không kiểm tra tiếp,
+    + Nếu không có qua vế  tiếp theo. Nếu tất cả biểu thức không nằm trong 6 giá trị sẽ` trả về giá trị biểu thức cuối cùng.`
 
-+ ||: ngược lại chỉ cần có 1 giá trị khác 6 giá trị false thì sẽ trả về  ngay.
++ ||: ngược lại chỉ cần có 1 giá trị khác 6 giá trị false thì sẽ trả về  ngay giá trị biểu thức đó.("A" || "b" trả "A" về ngay)
 
 
 ## Truthy và Falsy.
@@ -46,3 +46,29 @@ var b = 1
 
 ## Biểu thức chính quy trong chuỗi
 + ` /JS/g ` : tìm tất cả cụm JS trong chuỗi
+
+## Các khái niệm mới trong lập trình JS
++ Hàm built-in: khi đến hàm built-in các dòng code phía sau sẽ không được chạy.
++ KDL: undefined, symbol,
++ Index mảng là số không âm.
++ Có hai các tạo string, số, array(dùng như python hoặc hướng đối tượng)
++ Tempate string ES6 dùng dâu ``.
++ So sánh 3 dấu bằng - giá trị và kiểu dữ liệu.
++ Truthy Falsy
++ Biểu thức chính quy.
+
+`-----HAM-------`
++ Đối tượng arguments trong hàm. chứa tất cả các tham số  truyền vào của hàm.
++ Hàm trong JS chỉ return 1 giá trị duy nhất.
++ Có 3 loại function: Declaration, Expression, Arrow function.
++ có thể gọi declarationFunction trước khi địng nghĩa - khái niệm hosting
++ Polyfill: là một cách viết lại các hàm có sẵn dùng trong string hoặc array mà không hỗ trợ bởi các trình duyệt cũ.
+
+`----------CallBack----------`
++ Tham số của hàm là một hàm khác(thường dùng expression function).
++ Cách hoạt động: function có hàm callback sẽ chạy lần lượt qua từng phần tử trong mảng rồi gọi hàm callback và truyền các giá trị vào hàm callback xử lí. Nếu đk bên trong hàm callback thỏai mãn sẽ kết thúc hàm callback và kết thức luôn hàm bên ngoài.
++ Nếu không truyền function cho hàm có tham số là callback sẽ báo lỗi : undefined không phải là function.
+
+`-------------------------ES6---------------------`
++ Giải khối code dùng dấu 3 chấm `...`
++ Dấu ${} chỉ dùng được trong  dấu `...` không dùng được trong dấu chuỗi "", ''.

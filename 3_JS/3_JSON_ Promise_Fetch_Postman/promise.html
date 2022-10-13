@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // JSON - stringify(JS sang JSON), parse(JSON sang JS)
+        // Khác với cú pháp JS: Dùng dấu "", phần tử cuối array/object không được có dấu ','; key/value của object phải cố dấu "".
+        // Không thể hiện được kiểu dữ liệu class, function
+        // Ta thường đọc dữ liệu JSON từ backend và chuyển sang dữ liệu JS để xử lí và show lên web bằng JSON.parse.
+
+        var a = '1' // biểu diễn number trong JSON
+        var string = '"abc"' // biểu diễn tring trong JSON
+
+        var array = '["JS", "Python"]' // biểu diễn array trong JSON
+        var object = '{"name": "Name","age": "18"}' // biểu diễn object trong JSON
+
+        // Convert từ JS sang JSON
+        console.log(JSON.parse(object)) // {name: 'Name', age: '18'}
+        // Convert từ JSON sang JS
+        console.log(JSON.stringify(JSON.parse(object))) // {"name":"Name","age":"18"}
+
+
+        // ----------------------------PROMISE-------------------------- 
+        // Sinh ra để giải quyết những vấn đề chạy Async mà bên trong có nhiều callback.
+        // Promise là function dùng cho bất đồng bộ.
+        /**
+         * Promise
+         * Sync
+         * Async
+         * Nỗi đau
+         * Lý thuyết, cách hoạt động
+         * Thực hành, ví dụ
+         * 
+        */
+
+        // Sync: đồng bộ , viết trước chạy trước, viết sau chạy sau
+        console.log(1)
+        console.log(2)
+
+        // Async: bất đồng bộ, viết trước chạy sau
+        setTimeout(function(){
+            console.log(1)
+        }, 1000)
+        console.log(2)
+        // ở đây nếu đồng bộ thì phải đợi sau 1s in ra số 1 rồi sau đó in ra số 2
+        // Nhưng thực tế in ra số hai trước nên ở đây setTimeout là bất đồng bộ.
+
+        /**Những TH Asyn-cronus trong JS:(những thao tác không biết khi nào là xong)
+         * setTimeout, setInterval
+         * Call API: fetch, XMLHttprequest
+         * Các phương thức đọc file
+         * Request  frame
+         * 
+         * Để biết tất cả các Async ở trên khi nào là xong thì JS cung cấp Callback
+         * VD: setTimeout sau 1s ở trên sẽ gọi Callback.
+        */
+
+
+        // Nỗi đau: Khi sử dụng Callback ở trên gặp vấn đề gì mà Promise sinh ra để giải quyết.
+        // Pyramid of doom: ngõ cụt trong viết code.
+        // Callback hell : Callback lồng callback // công việc số 2 muốn chạy được phải chờ cv 1 chạy xong để trả ra dữ liệu cho cv2
+        // Dữ liệu ràng buộc với nhau.
+        // Callback hell: code rối rắm, khó hiểu.
+
+        // Ví dụ 1s in ra số 1, 1s sau in ra số 2, 1s sau nữa in ra số 3, không dùng interval
+        // ở đây là Async nên phải dùng setTimeout với Callback, không thể  viết code theo cách từ trên xuống.
+        setTimeout(function(){
+            console.log(1) // cv 1
+            //ví dụ cv2 chỉ thực hiện khi cv1 xong và trả về dữ liệu gì đó cho cv2
+            // Giả sử cv sau phải chờ dữ liệu của cv trước xong
+            setTimeout(function(){
+                console.log(2)
+                setTimeout(function(){
+                    console.log(3)
+                    setTimeout(function(){
+                        console.log(3)
+                    })
+                })
+            })
+        }, 1)
+
+        // Tạo ra callback hell
+        // Promise sinh ra để giải quyết vấn đề này
+        // Lý thuyết , cách tạo ra một promise, cách hoạt động promise
+
+        // -----------------Tạo promise bằng 2 bước--------------------------:
+        // + Bước 1: tạo đối tượng new Promise
+        // + Bước 2: Viết logic cho executor function.
+
+        // Promise: object contructor (ra đời ES6), từ khóa new trước object constructor để tạo ra một đối tượng.
+        // Number(truyền số), String(truyền string), ... Promise(truyền function- excutor function)
+        // function - thuật ngữ Executor function- này sẽ được thực thi ngay khi viết new Promise, trước luôn việc tạo đối tượng promise
+        var promise = new Promise(
+            // Executor function nhận đối số là 2 function
+            function(resolve, reject)
+            {
+                  // Viết logic xử lí ở đây
+                  // Sau khi logic xong phải gọi một trong hai function tham số ở trên
+                  // + Logic thành công gọi tới resolve()
+                  // + Logic thất bại gọi tới reject()
+                  // nếu không gọi promise sẽ bị treo gọi là Memory Leak, lãng phí(rò rỉ) bộ nhớ.
+
+                  resolve("data")
+                  // reject("error")
+            }
+        )
+
+        // Promise có 3 trạng thái:
+        //1. pendding: không có resolve()/reject() được gọi - memory leak. 
+        //2. fulfilled: khi resolve() được gọi. - success
+        //3. rejected: khi reject() được gọi - fail
+        
+
+
+        // ------------------Cách hoạt động, sử dụng promise --------------------
+
+        // đối tượng promise có 3 phương thức cần sử dụng. 
+        // 3 phương thức này đều nhận 1 callback, các callback được thực thi khi: 
+
+        /** 1. then() - khi lời hứa thành công - excutor function gọi hàm resolve()
+         *  2. catch() - khi lời hứa fail - excutor function gọi hàm reject()
+         *  3. finally() - khi một trong hai hàm resolve(), reject() được gọi đều nhảy vào.
+        */ 
+        promise
+            .then(function(data) {
+                // callback này thực thi khi promise thành công resolve()
+                // data ở đây chính là đối số khi gọi hàm resolve() => then <=> resolve()
+                console.log(data)
+
+            })
+            .catch(function(error) {
+                // callback này thực thi khi promise thất bại reject()
+                // data ở đây chính là đối số khi gọi hàm reject() => catch <=> reject()
+                console.log(error)
+
+            })
+            .finally(function() {
+                // callback này thực thi khi promise thành công hoặc thất bại resolve() hoặc reject()
+
+            })
+
+        
+        // --------------Promise chain: tính chất giúp promise giải quyết dược callback hell------------------
+        // Cũng bài toán cv sau phụ thuộc vào dữ liệu cv trước nhưng promise chain cho cách viết không phải lồng vào sau bên trong
+        // Chú ý flow code chạy, thực hiện việc nào trước việc nào sau.
+        var promise = new Promise(
+            function(resolve, reject)
+            {
+                  resolve("data")
+                  // reject("error")
+            }
+        )
+        promise
+            // Khi resolve() được gọi call back trong từng then sẽ được gọi theo thứ tự(chuỗi), nối nhau
+            // Đáng nói là kết quả trả về của then trước là đối số  của then sau => giải quyết được callback lồng nhau chờ
+            // kết quả của cv trước mà vần viết code ngang hàng với nhau được.
+            .then(function(data) {
+                console.log(data)
+                return 1;
+
+            })
+            .then(function(data) {
+                // then trước không return thì data : undefined (hàm không return thì trả về undefined)
+                console.log(data) // 1 -> kết quả trả về của then trước
+                return 2;
+            })
+            .then(function(data) {
+                console.log(data) // 2
+                // return KDL promise cho the sau
+                return new Promise(function(resolve){
+                    resolve(123)
+                });
+            })
+            .then(function(data) {
+                // Nếu then trước return mọi KDL khác promise thì sẽ chạy ngay vào then này xử lí
+                // Nếu then trước return một promise thì phải chờ promise đó giải quyết xong logic mới nhảy xuống then này
+                // đơn giản .then này là của đối tượng promise được return ở then trên chớ không phải promise ở bên ngoài.
+                // Do đó nó phải đợi promise trên giải quyết xong logic return resolve mới nhảy xuống .then
+                console.log(data) // 123 của resolve()
+                return 3;
+            })
+            .catch(function(error) {
+                console.log(error)
+
+            })
+            .finally(function() {
+
+            })
+
+        // Ví dụ dùng promise không dùng setInterval cứ sau 1s in ra giá trị 
+        function sleep(ms)
+        {
+            return new Promise(function(resolve){
+                // Sau ms thì gọi hàm resolve
+                setTimeout(resolve, ms)
+            })
+        }
+
+        sleep(1000) // hàm sleep chạy trả về một promise
+            .then(function () {
+                console.log("abc")
+                return sleep(1000)
+                
+            })
+            .then(function () {
+                console.log("abc")
+                return sleep(1000)
+                
+            })
+            .then(function () {
+                console.log("abc")
+                return  new Promise(function(resolve, reject){
+                    reject("Có lỗi")
+                })
+            })
+            .then(function () {
+                console.log("abc")
+                return sleep(1000)
+                
+            })
+            // Nếu có reject() được gọi sẽ nhảy xuống .catch
+            .catch(function (error) {
+                console.log(error)
+            })
+    
+        // ---------------------Các khái niệm thêm Promise-----------------------
+        // Khi dùng Promise mà không có logic bên trong excutor function và biết trước luôn kết quả là thành công hoặc thất bại
+        // thì ta dùng cách viết gọn như sau
+        // Thành công
+
+        var promise = Promise.resolve("message success")
+        promise
+            .then(function(data) {
+                console.log(data)
+            })
+
+        // Fail
+        var promise = Promise.reject("message error")
+        promise
+            .catch(function(error) {
+                console.log(error)
+            })
+        
+        // Promise.all() giúp chạy song song các promise, VD cần kết quả của cv1 và cv2 làm cv3 thì cv1, cv2 có thể chạy song song.
+        // tham số là một array chứa các promise và trả về một promise
+        // Khi tất cả promise trong mảng xong thì promise.all này mới xong(5s)
+        // Kết quả là một mảng chứa kết quả của từng promise ở trên.
+
+
+        var promise1 = new Promise(function(resolve){
+            // Sau ms thì gọi hàm resolve
+            setTimeout(function(){
+                resolve([2, 3])
+            }, 4000)
+        })
+
+        var promise2 = new Promise(function(resolve){
+            // Sau ms thì gọi hàm resolve
+            setTimeout(function() {
+                resolve([5, 6])
+            }, 5000)
+        })
+
+        Promise.all([promise1, promise2])
+            .then(function(results){
+                console.log(results) // [Array(2), Array(2)]
+            })
+            // một promise lỗi sẽ nhảy vào catch
+            .catch(function(error){
+                console.log(error)
+            })
+        
+    </script>
+    
+</body>
+</html>

@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Callback</title>
+</head>
+<body>
+    
+    <script>
+          var courses = [
+            {
+                id: 1,
+                name: "JS",
+                coin: 0
+            },
+            {
+                id: 2,
+                name: "Python",
+                coin: 10
+            },
+            {
+                id: 3,
+                name: "C++",
+                coin: 20
+            }
+        ]
+
+        // Callback
+        /**
+         * Là hàm
+         * Được truyền làm đối số 
+         * Được gọi lại bên trong hàm truyền đối số.
+        */
+        // Ví dụ
+        function testCallBack(param) {
+            param("call again function callback")
+        }
+        function myCallBack(value) {
+            console.log(value)
+        }
+        // gọi function truyền callback
+        testCallBack(myCallBack)
+
+        // Viết lại map2 như map để hiểu hơn về callback 
+        Array.prototype.map2 = function(callback) {
+            // this chính là array nào gọi map2
+            var outArray = []
+            for (var i=0; i < this.length; i ++) {
+                //currentValue, currentIndex, origin_array
+                var result = callback(this[i], i, this)
+                outArray.push(result)
+            }
+            return outArray
+        }
+        // myCallBack mình muốn xử lí chức năng gì thì vào hàm ni viết lại
+        // Ví dụ return lại chính element của mảng truyền vào
+        function myCallBack(currentValue, currentIndex, origin_array) {
+            // Xử lí các chức năng mong muốn ở đây
+            return currentValue
+        }
+
+        // test map2
+        var the_same_array = courses.map2(myCallBack)
+        console.log("the same array: ", the_same_array)
+
+         // ----------------CALLBACK WITH ARRAY----------------------
+
+        // Ưu điểm: ngắn hơn.
+
+        // Callback trong array - các method dùng với array và có đối số làm một hàm
+        // Tất cả các phương thức này đều có tham số là một hàm
+        /** 
+         * forEach()
+         *  every()
+         *  some()
+         *  find()
+         *  filter()
+         *  map()
+         *  reduce()
+         * */
+        // Các hàm này khi được gọi sẽ lặp qua từng phần tử của mảng và trả trả về 3 giá trị: element, index, array_origin sau đó gọi hàm callback.
+        // Cách hoạt động: khi chạy các hàm này sẽ lặp qua từng phần tử của mảng và gọi hàm callback truyền vào để xử lí.
+        // Nếu điều kiện trong hàm callback thoải mản sẽ kết thúc hàm callback và kết thúc luôn vòng lặp.
+
+        var courses = [
+            {
+                id: 1,
+                name: 'JS',
+                coin: 250,
+            },
+            {
+                id: 2,
+                name: 'python',
+                coin: 0,
+            },
+            {
+                id: 3,
+                name: 'C++',
+                coin: 0,
+            },
+            {
+                id: 4,
+                name: 'PHP',
+                coin: 0,
+            },
+            {
+                id: 5,
+                name: 'C#',
+                coin: 260,
+            },
+            {
+                id: 6,
+                name: 'C',
+                coin: 100,
+            },
+            {
+                id: 7,
+                name: 'PHP',
+                coin: 0,
+            },
+        ];
+        
+        // --------------------------------forEach----------------------------------
+        // forEach() duyệt qua từng phần tử của mảng
+        courses.forEach(function (course, index) {
+            console.log("index", index)
+            console.log("value", course)
+        }) 
+
+        // Viết lại hàm forEach
+        /** Kiến thức cần chuẩn bị
+         * Object prototype - hasOwnProperty(check để không lặp qua key là phương thức mới thêm vào)
+         * For in - tránh lặp phần tử empty 
+         * 
+        */
+       // Viết lại thư viện
+        Array.prototype.forEach2 = function(callback) {
+            for (var index in this) {
+                // Nếu không check sẽ lặp luôn qua key là forEach2
+                if (this.hasOwnProperty(index)) {
+                    callback(this[index], index, this)
+                }
+            }
+        }
+        // forEach() duyệt qua từng phần tử của mảng
+        courses.forEach2(function (course, index) {
+            console.log("index forEach2", index)
+            console.log("value forEach2", course)
+        }) 
+
+        // --------------------------------every()----------------------------------
+        // every(): kiểm tra tất cả phần tử trong mảng thỏa mãn một đk nào đó
+        // trả về true/false
+        var isFree = courses.every2(
+            function (course, index) {
+                return course.coin === 0;
+            }
+        )
+        console.log(isFree)
+        
+        // Viết lại thư viện
+
+        Array.prototype.every2 = function(callback) {
+            for (var index in this) {
+                if (this.hasOwnProperty(index)) {
+                    var check = callback(this[index], index, this)
+                    if (check === false){
+                        return false
+                    }
+                }
+            }
+            return true
+        }
+        // -------------------------some()------------------------------
+        // some(): kiểm tra 1 phần tử trong mảng thỏa mãn một đk nào đó
+        // trả về true/false
+        var isFree = courses.some(
+            function (course, index) {
+                return course.coin === 0;
+            }
+        )
+        console.log(isFree)
+
+        // Viết lại thư viện
+        Array.prototype.some2 = function(callback) {
+            for (var index in this) {
+                if (this.hasOwnProperty(index)) {
+                    var check = callback(this[index], index, this)
+                    if (check === true){
+                        return true
+                    }
+                }
+            }
+            return false
+        }
+
+        // find() tìm kiếm phần tử thoải mãn đk nào đó, chỉ trả về 1 phần tử đầu tiên, không có  thi trả về undefined
+        var course = courses.find(function(course, index) { return course.name === 'ak'})
+        
+        console.log("course find:", course)
+
+        // Viết lại thư viện
+        Array.prototype.find2 = function(callback) {
+            for (var index in this) {
+                if (this.hasOwnProperty(index)) {
+                    var check = callback(this[index], index, this)
+                    if (check === true){
+                        return this[index]
+                    }
+                }
+            }
+            return undefined
+        }
+
+        // filter() giống find() nhưng trả về  hết ,tìm kiếm tất cả phần tử thoải mãn đk nào đó
+        var list_course = courses.filter(function(course, index) { return course.name === 'PHP'})
+        // ES6 var list_course = courses.filter((course, index) => course.name === 'PHP')
+        console.log(list_course)
+
+
+        // Viết lại thư viện
+        Array.prototype.filter2 = function(callback) {
+            arr_out = []
+            for (var index in this) {
+                if (this.hasOwnProperty(index)) {
+                    var check = callback(this[index], index, this)
+                    if (check === true){
+                        arr_out.push(this[index])
+                    }
+                }
+            }
+            if (arr_out.length !== 0) {
+                return arr_out
+            }
+            return undefined
+        }
+
+
+        // map() : sử dụng khi muốn chỉnh sửa , thay đổi các element của array 
+        // trả về array mới có length bằng array dùng map(), nhưng mỗi element của mảng mới do ta thay dổi có thể  i như cũ.
+        // mỗi lần lặp hàm callback return cái gì thì sẽ đưa vào mảng mới element đó.
+
+        // Ví dụ thêm từ Khóa học trước tên ngôn ngữ cho field name và thêm trường giá cho mỗi element
+        
+        // Có thể  dùng declaration function dùng làm hàm callback
+        function courseMofify(course, index, o_array){
+            // return 123 trả về mảng 7 phần tử giá trị 123
+            return {
+                id: course.id,
+                name: `Khoa hoc ${course.name}`,
+                coin: course.coin,
+                price: `Giá ${course.coin}`,
+                index: index,
+                origin_array: o_array
+            }
+        }
+        var newCourses = courses.map(courseMofify)
+        console.log("newCourses: ", newCourses)
+
+        
+        // reduce (): Sử  dụng khi muốn nhận về 1 giá trị duy nhất sau khi tính toán và sử lí trên array.
+        // reduce() nhận vào hai đối số, một là hàm callback và một giá trị khởi tạo ban đầu cho biến lưu trữ.
+        // Ví dụ : tổng số coin của tất cả các phần tử  trong array.
+
+
+        // Empty element of array
+        var empty_array = [1, 2]
+        empty_array.length = 10
+        console.log(empty_array)
+        // length array là 10 nhưng thực tế chỉ có hai phần tử 
+        // Nếu dùng vòng for với i = 0, i < empty_array.length thì sẽ không đúng
+        // Ta dùng vòng lặp for/in để  lặp đúng các phần tử khác empty của array
+        for (var index in empty_array) {
+            console.log("element not empty: ", empty_array[index])
+        }
+
+        // --------------------------------END CALLBACK ------------------------------
+
+
+        //---------------------------REDUCE()------------------------------------
+        // reduce (): sử dụng khi mong muốn nhận một giá trị duy nhất sau khi tính toán xủ lí với các phần tử  trong array
+        // Hàm reduce nhận hai đối số, thứ nhất là function(bắt buộc), thứ hai là giá trị khởi tạo ban đầu cho biến lưu trữ
+        // Mỗi lần lặp hàm reduce trả về 4 giá trị: accumulator, currentValue, currentIndex, origin_array.
+
+        // Sử dụng reduce linh hoạt bằng cách khi nào cần tạo biến khởi tạo khi nào không
+        // nếu các giá trị cần tính không giống vs phần tử trong object thì cần tạo biến khởi tạo.
+
+        // Ví dụ: tính tổng coin của các khóa học
+        // accumulator, currentValue, currentIndex, origin_array có thể  thay đổi tên thoải mái.
+        function sumCoin(accumulator, currentValue, currentIndex, origin_array) {
+            // lần lặp thứ nhất accumulator= giá trị khởi tạo 0, currentValue là phần tử mảng thứ 1
+            // mỗi lần lặp tổng coin sẽ lưu vào biến lưu trữ accumulator
+            return accumulator + currentValue.coin
+        }
+        var totalCoin = courses.reduce(sumCoin, 0)
+        console.log("totalCoin: ",totalCoin)
+
+        // Ví dụ 2: tham số khởi tạo initial là tham số không bắt buộc.
+        // Nếu không có giá trị khởi tạo thì mặc định sẽ lấy phần tử đầu tiên của mảng làm giá trị khởi tạo và thèn currentValue đầu tiên sẽ là phần 
+        // tử mảng thứ 2.=> giảm bớt một lần chạy so với có giá trị khởi tạo.
+        var numbers = [10, 20, 30] // tính tổng này bằng reduce
+        var total = numbers.reduce(function(total, value) {
+            return total + value
+        })
+        console.log("total numbers: ", total)
+
+        // Ví dụ 3 làm phẳng mảng
+        var myArray = [1, 3, 5, [1, 5, 6], 4, [123, 45]]
+        var arr_flat = myArray.reduce(function(arr_flat, currentValue) {
+            return arr_flat.concat(currentValue)
+        }, [])
+        console.log("arr_flat: ", arr_flat)
+        console.log("test concat: ", [].concat(1)) // [1]
+
+        // Ví dụ 4: lấy các khóa học đưa vào một mảng mới
+        var topics = [
+            {
+                topics: "FE",
+                courses: [
+                    {
+                        id: 1,
+                        title: "HTML, CSS"
+                    },
+                    {
+                        id: 2,
+                        title: "JS"
+                    }
+                ]
+            },
+            {
+                topics: "BE",
+                courses: [
+                    {
+                        id: 3,
+                        title: "PHP"
+                    },
+                    {
+                        id: 4,
+                        title: "Python"
+                    }
+                ]
+            }
+        ]
+
+        var course_result = topics.reduce(function(course_result, currentValue){
+            return course_result.concat(currentValue.courses)
+        }, [])
+        console.log("course_result reduce 1: ", course_result)
+
+
+        // Viết lại thư viện
+        Array.prototype.reduce2 = function(callback, initial_value=null) {
+            arr_out = []
+
+            if (initial_value === null)
+            {
+                var accumulator = this.shift()
+                for (var index in this) {
+                    if (this.hasOwnProperty(index)) {
+                        var accumulator = callback(accumulator, this[index], index, this)
+                    }
+                }
+            }
+            else
+            {
+                var accumulator = initial_value
+                for (var index in this) {
+                    if (this.hasOwnProperty(index)) {
+                        var accumulator = callback(accumulator, this[index], index, this)
+                    }
+                }
+
+            }
+            return accumulator
+           
+        }
+
+        // Test lai
+        var numbers = [10, 20, 30] // tính tổng này bằng reduce
+        var total = numbers.reduce2(function(total, value) {
+            return total + value
+        }, 0)
+        console.log("total numbers reduce 2: ", total)
+
+        var course_result = topics.reduce2(function(course_result, currentValue){
+            return course_result.concat(currentValue.courses)
+        }, [])
+        console.log("course_result reduce 2: ", course_result)
+
+        var arr_flat = myArray.reduce2(function(arr_flat, currentValue) {
+            return arr_flat.concat(currentValue)
+        }, [])
+        console.log("arr_flat reduce 2: ", arr_flat)
+
+
+
+        //---------------------------END REDUCE()------------------------------------
+        // includes() Phương thức này chỉ có trong prototype của  object String và Array 
+        // check
+        console.log(String.prototype.includes) // true
+        console.log(Number.prototype.includes) // undefined
+        // Sử dụng để check một chuỗi có nằm trong chuỗi khác, hoặc một phần tử có nằm trong mảng hay không
+        var myString = "JS html css python"
+        console.log(myString.includes("css")) // true
+        console.log(myString.includes("c++")) // False
+        // có thêm tham số vị trí bắt đầù tìm kiếm
+        console.log(myString.includes("css", 10)) // False
+
+        var myArray = ["JS", "python"]
+        console.log(myArray.includes("JS")) // true
+        console.log(myArray.includes("C++")) // false
+
+    </script>
+
+</body>
+</html>

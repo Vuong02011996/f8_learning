@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Đệ quy- hàm gọi chính nó</title>
+</head>
+<body>
+    <script>
+
+        /**
+         * Đệ quy là gì? : hàm gọi lại chính nó.(Dùng RAM dể stack số lần gọi hàm, nếu không có điểm dừng sẽ tràn ram)
+         * 2 keyword làm việc với đệ quy
+         *      - Xác định điểm dừng: điểm mà tại đó không gọi lại chính nó nữa
+         *      - Logic handle: logic tạo ra điểm dừng.
+         * 
+         * Mọi bài toán lặp có thể làm bằng đệ quy.
+         *      - Loop tốn CPU
+         *      - Đệ quy tốn RAM.
+         * 
+         * Lỗi hay gặp với đệ quy
+         *      - Lặp vô tận tràn bộ nhớ: Maximum call stack size exceeded.
+        */
+       function tinhGiaiThua(number) {
+           if (number > 0) {
+               return number * tinhGiaiThua(number -1)
+           }
+           return 1
+       }
+       console.log(tinhGiaiThua(3))
+    </script>
+    
+</body>
+</html>

@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Loop</title>
+</head>
+<body>
+    <script>
+        // For
+        for (var i = 1; i <= 10; i++) {
+            console.log(i)
+        }
+        var myArray = [
+            "PHP",
+            "JS",
+            "Python",
+            "C++"
+        ]
+        for (var i = 0; i <= myArray.length; i++) {
+            console.log(myArray[i])
+        }
+
+        // For/in sử dụng để lấy key của object(array, object)
+        for (var key in myArray) {
+            console.log(key) // 0, 1, 2, 3
+        }
+        var myObject = {
+            name: "Vuong",
+            age: 20,
+            class: 2
+        }
+        for (var key in myObject) {
+            console.log(key) // name, age, class    
+        }
+        // string 
+        var language = "Python"
+        for (var key in language) {
+            console.log(key) // 0,1,2,3,4,5
+        }
+        // For/of sử dụng để lấy value của object
+        // app dụng lấy từng phần tử array , từng chữ của string
+        // không dùng lấy giá trị trực tiếp từ object phải dùng Object.values
+        for (var value of myArray) {
+            console.log(value)
+        }
+        for (var value of Object.values(myObject)) {
+            console.log(value)
+        }
+
+        // while
+        var i = 0;
+        while(i < 10) {
+            console.log(i)
+            i++
+        }
+
+        // do/while, luôn chạy lần đầu tiên, ứng dụng kiểm tra input đầu vô
+        var i = 0;
+        isSuccess = false
+        do {
+            i++
+            console.log("Nạp thẻ lần " + i)
+            if(false) {
+                isSuccess = true
+            }
+        }
+        while (!isSuccess && i <= 3)
+
+
+    </script>
+</body>
+</html>

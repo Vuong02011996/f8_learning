@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // Toán tử logical
+        var a = 1
+        var b = 2
+        var result = a < b && a < 0
+        console.log(result) // false : là giá trị của biểu thức (a < 0)
+
+        var result = a < b && a > 0
+        if(result) // result: true  ở đây là kết quả của biểu thức a > 0, chớ không phải kết quả của  true && true
+        {
+            console.log("result in if:", result) // true
+        }
+
+        var result = "A" && "B" && "C"
+        console.log(result) // "C" : trả về giá trị biểu thức cuối cùng
+
+
+        if(result) // biểu thức trong if sẽ chuyển kết quả trong biểu thức so sánh sang boolean, "C" : true
+        {
+            console.log("result in if:", result) // C
+        }
+
+        var result = "A" && a < 0 && "C"
+        console.log(result) // false :một biểu thức là 6 giá trị false thì trả về  false ngay không qua vế tiếp theo
+
+        var result = "C" || null || "D"
+        console.log(result) // C với  || : khi kêt quả một biểu thức khác 6 giá trị kia thì return ngay biểu thức đó 
+
+        var result = "A" && a < 0 && "C" || null || "D"
+        console.log(result) // D :một biểu thức là 6 giá trị false thì trả về  false ngay không qua vế tiếp theo của && 
+                            // nhưng vẫn kiểm tra || : khi kêt quả một biểu thức khác 6 giá trị kia thì return ngay biểu thức đó 
+    
+    
+    
+    </script>
+    
+</body>
+</html>

@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form đăng ký</title>
+    <link rel="stylesheet" href="./form.css">
+</head>
+<body>
+    <div class="main">
+
+        <form action="" method="POST" class="form_register" id="form-1">
+            <h3 class="heading">Thành viên đăng ký</h3>
+            <p class="desc">Cùng nhau học lập trình miễn phí tại F8</p>
+
+            <!-- Thuộc tính name chỉ có ở thẻ input, dùng để lấy tất cả thẻ input -->
+            <div class="form_group">
+                <label for="fullname" class="form_label">Tên đầy đủ</label>
+                <input type="text" id="fullname" name="fullname" placeholder="VD: Sơn Đặng">
+                <span class="form_message"></span>
+            </div>
+
+            <div class="form_group">
+                <label for="email" class="form_label">Email</label>
+                <input type="email" id="email" name="email" placeholder="VD: email@domain.com">
+                <span class="form_message"></span>
+            </div>
+
+            <div class="form_group">
+                <label for="password" class="form_label">Mật khẩu</label>
+                <input type="text" id="password" name="password" placeholder="Nhập mật khẩu">
+                <span class="form_message"></span>
+            </div>
+
+            <div class="form_group">
+                <label for="password_confirmation" class="form_label">Nhập lại mật khẩu</label>
+                <input type="text" id="password_confirmation" name="password_confirmation" placeholder="Nhập lại mật khẩu">
+                <span class="form_message"></span>
+            </div>
+
+            <!-- File input -->
+            <div class="form_group">
+                <label for="avatar" class="form_label">Ảnh đại diện</label>
+                <input type="file" id="avatar" name="avatar">
+                <span class="form_message"></span>
+            </div>
+
+            <!-- Select input -->
+            <div class="form_group">
+                <label for="province" class="form_label">Chọn tỉnh thành</label>
+                <select type="text" id="province" name="province">
+                    <option value="">---Tỉnh/TP---</option>
+                    <option value="hni">Hà Nội</option>
+                    <option value="dn">Đà Nẵng</option>
+                </select>
+                <span class="form_message"></span>
+            </div>
+
+            <!-- Radio input -->
+            <div class="form_group">
+                <label for="gender" class="form_label">Giới tính</label>
+                
+                <!-- Tại sao cái chính giữa lấy được giá trị còn cái đầu với cuối không được 
+                Lỗi vòng for  (var) inputElement = inputElements[i] không đặt var cho biến inputElement-->
+                <div class="form_radio">
+                    <input type="radio" value="female" name="gender">
+                    <span>Nữ</span>
+                </div>
+
+                <div class="form_radio">
+                    <input type="radio" value="male" name="gender">
+                    <span>Nam</span>
+                </div>
+
+                <div class="form_radio">
+                    <input type="radio" value="other" name="gender">
+                    <span>Khác</span>
+                </div>
+
+                <span class="form_message"></span>
+            </div>
+
+            <!-- Checkbox input-->
+            <div class="form_group">
+                <label for="favorite" class="form_label">Sở thích</label>
+                
+                <!-- Tại sao cái chính giữa lấy được giá trị còn cái đầu với cuối không được 
+                Lỗi vòng for  (var) inputElement = inputElements[i] không đặt var cho biến inputElement-->
+                <div class="form_checkbox">
+                    <input type="checkbox" value="fooball" name="favorite">
+                    <span>Bóng đá</span>
+                </div>
+
+                <div class="form_checkbox">
+                    <input type="checkbox" value="badminton" name="favorite">
+                    <span>Cầu lông</span>
+                </div>
+
+                <div class="form_checkbox">
+                    <input type="checkbox" value="tennis_table" name="favorite">
+                    <span>Bóng bàn</span>
+                </div>
+
+                <span class="form_message"></span>
+            </div>
+
+            <button class="form_submit">Đăng ký</button>
+
+        </form>
+
+        <script src="./validator1.js"></script>
+
+        <script>
+            Validator(
+                {
+                    form: "#form-1",
+                    formGroupSelector: ".form_group",
+                    errorSelector: ".form_message",
+                    rules: [
+                        Validator.isRequired("#fullname", "Vui lòng nhập trường này"),
+                        Validator.isRequired("#email", "Vui lòng nhập trường này"),
+                        Validator.isEmail("#email", "Trường này phải là email "),
+                        Validator.minLength("#password", 6),
+                        Validator.isRequired("#password_confirmation", "Vui lòng nhập trường này"),
+                        Validator.isConfirmed("#password_confirmation", function(){
+                            // lấy giá trị ô input password ở trên truyền vào
+                            return document.querySelector("#form-1 #password").value
+                        }, "Nhập lại đúng mật khẩu ở trên"),
+                        Validator.isRequired("#province", "Vui lòng nhập trường này"),
+                        Validator.isRequired('input[name="gender"]', "Vui lòng nhập trường này"),
+                        Validator.isRequired('input[name="favorite"]', "Vui lòng nhập trường này"),
+                        Validator.isRequired("#avatar", "Vui lòng nhập trường này"),                        
+
+                    ],
+                    onSubmit: function(formValues){
+                        console.log(formValues)
+                        // Call API ở đây
+                    }
+                },
+                // test tiến trình chạy code
+                console.log(0),
+            )
+        </script>
+    </div>
+</body>
+</html>
