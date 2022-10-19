@@ -391,7 +391,7 @@ nên có thể sử dụng các thuộc tính và phương thức của một el
 
     // Cách 1: Attribute event
     var attribute_event = document.querySelector(".attribute_event")
-    // onclick="console.log(Math.random())" viết thẳng JS và các thuộc tính event
+    // onclick="console.log(Math.random())" viết thẳng JS vào các thuộc tính event
 
     // Cách 2: Assign event từ element node, gán cho các sự kiện một function
     // thực chất function này là một callback của onclick, khi có sự kiện onclick sẽ gọi lại function này
@@ -416,6 +416,7 @@ nên có thể sử dụng các thuộc tính và phương thức của một el
     var inputText = document.querySelector("input[type='text']")
     
     // onchange chỉ chạy khi blur chuột ra khỏi input và giá trị sau khác gía trị trước 
+    // e.target.value <=> this.value : this ở đây chính là event gọi onchange
     inputText.onchange = function(e) {
         console.log(e.target.value)
     }
