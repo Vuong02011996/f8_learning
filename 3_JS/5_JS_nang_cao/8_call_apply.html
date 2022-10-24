@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Call</title>
+</head>
+<body>
+    <script>
+          // ------------------------Call với function --------------------------------------------------------
+        // call cũng như bind là phương thức nằm trong function constructor Function nên bất cứ hàm, phương thức nào cũng gọi được.
+        // call: Vừa gọi hàm, vừa bind this.
+        // Bind khác call là bind chỉ bind this trả ra this mới hàm mới chớ không gọi, call thì bind this xong gọi luôn hàm đó.
+        // Thực ra khi gọi hàm bằng () thì engine JS sẽ gọi tới call để gọi hàm.
+        // Mục đích call là để gọi hàm và bind this.
+        // Ứng dụng:
+        // 1. Kế thừa trong JS
+        // 2. Mượn hàm : function borrowing.
+        // Ví dụ:
+        /**
+         * Gọi hàm với call method
+         * Gọi hàm và bind this, lưu ý trong strict mode vẫn có this nếu được bind.
+         * Thể hiện tính kế thừa(extends) trong OOP
+         * Mượn hàm (function borrowing) thêm ví dụ với arguments.
+         * 
+        */
+
+        const teacher4 = {
+            firstName: "Minh",
+            lastName: "Thu"
+        }
+
+        const me = {
+            firstName: "Sơn",
+            lastName: "Đặng",
+            getFullName(){
+                console.log(`${this.firstName} ${this.lastName}`)
+            } ,
+        }
+        // me.getFullName.call() thì this bên trong hàm getFullName là đối tượng window.
+
+        // Dùng bind this với call để trỏ this đúng đối tượng ta mong muốn.
+        // me.getFullName.call(me)
+        // mượn hàm  getFullName() của me, vừa bind this vừa gọi hàm getFullName
+        me.getFullName.call(teacher4)
+
+
+        // Lưu ý trong strict mode vẫn có this nếu được bind.
+        this.lastName = "Sơn"
+        this.firstName = "Đặng"
+
+        function showFullName() {
+            "use strict"
+            console.log(this) // trong strict mode thì this là undefined, nhưng nếu được bind, call thì this vẫn là window
+            // trong function bình thường không strict mode thì this là window 
+            console.log("strict mode vẫn có this nếu được bind", `${this.firstName} ${this.lastName}`)
+        }
+        // showFullName()
+        showFullName.call(this) 
+
+        
+        // Ví dụ kế thừa : thừa hưởng lại phương thức hoặc thuộc tính của đối tượng khác
+        function Animal(name, weight)
+        {
+            this.name = name
+            this.weight = weight
+        }
+
+        function Chicken(name, weight, leg)
+        {
+            // this ở đây là đối tượng tạo ra bởi Chicken chính là sondang, khi gọi hàm Animal thì this sẽ được 
+            // kế thừa hai thuộc tính name, weight của lớp Animal
+            Animal.call(this, name, weight)
+            this.leg = leg
+        }
+        const sondang = new Chicken("Sơn Đặng", 66, 2)
+        console.log(sondang)
+
+        // Sử dụng với arguments
+        // Khi chưa có rest thì làm sao console.log(1, 2, 3) lại in ra được 1 2 3
+        // Dùng toán tử arguments
+        function logger()
+        {
+            console.log(...arguments)
+            console.log(arguments)
+            // arguments là một đối tượng có đánh index phần tử i như array nhưng trong prototype không có các
+            // phương thức làm việc với array như map, reduce, ...
+            // Làm sao để arguments có các phương thức đó?
+            // Ta dùng call để mượn hàm
+            // Mượn hàm map từ array cho thèn arguments, (nhớ hàm map tham số đầu tiên là callback) .
+            array = Array.prototype.map.call(arguments, item => item)
+            console.log(array)
+        }
+        logger(1, 2, 3)
+
+        // -----------------Apply---------------------
+        // Cũng giống i như call khác duy nhất là cách nhận đối số cho hàm là một mảng.
+        // Phương thức này cho phép gọi một hàm với bind this, và truyền đối số cho hàm gốc dưới dạng mảng
+
+        const teacher = {
+            firstName: "Minh",
+            lastName: "Thu"
+        }
+
+        function greet(greeting, message)
+        {
+            return `${greeting} ${this.firstName} ${this.lastName}. ${message}`
+        }
+
+        // Dùng apply chỉ khác là truyền mảng 
+        let result = greet.apply(teacher, ["Em chào cô", "Cô dạy môn gì thế ạ?"])
+        console.log(result)
+
+        // Dùng call
+        result = greet.call(teacher, "Em chào cô", "Cô dạy môn gì thế ạ?")
+        console.log(result)
+
+        // Kế thừa dùng apply ngon hơn vì tận dụng cái mảng của aruments
+         // Ví dụ kế thừa : thừa hưởng lại phương thức hoặc thuộc tính của đối tượng khác
+         function Animal1(name, weight)
+        {
+            this.name = name
+            this.weight = weight
+        }
+
+        function Chicken1()
+        {
+            // this ở đây là đối tượng tạo ra bởi Chicken chính là sondang, khi gọi hàm Animal thì this sẽ được 
+            // kế thừa hai thuộc tính name, weight của lớp Animal
+            Animal1.apply(this, arguments)
+            this.leg = 2
+        }
+        const sondang1 = new Chicken1("Sơn Đặng", 66)
+        console.log(sondang1)
+
+    </script>
+</body>
+</html>

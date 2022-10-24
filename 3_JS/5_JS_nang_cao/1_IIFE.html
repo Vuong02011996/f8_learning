@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IIFE</title>
+</head>
+<body>
+    <script>
+        // IIFE Immediately invoked functions expression. - hàm biểu thức được gọi ngay lập tức còn gọi là self-Invoking function
+        // Một hàm tự gọi
+        // Cả expression function và arrow function đều dùng được.
+        // Dùng khi muốn tính an toàn bảo mật cho dữ liệu - tính đóng gói trong OOP.
+
+        /** Nội dung
+         * IIFE trông như thế nào
+         * Dùng ; trước IIFE
+         * IIFE là hàm private
+         * Sử dụng IIFE khi nào
+         * Các cách tạo ra một IIFE
+         * Ví dụ sử dụng IIFE
+        */
+        // dùng toán tử () expression function bên trong và thêm () gọi ngay.
+        // Thực ra toán tử () sẽ trả về nội dung bên trong nó(nó chỉ có tác dụng bao lại cho dễ nhìn)
+        // Do đó (expression function) sẽ trả về một function.
+        // Thường thêm dấu ; trước IIFE để tránh lỗi gọi một giá trị không phải là hàm (ví dụ chuỗi ở trước IIFE: "abc"())
+        ;(function(message) {
+            console.log(message)
+        })("NOW")
+
+        // IIFE là hàm private, không dùng để gọi lại được bên ngoài, nhưng gọi được chính nó bên trong - đệ quy
+        ;(function myFunction() {
+            console.log("message")
+        })()
+        // myFunction() // lỗi myFunction is not defined
+
+        // Cách sử dung:
+        // Không phải viết hàm để dùng lại
+        // Tránh tạo ra các biến toàn cục, muốn che dấu đi biến hàm bên trong một khối nào đó, không dùng được ở global.
+
+        // Ví dụ
+        // Sử dụng khi chỉ muốn public những thuộc tính phương thức cần thiết, còn những cái muốn an toàn cho dữ liệu không nên public ra.
+        // Tính đóng gói trong hướng đối tượng
+        const app = {
+            cars : [],
+            add(car)
+            {
+                this.app.cars.push(car);
+            },
+            edit(index, car)
+            {
+                this.app.cars[index] = car
+            },
+            delete(index)
+            {
+                this.app.cars.splice(index, 1);
+            }
+        }
+
+        // Dùng IIFE để đóng gói dữ liệu cars lại vì TH người dùng app.cars = null thì dữ liệu sẽ lỗi.
+        // IIFE là hàm được gọi ngay nên những gì return trong hàm sẽ gán cho biến app1.
+        const app1 = ( function(){
+            const cars = []
+            return {
+                add(car)
+                {
+                    cars.push(car)
+                },
+                edit(index, car)
+                {
+                    cars[index] = car
+                },
+                delete(index)
+                {
+                    cars.splice(index, 1);
+                },
+                get(index)
+                {
+                    return cars[index]
+                }
+            }
+        })()
+        // app1 bây giờ không thể chấm cars ở bên ngoài được nữa => bảo mật dữ liệu.
+
+        
+    </script>
+    
+</body>
+</html>

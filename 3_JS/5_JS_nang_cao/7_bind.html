@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bind, Call, Apply</title>
+
+</head>
+<body>
+    <button class="button">Click me</button>
+    <h1 class="heading"> Render Car</h1>
+    <input class="input" type="text" placeholder="Enter car ...">
+    <button class="btn">Add</button>
+    <ul class="root"></ul>
+    
+    <script>
+        // Tất cả function hay phương thức của JS đều kế thừa được các phương thức bind(), call(), apply()
+        // Bind : ràng buộc, bind this -> ràng buộc this
+        // Bind giúp ràng buộc từ khóa this trong phương thức hay hàm thành các đối tượng khác tùy ý.
+        // Bind nhận đối số đầu tiên chính là object mà ta muốn ràng buộc với từ khóa this cho hàm, phương thức đó.
+        // Các đối số tiếp theo chính là tham số của hàm, phương thức gọi bind.
+        // Đối số trong hàm bind sẽ ưu tiên hơn truyền đối số trong chính hàm đó.
+
+        // Hàm bind không sử từ khóa this mà trả về một hàm mới (ô nhớ mới) với object mới.
+        // Hàm trả về vẫn nhận đối số như hàm ban đầu.
+
+        // Cả bind, call, apply phương thức nằm trong function constructor Function nên bất cứ hàm, phương thức nào cũng gọi được.
+        // Chú ý hai điểm quan trọng:
+        // 1. là bind this, ràng buộc this
+        // 2. ứng dụng trong mượn hàm và kế thừa.
+
+        this.firstName = "Minh"
+        this.lastName = "Thu"
+
+        const teacher = {
+            firstName: "Minh",
+            lastName: "Thảo",
+            getFullName(data) {
+                console.log(data)
+                return `${this.firstName} ${this.lastName}`
+            },
+        }
+
+        // this là đối tượng gọi đến .getFullName() chính là object teacher
+        console.log(teacher.getFullName()) // Minh Thảo
+        
+        const teacher1 = teacher.getFullName // ở đây gán chớ chưa gọi hàm nên this không phải là teacher.
+        // this là đối tượng gọi đến .getFullName() chính là teacher1 là biến global nên this là window.
+        // gọi đến hàm không thông qua đối tượng thì là hàm bình thường, không phải phương thức.
+        console.log(teacher1()) // Minh Thu
+
+        // Dùng bind để ràng buộc
+        const teacher2 = teacher.getFullName.bind(teacher, "data")
+        console.log(teacher2()) // Minh Thảo, vẫn truyền tham số bình thường sau khi bind.
+
+
+
+        // Ví dụ
+        // Handle click DOM
+        const teacher3 = {
+            firstName: "Minh",
+            lastName: "Thảo",
+            getFullName() {
+                console.log(`${this.firstName} ${this.lastName}`)
+            },
+        }
+        const buttonElement = document.querySelector(".button")
+        // buttonElement.onclick = function(){
+        //     teacher3.getFullName()
+        // }
+        // Viết gọn gán bằng function, khi click mới gọi function
+        // Nhưng khi đó buttonElement.onclick gán cho một function teacher3.getFullName nên
+        // this trong function teacher3.getFullName chính là buttonElement chở không phải teacher3. 
+        // vì teacher3 không gọi phương thức., do đó trả về undefined khi this.firstName.
+
+        buttonElement.onclick =  teacher3.getFullName
+        // Dùng bind để truyền vào chỉ rõ this là đối tượng nào
+        buttonElement.onclick =  teacher3.getFullName.bind(teacher3)
+        
+
+        //------------------- Ví dụ thực tế hay dùng-------------------------------------------------------
+        const $ = document.querySelector.bind(document)
+        const $$ = document.querySelectorAll.bind(document)
+
+        console.log(document.querySelector(".heading"))
+        // Không dùng bind sẽ lỗi TypeError: Illegal invocation
+        // Vì phương thức querySelector sử dụng this bên trong, mà this này phải là document, khác sẽ báo lỗi
+        // Nên phải dùng bind để trỏ đúng this là đối tượng document
+        console.log($(".heading"))
+
+
+        // ----------------Ví dụ khó hơn, áp dụng hết kiến thức nâng cao đã học-----------------------------
+        // IIFE, closure, this, bind
+        // Ứng dụng add và render car từ giá trị thẻ input
+        const root = $(".root")
+        const input = $(".input")
+        const btn = $(".btn")
+
+        // IIFE, hàm chạy ngay trả về object chứa các phương phức, biến cars bên trong đóng gói.
+        const app = (() => {
+            const cars = ["Oto"]
+
+            // closure: hàm bên trong có thể truy xuất biến ở phạm vi bên ngoài
+            return {
+
+                add(car){
+                    cars.push(car)
+                },
+                delete(index){
+                    cars.splice(index, 1)
+                },
+                render(){
+                    const html = cars.map((car, index) => `
+                        <li> ${car}
+                        <span class="delete" data-index="${index}">&times</span>
+                        </li>
+                    `).join("")
+                    root.innerHTML = html
+                },
+                handleDelete(event)
+                {
+                    // khi lắng nghe sự kiện root.onclick sẽ trả về một event chứa thông tin sự kiện
+                    // event.target sẽ trả về element mà ta bấm vào (ul, li, span, ...)
+                    console.log(event.target)
+                    // Kiểm tra có bấm đúng vô thẻ span hay không
+                    const deleteBtn = event.target.closest(".delete")
+                    if(deleteBtn)
+                    {
+                        // lấy index của thẻ span bấm vào bằng dataset 
+                        // data gạch ngang là cách để tạo ra dataset, tên sau gạch ngang đặt như nào cũng được
+                        // đặt sau data- như nào là phải chấm như vậy
+                        // const index = deleteBtn.dataset.abc nếu đặt là data-abc
+                        const index = deleteBtn.dataset.index
+                        
+                        // this ở đây không dùng bind thì this chính là root gọi tới onclick(chính là thẻ ul chớ không phải app)
+                        this.delete(index)
+                        this.render()
+                    }
+                },
+                init() {
+                    // const _this = this cách 0: hồi xưa hay dùng
+
+
+                    // Cách 1
+                    // btn.onclick = function() {
+                    //     // nếu không có bind thì this này chính là btn.
+                    //     this.add(input.value)
+                    //     this.render()
+                    // }.bind(this) // Dùng bind để chỉ đúng this bên trong là đối tượng nào.
+                    // Nên bind(this) thay cho bind(app) vì nếu tên app thay đổi vẫn đúng, không phải sửa
+
+
+                    // Cách 2 dùng arrow function vì arrow function không có phạm vi riêng nên sẽ lấy this phạm vi bên ngoài gần nhât
+                    // mà this bên ngoài là app
+                    btn.onclick = () => {
+                        // nếu không có bind thì this này chính là btn.
+                        this.add(input.value)
+                        this.render()
+
+                        // Sau khi add xóa input và focus chuột vào luôn để dễ thao tác
+                        input.value = null // hoặc chuỗi rỗng
+                        input.focus()
+                    } 
+
+                    // ta lắng nghe onclick trên thẻ cha ul để lắng nghe sự kiện xóa ở thẻ span của li
+                    // Dùng bind tới app vì bên trong function handleDelete có dùng this muốn trỏ tới app
+                    // Ở đây nên dùng this thay vì app vì tên app có thể thay đổi, mắc công sửa lại.
+                    root.onclick = this.handleDelete.bind(this)
+
+                    // this ở đây là đối tượng gọi tới init() chính là app nên gọi được phương thức render
+                    this.render()
+                },
+                
+            }
+        })()
+
+        app.init()
+
+    </script>
+    
+</body>
+</html>

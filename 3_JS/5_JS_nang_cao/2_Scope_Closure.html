@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Scope_Closure</title>
+</head>
+<body>
+    <script>
+        /**
+         * Các loại phạm vi
+         * - Global : toàn cầu
+         * - Code block : Khối mã let, const
+         * - Local scope: hàm var, function.
+         * Một hàm khi gọi luôn có một phạm vi mới được tạo.
+         * Các hàm có thể truy cập được các biến trong phạm vi của nó và bên ngoài nó.
+         * Cách thức một biến được truy cập.
+         * Khi nào một biến được xóa khỏi bộ nhớ
+         * - Biến toàn cầu
+         * - Biến trong code block , trong hàm.
+         * - Biến trong hàm được tham chiếu bởi 1 hàm.
+        */
+        // var, let, const khai báo bên ngoài thì đều là global.
+
+       // let, const khai báo trong một block (if else, for, while)không sử dụng được bên ngoài, var thì OKE
+       {
+          {
+            {
+                var a = 1
+            } 
+          } 
+        }
+        console.log(a) 
+
+       // var khai báo trong một function không gọi bên ngoài được, let với const thì càng không.
+       function test1()
+       {
+           var b = 1
+       }
+       // console.log(b) // b is not defined
+       // => Sử dụng let, const trong block để  tăng tính bảo mật cho dữ liệu.
+
+       // Một hàm khi gọi luôn có một phạm vi mới được tạo.
+       // Ở đây đã có 3 phạm vi mới được tạo.
+       test1()
+       test1()
+       test1()
+       // Không thể khai báo biến cùng tên trong một phạm vi
+       const age = 20
+    //    const age = 21
+       {
+           {
+               const age = 18 
+               {
+                   // Sẽ tìm biến age từ khối này ra lần bên ngoài  gặp ở đâu sẽ lấy giá trị ngay block đó.
+                   console.log(age)
+
+                //    const age = 18  sẽ lỗi vì truy cập biến age trước khi khi tạo nó. vì nó kiểm tra trong block này có khai báo age không trước khi ra ngoài tìm.
+               }
+           }
+       }
+
+       // Khi nào một biến được xóa
+       // Biến toàn cầu: khi tắt tab hoặc f5 lại trang.(luôn lưu trong bộ nhớ -> hạn chế sử dụng, chỉ sử dụng một lần)
+       // block: biến let, const tự xóa khi ra khỏi block.
+
+       // Biến trong hàm được tham chiếu bởi 1 hàm. - Một tính chất của closure 
+       // Lý thuyết biến ra khỏi hàm bị xóa sẽ không còn đúng khi dùng closure function.
+       function makeCouter()
+       {
+           let couter = 0
+           function increase()
+           {
+               return ++couter
+           }
+           return increase
+       }
+
+       const counter1 = makeCouter()
+       console.log(counter1())
+       console.log(counter1())
+       console.log(counter1())
+       // Biến couter được tham chiếu bởi hàm khác nên chưa được xóa khỏi bộ nhớ ở bên ngoài hàm.
+       // Bởi vì bên trong hàm makeCouter() ta return lại hàm increase() trong hàm increase lại gọi biến couter mà không khai báo
+       // nên biến couter trong hàm increase() đã tham chiếu tới vùng nhớ biến couter bên ngoài nên luôn cập nhật giá trị từ bên ngoài.
+
+
+
+
+       // --------------------------------Closure
+       /**
+        * Closure là một object/hàm/array có thể ghi nhớ được nơi nó được tạo  truy cập được biến ở bên ngoài phạm vi của nó.
+        * Ứng dụng
+        * - Viết code ngắn gọn hơn
+        * - Biểu diễn , ứng dụng tính Private trong OOP
+        * Lưu lý
+        * - Biến được tham chiếu trong closure sẽ không được xóa khỏi bộ nhớ khi hàm cha thực thi xong.
+        *
+       */
+
+       // Biến couter bằng 1 khi gọi counter1 lần 2 là vì hàm makeCouter() chỉ tạo ra một phạm vi còn hàm counter1 lại nhớ nơi nó được tạo nên giá trij
+       // counter sẽ được giữ giá trị ở lần trước
+       // Nếu ta tạo thêm một counter2 khác từ makeCouter() thì một phạm vi mới được tạo ra biến couter lại bắt đầu từ 0
+       const counter2 = makeCouter()
+       console.log(counter2())
+       console.log(counter2())
+       console.log(counter2())
+    
+
+     // Ứng dụng closure
+     // Viết hàm log ngắn gọn hơn, tạo namspace một lần, các tiền tố luôn được gán khi thông báo lỗi
+     // -----------------CLosure------------------
+     function createLog(namespace)
+     {
+         function logger(message)
+         {
+             return `[${namespace}] ${message}`
+         }
+         return logger
+     }
+
+     //-------------------------App-----------------------
+     const infoLog = createLog("Info")
+     console.log(infoLog("chạy code dòng 1"))
+     console.log(infoLog("chạy code dòng 2"))
+     console.log(infoLog("chạy code dòng 3"))
+     const errorLog = createLog("Error")
+     console.log(errorLog("Error code dòng 1"))
+     console.log(errorLog("Error code dòng 2"))
+     console.log(errorLog("Error code dòng 3"))
+
+     // Ứng dụng 2
+     // Tạo local Storage ngắn gọn
+     function createLocalStorage(keyStorage) {
+         // toán tử ?? nếu trước là undefined hoặc null thì lấy vế đằng sau.
+         const store = JSON.parse(localStorage.getItem(keyStorage)) ?? {}
+
+        //  Tạo ra một hàm nội bộ để lưu dữ liệu 
+        const save = () => {
+            localStorage.setItem(keyStorage, JSON.stringify(store))
+        }
+
+         // thay vì trả về một hàm ta muốn trả về nhiều hàm thì bỏ vô một object
+         const storage = {
+            get(key)
+            {
+                return store[key]
+            },
+            set(key, value)
+            {
+                store[key] = value
+                save()
+            },
+            delete(key)
+            {
+                delete store[key]
+                save()
+            }
+         }
+         return storage
+
+     }
+     // Có thể tạo nhiều localStorage với key khác nhau nhanh chóng
+     const storage1 = createLocalStorage("key1")
+     storage1.set("name", "Vương")
+     storage1.set("age", 20)
+     const storage2 = createLocalStorage("key2")
+     storage2.set("name", "Trang")
+     storage2.set("age", 21)
+     const storage3 = createLocalStorage("key3")
+     storage3.set("name", "Trang")
+     storage3.set("age", 21)
+
+    </script>
+</body>
+</html>

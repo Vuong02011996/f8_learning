@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tham trị tham chiếu trong JS</title>
+</head>
+<body>
+    <script>
+        // Kiểu tham trị và tham chiếu trong JS(dữ liệu được lưu trữ như thế nào trong bộ nhớ)
+        /** Value types & Reference types
+         * 1. Value types (Primitive data types - data nguyên thủy, đơn giản)
+         * - String
+         * - Number
+         * - Boolean
+         * - BigInt
+         * - Symbol
+         * - undefined
+         * - null
+         * - Tại một thời điểm kiểu dữ liệu nguyên thủy chỉ chứa một giá trị cụ thể. - nhóm tham trị
+         * 
+         * 2. Reference types (Non-primitive data types - data phức tạp) - nhóm tham chiếu
+         * - Object
+         * - Array
+         * - Funtion
+         * 
+         * Data types with function
+         * - Value types
+         * - Reference types
+        */
+       // Tham trị
+       let a = 1 // tạo biến a cấp ô nhớ cho a lưu giá trị 1 cho biến a
+       let b = a // tạo biến a cấp ô nhớ mới cho b lưu giá trị của biến biến a = 1
+       a = 2
+       console.log(b) // 1
+
+       // tham chiếu
+       // Tạo biến A là lưu địa chỉ của ô nhớ chưa giá trị cho biến a(chớ không phải lưu giá trị)
+       const A = {
+           name: "Name"
+       }
+
+       const B = A // tọa biến B gán bằng biến A tức bằng địa chỉ ô nhớ biến A hay là trỏ cùng địa chỉ của biến A nên khi giá trị A thay đổi thì B cũng cập nhật theo.
+       A.name = "Name1"
+       console.log(B) // {name: "Name1"}
+
+       // Chú ý khi gán lại một biến là Object, Array , Function cho một giá Object, Array, Function mới thì luôn tạo ra vùng nhớ mới, và biến đó 
+       // nhận lại địa chỉ mới thao tác trên địa chỉ mới đó.
+       let object1 = {
+            name: "Name1"
+       }
+       object1 = {
+           name: "Name2"
+       }
+       console.log(object1) // Name2
+
+       const object2 = {
+           name: "Name1"
+       }
+       const object3 = object2
+       const object4 = object3
+       // gán đi gán lại làm nhiễu thôi, tất cả trỏ tới 1 địa chỉ nên 1 thèn thay đổi sẽ thay đổi cả 3
+       object4.name = "Name4"
+       console.log(object2) // Name4
+
+       // -----------------TH object con bên trong
+       const object5 = {
+           name: "Name",
+           object6: {
+               name: "Name"
+           }
+        //    object6: #001 sẽ tạo ta vùng nhớ lưu giá trị object trước sau đó gán key object6 cho địa chỉ ô nhớ đã tạo.
+        // Luôn luôn lưu địa chỉ ô nhớ.
+       }
+       const change = object5.object6 // gán cho địa chỉ ô nhớ của object6
+       change.name = "Name6"
+       console.log(object5)
+    //    name: "Name"
+    //     object6:
+    //         name: "Name6"
+
+
+
+    // ----------------------- Data types with function
+    // Tham trị 
+    function sum(a, b)
+    {
+        // let a = c // tạo ra vùng nhớ mới lưu giá trị biến c
+        // let b = d
+        a = 0
+        b = 0
+        console.log(a, b) // 0, 0
+        return a + b
+    }
+    const c = 1
+    const d = 2
+    sum(c, d)
+    console.log(c, d) // 1, 2
+
+
+    // tham chiếu
+    function test(obj)
+    {
+        // let obj = object_test // tạo ra biến lưu lại địa chỉ của object_test
+        obj.name = "Name1"
+    }
+    object_test = {
+        name: "Name"
+    }
+    test(object_test)
+    console.log(object_test) // Name1
+
+    // Ví dụ khác
+    const car = {
+        name: "Car1"
+    }
+    function createCar(obj)
+    {
+        // obj = {...obj} // Dùng JSON parse hoặc spred để tạo một obj mới địa chỉ mới
+        obj.name = "Car2"
+        return obj
+    }
+
+    const newCar = createCar(car)
+    console.log(car)
+    console.log(newCar)
+    // Cả hai đều là Car2 vì obj trỏ đến cùng địa chỉ của Car
+
+    // So sánh
+    const obj1 = {name: "Name"}
+    const obj2 = {name: "Name"}
+    console.log(obj1 === obj2) // false vì ở đây hai biến này lưu giá trị là hai địa chỉ khác nhau
+    obj3 = obj1
+    console.log(obj3 === obj1) // true
+
+
+
+    </script>
+    
+</body>
+</html>

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hoisting</title>
+</head>
+<body>
+    <script>
+        // Hoisting đưa lên/ kéo lên
+        // Việc khai báo biến, khai báo hàm được đưa lên trên cùng phạm vi của chúng.
+        // JS sẽ chạy qua code một lượt phân tích cú pháp, cái nào được hoisting sẽ đưa lên đầu rồi mới thực thi.
+
+        // Hoisting với var
+        var age // Hoisting đưa phần khai báo lên đầu phạm vi của nó.
+
+        console.log(age) // undefined
+        // console.log(fullName) // fullName is not defined
+        var age = 16
+
+        // Hoisting với function,
+        // nguyên phần khai báo function được đưa lên đầu nên chỗ này vẫn chạy được.
+        console.log(sum(3, 4)) // 7
+        function sum(a, b)
+        {
+            return a + b
+        }
+
+        // Với let và const vẫn hoisting nhưng không khởi tạo giá trị undefined nên đưa vào Temporal Dead Zone nên truy cập được.
+        let fullName = "abc"
+        {
+            {
+                // let fullName ; thực ra đã hoisting ở đây rồi nên mới thông báo lỗi, chớ không kiếm biến fullName từ dưới lên.
+                
+                console.log(fullName)
+                let fullName = "123"
+            }
+
+        }
+    </script>
+    
+</body>
+</html>

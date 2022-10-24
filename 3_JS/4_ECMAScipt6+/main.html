@@ -38,7 +38,7 @@
 
 
         // 1. Scope, Code block
-        // Chỉ có var mới gọi được bên ngoài block, let/const bị lỗi.
+        // Chỉ có var mới gọi được bên ngoài block, let/const bị lỗi.(block chớ không phải function nha)
         {
             var a_var = 1;
             let a_let = 1;
@@ -56,7 +56,7 @@
         console.log("a hosting: ", a)
 
         // 3. assignment: const bị lỗi khi gán lại giá trị ; var với let thì không
-        // const : không thể dùng toán tử gán với lần thứ 2.
+        // const : không thể dùng toán tử gán với lần thứ 2. trong cùng phạm vi., trong hai phạm vi khác nhau vẫn được.
         // const b = 0; // lỗi Assignment to constant variable.
         let b = 0;
         b = 100;

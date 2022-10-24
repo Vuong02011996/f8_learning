@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>This</title>
+</head>
+<body>
+    <button class="button"> Click me</button>
+    <script>
+        // Nắm tính chất then chốt: từ khóa this trỏ về đối tượng nó đang thuộc về.
+        // 1. Trong một phương thức this tham chiếu tới đối tượng gọi(gọi chớ không phải gán nha) đến phương thức.
+        // dấu hiệu nhận biết là thèn nào chấm đến phương thức và có toán tử () phương thức đó chính là this.
+        // 2. Đứng ngoài phương thức (khác với hàm) thì this tham chiếu đến đối tượng global trên node js, trên trình duyệt chính là 
+        // đối tượng window, object Window , object lớn nhất trên trang web.
+        // 3. This nằm trong hàm tạo là đại diện cho đối tượng được tạo ra đó.
+        // 4. arrow function không có context riêng nên sẽ không có this, nên không trả về window, undefined.
+        
+        // 5. Các phương thức bind(), call(), apply() thì this có thể tham chiếu đến đối tượng khác.
+        // Tóm lại: trong phương thức this là đối tượng gọi tới phương thức, trong hàm bình thường có context khác arrow function
+        // thì this là window, trong strict mode thì this là undefined.
+
+        // -------------------------------------Object-----------------------------------------
+        const Iphone7 = {
+            name: "Iphone 7",
+            takePhoto() {
+                // this ở đây chính là đối tượng nào gọi tới phương thức takePhoto - Iphone7
+                console.log(this)
+            },
+            obj_child: {
+                func_child(){
+                    // this ở đây là thèn nào trực tiếp chấm đến phương thức func_child()
+                    console.log(this)
+                }
+            }
+
+        }
+        // thèn nào chấm đến phương thức, mà trong phương thức có từ khóa this thì thèn đó chính là this.
+        console.log(Iphone7.takePhoto())
+        Iphone7.obj_child.func_child()
+
+
+        //------------------------------------- Hàm tạo ------------------------------------
+        function Car(name, color)
+        {
+            this.name = name
+            this.color = color
+            this.run = function() {
+                // this chính là thèn nào gọi tới phương thức run
+                //this chính là object Car: {name: 'Name', color: 'Pink', run: ƒ}
+                console.log("Runnning ...", this)
+            }
+        }
+        const newCar = new Car("Name", "Pink")
+        newCar.run()
+
+        Car.prototype.run1 = function ()
+        {
+            console.log(this) // this ở đây là đối tượng nào gọi tới run1
+            function test() 
+            {
+                // test ở đây chỉ là function bình thường nên không this là đối tượng window.
+                console.log("window in run1", this)
+            }
+            test()
+
+            const test1 = () => {
+                // arrow function không có this nên sẽ lấy this bên ngoài gần nhất chính là đối tượng nào gọi tới run1
+                console.log("this in arrow function:", this)
+            }
+            test1()
+
+        }
+        const newCar1 = new Car("arrow_function", "Pink")
+        newCar1.run1()
+
+
+        // --------------------------this trong DOM-------------------------------------
+        const buttonElement = document.querySelector(".button")
+        // trả về object chớ không phải html, html là do devtool nhận diện ra 
+        // Sử dụng .dir hoặc đưa vào mảng để thấy
+        console.dir(buttonElement)
+        buttonElement.onclick = function() {
+            // this ở đây chính là thèn gọi phương thức onclick chính là object buttonElement
+            console.dir(this)
+        }
+        
+
+        // this đứng ngoài phương thức thì trỏ tới window(hàm không phải là phương thức)
+        console.log(this)
+        function myFunction()
+        {
+            // Nếu trong strict mode thì this ở đây là undefined
+            console.log(this)
+        }
+        myFunction()
+
+        
+
+
+
+    </script>
+    
+</body>
+</html>

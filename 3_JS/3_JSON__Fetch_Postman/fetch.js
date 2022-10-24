@@ -1,16 +1,48 @@
-// Build json-server and create fake API
+// ------------------Fetch-----------------------------
+/**
+ * Frontend : Xây dựng giao diện và logic giao diện người dùng.
+ * Backend : Xây dựng logic xử lí và cơ sở dữ liệu.
+ * Fetch: Từ FE gọi lên API để  lấy lên nội dung lưu trữ từ phía BE.
+ * BE cung cấp API data dạng JSON cho FE, FE fetch data from API , parse JSON và reder lên html
+ * Hàm fetch nhận vô một url và trả về một promise
+*/
+
+
+// ---------------JSON-SERVER create fake API-----------------
+// Sử dụng để tạo API thay cho BE khi BE chưa làm xong data.
+
+//[json-server](https://github.com/typicode/json-server)
+// Thư viện Fake REST API(Mock API) cho FE trong 30s
+
+// Cài Node JS trước, để sử dụng npm(node package manager).
+// Có thể cài trên toàn bộ máy hoặc trong một thư mục cụ thể (bỏ -g)
+// Sau khi cài xong npm sẽ sinh ra một file là package.json để quản lý
+// tất cả các thư viện được cài bằng npm.(dependencíes)
+
+// Tạo một file db.json để lưu fake data của chúng ta.
+// Nếu cài ở folder thêm trường start vào scripts với lện chạy json-server.
+// Sau đó dùng url.
+
+
+// ---------------------Postman------------------------------------
+
+
 // Fetch example
 var courseApi = "http://localhost:3000/course"
 var block_fetch = document.querySelector("#block_fetch")
 console.log("block_fetch: ", block_fetch)
 
 function test_fetch() {
-    // Hàm fetch trả về một response dạng promise
+    // Hàm fetch nhận vô một url và trả về một promise
     fetch(courseApi)
         .then(function(response) {
-            // response.json() đã parse JSON về JS types và trả về promise.
+            // response.json() đã parse JSON về JS type.
+            // Hàm response.json() tiếp tục trả về một promise khác với data là dữ liệu đã được parse.
             return response.json();
         })
+        // then này là của promise được return ở then trước 
+        // Ở đây đã sử dụng promise chain , công việc sau muốn thực hiện phải chờ công việc trước xong
+        // mà không biết công việc trước khi nào xong, có lỗi hay không.
         .then(function(courses) {
             console.log(courses)
             var htmls = courses.map(function(course) {
@@ -22,6 +54,7 @@ function test_fetch() {
             // map trả về mảng mỗi phần tử là template string nối
 
             console.log(htmls)
+            // htmls.join("") trả về  chuỗi html cần render.
             document.getElementById("block_fetch").innerHTML = htmls.join("")
         })
         .catch(function(err) {
@@ -128,7 +161,7 @@ function start() {
 //    getCourse(function(course) {
 //        renderCourse(course)
 //    });
-    // có thể viết gọn thành
+    // có thể viết gọn thành hàm truyền đối số là hàm
     getCourse(renderCourse)
     handleCreateForm()
 }

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // strict: nghiêm ngặc
+        // Strict mode(ES6): Một chế độ giúp code JS an toàn hơn.
+        // Khi bật chế độ này lên một số trường hợp sẽ tránh các lỗi sơ ý.
+        // Đáng sử dụng để tránh một số lỗi phải mất mấy tiếng mới tìm ra.
+
+        // Cách sử  dụng
+        // 1. Thêm "use strict"; vào đầu file js
+        // 2. Thêm "use strict"; ngay sau thẻ mở <script>
+        // 3. Thêm "use strict"; vào đầu phạm vi hàm
+        // Phải đứng đầu phạm vi, trước đó không có đoạn code nào mới chạy được.
+
+        /**Đặc trưng: 
+         * không thể khai báo biến mà không có từ khóa var, let, const.
+         * Báo lỗi khi gán lại giá trị cho thuộc tính có writable false.
+         * Báo lỗi khi hàm có tham số trùng tên.
+         * Khai báo hàm trong code block thì hàm sẽ thuộc phạm vi code block(như let, const)
+         * Không đặt tên biến hàm bằng một số từ khóa nhạy cảm của ngôn ngữ.
+         * */ 
+        //  "use strict";
+         
+         const student = Object.freeze({ // field đóng băng,  writable : false
+             fullName: "Name"
+         })
+
+         student.fullName = "Name1"
+         console.log(student.fullName) // báo lỗi nếu dùng strict mode
+
+         function sum(a, a)
+         {
+             return a + a // a sẽ luôn lấy giá trị truyền phía sau 9 + 9 
+         }
+         console.log(sum(6, 9)) // 18, sử dụng strict mode báo lỗi
+
+
+    </script>
+</body>
+</html>
