@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>React_DOM</title>
+
+    <!-- Thêm react vào website đơn giản -->
+    <script src="https://unpkg.com/react@17/umd/react.development.js" crossorigin></script>
+</head>
+<body>
+    <div class="root"></div>
+    <script>
+
+        //---------------------------------Ôn lại document.createElement---------------------------------------------
+        // 1. document.createElement(h1) : đối số là tabname.
+        // 2. document.body.appendChild()
+        // 3. console.dir
+        // 4. innerText, id, className, style
+
+        // Cách thêm element vào DOM trong JS
+        // B1: tạo element (chỉ lưu vào bộ nhớ chớ chưa đưa lên DOM)
+        const h1 = document.createElement("h1");
+
+        // B2: Thêm nội dung các thứ vào element
+        h1.innerText = "Hello DOM" // Thêm text, textContent
+        h1.id = "heading" // Thêm id hoặc dùng setAttribute
+        h1.className = "heading class_2" // Thêm class
+        h1.style.width = "100px"
+        h1.style = "color:red;font-weight:bold;font-size:50px" // Thêm style
+        // Dùng Object assgin để thêm style
+        Object.assign(h1.style, {
+            color: "blue",
+            fontSize: "40px",
+        })
+
+        // B3: Get lấy thẻ muốn đưa element này vào và đưa element vào 
+        // document.body.appendChild(h1)
+
+
+
+        //----------Thêm React vào website------------------------
+        // Cách nhúng React vào dự án đơn giản 
+        /**
+         * GitHub: nơi lưu trữ mã nguồn.
+         * NPMJS: lưu trữ sản phẩm được xây dựng từ mã nguồn.
+         * 
+         * NPMJS(Node Package Manager-quản lí thư viện JS): nơi công bố dự án JS và tải về 
+         * npmjs.com gõ react.
+         * 
+         * Trong bài này ta không dùng npm i react mà nhúng thẳng file React.js vào để sài.
+         * UNPKG.com: lấy thư viện được lưu trữ ở npm dưới dạng cdn (url online).
+         * CDN(content delivery network): mạng lưới máy chủ trên toàn thế giới, khi một người truy cập đến một url sẽ định tuyến đến máy chủ gần nhất.
+         * 
+         * https://unpkg.com/react@18.2.0/index.js
+         * Có 2 file :
+         * ./cjs/react.production.min.js: cho production , tối ưu code, tên biến một ký tự,..
+         * ./cjs/react.development.js: cho development có ghi chú, thông báo lỗi, ..
+         * Vào react.org -> try react -> add-react-to-a-website -> copy bỏ vào file index.html.
+         * Sau khi thêm vào ta sẽ có biến global: React để sử dụng các thuộc tính,  phương thức của thư viện React để ta làm việc.
+         * 
+        */
+       console.log(React)
+       console.log(React.version)
+
+
+       //------------------------------------------React.createElement-----------------------------------------------------
+        // document.createElement trả về đối tượng DOM element, thành phần nhỏ nhất là node.
+        // React.createElement  trả về đối tượng React element, thành phần nhỏ nhất là react element.
+        // Cả hai đều dùng để render ra thẻ html.
+
+        // Tạo <h1 title="Hello" class="heading"> Hello</h1>
+        // Cách 1: Dùng document.createElement
+
+        const root = document.querySelector(".root")
+        const h1Dom = document.createElement("h1")
+        h1Dom.title = "Hello"
+        h1Dom.className = "heading"
+        h1Dom.innerText = "Hello"
+        // DOM element nên có thể render lên web luôn
+        root.appendChild(h1Dom)
+
+
+        // Cách 2: Dùng React.createElement 
+        // React.createElement(type, props, children, n-children, ...), từ đối số thứ 3 đều là children.
+        // Nhưng thực ra đối số children cũng nằm trong props, nhưng tách ra khi code để dễ thêm element con vào.
+        // Khi Element có từ 2 children trở lên thì children trong props sẽ là mảng chứa các children.
+
+        /** Các đối số
+         * type: string(tabname), class, function => Dùng để render component lên web.
+         * props: là một object chứa các properties(attributes) của element
+         * children: thành phần nằm bên trong thẻ có thể là text, array, function, ...tất cả kiểu dữ liệu của JS mà nằm phần thân của thẻ nên gọi là children.
+         * 
+        */
+        const h1React = React.createElement("h1", {
+            title: "Hello",
+            className: "heading",
+        }, "Hello")
+        console.log(h1React)
+
+        // Bản thân React không bao gồm phần render nên ta chưa render được ở đây, chỉ render được với React-DOM.
+
+
+
+
+        //--------------------------Bài tập ----------------------------------------------------------------
+        /* Tạo element sau bằng DOM và react
+        <ul>
+            <li>Javascript</li>
+            <li>ReactJS</li>
+        </ul>
+        */
+       // DOM
+       const ulDOM = document.createElement("ul");
+       const liDOM1 = document.createElement("li");
+       liDOM1.innerText = "Javascript";
+       ulDOM.appendChild(liDOM1);
+
+       const liDOM2 = document.createElement("li");
+       liDOM2.innerText = "ReactJS";
+       ulDOM.appendChild(liDOM2);
+       
+       root.appendChild(ulDOM);
+
+       // React
+       const ulReact = React.createElement(
+           "ul", 
+           null,
+            React.createElement("li", null, "JavaScript"),
+            React.createElement("li", null, "ReactJS")
+       );
+       console.log(ulReact)
+
+       /*
+
+        <div class="post-item">
+            <h2 title="Học React tại F8"> Học ReactJS</h2>
+            <p> Học ReactJS từ cơ bản tới nâng cao </p>
+        </div>
+        */
+       // DOM
+       const divDOM = document.createElement("div")
+       divDOM.className = "post-item"
+       const h2DOM = document.createElement("h2")
+       h2DOM.title = "Học React tại F8"
+       h2DOM.innerText = "Học ReactJS"
+       divDOM.appendChild(h2DOM)
+
+       const pDOM = document.createElement("p")
+       pDOM.innerText = "Học ReactJS từ cơ bản tới nâng cao"
+       divDOM.appendChild(pDOM)
+       root.appendChild(divDOM)
+
+       // React 
+       const divReact = React.createElement(
+           "div", 
+           {
+               className: "post-item",
+           },
+           React.createElement(
+               "h2", 
+               {
+                    title: "Học React tại F8",
+                }, 
+                "Học ReactJS"),
+           React.createElement(
+               "p",
+               null,
+               "Học ReactJS từ cơ bản tới nâng cao")
+        )
+        console.log(divReact)
+
+    </script>
+</body>
+</html>

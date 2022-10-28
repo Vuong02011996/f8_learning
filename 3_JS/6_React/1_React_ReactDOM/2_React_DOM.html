@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>React-DOM</title>
+
+    <!-- Thêm React và React-DOM vào project , phải để dom phía dưới vì react-dom sẽ không chạy nếu chưa có react-->
+    <script src="https://unpkg.com/react@17/umd/react.development.js" crossorigin></script>
+    <script src="https://unpkg.com/react-dom@17/umd/react-dom.development.js" crossorigin></script>
+
+</head>
+<body>
+    <div class="root"></div>
+    <!-- 
+        1. Tại sao phải sử dụng React-DOM? - để render React element lên giao diện.
+        2. Tại sao lại tách React-DOM ra? - lúc chưa có React-Native thì vẫn chung, nhưng khi nó ra đời thì phần core React có thể tách ra
+        3. Render UI
+     -->
+     <script>
+         // Thêm React-DOM vào project như React đã làm ở bài trước
+         // React-DOM là thư viện là cầu nối giữa React và DOM
+         // Cũng như React-Native : xây dựng app trên iOS(ObjectdevC, swift,.. )/Android(Java, Kotlin).
+         // Native: bản địa ngôn ngữ đó để build lên HDH đó, mã máy đó.
+         // React-Native: cầu nối giữa React với Native (iOS(file.c, ..), android(file.java, ..)) thèn trung gian.
+         // Do đó code trên web hay app thì thư viện React vẫn là 1 ở dòng 10
+
+
+         // React 
+       const divReact = React.createElement(
+           "div", 
+           {
+               className: "post-item",
+           },
+           React.createElement(
+               "h2", 
+               {
+                    title: "Học React tại F8",
+                }, 
+                "Học ReactJS"),
+           React.createElement(
+               "p",
+               null,
+               "Học ReactJS từ cơ bản tới nâng cao")
+        )
+        console.log(divReact)
+
+        const container = document.querySelector(".root")
+
+        // Dùng React DOM render React element
+        // Dùng phương thức render của ReactDOM
+        // Cú pháp: ReactDOM.render(react_element, root_element, callback)
+
+        ReactDOM.render(divReact, container)
+                
+        // Với React@18 render khác một xíu
+        // Dùng phương thức createRoot sẽ trả về object root
+        // const root = ReactDOM.createRoot(container)
+        // root.render(divReact)
+        
+
+     </script>
+    
+</body>
+</html>

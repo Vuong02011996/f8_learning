@@ -11,5 +11,5 @@
 11. Async function, await .
 
 # Các skill code mới
-+ Cách sử dụng lắng nghe onclick khi element đó chưa render ra. Ta lắng nghe trên thẻ cha và check element được click bằng `event.target` sau đố kiểm tra điều rồi xử lí bằng closest().
++ Cách sử dụng lắng nghe onclick khi element đó chưa render ra. Ta lắng nghe trên thẻ cha và check element được click bằng `event.target` sau đố kiểm tra điều rồi xử lí bằng `closest()`.
 + Cách đặt tên data-index với dataset.index để lấy giá trị từ thuộc tính thay cho `getAttribute('ten_thuoc_tinh')`, `const index = deleteBtn.dataset.abc` nếu đặt tên thuộc tính là data-abc , miễn là có `data-`

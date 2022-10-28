@@ -263,13 +263,13 @@
 
 
 
-        // ----------------9. Spead - 3 dấu chấm cũng là toán tử giải, nhưng mà không đi với destructuring
+        // ----------------9. Spread - 3 dấu chấm cũng là toán tử giải, nhưng mà không đi với destructuring
         // ... là bỏ đi cặp ngoặc [], {} chỉ còn phần con bên trong
         var array1 = [1, 2]
         var array2 = [3, 4, 5]
         // hợp nhất hai mảng trên không dùng concat
         var array3 = [...array2, ...array1]
-        console.log(array3)
+        console.log(array3) // Array [3,4,5,1,2]
 
         var object4 = {
             name: "name"
@@ -281,7 +281,7 @@
             ...object4,
             ...object5
         }
-        console.log(object6)
+        console.log(object6)//{name: 'name', age: 20}
 
         // Ví dụ với truyền tham số cho hàm
         function spread_test(...rest) // 3 chấm ở tham số là rest

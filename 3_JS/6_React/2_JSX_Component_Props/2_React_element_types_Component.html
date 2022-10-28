@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>React_type_Component</title>
+    <script src="https://unpkg.com/react@17/umd/react.development.js" crossorigin></script>
+    <script src="https://unpkg.com/react-dom@17/umd/react-dom.development.js" crossorigin></script>
+    <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+</head>
+<body>
+    <!-- 
+        Hooks ra đời từ 16...
+        + Từ khi Hook ra đời đã hổ trợ function component là đầy đủ tính năng như class component.
+        + Bây giờ gần 100% dùng Hook function component.
+        + Nhưng khi thực tế có nhưng logic cần tính kế thừa hoặc hướng đối tượng vẫn nên dùng class component để dễ code hơn.
+        + Tất cả các loại function arrow, decletate, express, methos trong ojbject đều có thể làm component.
+
+
+        1. React element types: string, function/class - để phân chia component
+            - Wrapper
+                - Header -> Header component
+                - Content -> Content component
+                - Footer -> Footer component
+        2. Biểu diễn đơn giản với JSX
+     -->
+
+     <div class="app"></div>
+     <script type="text/babel">
+
+         // Cách không chia component, header, footer có thể lặp lại nhiều trang , phải copy code lại
+         // Code trong này sẽ rất nhiều
+        //  const app = (
+        //     <div className="Wrapper">
+        //         <div className="header"> Header</div>
+        //         <div className="content"> Content</div>
+        //         <div className="footer"> Footer</div>
+        //     </div>
+        //  )
+        
+
+        // Chia component
+         // React mang tư tưởng chia component để logic nghiệp vụ rõ ràng hơn
+         // Do vậy React sẽ dùng function hoặc class để tạo ra những component.
+
+        // Cách 1: function component
+        // Trong JS, hàm muốn làm component phải viết theo PascalCase nếu không sẽ lỗi.
+        
+        function Header()
+        {
+            return (<div className="header"> Header</div>)
+        }
+
+        // Dùng class component
+        class Content extends React.Component {
+            render() {
+                return <div className="content"> Content</div>
+            }
+        }
+
+        // JSX hỗ trợ tên hàm như tabname.<Header></Header>
+        // Khi thẻ tab không có children bên trong có thể viết gọn thành <Header/>
+        const app = (
+            <div className="Wrapper">
+                <Header/>
+                <Content/>
+                <div className="footer"> Footer</div>
+            </div>
+         )
+        
+         // Khi nhìn vào script trên header do Babel tạo ra ta sẽ thấy cái type của React.createElement là function/class
+         // Babel nhận type là function sẽ tự gọi và nhận về kết quả return của function là JSX. rồi lại chuyển JSX thành React element.
+         // Class cũng quy về type là function.
+
+         ReactDOM.render(app, document.querySelector(".app"))
+
+     </script>
+</body>
+</html>

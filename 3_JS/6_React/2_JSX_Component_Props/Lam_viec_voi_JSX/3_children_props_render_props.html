@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Props trong JSX</title>
+
+    <script src="https://unpkg.com/react@17/umd/react.development.js" crossorigin></script>
+    <script src="https://unpkg.com/react-dom@17/umd/react-dom.development.js" crossorigin></script>
+    <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+</head>
+<body>
+    <div id="root"></div>
+    <script type="text/babel">
+        // Làm việc với Props trong JSX
+        // Ôn lại: truyền props vào component có hai cách 
+        // + truyền string
+        // + truyền expression(biểu thức: biến, +, ba ngôi, array, object, function, ... 
+        // nhưng if else/ switchcase không phải là biểu thức không hợp lệ)
+
+
+        // ---------------- props mặc định là true----------------------------------------------------------------
+        function Button({title, primary})
+        {
+            // mặc định không truyền gì là undefined
+            // chỉ ghi primary hoặc primary = {true} là true
+            // primary = {false} thì nhận false
+            // Tóm lại false thì phải ghi rõ true thì không cần(mặc định)
+            console.log(primary)
+            return <button>{title}</button>
+        }
+        function App1()
+        {
+            return (
+                <div id="wrapper">
+                    <Button
+                    title="Click me"
+                    primary/>
+                </div>
+            )
+        }
+
+
+        // ------------------Spread/rest trong props------------------------------------------------
+
+        // Dùng rest ở đây
+        function Input({label, ...inputProps})
+        {
+            // Dùng spread ở trong 
+            return (
+                <div>
+                    <label>{label}</label>
+                    <input {...inputProps}></input>
+                </div>
+            )
+        }
+        // file App.js
+        function App1()
+        {
+            return (
+                <div id="wrapper">
+                    <Input
+                    label="Nhập input"
+                    placeholder="Nhập tên"
+                    />
+                </div>
+            )
+        }
+
+         // ---------------- children props----------------------------------------------------------------
+         function Button({children})
+        {
+            // phải destructuring đúng tên children mới được, nếu không sẽ là tên của props phía trước children
+            // không đúng tên thuộc tính props sẽ trả về undefined
+            return <button>{children}</button>
+        }
+        function App1()
+        {
+            // Click me là children props.
+            return (
+                <div id="wrapper">
+                    <Button>Click me</Button>
+                </div>
+            )
+        }
+
+        // ----------------render props với props children là function----------------------------------------------------------------
+        function List({cars, children})
+        {
+            // {cars.map({children})} không thể viết vậy ?? vì sai cú pháp rồi ô, như ri nè {cars.map(children)}
+            // mà không khuyến cáo viết như ri{cars.map(children)} khó hiểu
+
+            return <ul>
+                {cars.map((item) => children(item))}    
+                </ul>
+        }
+        function App()
+        {
+            const cars = ["oto", "xemay"]
+            // function thường truyền ở children.
+            return (
+                <div id="wrapper">
+                    <List
+                    cars={cars}
+                    >
+                    {(item) => <li key={item}>{item}</li>}
+                    </List>
+                </div>
+            )
+        }
+
+        // file index.js
+        ReactDOM.render(<App/>, document.querySelector("#root"))
+
+    </script>
+</body>
+</html>

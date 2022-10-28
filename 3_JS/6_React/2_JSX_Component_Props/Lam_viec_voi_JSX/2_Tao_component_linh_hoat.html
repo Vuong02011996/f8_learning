@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JSX - Component</title>
+
+    <script src="https://unpkg.com/react@17/umd/react.development.js" crossorigin></script>
+    <script src="https://unpkg.com/react-dom@17/umd/react-dom.development.js" crossorigin></script>
+    <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+
+</head>
+<body>
+    <div id="root"></div>
+    <script type="text/babel">
+         // ------------------Làm việc với JSX - Tạo Component linh hoạt------------------------------------
+
+        // Chữa Bài tập render ra mảng khóa học F8 bấm vào tên khóa học sẽ hiển thị alert chi đó.
+        const courses = [
+            {
+                id: 1,
+                title: "Học HTML/CSS",
+                desc: "Học chăm chỉ"
+            },
+            {
+                id: 2,
+                title: "Học JS",
+                desc: "Học tốc độ"
+            }
+        ]
+
+        const CourseItem1 = ({course}) => {
+            // {course} dùng destructuring để lấy khóa học thôi, không lấy props key.
+            return (
+                <div>
+                    <h1 onClick={() => {console.log("Click khoa hoc", course.title)}}>{course.title}</h1>
+                    <p> {course.desc}</p>
+                </div>
+            )   
+        }
+
+        // file App.js
+        function App1()
+        {
+            return (
+                <div id="wrapper">
+                    {courses.map((course) => {
+                       return <CourseItem1 
+                       key = {course.id}
+                       course = {course}/>
+                    })}
+                  
+                </div>
+            )
+        }
+        //Nhưng ở đây ta có tư tưởng là UI component chỉ render ra dữ liệu không sử dụng logic ở đây, chỉ return JSX
+        // Ta dùng cách là truyền function onClick cho props(callback) và gọi lại trong DOM event
+
+        function CourseItem({course, onClick})
+        {
+            // {course} dùng destructuring để lấy khóa học thôi, không lấy props key.
+            // thay () => {console.log("Click khoa hoc", course.title)} bằng call back onClick
+            return (
+                <div>
+                    <h1 onClick={() => onClick(course)}>{course.title}</h1>
+                    <p> {course.desc}</p>
+                </div>
+            )   
+        }
+
+        function handleClick(course)
+        {
+            console.log("Click: ", course.title)
+        }
+
+        // file App.js
+        function App1()
+        {
+            // Cách truyền course vào call back bằng cách viết thêm arrow function và truyền vào: onClick = {()=>handleClick(course)}
+            // Nhưng cách này sẽ ảnh hưởng đến perfomance
+            // Mà ta sẽ truyền ở tầng bên trong component CourseItem, trong thẻ h1 <h1 onClick={() => onClick(course)}>{course.title}</h1>
+            // Perfomance React sẽ tự xử lí ở đây ta chỉ care phần bên ngoài.
+            return (
+                <div id="wrapper">
+                    {courses.map((course) => {
+                       return (
+                           <CourseItem 
+                           key = {course.id}
+                           course = {course}
+                           onClick = {handleClick}
+                           />
+                       )
+                    })}
+                  
+                </div>
+            )
+        }
+        // Component ta tự viết, phải viết hoa theo PascalCase, viết hoa tất cả chữ cái đầu, nếu không sẽ báo lỗi.
+        // Ở dưới ta viết thông qua Object sẽ không báo lỗi nhưng ta vẫn phải theo quy ước.
+
+
+        // -------------------------------------Tạo component linh hoạt----------------------------
+        // Ví dụ ta muốn truyền chọn type là input hoặc checkbox thì chỉ thể hiện cái đó. thì ta làm như bên dưới
+        // Dùng đều kiện đế suy ra JSX tương ứng cần trả về, hoặc dùng object với tên type là tên key của object
+
+        const Form = {
+            Input()
+            {
+                return <input/>
+            },
+            Checkbox()
+            {
+                return <input type="checkbox"/>
+            }
+        }
+         // file App.js
+         function App1()
+        {
+            // <Form.Input/> Form.Input trả về method Input(), mà method vẫn làm component được, thêm dấu </> bên ngoài để viết JSX
+            
+            // const type = "Input" // là key của Form
+            const type = "Checkbox" // là key của Form
+            // <Form[type]/> đây đích thị là component nhưng ta không truyền trực tiếp [] vào JSX được sẽ lỗi cú pháp.
+            // Nên ta phải đặt biến ở ngoài rồi truyền vô, nhưng tên biến phải viết theo PascalCase mới thể hiện được component
+            const Component = Form[type]
+
+            return (
+                <div id="wrapper">
+                    <Component/>
+                </div>
+            )
+        }
+
+        // ------------------ Cách tạo một Component đa chức năng---------------------------------
+        // Button click vô có thể dẫn link tới trang khác hoặc click vô thực viện công việc nào đó.
+        // Ta đặt biến là một string làm Component cho tabname mong muỗn, string đó chính là tabname ta muốn dùng.
+
+        // Ta viết component Button sao cho 
+        //  - nếu props có onClick thì chức năng onclick
+        //  - nếu props có href thì chức năng của dẫn link thẻ a
+        //  - nếu props có cả hai thì chạy hai chức năng trên
+        function Button({title, href, onClick})
+        {
+            let Component = "button"  // tên component luôn viết theo PascalCase , dùng let để gán lại.
+            const props = {}
+            if(href)
+            {
+                Component = "a"
+                props.href = href
+            }
+            // Nếu có truyền onClick thì thêm thuộc tính onClick cho btn
+            if(onClick)
+            {
+                props.onClick = onClick
+            }
+
+            // {...props} spread giải object tương tự như viết onClick = {onClick}
+            return (
+                <Component {...props}>{title}</Component>
+            )
+        }
+
+        // file App.js
+        function App1()
+        {
+            return (
+                <div id="wrapper">
+                    <Button 
+                        title = "Click me"
+                        href="https://www.youtube.com/watch?v=5SU6P-cqoJw&list=PPSV"
+                        onClick={() => {console.log("Chức năng onClick")}}
+                    />
+                </div>
+            )
+        }
+
+
+        // ----------------Null/undefined/false không được render để  sử dụng toán tử logic trong xử lí-------------
+        // file App.js
+        function App()
+        {
+            // Khi là true thì welcome to F8 false thì không hiển thị gì cả.
+            let firstAccess = true
+            // let firstAccess = false
+            return (
+                <div id="wrapper">
+                  {firstAccess && <h1>Welcome to F8</h1>}
+                </div>
+            )
+        }
+
+        // file index.js
+        ReactDOM.render(<App/>, document.querySelector("#root"))
+    </script>
+    
+</body>
+</html>

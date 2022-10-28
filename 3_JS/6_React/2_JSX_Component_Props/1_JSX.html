@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JSX</title>
+
+    <script src="https://unpkg.com/react@17/umd/react.development.js" crossorigin></script>
+    <script src="https://unpkg.com/react-dom@17/umd/react-dom.development.js" crossorigin></script>
+    <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+
+</head>
+<body>
+    <!-- 
+        + JSX: Javascript XML
+        + JSX là cần có javascript(khai báo biến các kiểu), JSX không phải là HTML.
+        + XML: 
+            + Đặc trưng là cú pháp thẻ mở và thẻ đóng, cú pháp i như HTML.
+            + HTML là cú pháp mở rộng của XML, HTML cũng là XML thôi.
+        + JSX: ra đời để hổ trợ viết XML/HTML trong javascript, trong thẻ script.
+        + Nhưng tại sao lại phải cần JSX?: Vì thèn React-DOM chỉ nhận đối số là react-element để render
+        mà dùng bắt buộc phải dùng React.createElement khá phức tạp để viết element cho một website lớn, do đó sinh ra thèn JSX.
+
+        + Tuy nhiên JSX không thể chuyển thẳng cho ReactDOM vì nó chỉ nhận react element.
+        + Nên cần bước trung gian là thư viện Babel
+        + Balel: là một thư viện JS chuyên phân tích và chuyển đổi cú pháp.(Chuyển ES6 - ES5 hết) để hổ trợ tất cả trình duyệt chạy JS.
+        + JSX cần được phân tích cú pháp và chuyển đổi về code Javascript bằng thư viện Balel.
+        + Có thể test ở đây: https://bit.ly/2VOIMN7
+        + Lên reactjs.org tìm thư viện babel về bỏ vô: https://reactjs.org/docs/add-react-to-a-website.html#optional-try-react-with-jsx
+
+
+        + 2 điểm cần nhớ về JSX :
+            + Ta có thể tạo biến và gán biến đó bằng JSX trong JS.
+            + Viết JSX rất linh động ta có thể đan xen code JS vào giữa XML bằng {}. Bên trong {} chính là chỗ để viết code JS.
+
+     -->
+     <!-- Khi thêm thư viện Babel vào script sau vẫn thực thi và tìm đến cú pháp JSX vẫn báo lỗi
+        Vì mặc đinh type của thẻ script là type="text/Javasctipt" nên vẫn thực thi JS
+        Đổi type thành type="text/babel" thì code trong script sẽ không chạy nữa.
+
+        Nguyên tắc hoạt động babel: Khi trang web tải xong sẽ đi tìm trong DOM sẽ có tabname nào là script và type là babel
+        Khi nó thấy sẽ lấy tất cả code bên trong phân tích và convert(JSX -> React  element.) 
+        Babel sau khi chuyển đổi xong sẽ đưa file script sau khi chuyển đổi lên thẻ head.
+    -->
+    <div class="root"></div>
+
+
+    <script type="text/babel">
+        // Ví dụ viết JSX
+        const myCourse = "React JS"
+        const ul = 
+            <ul className="course_list">
+
+                <li style={{color:"red"}}>JavaScript</li>
+
+                <li>{myCourse}</li>
+
+            </ul>
+
+        // Chú ý cách viết style bằng object, nên phải có hai dấu {}, dấu bên ngoài để hiểu là nơi viết JS
+        /*
+        Thư viện : Babel sẽ convert thành code trên thành:
+        var myCourse = "React JS";
+        var ul = React.createElement(
+            "ul",
+             null, 
+             React.createElement(
+                 "li", 
+                 {
+                    style: {
+                        color: "red"
+                    }
+                }, 
+                 "JavaScript"),
+
+            React.createElement(
+                "li",
+                 null,
+                 myCourse));
+        */
+
+        ReactDOM.render(ul, document.querySelector(".root"))
+
+
+        // --------------------JSX render Array-----------------------
+        // Ví dụ render name của mảng sau vào list item bằng JSX
+        const myObject = [
+            {
+                name: "JS",
+            },
+            {
+                name: "python",
+            }
+        ]
+
+        const ulCourse = (
+            <ul>
+                {myObject.map((course, index) => <li key={index}>{course.name}</li>)}    
+            </ul>
+        )
+        // render bị đè lên cái ul ở trên ??
+        ReactDOM.render(ulCourse, document.querySelector(".root"))
+
+        // Câu hỏi thường gặp
+        // 1. Tại sao code thuần dùng map phải join()? 
+        // Code JS thuần ta sẽ sài element.innerHTML = "...chuỗi HTML", vì cần nhận chuỗi HTML nên phải chuyển mảng về chuổi qua join()
+        // Còn ở đây Babel sẽ chuyển về React element mà children của nó là mảng nên ở đây return về mảng là oke luôn.
+        // {myObject.map((course, index) => <li key={index}>{course.name}</li>)}    trả về mảng cho children .
+
+        // 2. Gặp lỗi khi render từ mảng với từ prop"key"
+        // Chỉ là warning: Vì react có cơ chế là mỗi thèn con trong một danh sách cần có key độc lập. 
+        // Liên quan đến cơ chế tối ưu hiệu năng khi render danh sách.
+        // Ở đây ta bỏ key=index cho nhanh.
+
+        // 3. Không render hai 2 element cùng một lúc được?
+
+        const jsx = (
+            // <h1> Heading1</h1>
+            // <h1> Heading2</h1> báo lỗi ngay Adjacent JSX elements must be wrapped in an enclosing tag
+            // Cần wrap lại hai element mới được, phải có một thẻ ôm lại mới được
+
+
+            // ta ví dụ không có babel code sẽ là:
+            // React.createElement("h1", null, "Heading1")
+            // React.createElement("h2", null, "Heading2")
+            // Sai ngay
+
+            // Ở đây ta không dùng div để wrap sinh ra thẻ không mong muốn.
+            // Ta dùng React.Fragment : thèn này sinh ra chỉ để wrap.
+            <React.Fragment>
+                <h1> Heading1</h1>
+                <h1> Heading1</h1>
+            </React.Fragment>
+        )
+
+        ReactDOM.render(jsx, document.querySelector(".root"))
+
+    </script>
+
+    
+</body>
+</html>

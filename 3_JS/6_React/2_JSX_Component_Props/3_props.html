@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Props</title>
+
+    <script src="https://unpkg.com/react@17/umd/react.development.js" crossorigin></script>
+    <script src="https://unpkg.com/react-dom@17/umd/react-dom.development.js" crossorigin></script>
+    <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+</head>
+<body>
+    <!-- 
+        Props: Props là cách viết ngắn gọn của properties
+        Là những thuộc tính của React elements, là đối số của React Component.
+        
+        Props chia ra hai cách để sử dụng:
+
+        - React elements: là các thẻ JSX như thẻ html:  <div className="post-list">
+            - Sử dụng giống như với thuộc tính của thẻ html
+            - 2 class/for => className/htmlFor
+            - Phải tuân theo quy ước có sẵn, dùng tên những thuộc tính có sẵn, không chế ra props mới.
+
+        - React component: các hàm, class gọi là component có thêm cặp </> hai đầu là react component : <PostItem />
+            // Chỉ phân ra react component để dễ hiểu props chớ thực ra khi console.log đều là react element.
+            - Sử dụng props giống như đối số cho hàm
+            - Tự do đặt tên cho props 
+                - Đặt tên theo camelCase
+                - Có thể bao gồm dấu gạch ngang, nhưng ít dùng
+        - Chú ý:
+            - Prop "key" là prop đặc biệt, không nên đặc tên props là key. truy cập sẽ ra kết quả là undefined.
+            - Props là đối số của component có thể là bất cứ KDL gì(object, array, function, ...)
+                - Truyền hàm qua props chính là callback, vì props là tham số của hàm; hàm truyền vào hàm = callback.
+            - Sử dụng destructuring để lấy đối số trong props
+                - Khỏi cần props chấm.
+                - Có thể truyền default.
+
+
+        // Cơ chế hoạt động của props trong React Component
+        + Khi chạy Babel chuyển JSX về React.createElement nhận ra type of của PostItem là function thì sẽ gọi ngay và bê nguyên cái props làm đối số cho function. 
+        + Đối số props là ọbject chứa các thuộc tính truyền vô như trên
+        + Nên ở dòng console.log(props) trong PostItem ta sẽ nhận props là object chứa các thuộc tính ở đây.
+        + Không truyền gì cho React Component thì sẽ sinh ra object rỗng, truy cập tới sẽ undefined.(quên không truyền props)
+
+        + Tên thuộc tính trong props của React Component ta đặt tên như nào cũng được(theo camelCase(tên biến trong JS)), trong Component ta chấm tới là được.
+
+        // React.createElement(type, props, children, n-children, ...), bê nguyên props vào type nếu type là function.
+
+
+     -->
+
+     <div class="root"></div>
+     <script type="text/babel">
+         // bài tập Tạo component PostItem như bên dưới và bằng React
+
+         // Tạo component bằng function
+         // Thực tế sẽ cấu trúc như ri: 
+        
+         // B3: Tạo file PostItem.js chứa component PostItem
+         function PostItem(props)
+         {
+             console.log(props)
+             return (
+                 // ở đây for thay thế bằng htmlFor
+                 <div className="post-item">
+                    <label htmlFor="email">Email</label>
+                    <input id="email"/>
+                    <br/>
+                    <img src= {props.styleImge.src}
+                        alt={props.styleImge.alt}
+                        width={props.styleImge.width}
+                        style={{marginTop: props.styleImge.marginTop}}
+                        />
+                    <h2 className="post-title"> {props.title}</h2>
+                    <p className="post-desc"> {props.desc}</p>
+                </div>
+             )
+         }
+
+
+         //B1: Tạo file App.js bên trong có một component App chứa toàn bộ website
+         function App()
+         {
+             console.log(<PostItem new_title="new title"/>)
+            // Cơ chế hoạt động của props trong React Component
+            //Khi chạy Babel chuyển JSX về React.createElement nhận ra type of của PostItem là function thì sẽ gọi ngay và bê nguyên cái props
+            // làm đối số cho function. 
+            // đối số props là ọbject chứa các thuộc tính truyền vô như trên
+            // Nên ở dòng 47: console.log(props), ta sẽ nhận props là object chứa các thuộc tính ở đây.
+            // React.createElement(type, props, children, n-children, ...), bê nguyên props vào type nếu type là function.
+
+             return (
+                 // Tạo một thẻ div wrapper toàn bộ website
+                <div id="wrapper">
+                    <PostItem 
+                    title = "Đây là ảnh"
+                    desc = "Bức ảnh đẹp"
+                    styleImge = {{src:"https://images.pexels.com/photos/96715/pexels-photo-96715.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1", alt:"image_o_day",width:"50px", marginTop:"50px"}}
+                    />
+
+                    <PostItem 
+                    title = "Đây là ảnh 2"
+                    desc = "Bức ảnh đẹp 2"
+                    styleImge = {{src:"https://images.pexels.com/photos/96715/pexels-photo-96715.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1", alt:"image_o_day",width:"50px", marginTop:"50px"}}
+                    />
+                </div>
+             )
+         }
+
+        // B2: Tạo một file index.js chỉ dùng để render
+        
+        ReactDOM.render(<App />, document.querySelector(".root"))
+
+        
+
+     </script>
+</body>
+</html>

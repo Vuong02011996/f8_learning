@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // SPA(CSR)-MPA(SSR): các cách xây dựng web.
+        /**SPA: Single Page Applications.
+         * Là cách tiếp cận hiện đại hơn
+         * Không yêu cầu tải lại trang trong quá trình sử dụng.(icon trang không reload)
+         * SPA: là kiến trúc bên dưới 1 trang, chớ không phải con mắt người dùng.
+         * 
+         * Source code trên page chỉ có duy nhất một thẻ div root element , là link tới một file script
+         * Khi Ctr + F5(xóa cache) thì sẽ thấy một trang trắng xóa rất nhanh.
+         * File script sẽ chạy và render html lên DOM vào thẻ div và hiển thị trang web.
+         * 
+         * File trống - tải file script - thực thi file script - thêm DOM vào element.
+         * Khi bấm chuyển trang thì React chỉ sửa lại root element.
+         * 
+         * Lần tải đầu tiên sẽ chậm nếu tối ưu file script không tốt.
+         * Bốc tách code tốt hơn, phần FE riêng biệt.
+         * SPA không thân thiện SEO bằng MPA.
+         * Tái sử dụng code.(chia component) dễ dàng hơn MPA
+         * SPA phụ thuộc hoàn toàn JS.
+         * Kết hợp với mobile app tốt hơn, dùng chung API với BE.
+         * */ 
+
+        /** MPA: Multi-Page Applications.
+         * Là cách tiếp cận cổ điển hơn.
+         * Tải lại trang trong quá trình sử dụng.(click vào đường link, chuyển trang,...)
+         * Bao nhiêu trang thì bấy nhiêu file html
+         * Khi bấm chuyển trang thì sẽ tải sang một file mới.
+         * 
+         * Luôn tải lại toàn bộ trang 
+         * Phần code FE với BE phụ thuộc vào nhau nhiều hơn, đặt chung trong một dự án.
+         * MPA có thể không cần JS. nhưng vấn dùng để tương tác DOM dễ dàng hơn
+         * Chi phí hạ tầng server nhiều hơn khi nhiều người truy cập vào trang web. vì mỗi lần load trang phải
+         * gọi API lên server.
+         * */
+        // React là 1 trong những thư viện tạo ra SPA.
+
+        // Khi nào thì dùng SPA, khi nào nên dùng MPA
+        // Khách hàng muốn trải nhiệm mượn mà, sau này muốn phát triển thêm, thêm mobile app .. thì dùng SPA
+        // Trang web đơn giản không cải tiến thêm về sau, như bán hàng thì dùng MPA cho nhanh.
+
+    </script>
+</body>
+</html>

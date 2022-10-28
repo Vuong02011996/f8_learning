@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JSX Dom Event</title>
+
+    <script src="https://unpkg.com/react@17/umd/react.development.js" crossorigin></script>
+    <script src="https://unpkg.com/react-dom@17/umd/react-dom.development.js" crossorigin></script>
+    <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+</head>
+<body>
+    <!-- 
+        + Dùng DOM event trong React thì đổi tên event thành camelCase - onClick, không viết tắt ondblclick - onDoubleClick.
+        + DOM event là thuộc tính của React element cũng là props.
+     -->
+
+    <div class="root"></div>
+    <script type="text/babel">
+
+    // ---------------------------Làm việc với JSX DOM event------------------------------------------
+        function App()
+        {
+            return (
+                <div id="wrapper">
+                    <button onClick={(event) => {console.log(event.target)}}
+                    > 
+                        Click me
+                    </button>
+                </div>
+                
+            )
+        }
+         
+        // file index.js
+        ReactDOM.render(<App/>, document.querySelector(".root"))
+    </script>
+    
+</body>
+</html>

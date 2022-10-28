@@ -8,6 +8,7 @@
 + Thêm màu sắc cho các cặp ngoặc: Bracket Pair Colorizer (http://bit.ly/37wgXfC)
 + Icon theme: Material Icon Theme (http://bit.ly/37ukU4b)
 + Hiển thị thông tin Git (commit, author, ...): Gitlens (http://bit.ly/3gYlaf9)
++ JSX trong React: Simpple React Snippets.
 
 # Web tool
 + Page rule
