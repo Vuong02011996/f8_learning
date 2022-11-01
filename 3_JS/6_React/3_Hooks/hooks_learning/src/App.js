@@ -1,9 +1,12 @@
-import HookState from './hooks_method/useState';
+// import HookState from './hooks_method/useState';
+import HookEffect from './hooks_method/useEffect';
+
 
 function App() {
   return (
     <div className="App">
-      <HookState/>
+      {/* <HookState/> */}
+      <HookEffect/>
     </div>
   );
 }
