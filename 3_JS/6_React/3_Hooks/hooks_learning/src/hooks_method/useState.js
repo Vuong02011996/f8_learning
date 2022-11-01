@@ -342,6 +342,7 @@ function HookState7()
 // Dùng Two-way binding
 
 // Tư duy: Ta phải có một mảng lưu danh sách các công việc mỗi lần bấm Add thì setState lại mảng đó (thêm công việc vào) và render lại
+// Thêm nữa mỗi lần thay đổi trên input ta cần có một state khác để lưu lại giá trị input.
 
 function HookState()
 {
