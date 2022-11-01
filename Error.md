@@ -6,3 +6,10 @@
 
 # Lỗi không web không chạy(404) 
 + Chú ý luôn mở npm start (như một web server để truy cập vào)
+
+# `npm start` React Native Error: ENOSPC: System limit for number of file watchers reached
++ https://stackoverflow.com/questions/55763428/react-native-error-enospc-system-limit-for-number-of-file-watchers-reached
++ echo fs.inotify.max_user_watches=524288 | sudo tee -a /etc/sysctl.conf && sudo sysctl -p
+
+# Không viết (  dưới return được phải viết trên 1 dòng `return (`
+# Mỗi lần viết thay đổi code thì App.js cập nhật ngay lên web nên chú ý F5 lại để tránh thấy lỗi trong lúc code.
