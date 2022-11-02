@@ -75,6 +75,7 @@ function HookState1()
         setCounter(pre_counter => pre_counter + 1)
     }
     // Gọi setCounter nhiều lần nhưng React chỉ tạo ra một stack, lịch làm việc rồi gọi lại component App một lần
+    // <React.StrictMode>  do file index.js sử dụng cái này để check syntax trước nên re-render được in ra 2 lần.
     console.log("re-render")
 
     return (

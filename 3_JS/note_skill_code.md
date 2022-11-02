@@ -1,0 +1,2 @@
++ `{posts.map((post) => {return <li>{post.title}</li>})}` : callback trong map có dấu {} phải return thì map mới trả về mảng data mới.
++ `style={type === tab ? {color: "#ccc", backgroundColor: "#000"}: {}}`: style inline nhanh cho button nào được bấm trong JSX - useEffect.
