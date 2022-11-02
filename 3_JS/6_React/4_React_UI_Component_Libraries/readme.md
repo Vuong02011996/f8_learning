@@ -15,5 +15,5 @@
         + Webpack
         + Less ( một CSS preprocessor giống với SCSS )
         + Sự tuyệt vời đến từ  `UmiJS`: chính là một thư viện Plugin enterprise-level cho React. UmiJS bao hàm bên trong là `redux-saga`, gọi api thay vì với `Axios` thì sẽ là `Request`.
-            + Ai cũng biết `Axios` hỗ trợ việc gọi api request tốt và "uy tín" như thế nào nhưng `UMI-Request` lại hơn thế đấy, cùng xem bảng so sánh của umi-request với Axios và Fetch sau
+            + Ai cũng biết `Axios` hỗ trợ việc gọi api request tốt và "uy tín" như thế nào nhưng `UMI-Request` lại hơn thế đấy, cùng xem bảng so sánh của umi-request với `Axios` và `Fetch` sau
             + https://magz.techover.io/2021/08/09/ant-design-dieu-gi-khien-thu-vien-nay-vuot-mat-material-ui-cua-google/#web-component-vs-mobile-component
