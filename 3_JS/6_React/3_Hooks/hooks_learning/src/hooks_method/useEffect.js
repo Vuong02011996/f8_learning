@@ -1,6 +1,6 @@
 import {useState, useEffect} from 'react'
 
-// Mounted(lắp vào) / Unmounted(tháo ra) - vòng đời component
+// Khái niệm:  Mounted(lắp vào) / Unmounted(tháo ra) - vòng đời component
 //1. Mounted: thời điểm đưa component vào sử dụng
 //2. Unmounted: thời điểm gỡ component ra không sử dụng nó nữa.
 
@@ -50,8 +50,6 @@ function HookEffect1()
 
 //-------------------------------------------Cách dùng useEffect --------------------------------------------------------------------------
 
-
-
 // Chia ra để học:
 // 1. Khi dùng useEffect và có mỗi callback: useEffect(callback) - ít dùng
     // - TH này callback còn được gọi mỗi khi component re-render lại.(mỗi lần setState được gọi(render lại App) thì callback sẽ gọi theo -> ít dùng)
@@ -64,9 +62,11 @@ function HookEffect1()
     // -Callback được gọi lại mỗi khi deps thay đổi giá trị(deps là một biến): khi chương trình chạy tới useEffect nó sẽ kiểm tra giá trị deps trước và
     // sau khi render có thay đổi hay không bằng toán tử 3 dấu === so sánh hai biến, nếu có nó sẽ gọi lại callback.
 
-// Note:
+
+// Note chung cả 3 TH trên đều có tính chất này:
 // 1. Cả 3 trường hợp Callback đều được gọi ngay sau khi component mounted vào App (ngay khi đọc tới dòng này <HookEffect/> trong file App.js)
 //    Sau khi unmounted cứ mount lại thì callback trong useEffect sẽ được gọi lại
+// 2. Cleanup function luôn được gọi sau khi component unmounted. Cleannup function là hàm được return trong callback useEffect.
 
 
 // TH1 chỉ có callback
@@ -244,7 +244,7 @@ function HookEffect7()
 // Callback được gọi lại mỗi khi deps thay đổi giá trị(deps là một biến)
 // Ví dụ xậy dựng một tabar mỗi lần bấm vào tab nào thì sẽ call API và render dữ liệu của API đó.
 
-function HookEffect()
+function HookEffect8()
 {   
     const tabs = ["posts", "comments", "albums"]
 
@@ -301,6 +301,145 @@ function HookEffect()
 //-------------------------------------------End Cách dùng useEffect --------------------------------------------------------------------------
 
 // -----------------------------------------Các ứng dụng với useEffect-------------------------------------------------------------------------
+// 1. Ứng dụng với DOM event: Sẽ học 3 cái
+//- Cách listen DOM event trong React Component
+//- Các vấn đề khi listen DOM event 
+//- Cách khắc phục
 
+// Ví dụ 1: Scroll màn hình, khi cuộn xuống trình duyệt một khoảng cách lớn hơn 200px thì hiển thị một button ở góc phải Go To Top
+// nhỏ hơn 200px thì ẩn nút đó đi.
 
+// 1.1 Cách dùng DOM event (window.addEventListener) trong React, vì event ta chỉ cần gán một lần duy nhất nên
+// Ta phải đưa vào useEffect với đối số thứ hai là mảng rỗng.
+// Nếu ta đặt ở ngoài hoặc đưa vào useEffect với một đối số là callback thì event sẽ liên tục gán lại khi re-render lại giao diện nên 
+// id event liên tục được tạo ra gây ra rò rỉ bộ nhớ.
+
+// 1.2 Vấn đề: Thực tế component của chúng ta sẽ liên tục được mounted và unmounted nên callback trong useEffect sẽ được gọi lại do đó,
+// sẽ cũng gặp vấn đề về rò rỉ bộ nhớ vì mỗi khi gọi lại sẽ tạo một event id mới.
+
+// 1.3 Cách khắc phục dùng cleanup function để gỡ bỏ event ngay trước khi componnent được unmounted.
+function HookEffect9()
+{
+    const tabs = ["posts", "albums", "comments"]
+    const [type, setType] = useState("posts")
+    const [posts, setPosts] = useState([])
+    const [showGoToTop, setShowGoToTop] = useState(false)
+
+    useEffect(() => {
+        fetch(`https://jsonplaceholder.typicode.com/${type}`)
+            .then(res => {
+                return res.json()
+            })
+            .then((data) => {
+                setPosts(data)
+            })
+            .catch(() => {
+                console.log("API lỗi")
+            })
+    }, [type])
+
+    useEffect(() => {
+        function handleScroll()
+        {
+            setShowGoToTop(window.scrollY > 200)
+            console.log("set state")
+        }
+        window.addEventListener("scroll", handleScroll)
+        console.log("mounted - addEventListener")
+
+        // function được return là cleanup function sẽ được gọi mỗi khi component được unmounted để dọn dẹp.
+        return () => {
+            window.removeEventListener("scroll", handleScroll)
+            console.log("Unmounted - removeEventListener")
+        }
+    }, [])
+
+    return (
+        <div style={{padding: 20}}>
+            {tabs.map((tab) => {
+                return <button
+                            key={tab}
+                            style = {tab === type ? {color: "#fff", backgroundColor: "#333"}:{}}
+                            onClick={() => setType(tab)}
+                        >
+                        {tab}
+                        </button>
+            })}
+            <ul>
+                {posts.map((post) => {
+                    return <li key={post.id}>{post.title || post.name}</li>
+                })}
+            </ul>
+            {showGoToTop && <button style={{position: 'fixed', right: 20, bottom: 50 }}>Go To Top</button>}
+        </div>
+    )
+}
+
+// Ví dụ 2 hiển thị kích thước chiều ngang màn hình(resize), khi thay đổi thì cập nhập lại
+function HookEffect10()
+{
+    const [size, setSize] = useState(window.innerWidth)
+    // Dùng sự kiện resize element để update lại state
+    // dùng DOM event thì phải đưa vào useEffect và đối số thứ hai là mảng rỗng
+    useEffect(() => {
+        function handleResize()
+        {
+            setSize(window.innerWidth)
+        }
+        window.addEventListener("resize", handleResize)
+
+        // Clean up function
+        return () => {
+            window.removeEventListener("resize", handleResize)
+        }
+    }, [])
+
+    return (
+        <div style={{padding: 20}}>
+            <h1>{size}</h1>
+        </div>
+    )
+}
+
+// Ví dụ 3: Viết một ứng dụng đếm ngược từ 180 về  0
+// Sử dụng kiến thức, closure, setInterval, clearInterval, setTimeout, clearTimeout.
+// Nếu dùng setInterval và để ngoài useEffect thì mỗi lần gọi setCountDown sẽ re-render lại giao diện là lại gọi setInterval
+// lại setCountDown nên một thời gian sẽ chạy không đúng nữa
+
+// Cách khắc phục: Dùng setTimeout hoặc bỏ trong useEffect mảng rỗng để chạy 1 lần.
+function HookEffect()
+{
+    const [countdown, setCountDown] = useState(180)
+    
+    // dùng setInterval - mặc định hàm setInterval là sau một khoảng thời gian sẽ gọi lại hàm truyền vào
+    useEffect(() => {
+            const intervalID = setInterval(() => {
+                    // setCountDown(countdown - 1) nếu dùng cách này biến countdown được tham chiếu từ bên ngoài nên hàm setInterval có tính chất closure
+                    // nên countdown sẽ luôn giữ giá trị 180.
+                    setCountDown(prev => prev - 1)
+
+                    // giả sử không cleanup setInterval khi unmounted thì hàm này vẫn chạy ngầm bên trong
+                    console.log("Counting ...")
+                }, 1000)
+            
+            // clean up setInterval để unmounted component thì hàm setInterval không còn được chạy
+            return () => clearInterval(intervalID)
+        }, [])
+    
+
+    // Dùng setTimeout thì cần thêm deps để khi deps thay đổi sẽ gọi lại callback.
+    // useEffect(() => {
+    //     setTimeout(() => {
+    //         setCountDown(countdown - 1)
+    //     }, 1000)
+    // }, [countdown])
+    
+    return (
+        <div style={{padding: 20}}>
+            <h1>{countdown}</h1>
+        </div>
+    )
+}
+
+ 
 export default HookEffect

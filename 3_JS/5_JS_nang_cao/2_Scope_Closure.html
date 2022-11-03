@@ -65,6 +65,8 @@
        // Biến toàn cầu: khi tắt tab hoặc f5 lại trang.(luôn lưu trong bộ nhớ -> hạn chế sử dụng, chỉ sử dụng một lần)
        // block: biến let, const tự xóa khi ra khỏi block.
 
+
+        // --------------------------------Closure------------------------------------------------------
        // Biến trong hàm được tham chiếu bởi 1 hàm. - Một tính chất của closure 
        // Lý thuyết biến ra khỏi hàm bị xóa sẽ không còn đúng khi dùng closure function.
        function makeCouter()
@@ -85,10 +87,6 @@
        // Bởi vì bên trong hàm makeCouter() ta return lại hàm increase() trong hàm increase lại gọi biến couter mà không khai báo
        // nên biến couter trong hàm increase() đã tham chiếu tới vùng nhớ biến couter bên ngoài nên luôn cập nhật giá trị từ bên ngoài.
 
-
-
-
-       // --------------------------------Closure
        /**
         * Closure là một object/hàm/array có thể ghi nhớ được nơi nó được tạo  truy cập được biến ở bên ngoài phạm vi của nó.
         * Ứng dụng

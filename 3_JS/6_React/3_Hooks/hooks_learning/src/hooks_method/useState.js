@@ -1,5 +1,6 @@
 import {useState} from "react" 
 
+// Mỗi khi giao diện người dùng re-render lại thì nghĩ ngay đến useState().
 // useState: Phải nắm và diễn tả được cách code chạy như nào qua từng ví dụ
 /**
  * Khi dữ liệu thay đổi từ giá trị này sang giá trị kia gọi là State của dữ liệu.

@@ -18,3 +18,5 @@
 
 # Không viết (  dưới return được phải viết trên 1 dòng `return (`
 # Mỗi lần viết thay đổi code thì App.js cập nhật ngay lên web nên chú ý F5 lại để tránh thấy lỗi trong lúc code.
+
+# Uncaught Error: Too many re-renders. React limits the number of renders to prevent an infinite : Lỗi gán cho event hoặc biến là function chớ không phải gọi function. 

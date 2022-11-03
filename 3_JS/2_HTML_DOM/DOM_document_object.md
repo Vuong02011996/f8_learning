@@ -25,7 +25,7 @@
 ## By Class
 + Trả về nhiều element: HTMLCollection - giống mảng chỉ không có các phương thức như map, filter, some, every, .. như mảng.
 + getElementsByClassName()
-
+https://labs.flinters.vn/none/ant-design-ngon-co-ma-khong-ngon/
 ## By Tag Name(ít dùng)
 + getElementsByTagName('h1')
 

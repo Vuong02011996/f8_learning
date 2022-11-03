@@ -35,9 +35,7 @@ var b = 1
 ## Truthy và Falsy.
 ### Truthy
 + Trong js bất cứ kiểu dữ liệu nào khi chuyển sang boolean mà có giá trị true thì ta gọi đó là Truthy.
-+ !! : là 2 lần phủ định trở thành khẳng định. Trong js đây là một tip để convert mọi kiểu dữ liệu sang Boolean. Thêm !! phía trước các giá trị truthy sẽ luôn trả về true.
-### Falsy
-+ Bất cứ giá trị nào trong Javascript khi chuyển đổi sang kiểu dữ liệu boolean mà có giá trị false thì ta gọi giá trị đó là Falsy.
++ !! : là 2 lần phủ định trở thành khẳng định. Trong js đây là một tip để convert mọi kiểu dữ liệu sang Boolean. Thêm !! phía trước các giá trị truthy sẽ luôn trả về true.https://labs.flinters.vn/none/ant-design-ngon-co-ma-khong-ngon/olean mà có giá trị false thì ta gọi giá trị đó là Falsy.
 + 6 giá trị Falsy trong Javascript: false, 0, '', "", null, undefined, NaN.
 ### Ngoại lệ:
 + khi bạn thử !!document.all sẽ trả về false.
