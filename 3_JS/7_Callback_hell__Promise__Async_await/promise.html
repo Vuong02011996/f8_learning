@@ -84,6 +84,31 @@
             })
         }, 1)
 
+        // Ví dụ callback hell dễ hiểu hơn, truyền callback liên tục bên trong để xử lí bất đồng bộ,
+        api.getUser('sun_user', function(err, user) {
+            if (err) throw err
+                api.getPostsOfUser(user, function(err, posts) {
+                    if (err) throw err
+                        api.getCommentsOfPosts(posts, function(err, comments) {
+                        // bla bla bla...
+                        });
+                });
+        });
+
+        // Dùng promise
+        api.getUser = function(username) {
+            return new Promise((resolve, reject) => {
+                http.get(`/users/${username}`, (err, result) => {
+                if (err) return reject(err)
+                resolve(result)
+                })
+            })
+        }
+        api.getUser('sun_user')
+        .then(user => api.getPostsOfUser(user))
+        .then(posts => api.getCommentsOfPosts(posts))
+        .catch(err => { throw err });
+
         // Tạo ra callback hell
         // Promise sinh ra để giải quyết vấn đề này
         // Lý thuyết , cách tạo ra một promise, cách hoạt động promise
@@ -236,7 +261,7 @@
         var promise = Promise.resolve("message success")
         promise
             .then(function(data) {
-                console.log(data)
+                console.log(data) // "message success"
             })
 
         // Fail

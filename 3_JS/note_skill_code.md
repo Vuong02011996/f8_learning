@@ -6,3 +6,7 @@
 # DOM event
 + Lấy kích thước màn hình khi scroll: `window.scrollY`
 + Lấy kích thước chiều ngang của trình duyệt: `window.innerWidth`
+
+# Khái niệm quan trọng: 
+# expression: 
+    + biểu thức: biến, +, ba ngôi, array, object, function, ... nhưng if else/ switchcase không phải là biểu thức không hợp lệ

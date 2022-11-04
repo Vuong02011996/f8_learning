@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>async_await</title>
+</head>
+<body>
+    <script>
+
+        // Ta sẽ đi từ :
+        /**
+         * 1. Đồng bộ / bất đồng bộ
+         * 2. Callback
+         * 3. Promise(2015)
+         * 4. Async/await(2017)
+        */
+        // Đồng bộ vs bất đồng bộ
+        // Đồng bộ: code viết trước chạy trước, code viết sau chạy sau code bên dưới chỉ chạy khi code ở bên trên đã chạy xong và trả về kết quả => in ra step1 trước step2
+        console.log("step 1")
+        console.log("step 2")
+
+        // Bất đồng bộ: bất đồng bộ là các đoạn code ở phía dưới có thể chạy dù code bên trên chưa thực thi và trả về kết quả => in ra step2 trước step1
+        function promise_test() {
+
+            return new Promise(
+               function(resolve, reject)
+               {
+                     resolve("Step Promise/Async 1")
+               }
+           )
+        }
+        promise_test().then((data) => {
+            console.log(data)
+        })
+
+        console.log("Step Promise 2")
+
+        async function async_function() {
+            const data = await promise_test()
+            console.log(data)
+        }
+        async_function()
+        console.log("Step Async 2")
+        
+
+        // Do đó ta có thể úng dụng bất đồng bộ để xử lí các công việc mất thời gian như upload/download dữ liệu từ API, ...
+        // mà các công việc phía sau (như render giao diện) vẫn diễn ra trước mà không cần phải chờ. 
+
+
+        //https://codegym.vn/blog/2020/04/29/nguyen-tac-cua-dong-bo-va-bat-dong-bo-trong-javascript/
+        // Không như các ngôn ngữ như C/C++, Java, python, có cơ chế thread(đa luồng) xử lí đồng thời để xử lí bất đồng bộ. Javascript có nền tảng là
+        // đơn luồng nên vẫn thực hiện tuần tự chớ không phải đồng thời nhưng sẽ đưa các công việc bất đồng bộ vào hàng đợi và lần lượt xử lí sau.
+        // và vẫn thực hiện tiếp những công việc đồng bộ phía sau.
+
+        // Javascript đã sinh ra 3 khái niệm để xử lí bất đồng bộ: async callback, promise, async/await.
+
+        // ----------------------------------------Dùng Async/await----------------------------------------------------
+        // //https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/async_function
+        // //https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/await
+
+        // // async function: là một hàm được khai báo với keyword async.
+        // // await : là toán tử đợi cho một lời hứa hoàn thành nhận lại giá trị hoàn thành của nó. Thường được sử dụng bên trong một 
+        //         // async function hoặc một Javascript module.
+
+        // // async và await: là từ khóa để bật chế độ bất đồng bộ, hành vi dựa trên lời hứa được viết một cách rõ ràng hơn, tránh config
+        // // phức tạp như promise chains.
+        // // Promises có thể hơi khó nhằn, nên ES2017 giới thiệu async và await, nó giúp Promise trông đơn giản hơn, tránh được chain .then() dài dằng dặc.
+        // // Async sẽ thông báo rằng function sẽ xử lý bất đồng bộ, và await sẽ được dùng để báo chúng ta muốn đợi kết quả của thao tác bất đồng bộ trong một function có đánh dấu async
+
+        // // Ví dụ Async
+        // function resolveAfter2Seconds() {
+        //     return new Promise(resolve => {
+        //         setTimeout(() => {
+        //         resolve('resolved');
+        //         }, 2000);
+        //     });
+        // }
+
+        // const pro = resolveAfter2Seconds()
+        // pro.then((data)=>{
+        //     console.log('calling');
+        //     console.log(data)
+        // })
+
+        // async function asyncCall() {
+        //     console.log('calling');
+        //     const result = await resolveAfter2Seconds();
+        //     console.log(result);
+        //     // expected output: "resolved"
+        // }
+        // asyncCall();
+
+    </script>
+</body>
+</html>

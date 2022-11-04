@@ -3,6 +3,8 @@
 + Khả năng mở rộng tốt, tái sử dụng cao nhờ tư tưởng chia component, import lại.
 + Khả năng tương thích ngược - version sau vẫn support API , method version trước.
 
++ Một ứng React dựa trên nhiều component. Mỗi component sẽ có state và props. Nếu state của một component thay đổi thì nó sẽ được render lại. Còn props thì được dùng để truyền “data” từ component cha đến component con.
+
 # Nội dung
 + Hiểu về khái niệm SPA/MPA
 + Hooks

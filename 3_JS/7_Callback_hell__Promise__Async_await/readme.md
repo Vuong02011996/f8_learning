@@ -1,13 +1,10 @@
-1. Json
-2. Promise
-3. Fetch
-4. DOM Location
-5. Local storage
-6. Session storage
-7. Coding convention
-8. Best  Practice
-9. Mistakes
-10. Performance
+# Giới thiệu đồng bộ và bất đồng bộ
++ https://codegym.vn/blog/2020/04/29/nguyen-tac-cua-dong-bo-va-bat-dong-bo-trong-javascript/
++ Để xử lí bất đồng bộ Javascript đã phát triển một số cách : `Callback < 2015, Promise(2015) và Async/await(2017).`
++ 
+
+# Promise vs async/await
++ https://ehkoo.com/bai-viet/tat-tan-tat-ve-promise-va-async-await
 
 # Promise (sync(đồng bộ), async(bất đồng bộ)) 
 + Sync: đồng bộ là code chạy từ trên xuống, cái nào viết trước chạy trước, chạy theo luồng tuần tự đồng bộ.
