@@ -5,7 +5,10 @@
 // import MemMoHOC from './hooks_method/5_React_memo';
 // import HookCallBack from './hooks_method/6_useCallback';
 // import HookMemMo from './hooks_method/7_useMemo';
-import HookReducer from './hooks_method/8_useReducer';
+// import HookReducer from './hooks_method/8_useReducer';
+
+// mặc định webpack sẽ nạp file index trong thư mục ToDo chớ không cần phải viết rõ ToDo/index.js
+import ToDoApp from "./ToDo"
 import {useState, useCallback} from 'react'
 
 
@@ -52,7 +55,9 @@ function App() {
 
       {/* <HookMemMo/> */}
 
-      <HookReducer/>
+      {/* <HookReducer/> */}
+      {/* chia file Reducer */}
+      <ToDoApp/>
 
       
 
