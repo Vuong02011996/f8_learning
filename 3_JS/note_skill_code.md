@@ -6,6 +6,10 @@
 # DOM event
 + Lấy kích thước màn hình khi scroll: `window.scrollY`
 + Lấy kích thước chiều ngang của trình duyệt: `window.innerWidth`
++ Lấy element thật không dùng getElement  : `ref={nameRef}` dùng thuộc tính ref của element.
+
+# Đặt tên
++ Chú ý quy ước đặt tên props với các hàm thì thêm `on` còn hàm thì thêm `handle`(useCallback)
 
 # Khái niệm quan trọng: 
 # expression: 

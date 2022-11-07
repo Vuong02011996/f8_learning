@@ -39,24 +39,27 @@ function HookEffect1()
  *  - Clear timer
  */
 
-// Ta sử dụng useEffect khi ta muốn thực hiện các side Effect (các công việc phụ bên cạnh việc chính)
+// Ta sử dụng useEffect khi ta muốn thực hiện các side Effect (các công việc phụ bên cạnh việc chính-bất đồng bộ)
 // side effect: thuật ngữ chung của lập trình phần mềm, khi có một tác động xảy ra thì dữ liệu thay đổi
 // cú pháp: hàm này nhận hai đối số: useEffect(callback, [deps])
 // callback: bắt buộc - hàm tự truyền vào, code ở đây để thực hiện các side effect như update DOM, call API,...
 // [deps]: mảng chứa những cái phụ thuộc vào mặc dữ liệu: không bắt buộc
 
 // useEffect: kiến thức cốt lõi ở useEffect là biết khi nào callback được gọi 
+    // Callback luôn được chạy ngay sau khi JSX của component được mounted, và chạy tiếp hay không tùy thuộc vào ta truyền đối số thứ hai như  thế nào
+    // 1. không truyền: callback luôn chạy lại mỗi khi component rerender(thường là gọi setState).
+    // 2. truyền mảng rỗng: callback không chạy thêm lần nào nữa.
+    // 3.  truyền mảng có deps: callback sẽ chạy lại mỗi khi deps thay đổi (thường là setState nếu deps là state) 
 
 
 //-------------------------------------------Cách dùng useEffect --------------------------------------------------------------------------
 
 // Chia ra để học:
-// 1. Khi dùng useEffect và có mỗi callback: useEffect(callback) - ít dùng
+// 1. Khi dùng useEffect và có mỗi callback: useEffect(callback) - gọi callback liên tục khi state thay đổi nên ít dùng
     // - TH này callback còn được gọi mỗi khi component re-render lại.(mỗi lần setState được gọi(render lại App) thì callback sẽ gọi theo -> ít dùng)
-    // nhưng callback chỉ gọi sau khi component đã được thêm vào DOM tức là render trước khi gọi callback
 
 // 2. Khi dùng useEffect và có callback với mảng deps rỗng: useEffect(callback, [])
-    // - Chỉ gọi callback một lần mỗi khi component được mounted.(chỉ dùng tính chất chung cho cả 3 thèn)
+    // - Chỉ gọi callback một lần mỗi khi component được mounted.(chỉ dùng tính chất chung)
     // - Dùng với những logic muốn chạy một lần thì dùng useEffect với mảng rỗng.
 // 3. Khi dùng useEffect và có callback với mảng deps: useEffect(callback, [deps])
     // -Callback được gọi lại mỗi khi deps thay đổi giá trị(deps là một biến): khi chương trình chạy tới useEffect nó sẽ kiểm tra giá trị deps trước và
@@ -64,9 +67,12 @@ function HookEffect1()
 
 
 // Note chung cả 3 TH trên đều có tính chất này:
+// 0. nhưng callback chỉ gọi sau khi component đã được thêm vào DOM tức là render JSX trước khi gọi callback
+
 // 1. Cả 3 trường hợp Callback đều được gọi ngay sau khi component mounted vào App (ngay khi đọc tới dòng này <HookEffect/> trong file App.js)
-//    Sau khi unmounted cứ mount lại thì callback trong useEffect sẽ được gọi lại
+//    Sau khi unmounted cứ mount lại thì callback trong useEffect sẽ được gọi lại.
 // 2. Cleanup function luôn được gọi sau khi component unmounted. Cleannup function là hàm được return trong callback useEffect.
+
 
 
 // TH1 chỉ có callback

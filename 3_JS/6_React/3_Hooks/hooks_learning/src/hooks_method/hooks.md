@@ -1,5 +1,5 @@
 # Hooks
-+ Thực chất là những method, hàm được viết sẵn trong ReactJS
++ Thực chất là những method, hàm được viết sẵn trong ReactJS, ta sẽ gọi method này trong component mỗi khi dùng.
 + Mỗi hàm có một tính năng và trường hợp cụ thể để sử dụng.
 + Khi làm việc với function component , ta cần những tính năng mà Hooks cung cấp, ta lôi vào sử dụng(gắn vào || Móc vào), dùng bên trong function component này.
 + Được thêm vào React từ phiên bản 16.8.0
@@ -15,6 +15,8 @@
     + Logic nghiệp vụ cần hướng đối tượng thì có thể dùng class component(FB chưa định xóa bỏ).
 
 + Có thể kết hợp function component với class component.(Trong class component có thể return JSX chứa function component)
+
+# HOC - bài 5 memo().
 
 
 

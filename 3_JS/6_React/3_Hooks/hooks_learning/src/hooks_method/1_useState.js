@@ -1,5 +1,7 @@
 import {useState} from "react" 
 
+
+// Luôn nắm nguyên tắc: là môi khi gọi setState xong thì code sẽ chạy lại từ file App để render lại giao diên.
 // Mỗi khi giao diện người dùng re-render lại thì nghĩ ngay đến useState().
 // useState: Phải nắm và diễn tả được cách code chạy như nào qua từng ví dụ
 /**
