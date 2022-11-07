@@ -3,6 +3,8 @@
 + `{posts.map((post) => {return <li>{post.title}</li>})}` : callback trong map có dấu {} phải return thì map mới trả về mảng data mới.
 + `style={type === tab ? {color: "#ccc", backgroundColor: "#000"}: {}}`: style inline nhanh cho button nào được bấm trong JSX - useEffect.
 
++  xoa job dựa vào index chú ý không xóa trực tiếp trên mảng state.jobs: (useReducer)
+
 # DOM event
 + Lấy kích thước màn hình khi scroll: `window.scrollY`
 + Lấy kích thước chiều ngang của trình duyệt: `window.innerWidth`
