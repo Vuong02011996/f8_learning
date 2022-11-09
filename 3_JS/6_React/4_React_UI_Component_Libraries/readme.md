@@ -38,6 +38,6 @@
         + Redux-Saga sử dụng Generators (function*) của ES6 để xử lý “`bất đồng bộ`” một cách “đồng bộ”.
         + Hơn nữa vì `Saga sử dụng generator function` nên mình sẽ `không cần phải dùng promise để then`, catch nhiều khi gặp bất đồng bộ. mà chỉ dùng `keyword yield` nổi tiếng.
 
-# React + hooks vs React + redux? https://nvksolution.com/so-sanh-giua-redux-va-react-hooks/
+## React + hooks vs React + redux? https://nvksolution.com/so-sanh-giua-redux-va-react-hooks/
 + `useContext` chúng ta có thể chia sẻ state tới các `component`, `useReducer` thì cho phép chúng ta cập nhật giá trị mới cho state giống như là `Redux`.
 + `useEffect` chúng ta có thể viết các `action` và `dispatch` chúng tới `reducer`
