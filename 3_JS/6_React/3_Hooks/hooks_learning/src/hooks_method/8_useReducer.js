@@ -13,8 +13,8 @@ import {useState, useEffect, useRef, useReducer} from 'react'
     // 1. hàm reducer ở bước 3
     // 2. initState
 
-    // Trong lần đầu tiên App render useReducer sẽ nhận đối số làm hàm reducer nhưng không chạy
-    // sẽ nhận về giá trị thứ hai là initState và trả về phần tử đầu tiên của mảng
+    // Trong lần đầu tiên App render useReducer sẽ nhận đối số là hàm reducer nhưng không chạy
+    // nhận giá trị thứ hai là initState và trả initState về phần tử đầu tiên của mảng
     // trả về vần tử thứ hai là một hàm dispatch 
 
     // Hàm reducer chỉ chạy mỗi khi gọi hàm dispatch
