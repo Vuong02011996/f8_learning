@@ -5,4 +5,4 @@
 // . Để triển khai giao thức này thì một object cần có method next() return về một 
     // object khác với 2 thuộc tính (properties):
         // done: một giá trị boolean cho biết còn hay không còn phần tử nào có thể được lặp lại.
-v       //value: giá trị hiện tại.
+        //value: giá trị hiện tại.
