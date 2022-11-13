@@ -1,17 +1,17 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
+import {BrowserRouter} from 'react-router-dom'
 import './index.css';
-import App from './App';
+// import App from './1_CSS_React';
+import App from './2_Router_React';
 import reportWebVitals from './reportWebVitals';
-// import { ThemeProvider, ThemeContext } from './hooks_method/Context_example/Context_chuan/ThemeContext'
-import {StoreProvider} from './hooks_method/3_Global_state_context_useReducer/store'
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <StoreProvider>
+    <BrowserRouter>
       <App />
-    </StoreProvider>
+    </BrowserRouter>
   </React.StrictMode>
 );
 

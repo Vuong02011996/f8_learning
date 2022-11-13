@@ -8,8 +8,17 @@
 // import HookReducer from './hooks_method/8_useReducer';
 
 // mặc định webpack sẽ nạp file index trong thư mục ToDo chớ không cần phải viết rõ ToDo/index.js
-import ToDoApp from "./ToDo"
+// import ToDoApp from "./hooks_method/ToDo_useReducer"
+// import Context from "./hooks_method/Context_example/Context_App"
+
+// import Context from "./hooks_method/Context_example/Context_chuan/Context_App"
+
+// import ToDoApp from './hooks_method/3_Global_state_context_useReducer/ToDo_App';
+
+import ImperativeHandle from './hooks_method/4_ImperativeHandle/9_useImperativeHandle'
+
 import {useState, useCallback} from 'react'
+import "./App.css"
 
 
 function App() {
@@ -57,9 +66,16 @@ function App() {
 
       {/* <HookReducer/> */}
       {/* chia file Reducer */}
-      <ToDoApp/>
+      {/* <ToDoApp/> */}
 
-      
+      {/* React context and useContext */}
+      {/* <Context/> */}
+
+      {/* Global state with context and useReducer */}
+      {/* <ToDoApp/> */}
+
+      {/* useImperativeHandle */}
+      <ImperativeHandle/>
 
 
     </div>
