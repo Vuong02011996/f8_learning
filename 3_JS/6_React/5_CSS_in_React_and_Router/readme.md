@@ -19,6 +19,7 @@
 # SASS/SCSS 
 + File .module.css ta đổi tên thành .module.scss là xong.
     + Nếu báo lỗi chưa có module sass thì cài : yarn add sass || npm sass
+    + development mới sài scss còn product chỉ sài css.
 
 + SCSS hổ trợ cú pháp làm tổ: viết css vào bên trong cặp {}
     ```
@@ -31,6 +32,8 @@
         }
     ```
 + https://sass-lang.com/documentation/syntax
+
+
 
 
 # Router
