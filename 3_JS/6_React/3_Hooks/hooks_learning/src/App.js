@@ -71,7 +71,7 @@ function App() {
       {/* React context and useContext */}
       {/* <Context/> */}
 
-      {/* Global state with context and useReducer */}
+      {/* Global state with context and useReducer the same redux*/}
       {/* <ToDoApp/> */}
 
       {/* useImperativeHandle */}

@@ -4,7 +4,7 @@
 // + Generator function cũng có thể `dừng thực thi bất cứ thời điểm nào`, 
     // đợi một `điều kiện` nào nó xảy ra rồi mới `tiếp tục thực thi`
 // + có thể được `thực thi nhiều lần liên tiếp` mà ngữ cảnh (số lượng biến, giá trị biến, trạng thái các thành phần bên trong hàm ...) 
-    // `đều có thể lưu lại` sử dụng sau mỗi phiên.
+    // đều có thể lưu lại sử dụng sau mỗi phiên.
 
 
 // Cú pháp
