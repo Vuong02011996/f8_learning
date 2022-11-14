@@ -1,13 +1,17 @@
 import {useState, useEffect, useRef, useReducer} from 'react'
 import reducer, {initState} from './reducer'
 import {addJob, deleteJob, setJob} from './action'
+import logger from './logger'
+
+// https://www.youtube.com/watch?v=RClK-ltP-Bg&list=PL_-VfJajZj0VgpFpEVFzS5Z-lkXtBe-x5&index=114
+// https://drive.google.com/file/d/1uNnhYqX-FCCDdmxdJNv19wB2u7cmyw83/view
 
 function HookReducer()
 {
     const inputRef = useRef()
 
-    const [state, dispatch] = useReducer(reducer, initState)
-    console.log("state innit: ", state)
+    const [state, dispatch] = useReducer(logger(reducer), initState)
+    // console.log("state innit: ", state)
 
 
     function handleSubmit()

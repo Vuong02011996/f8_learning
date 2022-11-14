@@ -14,3 +14,19 @@
 ## React + hooks vs React + redux? https://nvksolution.com/so-sanh-giua-redux-va-react-hooks/
 + `useContext` chúng ta có thể chia sẻ state tới các `component`, `useReducer` thì cho phép chúng ta cập nhật giá trị mới cho state giống như là `Redux`.
 + `useEffect` chúng ta có thể viết các `action` và `dispatch` chúng tới `reducer`
+
+
+
+## So sánh redux vs hook/Context
++ Cách hoạt động tương tự nhau.
++ Ưu điểm của redux với hook context
+    + Dễ debug, có tool dễ quan sát state thay đổi trong ứng dụng.
+    + Cung cấp một kiến trúc sẵn sàng apply middleware (saga, thunk, logger..), context phải tự viết ra middleware
+    + Addons dễ  dàng mở rộng
+    + Đa nền tảng, sử dụng tất cả dự án bằng JS kể cả code thuần, Hook context chỉ dùng với React
+    + Performance hơn hẵn dùng context
+        + Vì context dùng Provider có useReducer nên mỗi lần state thay đổi thì tất cả component đều thay đổi.
+        + Redux đã xử lí ở component nào thay đổi thì chỉ có component đó render lại.
+
+=> hook/Context: dùng cho ứng dụng vừa nhỏ, và các chức năng ít set lại state(theme)
+=> Còn lại nên dùng redux.

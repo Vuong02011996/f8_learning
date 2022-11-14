@@ -1,0 +1,13 @@
+
+.btn {
+    font-size: 20px;
+    color: blue;
+}
+
+.active {
+    background-color: rgb(135, 205, 222);
+}
+
+.primary {
+    background-color: rgb(222, 135, 209);
+}

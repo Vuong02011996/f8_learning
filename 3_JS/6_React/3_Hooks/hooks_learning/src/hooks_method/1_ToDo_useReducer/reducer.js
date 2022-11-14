@@ -9,8 +9,8 @@ export const initState = {
 // B3 tạo hàm reducer
 const reducer = (state, actions) => {
 
-    console.log("state", state)
-    console.log("actions", actions)
+    // console.log("state", state)
+    // console.log("actions", actions)
     let newState
     switch(actions.type) {
         case SET_JOB:
