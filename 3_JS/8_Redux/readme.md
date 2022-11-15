@@ -1,5 +1,4 @@
 # Flow data in FE(React/Hook - React/redux)
-
 ## So sánh redux vs hook/Context
 + Cách hoạt động tương tự nhau.
 + Ưu điểm của redux với hook context
@@ -25,9 +24,17 @@
 + Lý do đầu tiên mà các developer thường xuyên áp dụng Redux trong các dự án là vì khả năng `chia sẻ state giữa các component`
 + https://viblo.asia/p/redux-cho-nguoi-moi-bat-dau-part-1-introduction-ZjleaBBZkqJ
 
+### Khi nào sử dụng redux
++ Dữ liệu được sử dụng ở nhiều nơi nên cần lôi lên redux làm global state.
++ Vì nếu cùng action và cùng state thì sẽ cho ra state mới giống nhau nên hổ trợ undo/redo
++ Cần cache dữ liệu tái sử dụng cho những lần sau.(ví dụ gọi API 1 lần lần sau sử dụng lại dữ liệu đó)
+
 ### Cấu trúc và Nguyên lý hoạt động
++ https://www.youtube.com/watch?v=Sq_Qt8PWf_Y&list=PLeS7aZkL6GOvCz3GiOtvtDXChJRuebb7S
++  Store -> View -> Action : luôn đi theo một chiều.
+
 + https://niithanoi.edu.vn/tu-hoc-reactjs.html#iii1-gioi-thieu-redux
-#### Cấu trúc
+#### Cấu trúc:
 + Gồm 3 phần:
 + `Store`: `state` được lưu trữ dưới dạng một `đối tượng` (object) đơn giản, được gọi là store.
         ```
@@ -42,7 +49,7 @@
             toggle: true
         }
         ```
-+ `Action`: thông tin được gửi đến Store
++ `Action`: là một JS object -> thông tin mô tả làm cái gì với Store -> được gửi đến Store
         + Các action được thể hiện bằng đối tượng JavaScript đơn giản và bắt buộc phải có thuộc tính `type`(type phải được viết theo `SNAKE_CASE`)
         ```
             { 
@@ -76,12 +83,7 @@
             }
         ```
 
-
-
-#### Cách hoạt động:
-+ 
 + Để liên kết `store` và `action` với nhau, chúng ta `cần viết một hàm`, được gọi là `reducer` - Nó nhận state và action làm đối số và trả về state tiếp theo của ứng dụng.
-+ 
 
 
 #### Những nguyên lý trong redux:
@@ -99,9 +101,15 @@
 
 ### Installation
 + https://redux.js.org/introduction/getting-started
-+ `npm install redux` : bản thân Redux chỉ là một thư viện nhỏ, có thể được sử dụng với các công nghệ khác nhau. Để sử dụng với React ta cài thêm + `npm install react-redux` : Thư viện react-redux liên kết React với Redux, cho phép các React components đọc dữ liệu từ Redux store và gửi các action tới store để cập nhật dữ liệu.
-cd
-+ https://longnv.name.vn/su-dung-react/su-dung-redux-trong-react
+
++ Dùng với JS thuần:
+    + Dùng link cdn của redux.
+
++ Dùng với react:
+    + redux vs toolkit: `npm install @reduxjs/toolkit`
+    + `npm install redux` : bản thân Redux chỉ là một thư viện nhỏ, có thể được sử dụng với các công nghệ khác nhau. Để sử dụng với React ta cài thêm + `npm install react-redux` : Thư viện react-redux liên kết React với Redux, cho phép các React components đọc dữ liệu từ Redux store và gửi các action tới store để cập nhật dữ liệu.
+
+    + https://longnv.name.vn/su-dung-react/su-dung-redux-trong-react
 
 
 
