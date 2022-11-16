@@ -105,6 +105,7 @@
 + Dùng với JS thuần:
     + Dùng link cdn của redux.
 
+
 + Dùng với react:
     + redux vs toolkit: `npm install @reduxjs/toolkit`
     + `npm install redux` : bản thân Redux chỉ là một thư viện nhỏ, có thể được sử dụng với các công nghệ khác nhau. Để sử dụng với React ta cài thêm + `npm install react-redux` : Thư viện react-redux liên kết React với Redux, cho phép các React components đọc dữ liệu từ Redux store và gửi các action tới store để cập nhật dữ liệu.
