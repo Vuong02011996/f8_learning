@@ -59,7 +59,15 @@ function incrementClick(click) {
             <Click/>
           </Provider>; 
   
-  ReactDOM.render(
-    el, 
-    document.getElementById("container")
-  );
+function TestReactRedux()
+{
+  return (
+    <>
+      <Provider store={store}>
+            <Click/>
+          </Provider>; 
+    </>
+  )
+}
+
+export default TestReactRedux
