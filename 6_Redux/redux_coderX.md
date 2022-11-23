@@ -10,4 +10,6 @@
 # Manage State trong redux
 + Trong JS thuần khi ta có một hành động trên UI để thay đổi data(state) thì ta thường viết logic ngay trong phần code UI (gán cho sự kiện của element chứa hành động một callback và viết logic trong callback đó) => viết quá nhiều logic trong UI.
 
-+ 
+# Nội dụng bài học
+## Cách xây dựng và sử dụng redux với ví dụ đơn giản
+## Cách dùng combine redux
