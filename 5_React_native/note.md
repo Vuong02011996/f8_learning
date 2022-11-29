@@ -42,7 +42,7 @@
 + `network`:
 + `reducers`:
 + `store`:
-+ `views`: module chứa toàn bộ view đã được custom.
++ `views`: module chứa toàn bộ view đã được custom, hiển thị giao diện thông qua state của store.
 
 # News base react native
 
