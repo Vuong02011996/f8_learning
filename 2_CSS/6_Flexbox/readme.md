@@ -34,13 +34,13 @@
     + Các flex-items chỉ có khoảng cách với nhau khi có kích thước chiều ngang cố định.
 
 + align-content: giống justify-content nhưng theo chiều cross axis , flex-start, flex-end, space-between, center, space-around, stretch.(cross axis) - xét cho nhiều hàng.
-+ align-items: flex-start, flex-end, center, baseline, stretch.(cross axis)
++ align-items: giống justify-content nhưng theo chiều cross axis flex-start, flex-end, center, baseline, stretch.(cross axis)
 
 + flex-flow: that a shorthand exists for flex-direction and flex-wrap.(flex-flow: row wrap;)
 
 ## Properties for the flex items.
-+ justify-self: như justify-content nhưng xét cho flex items.
-+ align-self: như align-content nhưng xét cho flex items.
++ justify-self: như justify-content (căn chỉnh các item theo main axix) nhưng xét cho flex items.
++ align-self: như align-content chiều cross axis nhưng xét cho flex items.
 
 + flex-grow: như flex-basis nhưng xét cho flex items. rất linh động có thể xét theo trọng số. làm lớn kích thước.
 + flex-shrink: ngược lại flex-grow thu nhỏ kích thước lại.
@@ -78,3 +78,34 @@ c-1 {
     flex: 0 0 8.33333%;
     max-width: 8.33333%;
 }
+
+## Flex 1 là gì?
++ https://viblo.asia/p/kham-pha-flex-grow-flex-shrink-va-flex-basis-GrLZDDgVZk0
+
++ display: flex -> mặc định `0 1 auto`
+    + `flex-direction: row`, 
+    + `flex-grow: 0`: 0 tức là kích thước lớn nhất phần tử khớp với nội dung bên trong.
+                        Nhưng nếu để là 1 thì cơ bản sẽ chiếm hết kích thước chiều ngang có thể có(hoặc chiều dọc nếú `flex-direction` là column). Nhưng tùy vào xét cho container hay item sẽ hiểu khác nhau bên dưới.
+    + `flex-shink: 1`: 1 tức là kích thước nhỏ nhất mà phần tử nên có mặc định theo nội dung và các phần tử khác- cho phép co lại.
+                        Nhưng nếu sửa thành 0 nó hiểu là giữ nguyên kích thước tối thiểu , không cho co lại.(kích thước tùy thuộc vào flex-basis) 
+    + `flex-basis: auto`: auto nghĩa là kích thước item sẽ theo nội dung bên trong, nếu set bằng pixel sẽ cố gắng lấy bằng giá trị pixel, 
+                            Đối với `flex-shink: 1`:
+                                 nếu nội dung item bên cạnh lớn không cho phép đủ pixel sẽ lấy giá trị pixel lơn nhất có thể.(Ưu tiên nội dung bên trong).
+                            Đối với `flex-shink: 0`: không cho phép co lại
+                                + cố gắng lấy bằng giá trị pixel và có thể tràn ra ngoài màn hình hoặc thẻ cha để đảm bảo đúng pixel
+
++ `flex: 1 <=> (hiểu là: [flex-grow, flex-shink, flex-basis] = [1 1 auto])` <=>[max, min, ideal size]
++ `Đối với flex container` TH1: 
+    flex: 1
+        + flex-grow 1: kích thước lớn nhất chiếm hết kích thước còn lại theo chiều ngang 
+        + shrink 1: cho phép co lại.
+        + flex-basis auto: kích thước sẽ theo nội dung bên trong
+
++ `Đối với flex item` TH2: 
+    flex: 1
+        + flex-grow 1: kích thước lớn nhất mỗi item bằng nhau và chia ra để chiếm hết kích thước thẻ cha.
+                        Nhưng nếu mỗi item có flex-grow  khác nhau thì chia kích thước theo trọng số flex-grow và tổng vẫn chiếm hết phần tử thẻ cha.
+        + shrink 1: cho phép co lại.
+        + flex-basis auto: kích thước sẽ theo nội dung bên trong
+
++ flex: 1 -> áp dụng cho chính item đó chớ không phải cho item con bên trong, nếu có nhiều item ngang hàng xung quanh chạy TH2, nêu chỉ có một item thì chạy TH1.
