@@ -54,6 +54,8 @@ function HookEffect1()
 
 //-------------------------------------------Cách dùng useEffect --------------------------------------------------------------------------
 
+// điểm chốt : callback luôn chạy sau khi render lại DOM. 
+
 // Chia ra để học:
 // 1. Khi dùng useEffect và có mỗi callback: useEffect(callback) - gọi callback liên tục khi state thay đổi nên ít dùng
     // - TH này callback còn được gọi mỗi khi component re-render lại.(mỗi lần setState được gọi(render lại App) thì callback sẽ gọi theo -> ít dùng)

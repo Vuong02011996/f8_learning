@@ -37,6 +37,7 @@
 + Khi thực hiện một hành động như onkeyup, blur, ... sẽ luôn nhận lại một sự kiện trả về tất cả thông tin của hành động đó. Console để xem:  onkeyup="console.log(event)"
 
 + `onkeyup="event.keyCode === 13 && dispatch('add', this.value.trim())"` : kiểm tra có sự kiện nhấn phím enter trong thẻ input , nếu có dispatch actions add và lưu dữ liệu vào Store.
++ https://docstore.mik.ua/orelly/webprog/DHTML_javascript/0596004672_jvdhtmlckbk-app-b.html
 
 ## Chức năng khi không có công việc gì thì ẩn luôn phần main và footer.
 `${todos.length > 0 && ToDoList()}`
