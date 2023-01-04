@@ -4,7 +4,7 @@
     + development: css internal -> thẻ style trên thẻ head
     + production: css external -> gọp chung tất cả file css lại 1 file.
 + Cách 3: mỗi component viết mỗi file CSS rồi import vào component
-+ Cách 4: Dùng Css module , tạo các file .nodule.css độc lập và không ảnh hưởng tới nhau 
++ Cách 4: Dùng Css module , tạo các file .module.css độc lập và không ảnh hưởng tới nhau 
 
 # CSS preprocessors
 + Là ngôn ngữ tiền xử lí CSS, có nhiệm vụ logic hóa mã CSS sao cho gần giống với ngôn ngữ lập trình.
@@ -12,13 +12,12 @@
     + SASS được xây dựng dựa trên Ruby
     + SCSS ra đời sau SASS có cú pháp tương tự như CSS , nhằm thu hẹp khoảng cách giữa SASS và CSS.
     + LESS được xây dựng trên Javascript
-
     + https://topdev.vn/blog/sass-scss-la-gi/
     + http://dotnet.edu.vn/ChuyenMuc/So-sanh-SASS-vs-LESSCSS-Preprocessors-2154.aspx
 
 # SASS/SCSS 
 + File .module.css ta đổi tên thành .module.scss là xong.
-    + Nếu báo lỗi chưa có module sass thì cài : yarn add sass || npm sass
+    + Nếu báo lỗi chưa có module sass thì cài : yarn add sass || npm i sass
     + development mới sài scss còn product chỉ sài css.
 
 + SCSS hổ trợ cú pháp làm tổ: viết css vào bên trong cặp {}
