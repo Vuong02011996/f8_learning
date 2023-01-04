@@ -41,3 +41,6 @@
 ## React + hooks vs React + redux? https://nvksolution.com/so-sanh-giua-redux-va-react-hooks/
 + `useContext` chúng ta có thể chia sẻ state tới các `component`, `useReducer` thì cho phép chúng ta cập nhật giá trị mới cho state giống như là `Redux`.
 + `useEffect` chúng ta có thể viết các `action` và `dispatch` chúng tới `reducer`
+
+## Redux vs Mobx
++ https://techmaster.vn/posts/36186/su-khac-nhau-giua-mobx-va-redux-la-gi#:~:text=Mobx%20l%C3%A0%201%20th%C6%B0%20vi%E1%BB%87n,nh%C6%B0%20Angular%2C%20Vue%20hay%20React.
