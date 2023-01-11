@@ -3,7 +3,9 @@ import logger from "./log.js"; // logger là export default nên import bình th
 // import các giá trị không phải export default 
 // Cách 1
 import {TYPE_LOG, TYPE_ERROR, TYPE_WARN} from "./contants.js"
-// Cách 2
+// Cách 2: 
+//  `import * as request from '~/utils/request';` export lẻ thì dùng `*` để đưa vào object `request` rồi chấm.
+ 
 import * as contants from "./contants.js"
 
 

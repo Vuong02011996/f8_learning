@@ -74,6 +74,7 @@ function HookEffect1()
 // 1. Cả 3 trường hợp Callback đều được gọi ngay sau khi component mounted vào App (ngay khi đọc tới dòng này <HookEffect/> trong file App.js)
 //    Sau khi unmounted cứ mount lại thì callback trong useEffect sẽ được gọi lại.
 // 2. Cleanup function luôn được gọi sau khi component unmounted. Cleannup function là hàm được return trong callback useEffect.
+// This is why React also cleans up effects from the previous render before running the effects next time https://reactjs.org/docs/hooks-effect.html
 
 
 

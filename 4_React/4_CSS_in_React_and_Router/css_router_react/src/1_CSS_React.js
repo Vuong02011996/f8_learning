@@ -14,7 +14,7 @@
       // Xem file CSS được load ở tab CSS của dev tool , mỗi file sẽ tốn một lần đóng mở kết nối nên sẽ gom lại một file.
 
 // Dùng cách 2 viết tất cả CSS của tất cả component vào một file sẽ bị các vấn đề sau:
-  // Khi gỡ bỏ component ta có thể quên xóa CSS trong file App
+  // Khi gỡ bỏ component ta có thể quên xóa CSS trong file App.css
   // Viết chung tất cả trong một file CSS sẽ dẫn đến khó tìm và chỉnh sửa CSS hoặc có thể đặt giống class trong component.
 
 

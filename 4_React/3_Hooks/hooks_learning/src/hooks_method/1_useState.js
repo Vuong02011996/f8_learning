@@ -166,6 +166,8 @@ function HookState3()
 }
 
 // 2. Ví dụ Two way binding
+// Two way biding: Khi input thay đổi thì state thay đổi, khi state thay đổi thì input cũng thay đổi.
+
 // Khi dữ liệu state thay đổi thì dữ liệu trên web cũng thay đổi theo và ngược lại thì là Two-way binding
 // Ta xử lí bằng cách mỗi lần state value_input thay đổi thì set lại value(value={value_input}) cho thẻ input thay đổi theo.
 
@@ -177,8 +179,11 @@ function HookState4()
 
     return (
         <div style={{padding: 32}}> 
+            
             <input
+            // chiều thứ 2 khi click vào button gọi setValue render lại value_input thay đổi  thì value input cũng thay đôi
                 value={value_input}
+            // CHiều thứ nhất: khi input thay đổi thì state value_input cũng thay đổi theo
                 onChange={(e) => setValue(e.target.value)}
             />
             <button onClick={() => setValue("New Value")}>Change</button>
@@ -348,7 +353,7 @@ function HookState7()
 // Tư duy: Ta phải có một mảng lưu danh sách các công việc mỗi lần bấm Add thì setState lại mảng đó (thêm công việc vào) và render lại
 // Thêm nữa mỗi lần thay đổi trên input ta cần có một state khác để lưu lại giá trị input.
 
-function HookState()
+function HookState8()
 {
     // localStorage.getItem('jobs') chỉ là string nên thêm JSON.parse để parse lại array
     // initJobs ?? []: ?? check trường hợp initJobs là null hoặc undefined.
@@ -401,4 +406,5 @@ function HookState()
     )
 }
 
+const HookState = HookState4
 export default HookState
