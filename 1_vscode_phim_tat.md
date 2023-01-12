@@ -22,6 +22,9 @@
 + Phím tắt tạo thẻ nhanh trong file html.
     + header:
         + ul#nav>li*5>a + tab.
++ `shift + alt + arrow down`: chọn nhiều con trỏ chuột thẳng hàng không cần click
++ Bỏ tay phím alt thêm phím ctl mũi tên sang phải chọn hết các từ.
++ `shift + ctrl + arrow right`: chọn nguyên một từ không check ngữ pháp. 
 
 # Emmet html
 + .col.l-3*4>.item{Item $}: tạo thẻ div có hai class col l-3 bên trong có 4 col mỗi column có class tên item và mỗi item tên Item + số thứ tự tăng dần.

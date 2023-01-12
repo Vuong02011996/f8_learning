@@ -33,6 +33,11 @@ import {useState, useEffect, useRef, memo } from 'react'
 // Thực tế : useCallback chỉ có ý nghĩa khi dùng memo vì không có memo thì component con luôn luôn bị render lại
 // Do đó khi dùng memo và ta truyền các props là kiểu tham chiếu như (object, array, function) thì nên dùng useCallback hết.
 
+// * Cách sử dụng useCallback
+// * ở đầy chỉ có một useState, nên chỉ có một lần component render lại
+// * Khi render lại thì history thay đổi, dẫn đến currentMenu cũng thay đổi theo mà trong các hàm bên dưới
+// * dùng currentMenu, history bên trong nên nếu dùng useCallBack thì các biến này cũng là dependences
+// * Nên dùng useCallBack ở đây không hiệu quả.
 
 function HookCallBack({onIncrease})
 {
