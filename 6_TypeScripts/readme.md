@@ -31,10 +31,19 @@
 + Kiểu dữ liệu và Khai báo biến: `number, string, Boolean, array(JS), enum, tuple, any, void, ..`
 + Function trong TS: `Ta phải chỉ định luôn kiểu dữ liệu trả về cho hàm ngay từ đầu.` (vd: `number, string, void, …`)
 + Hướng đối tượng trong TS: c`lass, Access Modifier, Interface, Abstract, Namespace, Generic`
++ https://viblo.asia/p/typescript-nhung-kien-thuc-co-ban-RQqKLNb4l7z
++ https://topdev.vn/blog/hoc-typescript-trong-30-phut/
++ https://ehkoo.com/bai-viet/learn-typescript-together-basics
 
 # Typescript vào ReactJS App
 + https://reactjs.org/docs/static-type-checking.html#typescript
 + `npx create-react-app react_typescripts_app --template typescript`
 + Có một lưu ý là đối với `các file chứa component` cần có phần mở rộng `.tsx`, ví dụ đối với App.tsx => (`.ts, .js, .tsx`)
 + https://viblo.asia/p/mot-vai-chia-se-khi-ung-dung-typescript-vao-reactjs-app-Ljy5V1zjlra
+
++ https://www.typescriptlang.org/docs/handbook/react.html
 + https://handsonreact.com/docs/react-typescript
++ https://react-typescript-cheatsheet.netlify.app/docs/basic/setup/
+
+# Typescript vs react vs redux
++ https://github.com/piotrwitek/react-redux-typescript-guide#react--redux-in-typescript---complete-guide
