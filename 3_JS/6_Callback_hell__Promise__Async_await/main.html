@@ -18,55 +18,91 @@
         */
         // Đồng bộ vs bất đồng bộ
         // Đồng bộ: code viết trước chạy trước, code viết sau chạy sau code bên dưới chỉ chạy khi code ở bên trên đã chạy xong và trả về kết quả => in ra step1 trước step2
-        console.log("step 1")
-        console.log("step 2")
+        // console.log("step 1")
+        // console.log("step 2")
 
-        // Bất đồng bộ: bất đồng bộ là các đoạn code ở phía dưới có thể chạy dù code bên trên chưa thực thi và trả về kết quả => in ra step2 trước step1
-        function promise_test() {
+        // // Bất đồng bộ: bất đồng bộ là các đoạn code ở phía dưới có thể chạy dù code bên trên chưa thực thi và trả về kết quả => in ra step2 trước step1
+        // function promise_test() {
 
-            return new Promise(
-               function(resolve, reject)
-               {
-                     resolve("Step Promise/Async 1")
-               }
-           )
-        }
-        promise_test().then((data) => {
-            console.log(data)
-        })
+        //     return new Promise(
+        //        function(resolve, reject)
+        //        {
+        //              resolve("Step Promise/Async 1")
+        //        }
+        //    )
+        // }
+        // promise_test().then((data) => {
+        //     console.log(data)
+        // })
 
-        console.log("Step Promise 2")
+        // console.log("Step Promise 2")
 
-        async function async_function() {
-            const data = await promise_test()
-            console.log(data)
-        }
-        async_function()
-        console.log("Step Async 2")
+        // async function async_function() {
+        //     const data = await promise_test()
+        //     console.log(data)
+        // }
+        // async_function()
+        // console.log("Step Async 2")
 
         // Using Promise
+        console.log("Step 0")
         const getMoviesFromApi = () => {
+            console.log("Step 0.1")
             return fetch('https://reactnative.dev/movies.json')
                 .then((response) => response.json())
                 .then((json) => {
+                        console.log("Step 1")
                     return json.movies;
                 })
                 .catch((error) => {
                     console.error(error);
                 });
         };
+        // const promise1 = getMoviesFromApi()
+        console.log('promise1', getMoviesFromApi())
+        console.log("Step 2")
+        
 
         // Using async/await
         // await nhận một promise
-        const getMoviesFromApiAsync = async () => {
+                function promise_test(abc) {
+
+            return new Promise(
+               function(resolve, reject)
+               {
+                // reject(abc)
+                resolve("error")
+               }
+           )
+        }
+        async function getMoviesFromApiAsync(){
+
             try {
+                
                 const response = await fetch('https://reactnative.dev/movies.json');
+                console.log("Step 3")
+
+                promise_test("ajdflkj").then((cde) =>{
+                console.log('cde: ', cde)
+                })
+                .catch((error) => {
+                console.log("error1:", error);
+
+                })
+
+                const cde = await promise_test("hfjsfh")
+                console.log('cde: ', cde)
+
                 const json = await response.json();
                 return json.movies;
             } catch (error) {
-                console.error(error);
+                console.error("error:", error);
             }
         };
+        const abc = getMoviesFromApiAsync()
+        console.log('abc: ', abc)
+        console.log("Step 4")
+
         
 
         // Do đó ta có thể úng dụng bất đồng bộ để xử lí các công việc mất thời gian như upload/download dữ liệu từ API, ...

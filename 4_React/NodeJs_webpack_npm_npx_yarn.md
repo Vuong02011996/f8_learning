@@ -112,8 +112,39 @@ https://fullstack.edu.vn/blog/phan-1-tao-du-an-reactjs-voi-webpack-va-babel.html
     + tại máy chung mạng lan: http://192.168.1.133:3000
 
 # npx - npm - yarn
+## Global scope vs Project scope
+- Những thư viện nào project import vào(phụ thuộc(dependencies)) thì import trong `Project scope`
+    - `npm i tên_thư_viên `: sẽ lên trang npm download thư viện về lưu vào node_modules và tên thư viện ở package.json
+        - `--save`: lưu vào dependencies với npm version cũ, npm mới không cần flag `--save`
+        - `--save-dev or -D`: lưu vào devDependencies 
 
+- Những thư viện không import trong project như `create-react-app, npm, yarn`,... thì import `Global scope`. Thêm flag `--global` vào. Vì thư viện này sẽ lưu vào hệ thống (admin/usr/...)nên cần `sudo`. Khi install như ri sẽ tạo ra file bin(`file bin là file cho phép thực thi các dòng lệnh trên terminal như create-react-app`).
+    - `npm i --global tên_thư_viện`
+    - `npm i -g tên_thư_viện`
 
+## npx
+- Cài node thì đã kèm theo npm, cài npm thì đã kèm theo npx, ...
+- npx hổ trợ các thư viện cung cấp file bin như ở trên(create-react-app)
+- `npx create-react-app ten_thu_vien`
+- Cách hoạt động thèn npx như sau: xem thư mục đang gõ có node_modules hay không, nếu có sẽ chọc vào thư mục `.bin` tìm tên thư viện  đi cùng nếu chưa có sẽ `nhảy sang global tìm`(nếu có sẽ chạy bt), nếu không có cả ở global sẽ lên npm download về (project scope) và chạy tên thư viện đó. Sau khi chạy xong nó sẽ xóa bỏ luôn tên thư viện khỏi `.bin`
+- Tại sao dùng: 
+    - không cài thư viện global lên máy, nặng
+    - cài global sẽ fix version tên thư viện , còn npx sẽ download version mới nhất của thư viện.
+
+## yarn(2016) vs npm(2010)
+- `yarn` ban đầu hơn về performance 
+- bản thân các thư viện là một dự án nhỏ dùng trong dự án của bạn nên cấu trúc cũng y chang dự án của bạn. Vì là dự án nên bên trong sẽ có các thư viện khác.
+- `package-lock.json or yarn.lock` là file quản lí tất cả thư viện bao gồm thư viện phụ thuộc nhỏ bên trong.`package.json ` chỉ quản lí thư viện chúng ta cài trong dự án, không bao gồm các thư viện phụ thuộc.
+- `file lock` là một cái để optimize performance khi cài đặt thư viện.không phải cài lặp lại.
+- Khác nhau về:
+    - Cơ chế performance khi cài nhiều thư viện cùng lúc.
+        - `npm`: tuần tự
+        - `yarn`: song song => nhanh hơn nhưng không có nghĩa nhanh hơn cấp số x.
+    - Cơ chế cache tổ chức:
+        - `yarn`: khi cài sẽ lưu tạm một thư mục nào đó nên khi xóa node modules cài lại sẽ nhanh hơn
+        - `npm`: chậm hơn nhưng ít tốn dung lượng hơn.
+- => Cần về tốc độ dùng `yarn`, máy ít dung lượng dùng `npm`
+- `yarn nên cài global.`
 # Cấu trúc các file trong dự án React JS
 + `node_module`: nơi lưu trữ tất cả thư viện cài trong dự án
     + Khi cần thiết lỗi chi đó ta sẽ xóa thư mục này và `yarn start` sẽ không chạy được nữa.
