@@ -24,7 +24,10 @@
 # Concept
 
 -   https://pro.ant.design/docs/introduction
-
+- `We have launched dva based on Redux, as well as a pluggable enterprise application framework umi, which is recommended for use in your projects.`
+- `Ant Design React` is a `UI library` that can be used with any `data flow solution(dva)` and `application framework(umi)` within the React ecosystem.
+- `Dva` is a lightweight `data flow` solution based on Redux. The concept comes from elm. It supports side effects, hot module replacement, dynamic loading, react-native, SSR, etc. It has been widely used in production.
+- `umi` is a routing-based framework that supports next.js-like conventional routing and various advanced routing functions, such as routing-level on-demand loading.
 ## UMI
 
 -   `create-react-app`: It does not include support for routing, is not a framework, and does not support configuration.
@@ -59,3 +62,7 @@
 -   https://github.com/dvajs/dva/tree/master/docs/api Model
 -   https://github.com/umijs/umi
 -   umi: https://v3.umijs.org/docs/getting-started
+
+# Note
+- Hiện tại creact-react-app, umi chỉ support node version>=14. Do đó nếu trong máy đang chạy project với version node 12 sẽ không tạo được project với creact-react-app hoặc umi.
+
