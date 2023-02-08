@@ -1,0 +1,24 @@
+// 1. Nesting
+/* SCSS */
+.container {
+    width: 100%;
+    .header {
+      background-color: #333;
+      h1 {
+        color: #fff;
+      }
+    }
+  }
+
+  /* CSS */
+.container {
+    width: 100%;
+}
+.container .header {
+    background-color: #333;
+}
+.container .header h1 {
+    color: #fff;
+}
+  
+  

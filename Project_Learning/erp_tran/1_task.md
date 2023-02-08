@@ -25,3 +25,25 @@
 + Dom element:
     + `formRef = React.createRef();` dùng để lấy những giá trị từ initialValues của DOM element.
 
+
+# Hiển thị ca nghỉ trong thời gian nghỉ trên web giống kiosk
++ http://localhost:8001/xin-nghi-phep/2280?created_at=2022-11-05
++ http://localhost:8000/search/request/2280?dateHistory=2022-11-05
+
++ Tìm component trên web theo path url: `/xin-nghi-phep` => component absent/id
+    {
+        path: '/xin-nghi-phep/:id',
+        component: './absent/id',
+        Routes: ['src/components/LayoutComponents/Authorize/AuthFuntion'],
+        authority: [permision.XEM_NGHI_PHEP],
+    },
+
+# Đổi placehoder của Thời gian cho phép chấm sớm ở  sửa ca: 
++ /DATA/data/Project_GG/FE/web.erp-tran/src/pages/calendar/config/add/index.js
++ https://source.greenglobal.vn/erp-tran-module-nhan-su/web.erp-tran/src/branch/develop/src/pages/calendar/config/add/index.js#L399 
+
+# Thêm làm điều động ở chi tiết khai báo công nếu có
++ https://source.greenglobal.vn/erp-tran-module-nhan-su/web.erp-tran/src/branch/develop/src/pages/declarations/id.js#L618
+
+# Hiển thị thêm ca nghỉ phép ở thời gian nghỉ
++ showDateAbsent -> /DATA/data/Project_GG/FE/web.erp-tran/src/pages/absent/id.js
