@@ -13,6 +13,7 @@
 -   Eslint: check import error
 -   Viết CSS trong JSX: HTML CSS Support https://www.digitalocean.com/community/posts/6-awesome-css-extensions-for-vs-code
 -   `vscode-styled-components`: style theo style components.
+-   `DotENV`: file .env
 
 # Web tool
 
