@@ -4,14 +4,18 @@ import './App.css';
 // import TestReactPlayer from './Video/TestReactPlayer';
 import FlvPlayer from './Video/TestFlvjs';
 // import FlvVideoPlayer from './Video/TestReactFlvPlayer';
+
+// ant component
+import TestTimePicker from './1_Learn_antd_component/2_TimePicker';
 function App() {
     return (
         <div className="App">
             {/* <TestReactPlayer /> */}
-            <FlvPlayer url="http://0.0.0.0:55557/stream/clover_q7.flv" />
+            {/* <FlvPlayer url="http://0.0.0.0:55557/stream/clover_q7.flv" /> */}
             {/* <FlvPlayer url="http://0.0.0.0:55557/stream/cam_360_554.flv" /> */}
 
             {/* <FlvVideoPlayer url="http://0.0.0.0:55557/stream/clover_q7.flv" /> */}
+            <TestTimePicker />
         </div>
     );
 }
