@@ -1,0 +1,31 @@
+// Chia tách file scss.
+@import 'variables';
+@import 'header';
+@import 'mixins';
+
+section .btn {
+    @include buttonStyle();
+    background-color: brown; // ghi đề lại background color
+}
+
+footer {
+    // Viết code lồng nhau
+    button {
+        @include buttonStyle();
+        background-color: aquamarine;
+        color: blueviolet;
+    }
+}
+
+// Thừa kế trong sass
+%buttonStyleExtend {
+    background-color: white;
+}
+
+.button1 {
+    @extend %buttonStyleExtend;
+}
+
+.button2 {
+    @extend %buttonStyleExtend;
+}

@@ -1,0 +1,26 @@
+/* SCSS */
+.container {
+  width: 100%;
+}
+
+.container .header {
+  background-color: #333;
+}
+
+.container .header h1 {
+  color: #fff;
+}
+
+/* CSS */
+.container {
+  width: 100%;
+}
+
+.container .header {
+  background-color: #333;
+}
+
+.container .header h1 {
+  color: #fff;
+}
+/*# sourceMappingURL=compare_scss_vs_css.css.map */
