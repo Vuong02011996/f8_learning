@@ -27,6 +27,9 @@ quản lý lương, nhân sự, kho
     
     access denied khi tạo database mới : 
     mở command: admin_passwd = admin, tạo mail mới, db mới(admin/admin)
+    Tạo user in database postgre đúng role : 
+     vuong_postgre2 | Superuser, Create role, Create DB
+    Tạo superuser with pass: sudo -u postgres createuser -s vuong_postgre2 -P
   ```
 + change file conf in debian folder:
     ```[options]
