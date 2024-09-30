@@ -1,2 +1,3 @@
-+ File __manifest__.py: là Json chứa thông tin module với key:value
+# ref 
++ https://www.odoo.com/documentation/16.0/developer.html 
 + 
